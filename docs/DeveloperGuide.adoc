@@ -774,7 +774,14 @@ Use case resumes at step 2.
 
 .  Should work on any link:#mainstream-os[mainstream OS] as long as it has Java `1.8.0_60` or higher installed.
 .  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+.  Should be able to hold up to 100 tags per person without noticeable sluggishness in performance for typical usage.
 .  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+.  System should always respond within five seconds.
+.  Interface should be easy to grasp for novice who has never used such address books before.
+.  Users with sufficient proficiency in English to understand address book commands and instructions.
+.  Should only be able to work even if systems are not connected to the internet.
+.  User experience will be enhanced if they are connected to the internet.
+.  Should have at least 20MB of space in systems for the address book to work.
 
 {More to be added}
 
