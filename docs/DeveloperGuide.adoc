@@ -729,9 +729,59 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* * *` |user |find a person by name |locate details of persons without having to go through the entire list
 
+|`* * *` |user |find a person by tags |locate people easily
+
+|`* * *` |user |sort people by name |locate people easily
+
+|`* * *` |user |set a list of favourite people|
+
+|`* * *` |user |see a list of frequently accessed contacts|
+
+|`* * *` |user |get confirmation before I edit or delete contacts|
+
+|`* * *` |user |undo my actions |fix my mistakes
+
+|`* * *` |user |add multiple numbers to a contact |separate their mobile and home numbers
+
+|`* * *` |user |password protect my addressBook |protect my contacts' information
+
+|`* * *` |user |call/message directly from my address book |reach them easily
+
 |`* *` |user |hide link:#private-contact-detail[private contact details] by default |minimize chance of someone else seeing them by accident
 
-|`*` |user with many persons in the address book |sort persons by name |locate a person easily
+|`* *` |user |customise the look of the address book |
+
+|`* *` |user |back up my address book data online |I can access my address book data from other places
+
+|`* *` |user with many friends |autoComplete my searches |
+
+|`* *` |user |share my friend's contact with others |
+
+|`* *` |user |delete all people with a tag |clean up addressBook faster
+
+|`* *` |lazy user |addressBook to auto delete contacts after a certain date |
+
+|`* *` |user |redo an action |redo an undone action
+
+|`* *` |expert user |have separate address books |can separate my work and personal contacts
+
+|`* *` |expert user |customise shorthand commands |so that I can search for contacts faster
+
+|`* *` |user |a calendar to sync my events |can plan them more efficiently
+
+|`* *` |user |know which method of communication my contacts prefers |use their favourite form of communication
+
+|`* *` |user |see most recently accessed contacts |so that I can access them faster
+
+|`*` |user |add profile pictures to contacts |find my friends easily
+
+|`*` |user |set the colour of the tags |can view the tags easily
+
+|`*` |user |see which contacts knows each other |can communicate with them better
+
+|`*` |user |use facial recognition |enhance security
+
+|`*` |forgetful user |see a history of my last used commands |
 |=======================================================================
 
 {More to be added}
@@ -767,6 +817,48 @@ Use case ends.
 +
 Use case resumes at step 2.
 
+[discrete]
+=== Use case: Create a contact
+
+*MSS*
+
+1. User inputs the command with the correct keywords
+2. AddressBook confirms the addition by showing the confirmation message
++
+Use case ends.
+
+*EXTENSIONS*
+
+* 2a. The given input is invalid (Wrong format, etc)
++
+** 2a1. AddressBook shows an error message
++
+Use case ends.
+
+[discrete]
+=== Use case: Edit/Update a specific contact
+
+*MSS*
+
+1. User requests to edit a contact and inputs the command with correct keywords
+2. AddressBook updates the task with new details and displays a confirmation of the operation on the screen
++
+Use case ends.
+
+*EXTENSIONS*
+
+* 2a. The given input is invalid
++
+** 2a1. Addressbook shows an error message for such situation
++
+Use case ends.
+
+* 3a. The list contains no matching contact for the user to edit
++
+** 3a1. Addressbook shows an error message for such situation
++
+Use case ends.
+
 {More to be added}
 
 [appendix]
@@ -775,6 +867,11 @@ Use case resumes at step 2.
 .  Should work on any link:#mainstream-os[mainstream OS] as long as it has Java `1.8.0_60` or higher installed.
 .  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 .  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+.  Should work in systems with at least 20MB of storage space.
+.  Should work in systems with internet connection.
+.  A user with sufficient proficiency in English to understand addressbook commands and instructions.
+.  Should be able to hold up to 100 tags per person.
+.  The system should respond within five seconds.
 
 {More to be added}
 
@@ -793,6 +890,41 @@ Private contact detail
 
 ....
 A contact detail that is not meant to be shared with others
+....
+
+[[API]]
+API
+
+....
+Application programming interface (API) is a set of subroutine definitions, protocols, and tools for building application software.
+....
+
+[[JUnit]]
+JUnit
+
+....
+JUnit is a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks.
+....
+
+[[Gradle]]
+Gradle
+
+....
+Gradle is an open source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL).
+....
+
+[[Shorthand-Commands]]
+Shorthand Commands
+
+....
+Shortcut keys that help to provide an easier and usually quicker method of navigating and executing commands in computer software programs.
+....
+
+[[Travis_CI]]
+Travis_CI
+
+....
+Travis_CI is a hosted, distributed continuous integration service used to build and test software projects hosted at GitHub.
 ....
 
 [appendix]
