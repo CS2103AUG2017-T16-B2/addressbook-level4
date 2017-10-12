@@ -1,5 +1,6 @@
 package seedu.address.ui;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
@@ -9,6 +10,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.ui.NewResultAvailableEvent;
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.ListElementPointer;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
@@ -99,15 +101,18 @@ public class CommandBox extends UiPart<Region> {
      * Handles the Enter button pressed event.
      */
     @FXML
-    private void handleCommandInputChanged() {
+    private void handleCommandInputChanged() throws IOException, IllegalValueException {
         try {
-            CommandResult commandResult = logic.execute(commandTextField.getText());
-            initHistory();
-            historySnapshot.next();
-            // process result of the command
-            commandTextField.setText("");
-            logger.info("Result: " + commandResult.feedbackToUser);
-            raise(new NewResultAvailableEvent(commandResult.feedbackToUser));
+            PopupWindow popupWindow = new PopupWindow(commandTextField.getText());
+            if (popupWindow.getAnswer()) {
+                CommandResult commandResult = logic.execute(commandTextField.getText());
+                initHistory();
+                historySnapshot.next();
+                // process result of the command
+                commandTextField.setText("");
+                logger.info("Result: " + commandResult.feedbackToUser);
+                raise(new NewResultAvailableEvent(commandResult.feedbackToUser));
+            }
 
         } catch (CommandException | ParseException e) {
             initHistory();
