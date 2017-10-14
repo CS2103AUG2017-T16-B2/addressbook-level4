@@ -1,33 +1,32 @@
-package seedu.address.ui;
+package view;
 
-import java.io.IOException;
 import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.Model;
 import seedu.address.model.person.ReadOnlyPerson;
 
 /**
  * Popups a window to interact with user to confirm a edit/deletion of a person
  */
-public class PopupWindow extends UiPart<Region> implements EventHandler<ActionEvent> {
+public class PopupWindow {
     private static final String FXML = "PopupWindow.fxml";
     private static final String nothing = "-";
 
     private Model model;
+    private TextField textField = new TextField();
+    private String textFieldData = "";
 
-    private boolean handler = false;
+    private boolean okClicked = false;
 
     private Stage stage;
 
@@ -60,53 +59,44 @@ public class PopupWindow extends UiPart<Region> implements EventHandler<ActionEv
     @FXML
     private Button no;
 
-    public PopupWindow(String inputText) throws IllegalValueException {
-        super(FXML);
-        if (inputText.contains("delete")) {
-            String[] arrText = inputText.split(" ");
-            int index = Integer.parseInt(arrText[1]);
-            List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
-            ReadOnlyPerson personToDelete = lastShownList.get(index);
-            personDeletedDetails(personToDelete);
+    @FXML
+    private void initialize(){
+    }
 
-        } else if (inputText.contains("edit")) {
-            String[] arrText = inputText.split(" ");
-            int index = Integer.parseInt(arrText[1]);
-            List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
-            ReadOnlyPerson personToDelete = lastShownList.get(index);
-            personEditedDetails(personToDelete, arrText);
-        }
-
+    public void setDialogStage(Stage dialogStage){
+            this.stage = dialogStage;
     }
 
     /**
-     * @param personToDelete
+     * @param personToEdit
      * @param text
      * display edited persons old and new data
      */
-    private void personEditedDetails(ReadOnlyPerson personToDelete, String [] text) {
-        oldName.setText(String.valueOf(personToDelete.getName()));
-        oldAddress.setText(String.valueOf(personToDelete.getAddress()));
-        oldEmail.setText(String.valueOf(personToDelete.getEmail()));
-        oldPhone.setText(String.valueOf(personToDelete.getPhone()));
-        oldTags.setText(String.valueOf(personToDelete.getTags()));
+    public void personEditedDetails(ReadOnlyPerson personToEdit, String text) {
+        type.setText(String.valueOf("Edit"));
+        oldName.setText(String.valueOf(personToEdit.getName()));
+        oldAddress.setText(String.valueOf(personToEdit.getAddress()));
+        oldEmail.setText(String.valueOf(personToEdit.getEmail()));
+        oldPhone.setText(String.valueOf(personToEdit.getPhone()));
+        oldTags.setText(String.valueOf(personToEdit.getTags()));
 
-        for (int i = 2; i < text.length; i++) {
-            switch (text[i].substring(0, 0)) {
+        String [] textBreakDown = text.split(" ");
+        for (int i = 2; i < textBreakDown.length; i++) {
+            switch (textBreakDown[i].substring(0, 0)) {
             case "n":
-                newName.setText(text[i].substring(2, text[i].length()));
+                newName.setText(textBreakDown[i].substring(2, textBreakDown[i].length()));
                 break;
             case "p":
-                newPhone.setText(text[i].substring(2, text[i].length()));
+                newPhone.setText(textBreakDown[i].substring(2, textBreakDown[i].length()));
                 break;
             case "e":
-                newEmail.setText(text[i].substring(2, text[i].length()));
+                newEmail.setText(textBreakDown[i].substring(2, textBreakDown[i].length()));
                 break;
             case "a":
-                newAddress.setText(text[i].substring(2, text[i].length()));
+                newAddress.setText(textBreakDown[i].substring(2, textBreakDown[i].length()));
                 break;
             case "t":
-                newTags.setText(text[i].substring(2, text[i].length()));
+                newTags.setText(textBreakDown[i].substring(2, textBreakDown[i].length()));
                 break;
             default:
                 break;
@@ -117,7 +107,8 @@ public class PopupWindow extends UiPart<Region> implements EventHandler<ActionEv
     /**
      * @param personToDelete displays deleted persons new and old data
      */
-    private void personDeletedDetails(ReadOnlyPerson personToDelete) {
+    public void personDeletedDetails(ReadOnlyPerson personToDelete) {
+        type.setText(String.valueOf("Delete"));
         oldName.setText(String.valueOf(personToDelete.getName()));
         oldAddress.setText(String.valueOf(personToDelete.getAddress()));
         oldEmail.setText(String.valueOf(personToDelete.getEmail()));
@@ -130,24 +121,30 @@ public class PopupWindow extends UiPart<Region> implements EventHandler<ActionEv
         newTags.setText(nothing);
     }
 
-
-
-    public boolean getAnswer() throws IOException {
-        stage = new Stage();
-        stage.setScene(new Scene(getRoot()));
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setTitle("Confirmation Page");
-        yes.setOnAction(this);
-        no.setOnAction(this);
-        stage.showAndWait();
-        return handler;
+    public ReadOnlyPerson getPerson(String txt){
+        String [] breakDown = txt.split(" ");
+        int index = Integer.parseInt(breakDown[1]);
+        List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
+        ReadOnlyPerson person = lastShownList.get(index);
+        return person;
     }
 
-    @Override
-    public void handle(ActionEvent event) {
-        if (event.getSource() == yes) {
-            handler = true;
-        }
+    public boolean isOkClicked(){
+        return okClicked;
+    }
+
+    /**
+     * returns true if clicked ok and closes the popup
+     */
+    @FXML
+    public void handleOk() {
+        okClicked = true;
+        stage.close();
+    }
+
+    @FXML
+    public void handleClose(){
+        stage.close();
     }
 }
 

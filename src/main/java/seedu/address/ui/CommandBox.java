@@ -28,6 +28,7 @@ public class CommandBox extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(CommandBox.class);
     private final Logic logic;
     private ListElementPointer historySnapshot;
+    private UiManager uiManager;
 
     @FXML
     private TextField commandTextField;
@@ -103,17 +104,13 @@ public class CommandBox extends UiPart<Region> {
     @FXML
     private void handleCommandInputChanged() throws IOException, IllegalValueException {
         try {
-            PopupWindow popupWindow = new PopupWindow(commandTextField.getText());
-            if (popupWindow.getAnswer()) {
-                CommandResult commandResult = logic.execute(commandTextField.getText());
-                initHistory();
-                historySnapshot.next();
-                // process result of the command
-                commandTextField.setText("");
-                logger.info("Result: " + commandResult.feedbackToUser);
-                raise(new NewResultAvailableEvent(commandResult.feedbackToUser));
-            }
-
+            CommandResult commandResult = logic.execute(commandTextField.getText());
+            initHistory();
+            historySnapshot.next();
+            // process result of the command
+            commandTextField.setText("");
+            logger.info("Result: " + commandResult.feedbackToUser);
+            raise(new NewResultAvailableEvent(commandResult.feedbackToUser));
         } catch (CommandException | ParseException e) {
             initHistory();
             // handle command failure
