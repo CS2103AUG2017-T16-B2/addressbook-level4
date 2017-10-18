@@ -3,6 +3,7 @@ package seedu.address.logic.commands;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 import static seedu.address.logic.commands.EditCommand.MESSAGE_DUPLICATE_PERSON;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.address.model.person.Remark.REMARK_IF_EMPTY;
 
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class RemarkCommand extends UndoableCommand {
      * @return if the remark changed is successful
      */
     private String generateSuccessMessage(ReadOnlyPerson editedPerson) {
-        if (!stringRemark.value.isEmpty()) {
+        if (!stringRemark.value.equals(REMARK_IF_EMPTY)) {
             return String.format(MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
         } else {
             return String.format(MESSAGE_DELETE_REMARK_SUCCESS, editedPerson);

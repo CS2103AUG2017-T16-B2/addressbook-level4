@@ -55,6 +55,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.PostalCode;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
@@ -173,7 +174,6 @@ public class AddCommandParserTest {
         assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + FORMCLASS_DESC_BOB + INVALID_GRADES_DESC + POSTALCODE_DESC_BOB + TAG_DESC_HUSBAND
                 + TAG_DESC_FRIEND, Grades.MESSAGE_GRADES_CONSTRAINTS);
-
 
         // invalid postalCode
         assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB

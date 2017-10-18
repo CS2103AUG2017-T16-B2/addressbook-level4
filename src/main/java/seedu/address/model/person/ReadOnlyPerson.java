@@ -66,7 +66,8 @@ public interface ReadOnlyPerson {
                .append(" PostalCode: ")
                .append(getPostalCode())
                .append(" Remark: ")
-               .append(getRemark());
+               .append(getRemark())
+               .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
     }

@@ -9,11 +9,7 @@ import static java.util.Objects.requireNonNull;
 public class Remark {
     public static final String MESSAGE_REMARK_CONSTRAINTS =
             "Person remarks can take any values, and it should not be blank";
-
-    /*
-     * The first character of the remark must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
-     */
+    public static final String REMARK_IF_EMPTY = "(add a remark)";
 
     public final String value;
 
@@ -23,7 +19,11 @@ public class Remark {
      */
     public Remark(String remark) {
         requireNonNull(remark);
-        this.value = remark;
+        if (remark.equals("")) {
+            this.value = REMARK_IF_EMPTY;
+        } else {
+            this.value = remark;
+        }
     }
 
     @Override
