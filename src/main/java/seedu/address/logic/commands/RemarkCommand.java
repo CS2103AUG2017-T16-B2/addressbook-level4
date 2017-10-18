@@ -56,10 +56,10 @@ public class RemarkCommand extends UndoableCommand {
                 toBeEdited.getGrades(), toBeEdited.getPostalCode(), stringRemark, toBeEdited.getTags());
 
         try {
-            model.updatePerson(toBeEdited,editedPerson);
-        } catch (DuplicatePersonException e){
+            model.updatePerson(toBeEdited, editedPerson);
+        } catch (DuplicatePersonException e) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
-        } catch (PersonNotFoundException f){
+        } catch (PersonNotFoundException f) {
             throw new AssertionError("Person must be from last filtered list");
         }
         return new CommandResult(generateSuccessMessage(editedPerson));
@@ -70,7 +70,7 @@ public class RemarkCommand extends UndoableCommand {
      * @return if the remark changed is successful
      */
     private String generateSuccessMessage(ReadOnlyPerson editedPerson) {
-        if (!stringRemark.value.isEmpty()){
+        if (!stringRemark.value.isEmpty()) {
             return String.format(MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
         } else {
             return String.format(MESSAGE_DELETE_REMARK_SUCCESS, editedPerson);
@@ -89,5 +89,5 @@ public class RemarkCommand extends UndoableCommand {
         //state check: checks if both are the same object in each class
         RemarkCommand e = (RemarkCommand) other;
         return stringRemark.equals(e.stringRemark) && index.equals(e.index);
-   }
+    }
 }
