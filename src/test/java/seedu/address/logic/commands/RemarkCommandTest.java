@@ -13,7 +13,7 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
