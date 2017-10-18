@@ -6,6 +6,7 @@
         <email isPrivate="false">hans@example.com</email>
         <address isPrivate="false">4th street</address>
         <formClass isPrivate="false">12S23</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">123098</postalCode>
         <remark isPrivate="false">First</remark>
     </persons>
@@ -15,6 +16,7 @@
         <email isPrivate="false">ruth@example.com</email>
         <address isPrivate="false">81th street</address>
         <formClass isPrivate="false">12S23</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">134763</postalCode>
         <remark isPrivate="false">Second</remark>
     </persons>
@@ -24,6 +26,7 @@
         <email isPrivate="false">heinz@example.com</email>
         <address isPrivate="false">wall street</address>
         <formClass isPrivate="false">12S23</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">999999</postalCode>
         <remark isPrivate="false">3rd</remark>
     </persons>
@@ -33,6 +36,7 @@
         <email isPrivate="false">cornelia@example.com</email>
         <address isPrivate="false">10th street</address>
         <formClass isPrivate="false">4P2</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">483439</postalCode>
         <remark isPrivate="false">Test</remark>
     </persons>
@@ -42,6 +46,7 @@
         <email isPrivate="false">werner@example.com</email>
         <address isPrivate="false">michegan ave</address>
         <formClass isPrivate="false">4P2</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">348994</postalCode>
         <remark isPrivate="false">Hi</remark>
     </persons>
@@ -51,6 +56,7 @@
         <email isPrivate="false">lydia@example.com</email>
         <address isPrivate="false">little tokyo</address>
         <formClass isPrivate="false">4P2</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">546594</postalCode>
         <remark isPrivate="false">Remarked</remark>
     </persons>
@@ -60,6 +66,7 @@
         <email isPrivate="false">anna@example.com</email>
         <address isPrivate="false">4th street</address>
         <formClass isPrivate="false">6.2</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">129832</postalCode>
         <remark isPrivate="false">Bye</remark>
     </persons>
@@ -69,6 +76,7 @@
         <email isPrivate="false">stefan@example.com</email>
         <address isPrivate="false">little india</address>
         <formClass isPrivate="false">6.2</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">028372</postalCode>
         <remark isPrivate="false">No remark</remark>
     </persons>
@@ -78,6 +86,7 @@
         <email isPrivate="false">hans@example.com</email>
         <address isPrivate="false">chicago ave</address>
         <formClass isPrivate="false">6.2</formClass>
+        <grades isPrivate="false">123.0</grades>
         <postalCode isPrivate="false">230757</postalCode>
         <remark isPrivate="false">Last</remark>
     </persons>
