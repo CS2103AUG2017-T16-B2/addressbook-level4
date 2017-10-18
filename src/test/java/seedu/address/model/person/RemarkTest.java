@@ -1,16 +1,16 @@
 package seedu.address.model.person;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-
-import seedu.address.commons.exceptions.IllegalValueException;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import seedu.address.commons.exceptions.IllegalValueException;
 
 public class RemarkTest {
 
     @Test
-    public void equals() throws IllegalValueException{
+    public void equals() throws IllegalValueException {
         Remark someRemark = new Remark("This is a remark.");
 
         //same object, return true

@@ -6,12 +6,10 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_REMARK_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showFirstPersonOnly;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.Test;
@@ -59,7 +57,7 @@ public class RemarkCommandTest {
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.updatePerson(model.getFilteredPersonList().get(0), editedPerson);
 
-        assertCommandSuccess(remarkCommand ,model, expectedMessage, expectedModel);
+        assertCommandSuccess(remarkCommand , model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -128,7 +126,7 @@ public class RemarkCommandTest {
      */
     private RemarkCommand prepareCommand(Index index, Remark string) {
         RemarkCommand remarkCommand = new RemarkCommand(index, string);
-        remarkCommand.setData(model,new CommandHistory(), new UndoRedoStack());
+        remarkCommand.setData(model, new CommandHistory(), new UndoRedoStack());
         return remarkCommand;
     }
 }
