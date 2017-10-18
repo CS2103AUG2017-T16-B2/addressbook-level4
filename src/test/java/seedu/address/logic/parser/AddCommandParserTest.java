@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_ADDCOMMANDREMARK_INVALID;
+import static seedu.address.commons.core.Messages.MESSAGE_ADDEDITCOMMANDREMARK_INVALID;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
@@ -195,6 +195,6 @@ public class AddCommandParserTest {
         // invalid field remarks
         assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + ADDRESS_DESC_BOB + FORMCLASS_DESC_BOB + GRADES_DESC_BOB + POSTALCODE_DESC_BOB + REMARK_DESC_BOB,
-                MESSAGE_ADDCOMMANDREMARK_INVALID);
+                MESSAGE_ADDEDITCOMMANDREMARK_INVALID);
     }
 }
