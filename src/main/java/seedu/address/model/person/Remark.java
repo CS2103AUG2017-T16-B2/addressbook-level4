@@ -7,8 +7,7 @@ import static java.util.Objects.requireNonNull;
  * Guarantees: immutable; is always valid
  */
 public class Remark {
-    public static final String MESSAGE_REMARK_CONSTRAINTS =
-            "Person remarks can take any values, and it should not be blank";
+
     public static final String REMARK_IF_EMPTY = "(add a remark)";
 
     public final String value;
