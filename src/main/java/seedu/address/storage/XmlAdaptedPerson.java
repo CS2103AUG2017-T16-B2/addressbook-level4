@@ -92,6 +92,5 @@ public class XmlAdaptedPerson {
         final Remark remark = new Remark(this.remark);
         final Set<Tag> tags = new HashSet<>(personTags);
         return new Person(name, phone, email, address, formClass, grades, postalCode, remark, tags);
-
     }
 }
