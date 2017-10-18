@@ -49,7 +49,7 @@ public class RemarkCommand extends UndoableCommand {
         }
 
         ReadOnlyPerson toBeEdited = lastShownList.get(index.getZeroBased());
-        Person editedPerson = new Person(toBeEdited.getName(), toBeEdited.getPhone(), 
+        Person editedPerson = new Person(toBeEdited.getName(), toBeEdited.getPhone(),
                 toBeEdited.getEmail(), toBeEdited.getAddress(), toBeEdited.getFormClass(),
                 toBeEdited.getPostalCode(),stringRemark, toBeEdited.getTags());
 
