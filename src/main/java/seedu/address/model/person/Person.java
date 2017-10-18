@@ -7,8 +7,6 @@ import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import seedu.address.model.tag.Tag;
