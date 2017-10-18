@@ -1,11 +1,11 @@
 package seedu.address.model.person;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+
+import org.junit.Test;
 
 public class RemarkTest {
 

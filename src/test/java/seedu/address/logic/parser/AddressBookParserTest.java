@@ -35,8 +35,8 @@ import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.TagsContainsKeywordsPredicate;
 import seedu.address.model.person.Remark;
+import seedu.address.model.person.TagsContainsKeywordsPredicate;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
@@ -239,19 +239,19 @@ public class AddressBookParserTest {
     }
 
     @Test
-    public void parseCommand_remarkCommandWord_returnsRemarkCommand() throws Exception{
+    public void parseCommand_remarkCommandWord_returnsRemarkCommand() throws Exception {
         final Remark remarks = new Remark("I'm so done.");
-        RemarkCommand testCommand = (RemarkCommand) parser.parseCommand(RemarkCommand.COMMAND_WORD + " " +
-        INDEX_FIRST_PERSON.getOneBased() + " " + PREFIX_REMARK + " " + remarks.value);
-        assertEquals(new RemarkCommand(INDEX_FIRST_PERSON,remarks),testCommand);
+        RemarkCommand testCommand = (RemarkCommand) parser.parseCommand(RemarkCommand.COMMAND_WORD + " "
+                + INDEX_FIRST_PERSON.getOneBased() + " " + PREFIX_REMARK + " " + remarks.value);
+        assertEquals(new RemarkCommand(INDEX_FIRST_PERSON, remarks), testCommand);
     }
 
     @Test
-    public void parseCommand_remarkCommandAlias_returnsRemarkCommand() throws Exception{
+    public void parseCommand_remarkCommandAlias_returnsRemarkCommand() throws Exception {
         final Remark remarks = new Remark("I'm so done.");
-        RemarkCommand testCommand = (RemarkCommand) parser.parseCommand(RemarkCommand.COMMAND_ALIAS + " " +
-                INDEX_FIRST_PERSON.getOneBased() + " " + PREFIX_REMARK + " " + remarks.value);
-        assertEquals(new RemarkCommand(INDEX_FIRST_PERSON,remarks),testCommand);
+        RemarkCommand testCommand = (RemarkCommand) parser.parseCommand(RemarkCommand.COMMAND_ALIAS + " "
+                + INDEX_FIRST_PERSON.getOneBased() + " " + PREFIX_REMARK + " " + remarks.value);
+        assertEquals(new RemarkCommand(INDEX_FIRST_PERSON, remarks), testCommand);
     }
 
     @Test

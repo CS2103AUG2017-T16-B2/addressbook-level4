@@ -16,7 +16,7 @@ public class RemarkCommandParserTest {
     private RemarkCommandParser parser = new RemarkCommandParser();
 
     @Test
-    public void parse_IndexSpecifiedRemarks_Test() throws Exception{
+    public void parse_indexSpecified_success() throws Exception {
         final Remark remarkString = new Remark("I'm so good");
         Index index;
         String userInput;
@@ -24,18 +24,18 @@ public class RemarkCommandParserTest {
         //have remarks
         index = INDEX_FIRST_PERSON;
         userInput = index.getOneBased() + " " + PREFIX_REMARK.toString() + " " + remarkString;
-        RemarkCommand testCommand = new RemarkCommand(index,remarkString);
-        assertParseSuccess(parser,userInput,testCommand);
+        RemarkCommand testCommand = new RemarkCommand(index, remarkString);
+        assertParseSuccess(parser, userInput, testCommand);
 
         //no remarks
         userInput = index.getOneBased() + " " + PREFIX_REMARK.toString();
-        RemarkCommand nextTestCommand = new RemarkCommand(index,new Remark(""));
-        assertParseSuccess(parser,userInput,nextTestCommand);
+        RemarkCommand nextTestCommand = new RemarkCommand(index, new Remark(""));
+        assertParseSuccess(parser, userInput, nextTestCommand);
     }
 
     @Test
-    public void parse_noSpecifiedFailure() throws Exception{
+    public void parse_noSpecifiedField_failure() throws Exception {
         String errorMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_USAGE);
-        assertParseFailure(parser,RemarkCommand.COMMAND_WORD,errorMessage);
+        assertParseFailure(parser, RemarkCommand.COMMAND_WORD, errorMessage);
     }
 }
