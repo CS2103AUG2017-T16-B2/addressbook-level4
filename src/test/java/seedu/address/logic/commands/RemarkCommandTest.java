@@ -16,7 +16,6 @@ import static org.junit.Assert.assertFalse;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.UndoRedoStack;
 import seedu.address.model.AddressBook;
@@ -37,7 +36,7 @@ public class RemarkCommandTest {
         Person editedPerson = new PersonBuilder(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()))
                 .withRemark("a lot of remarks").build();
 
-        RemarkCommand remarkCommand = prepareCommand(INDEX_FIRST_PERSON,editedPerson.getRemark().value);
+        RemarkCommand remarkCommand = prepareCommand(INDEX_FIRST_PERSON,editedPerson.getRemark());
 
         String expectedMessage = String.format(remarkCommand.MESSAGE_ADD_REMARK_SUCCESS,editedPerson);
 
@@ -52,7 +51,7 @@ public class RemarkCommandTest {
         Person editedPerson = new Person(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()));
         editedPerson.setRemark(new Remark(""));
 
-        RemarkCommand remarkCommand = prepareCommand(INDEX_FIRST_PERSON,editedPerson.getRemark().value);
+        RemarkCommand remarkCommand = prepareCommand(INDEX_FIRST_PERSON,editedPerson.getRemark());
 
         String expectedMessage = String.format(remarkCommand.MESSAGE_DELETE_REMARK_SUCCESS,editedPerson);
 
@@ -64,24 +63,24 @@ public class RemarkCommandTest {
 
     @Test
     public void execute_filteredList_success() throws Exception {
-        showFirstPersonOnly(model);
 
-        Person editedPerson = new PersonBuilder(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()))
-                .withRemark("Some remark").build();
-        RemarkCommand remarkCommand = prepareCommand(INDEX_FIRST_PERSON, editedPerson.getRemark().value);
+        ReadOnlyPerson filteredList = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person editedPerson = new PersonBuilder(filteredList).withRemark("a lot of remarks").build();
 
-        String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
+        RemarkCommand remarkCommand = prepareCommand(INDEX_FIRST_PERSON, editedPerson.getRemark());
 
-        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-        expectedModel.updatePerson(expectedModel.getFilteredPersonList().get(0), editedPerson);
+        String expectedMessage = String.format(remarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
 
-        assertCommandSuccess(remarkCommand, expectedModel, expectedMessage, expectedModel);
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.updatePerson(model.getFilteredPersonList().get(0), editedPerson);
+
+        assertCommandSuccess(remarkCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_invalidPersonIndexUnfilteredList_failure() throws Exception{
         Index outOfBounds = Index.fromOneBased(model.getFilteredPersonList().size()+1);
-        RemarkCommand remarkCommand = prepareCommand(outOfBounds,VALID_REMARK_BOB);
+        RemarkCommand remarkCommand = prepareCommand(outOfBounds,new Remark(VALID_REMARK_BOB));
 
         assertCommandFailure(remarkCommand,model,MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
@@ -93,7 +92,7 @@ public class RemarkCommandTest {
         //shows that outOfBounds is still within bounds of address book list
         assertTrue(outOfBounds.getZeroBased() < model.getAddressBook().getPersonList().size());
 
-        RemarkCommand remarkCommand = prepareCommand(outOfBounds,VALID_REMARK_BOB);
+        RemarkCommand remarkCommand = prepareCommand(outOfBounds,new Remark(VALID_REMARK_BOB));
 
         assertCommandFailure(remarkCommand,model,MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
@@ -126,8 +125,8 @@ public class RemarkCommandTest {
      *
      * @return an {@code RemarkCommand} with parameters {@code index} and {@code remark}
      */
-    private RemarkCommand prepareCommand(Index index, String string){
-        RemarkCommand remarkCommand = new RemarkCommand(index, new Remark(string));
+    private RemarkCommand prepareCommand(Index index, Remark string){
+        RemarkCommand remarkCommand = new RemarkCommand(index, string);
         remarkCommand.setData(model,new CommandHistory(),new UndoRedoStack());
         return remarkCommand;
     }

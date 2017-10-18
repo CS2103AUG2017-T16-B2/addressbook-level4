@@ -20,6 +20,7 @@ public class GuiTestAssert {
     public static void assertCardEquals(PersonCardHandle expectedCard, PersonCardHandle actualCard) {
         assertEquals(expectedCard.getId(), actualCard.getId());
         assertEquals(expectedCard.getAddress(), actualCard.getAddress());
+        assertEquals(expectedCard.getFormclass(), actualCard.getFormclass());
         assertEquals(expectedCard.getEmail(), actualCard.getEmail());
         assertEquals(expectedCard.getName(), actualCard.getName());
         assertEquals(expectedCard.getPhone(), actualCard.getPhone());
@@ -34,6 +35,7 @@ public class GuiTestAssert {
         assertEquals(expectedPerson.getPhone().value, actualCard.getPhone());
         assertEquals(expectedPerson.getEmail().value, actualCard.getEmail());
         assertEquals(expectedPerson.getAddress().value, actualCard.getAddress());
+        assertEquals(expectedPerson.getFormClass().value, actualCard.getFormclass());
         assertEquals(expectedPerson.getRemark().value, actualCard.getRemark());
         assertEquals(expectedPerson.getTags().stream().map(tag -> tag.tagName).collect(Collectors.toList()),
                 actualCard.getTags());
@@ -55,6 +57,17 @@ public class GuiTestAssert {
      */
     public static void assertListMatching(PersonListPanelHandle personListPanelHandle, List<ReadOnlyPerson> persons) {
         assertListMatching(personListPanelHandle, persons.toArray(new ReadOnlyPerson[0]));
+    }
+
+    /**
+     * Replace all occurrence of "/" with ":" and capitalise first letter of student and parent.
+     */
+    public String changeToAppropriateUiFormat(String value) {
+
+        value = value.replace("/", ": ");
+        value = value.replace("s", "S");
+        value = value.replace("p", "P");
+        return value;
     }
 
     /**

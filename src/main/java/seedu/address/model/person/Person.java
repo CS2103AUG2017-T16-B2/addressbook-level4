@@ -24,18 +24,25 @@ public class Person implements ReadOnlyPerson {
     private ObjectProperty<Phone> phone;
     private ObjectProperty<Email> email;
     private ObjectProperty<Address> address;
+    private ObjectProperty<FormClass> formClass;
+    private ObjectProperty<PostalCode> postalCode;
     private ObjectProperty<Remark> remark;
     private ObjectProperty<UniqueTagList> tags;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Remark remark, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, remark, tags);
+
+    public Person(Name name, Phone phone, Email email, Address address, FormClass formClass, PostalCode postalCode,
+                  Remark remark,Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, formClass, postalCode, remark, tags);
+
         this.name = new SimpleObjectProperty<>(name);
         this.phone = new SimpleObjectProperty<>(phone);
         this.email = new SimpleObjectProperty<>(email);
         this.address = new SimpleObjectProperty<>(address);
+        this.postalCode = new SimpleObjectProperty<>(postalCode);
+        this.formClass = new SimpleObjectProperty<>(formClass);
         this.remark = new SimpleObjectProperty<>(remark);
         // protect internal tags from changes in the arg list
         this.tags = new SimpleObjectProperty<>(new UniqueTagList(tags));
@@ -45,8 +52,8 @@ public class Person implements ReadOnlyPerson {
      * Creates a copy of the given ReadOnlyPerson.
      */
     public Person(ReadOnlyPerson source) {
-        this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(),
-                source.getRemark(), source.getTags());
+        this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getFormClass(),
+                source.getPostalCode(), source.getRemark(),source.getTags());
     }
 
     public void setName(Name name) {
@@ -105,6 +112,34 @@ public class Person implements ReadOnlyPerson {
         return address.get();
     }
 
+    public void setFormClass(FormClass formClass) {
+        this.formClass.set(requireNonNull(formClass));
+    }
+
+    @Override
+    public ObjectProperty<FormClass> formClassProperty() {
+        return formClass;
+    }
+
+    @Override
+    public FormClass getFormClass() {
+        return formClass.get();
+    }
+
+    public void setPostalCode(PostalCode postalCode) {
+        this.postalCode.set(requireNonNull(postalCode));
+    }
+
+    @Override
+    public ObjectProperty<PostalCode> postalCodeProperty() {
+        return postalCode;
+    }
+
+    @Override
+    public PostalCode getPostalCode() {
+        return postalCode.get();
+    }
+
     public void setRemark(Remark remark){this.remark.set(requireNonNull(remark)); }
 
     @Override
@@ -143,7 +178,7 @@ public class Person implements ReadOnlyPerson {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, postalCode, tags);
     }
 
     @Override
