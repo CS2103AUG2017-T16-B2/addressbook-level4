@@ -58,7 +58,8 @@ public class AddCommandParser implements Parser<AddCommand> {
             FormClass formClass = ParserUtil.parseFormClass(argMultimap.getValue(PREFIX_FORMCLASS)).get();
             Grades grades = ParserUtil.parseGrades(argMultimap.getValue(PREFIX_GRADES)).get();
             PostalCode postalCode = ParserUtil.parsePostalCode(argMultimap.getValue(PREFIX_POSTALCODE)).get();
-            ReadOnlyPerson person = new Person(name, phone, email, address, formClass, grades, postalCode, remark, tagList);
+            ReadOnlyPerson person = new Person(name, phone, email, address, formClass,
+                    grades, postalCode, remark, tagList);
             return new AddCommand(person);
         } catch (IllegalValueException ive) {
             throw new ParseException(ive.getMessage(), ive);

@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
@@ -119,8 +117,7 @@ public class EditCommand extends UndoableCommand {
         Remark updatedRemark = personToEdit.getRemark(); // edit command does not allow editing remarks;
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedFormClass, updatedGrades,
-                 updatedPostalCode, updatedRemark,updatedTags);
-
+                 updatedPostalCode, updatedRemark, updatedTags);
     }
 
     @Override

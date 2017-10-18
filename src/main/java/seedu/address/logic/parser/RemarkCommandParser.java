@@ -10,6 +10,9 @@ import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Remark;
 
+/**
+ * Remark command parser
+ */
 public class RemarkCommandParser implements Parser<RemarkCommand> {
     /**
      *  Parses the given {@code String} of arguments in the context of the RemarkCommand and
@@ -20,13 +23,13 @@ public class RemarkCommandParser implements Parser<RemarkCommand> {
     public RemarkCommand parse(String userInput) throws ParseException {
 
         requireNonNull(userInput);
-        ArgumentMultimap argMultiMap = ArgumentTokenizer.tokenize(userInput,PREFIX_REMARK);
+        ArgumentMultimap argMultiMap = ArgumentTokenizer.tokenize(userInput, PREFIX_REMARK);
 
         Index index;
 
-        try{
+        try {
             index = ParserUtil.parseIndex(argMultiMap.getPreamble());
-        }catch (IllegalValueException e){
+        } catch (IllegalValueException e) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_USAGE));
         }
 

@@ -2,8 +2,10 @@ package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
 
-import seedu.address.commons.exceptions.IllegalValueException;
-
+/**
+ * Represents a Person's remark in the address book.
+ * Guarantees: immutable; is always valid
+ */
 public class Remark {
     public static final String MESSAGE_REMARK_CONSTRAINTS =
             "Person remarks can take any values, and it should not be blank";

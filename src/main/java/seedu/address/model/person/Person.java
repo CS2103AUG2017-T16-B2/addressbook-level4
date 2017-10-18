@@ -6,7 +6,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Set;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import seedu.address.model.tag.Tag;
@@ -153,13 +152,13 @@ public class Person implements ReadOnlyPerson {
         return postalCode.get();
     }
 
-    public void setRemark(Remark remark){this.remark.set(requireNonNull(remark)); }
+    public void setRemark(Remark remark) { this.remark.set(requireNonNull(remark)); }
 
     @Override
-    public ObjectProperty<Remark> remarkProperty(){ return remark; }
+    public ObjectProperty<Remark> remarkProperty() { return remark; }
 
     @Override
-    public Remark getRemark(){ return remark.get();}
+    public Remark getRemark() { return remark.get(); }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
