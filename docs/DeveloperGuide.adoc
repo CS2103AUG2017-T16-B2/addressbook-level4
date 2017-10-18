@@ -345,7 +345,81 @@ image::UndoRedoActivityDiagram.png[width="200"]
 **Cons:** Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two different things. +
 // end::undoredo[]
 
-=== Logging
+=== FindTags Mechanism
+
+==== How the feature is implemented.
+
+The FindTags mechanism is facilitated by the `TagsContainKeywordsPredicate`, which resides inside `Model`.
+The `TagsContainKeywordsPredicate` is used to test that a `ReadOnlyPerson` 's tags contains all of the keywords given.
+
+For example when the `findtags friends NUS` command is called, an instance of `FindTagsCommand` is created.
+On instantiation, a instance of `TagsContainKeywordsPredicate` is created as it is an instance variable in `FindTagsCommand`.
+
+----
+public class FindTagsCommand extends Command {
+    ...
+    private final TagsContainsKeywordsPredicate predicate;
+    ...
+    @Override
+    public CommandResult execute() {
+        model.updateFilteredPersonList(predicate);
+        return new CommandResult(
+            getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
+    }
+    ...
+}
+----
+
+Here, the instance of `TagsContainKeywordsPredicate` contains a `List` of keywords "friends" and "NUS".
+Using the `test` method, the keywords "friends" and "NUS" are checked against the person's tags.
+
+----
+public class TagsContainsKeywordsPredicate implements Predicate<ReadOnlyPerson> {
+    ...
+    private final List<String> keywords;
+
+    @Override
+    public boolean test(ReadOnlyPerson person) {
+        return keywords.stream()
+                .allMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getTagsAsString(), keyword));
+    }
+    ...
+}
+----
+
+`keywords.stream().allMatch(...)` checks whether each keyword is found in the  person's tags, ignoring case. +
+Hence, `Persons` matching at least all keywords will be returned (i.e. AND search) e.g. `findtags friends NUS` will not return people with only `friends` or only `NUS`
+
+When `FindTagsCommand.execute()` is called, the `Predicate` is then passed through `model.updateFilteredPersonList()` so only `Person` s whose tags contain at least all keywords `friends` and `NUS` will be shown.
+
+==== Why it is implemented that way.
+
+FindTags is implemented this way because the `Model` 's API updates the list of `Person` to show using the `updateFilteredPersonList()` method.
+And that that method requires a `Predicate` as an argument.
+
+----
+public interface Model {
+    ...
+    /**
+     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredPersonList(Predicate<ReadOnlyPerson> predicate);
+    ...
+}
+----
+
+==== Alternatives considered.
+
+**Aspect:** Data structure to support the findtags commands +
+**Alternative 1 (current choice):** Use A `Predicate` to evaluate which `Person` s to show +
+**Pros:** Easy to understand for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project. +
+**Cons:** Makes the application more complex to understand according to the More Is More Complex (MIMC) principle. For example, a new `Predicate` class `FindTagsCommandPredicate` is needed when the same can be done by inserting a method that does the same in the `FindTagsCommand` class. +
+**Alternative 2:** Write a method in the `FindTagsCommand` class that does what `FindTagsCommandPredicate` does  +
+**Pros:** It makes the codebase less complex as there are less classes. +
+**Cons:** Violates Single Responsibility Principle and Separation of Concerns as `FindTagsCommand` now needs to do two different things. +
+
+==== Logging
 
 We are using `java.util.logging` package for logging. The `LogsCenter` class is used to manage the logging levels and logging destinations.
 
