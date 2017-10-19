@@ -28,7 +28,7 @@ public class PersonBuilder {
     public static final String DEFAULT_FORMCLASS = "6E1";
     public static final String DEFAULT_GRADES = "123.0";
     public static final String DEFAULT_POSTALCODE = "123456";
-    public static final String DEFAULT_REMARK = "";
+    public static final String DEFAULT_REMARK = "(add a remark)";
     public static final String DEFAULT_TAGS = "friends";
 
     private Person person;
