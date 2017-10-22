@@ -216,7 +216,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 == Implementation
 
-This section describes some noteworthy details on how certain features are implemented.
+This section describes some noteworthy details on how certain features of the cherBook are implemented. There will be several
+diagrams to reinforce understandings of the mechanisms behind the features.
 
 // tag::undoredo[]
 === Undo/Redo mechanism
@@ -298,12 +299,12 @@ If the `redoStack` is empty, then there are no other commands left to be redone,
 The user now decides to execute a new command, `clear`. As before, `clear` will be pushed into the `undoStack`. This time the `redoStack` is no longer empty. It will be purged as it no longer make sense to redo the `add n/David` command (this is the behavior that most modern desktop applications follow).
 
 image::UndoRedoNewCommand2StackDiagram.png[width="800"]
-_Figure 3.1.5 : Stack Diagram When a New Command, Clear is Executed_
+_Figure 3.1.5 : Stack Diagram when a new Command, Clear is Executed_
 
 Commands that are not undoable are not added into the `undoStack`. For example, `list`, which inherits from `Command` rather than `UndoableCommand`, will not be added after execution:
 
 image::UndoRedoNewCommand3StackDiagram.png[width="800"]
-_Figure 3.1.6 : Stack Diagram When Undoable Command is Executed_
+_Figure 3.1.6 : Stack Diagram when Undoable Command is Executed_
 
 The following activity diagram summarize what happens inside the `UndoRedoStack` when a user executes a new command:
 
@@ -377,6 +378,7 @@ The sort is case insensitive.
 The following sequence diagram shows how the sort operation works:
 
 image::SortSequenceDiagram.png[width="800"]
+_Figure 3.2.1 : Sequence Diagram of Sort Operation_
 
 When the user calls ‘sort’ or ‘st’ to sort the contacts in cherBook, the Model will take in an ArrayList named contactList from the Parser.
 
@@ -470,12 +472,14 @@ correct format of `Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER)`, and that 
 phone numbers must be exactly 8 digits long.
 
 image::PhoneDisplay.png[width="800"]
+_Figure 3.3.1 : Valid Displayed Person Card Phone Information_
 
 If the string format for `displayed person card phone information` is valid, the
 phone contact information of the student and his/her parent will be displayed
 below the student's name in the person card as seen in the picture above.
 
 image::message_constraint.png[width="1100"]
+_Figure 3.3.2 : Message to prompt Users to Enter Correct Phone Format_
 
 If the string format for `displayed person card phone information` is invalid: an IllegalValueException
 is thrown. Prompting the user to enter the correct format as seen in the picture above.
@@ -520,10 +524,12 @@ The remark mechanism is facilitated by making changes to the Remark class in the
 To avoid confusion and messy UI, only one remarks can be stored in any one person at a time
 
 image::PersonCardDifference (Remark).PNG[width="600"]
+_Figure 3.4.1 : One Remark per Person Card_
 
 `Remark` only deals with `UndoableCommands`. Commands that cannot be undone will inherit from `Command` instead. The following diagram shows the inheritance diagram for commands:
 
 image::LogicCommandClassDiagram.png[width="800"]
+_Figure 3.4.2 : Inheritance Diagram for Commands_
 
 As you can see from the diagram, `UndoableCommand` adds an extra layer between the abstract `Command` class and concrete commands that can be undone, such as the `DeleteCommand`. Note that extra tasks need to be done when executing a command in an _undoable_ way, such as saving the state of the address book before execution. `UndoableCommand` contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the https://www.tutorialspoint.com/design_pattern/template_pattern.htm[template pattern].
 
@@ -563,12 +569,16 @@ If user tries to add remark together with adding a new 'Person', it will display
 Below are examples of trying to change remark through:
 
 image::AddPersonInvalid(Remark).PNG[width="600"]
+_Figure 3.4.3 : Invalid Remark Input in Add Command_
 
-add command invalid
+When a user attempts to add a remark via the add command, he will be prompted by a message stating
+that adding of remarks in add command is not allowed.
 
 image::EditPersonInvalid (Remark).PNG[width="600"]
+_Figure 3.4.4 : Invalid Remark Input in Edit Command_
 
-edit command invalid
+When a user attempts to edit the remark via the edit command, he will be prompted by a message stating
+that changing of remarks in edit command is not allowed.
 
 [NOTE]
 Only one remark is saved at any one time, if user does 'Remark' on the same person, it will be overwritten.
@@ -660,6 +670,7 @@ The code with Predicates is also much more readable than using if-else blocks.
 The following sequence diagram shows how the FindTags operation works:
 
 image::FindtagsSequenceDiagramForLogic.png[width="800"]
+_Figure 3.5.1 : Sequence Diagram of FindTags Operation_
 
 ==== Alternatives considered.
 
@@ -693,19 +704,19 @@ Certain properties of the application can be controlled (e.g App name, logging l
 
 == Documentation
 
-We use asciidoc for writing documentation.
+In this section, we will be explaining how we edit and publish our documentation. We use asciidoc for writing documentation.
 
 [NOTE]
 We chose asciidoc over Markdown because asciidoc, although a bit more complex than Markdown, provides more flexibility in formatting.
 
 === Editing Documentation
 
-See <<UsingGradle#rendering-asciidoc-files, UsingGradle.adoc>> to learn how to render `.adoc` files locally to preview the end result of your edits.
+You can look at <<UsingGradle#rendering-asciidoc-files, UsingGradle.adoc>> to learn how to render `.adoc` files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your `.adoc` files in real-time.
 
 === Publishing Documentation
 
-See <<UsingTravis#deploying-github-pages, UsingTravis.adoc>> to learn how to deploy GitHub Pages using Travis.
+You can look at <<UsingTravis#deploying-github-pages, UsingTravis.adoc>> to learn how to deploy GitHub Pages using Travis.
 
 === Converting Documentation to PDF format
 
@@ -728,7 +739,7 @@ _Figure 5.6.1 : Saving documentation as PDF files in Chrome_
 There are three ways to run tests.
 
 [TIP]
-The most reliable way to run tests is the 3rd one. The first two methods might fail some GUI tests due to platform/resolution-specific idiosyncrasies.
+The most reliable way to run tests is the third method. The first two methods might fail some GUI tests due to platform/resolution-specific idiosyncrasies.
 
 *Method 1: Using IntelliJ link:#JUnit[JUnit] test runner*
 
@@ -744,7 +755,7 @@ See <<UsingGradle#, UsingGradle.adoc>> for more info on how to run tests using G
 
 *Method 3: Using Gradle (headless)*
 
-Thanks to the https://github.com/TestFX/TestFX[TestFX] library we use, our GUI tests can be run in the _headless_ mode. In the headless mode, GUI tests do not show up on the screen. That means the developer can do other things on the Computer while the tests are running.
+The https://github.com/TestFX/TestFX[TestFX] library we use allows our GUI tests to be run in the _headless_ mode. In the headless mode, GUI tests do not show up on the screen. Thus, the developer can do other things on the Computer while the tests are running.
 
 To run tests in headless mode, open a console and run the command `gradlew clean headless allTests` (Mac/Linux: `./gradlew clean headless allTests`)
 
@@ -768,7 +779,8 @@ e.g. `seedu.address.logic.LogicManagerTest`
 **Problem: `HelpWindowTest` fails with a `NullPointerException`.**
 
 * Reason: One of its dependencies, `UserGuide.html` in `src/main/resources/docs` is missing.
-* Solution: Execute Gradle task `processResources`.
+* Solution: Execute Gradle task `processResources` by opening `cmd` in the `cherBook directory` and
+ inserting the line `gradlew processResources`.
 
 == Dev Ops
 
