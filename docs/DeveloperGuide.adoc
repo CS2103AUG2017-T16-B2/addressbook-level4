@@ -707,7 +707,7 @@ Certain properties of the application can be controlled (e.g App name, logging l
 In this section, we will be explaining how we edit and publish our documentation. We use asciidoc for writing documentation.
 
 [NOTE]
-We chose asciidoc over Markdown because asciidoc, although a bit more complex than Markdown, provides more flexibility in formatting.
+Asciidoc is chosen over Markdown because asciidoc, although a bit more complex than Markdown, provides more flexibility in formatting.
 
 === Editing Documentation
 
@@ -720,7 +720,7 @@ You can look at <<UsingTravis#deploying-github-pages, UsingTravis.adoc>> to lear
 
 === Converting Documentation to PDF format
 
-We use https://www.google.com/chrome/browser/desktop/[Google Chrome] for converting documentation to PDF format, as Chrome's PDF engine preserves hyperlinks used in webpages.
+https://www.google.com/chrome/browser/desktop/[Google Chrome] is used for converting documentation to PDF format, as Chrome's PDF engine preserves hyperlinks used in webpages.
 
 Here are the steps to convert the project documentation files to PDF format.
 
