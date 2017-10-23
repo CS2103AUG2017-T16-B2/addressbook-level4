@@ -20,16 +20,16 @@ Welcome to cherBook, the Command Line made for teachers to monitor students' aca
 cherBook's statistical analysis tools breaks down the students' grades and enables teachers to identify students in need of help.
 cherBook also provide teachers an easy way to contact their students' parents when required.
 
-This developer guide provides future maintainers the necessary information to obtain a high level understanding
-of the source code and be able to contribute to the repository. The relevant information include cherBook's software architecture, components, documentation, API and contributing guidelines.
+This developer guide provides future contributors and maintainers of cherBook with the information necessary for understanding the source code and contributing to the repository.
+The relevant information include cherBook's software architecture, Component APIs, documentation and contributing guidelines.
 
 == Setting up
 
-This section guides you how to set up and configure your working environment for cherBook in *IntelliJ* IDE.
+Follow the instructions below to set up and configure cherBook source code on your computer.
 
 === Prerequisites
 
-Your computer needs to have the following installed:
+Before you can start configuring, you need to have the following software installed:
 
 . *JDK `1.8.0_60`* or later
 +
@@ -229,8 +229,8 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 == Implementation
 
-This section describes some noteworthy details on how certain features of the cherBook are implemented. There will be several
-diagrams to reinforce understandings of the mechanisms behind the features.
+This section explains in detail how certain features of the cherBook are implemented.
+The relevant diagrams and code examples will be used to aid the understanding of the features' implementation.
 
 // tag::undoredo[]
 === Undo/Redo mechanism
