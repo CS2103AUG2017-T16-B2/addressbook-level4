@@ -38,12 +38,13 @@
 <li><a href="#deleting-a-person-code-delete-code-code-since-v1-0-code">4.7. Deleting a person : <code>delete</code> <code>Since v1.0</code></a></li>
 <li><a href="#selecting-a-person-code-select-code-code-since-v1-0-code">4.8. Selecting a person : <code>select</code> <code>Since v1.0</code></a></li>
 <li><a href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">4.9. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.10. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.11. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.12. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.13. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.14. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></li>
-<li><a href="#saving-the-data">4.15. Saving the data</a></li>
+<li><a href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">4.10. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.11. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.12. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.13. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.14. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.15. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></li>
+<li><a href="#saving-the-data">4.16. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#command-shortcuts">5. Command Shortcuts</a></li>
@@ -233,8 +234,8 @@ Shorthand: <code>l</code></p>
 <h3 id="editing-a-person-code-edit-code-code-since-v1-0-code"><a class="link" href="#editing-a-person-code-edit-code-code-since-v1-0-code">4.4. Editing a person : <code>edit</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
-Shorthand: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
+Shorthand: <code>e INDEX [n/NAME] [p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -265,16 +266,16 @@ Shorthand: <code>e INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE]
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com c/309428</code><br>
-Edits the phone number, email address and postal code of the 1st person to be <code>91234567</code>, <code>johndoe@example.com</code> and <code>309428</code> respectively.</p>
+<p><code>edit 1 p/ parent/91234567 e/johndoe@example.com c/309428</code><br>
+Edits the parent phone number, email address and postal code of the 1st person to be <code>91234567</code>, <code>johndoe@example.com</code> and <code>309428</code> respectively.</p>
 </li>
 <li>
 <p><code>edit 2 n/Betsy Crower t/</code><br>
 Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
 </li>
 <li>
-<p><code>e 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
+<p><code>e 1 p/ student/91234567 parent/91242271 e/johndoe@example.com</code><br>
+Edits the student and parent phone number, and email address of the 1st person to be <code>91234567</code>, <code>91242271</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
 <p><code>e 2 n/Betsy Crower t/</code><br>
@@ -528,7 +529,60 @@ Sorts the list in alphabetical order.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code-code-since-v1-0-code"><a class="link" href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.10. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></h3>
+<h3 id="adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code"><a class="link" href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">4.10. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></h3>
+<div class="paragraph">
+<p>Adds or removes a remark from the specified person in the address book<br>
+Format: <code>remark Index [rm/REMARK]</code><br>
+Shorthand: <code>rm Index [rm/REMARK]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds or deletes a remark at the specific`INDEX`.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Addition of remarks on a person already with remarks will be overwritten.</p>
+</li>
+<li>
+<p>Person with no remarks will display <code>(add a new remark)</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>remark 2 rm/This is a remark</code><br>
+Overwrites/adds the 1st person remark.</p>
+</li>
+<li>
+<p><code>find betsy</code><br>
+<code>remark 1 rm/Betsy is a female</code><br>
+Overwrites/adds the 1st person in the results of <code>find</code> command.</p>
+</li>
+<li>
+<p><code>list</code><br>
+<code>remark 2 rm/</code><br>
+removes remark from the 2nd person in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code-code-since-v1-0-code"><a class="link" href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.11. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code><br>
@@ -550,7 +604,7 @@ Shorthand: <code>h</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.11. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.12. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code><br>
@@ -601,7 +655,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.12. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.13. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code><br>
@@ -639,21 +693,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-code-since-v1-0-code"><a class="link" href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.13. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code-code-since-v1-0-code"><a class="link" href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.14. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-code-since-v1-0-code"><a class="link" href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.14. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code-code-since-v1-0-code"><a class="link" href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.15. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.15. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -684,7 +738,7 @@ There is no need to save manually.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Add</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]&#8230;&#8203;</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a n/NAME student/STUDENT_NUMBER parent/PARENT_NUMBER e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]&#8230;&#8203;</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Clear</p></td>
@@ -785,7 +839,7 @@ A high standard deviation means that the numbers are spread out.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-23 17:28:39 +00:00
+Last updated 2017-10-23 17:48:15 +00:00
 </div>
 </div>
 </body>
