@@ -16,24 +16,20 @@ By: `CS2103AUG2017 T16-B2`      Since: `SEP 2017`      Licence: `MIT`
 
 == Introduction
 
-Welcome to 'cherBook, the address book for Teachers. This address book application manages and displays students' academic grades with relevant statistics. +
-Some features of this address book includes:
+Welcome to cherBook, the Command Line made for teachers to monitor students' academic performance easily.
+cherBook's statistical analysis tools breaks down the students' grades and enables teachers to identify students in need of help.
+cherBook also provide teachers an easy way to contact their students' parents when required.
 
-****
-* Displaying information of any student for easy reference.
-* Statistical graph generated based on the grades of each student.
-****
-
-This guide provides information of the software architecture and the API used in this application. This guide is targeted at software developers, be it amateur or professional. +
-You can implement your own features or improve on the existing code base to suit your own needs, scope and context.
+This developer guide provides future maintainers the necessary information to obtain a high level understanding
+of the source code and be able to contribute to the repository. The relevant information include cherBook's software architecture, components, documentation, API and contributing guidelines.
 
 == Setting up
 
-This section guides you on how to setup a suitable developer environment on intelliJ for developing cherBook.
+This section guides you how to set up and configure your working environment for cherBook in *IntelliJ* IDE.
 
 === Prerequisites
 
-Your computer needs to be set up with:
+Your computer needs to have the following installed:
 
 . *JDK `1.8.0_60`* or later
 +
