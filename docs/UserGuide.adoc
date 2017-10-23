@@ -361,7 +361,7 @@ Here is a list of shortcuts you can use in cherBook together with some examples.
 [width="100%",cols="10%,<10%,<80%",options="header",]
 |=======================================================================
 |Command |ShortHand | Example
-| Add | `a` +| `a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]...` +
+| Add | `a` +| `a n/NAME student/STUDENT_NUMBER parent/PARENT_NUMBER e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]...` +
 | Clear | `c` + | `c` +
 | Delete | `d`  | `d 3` +
 | Edit | `e` + | `e INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]...` +
