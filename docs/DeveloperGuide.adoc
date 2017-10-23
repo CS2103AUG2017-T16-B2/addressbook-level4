@@ -14,6 +14,19 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
 
+== Introduction
+
+Welcome to 'cherBook, the address book for teachers. This address book application manages and displays student's stats. +
+Some feature of this address book includes:
+
+****
+* Displays all information of any student for easy reference.
+* Statatical graph based on the grades of the list generated.
+****
+
+This guide provides information of the software architecture and the API used in this application. This guide is targeted at software developers, be it amateur or professional. +
+You can implement your own features or improve on the existing code base to suit your own needs, scope and context.
+
 == Setting up
 
 === Prerequisites
