@@ -242,7 +242,7 @@ Sorts the list in alphabetical order.
 `st` +
 Sorts the list in alphabetical order.
 
-=== Adding/Deleting a remark to a person : `remark`
+=== Adding/Deleting a remark to a person : `remark` `Since v1.2`
 
 Adds or removes a remark from the specified person in the address book +
 Format: `remark Index [rm/REMARK]` +
