@@ -242,6 +242,32 @@ Sorts the list in alphabetical order.
 `st` +
 Sorts the list in alphabetical order.
 
+=== Adding/Deleting a remark to a person : `remark`
+
+Adds or removes a remark from the specified person in the address book +
+Format: `remark Index [rm/REMARK]` +
+Shorthand: `rm Index [rm/REMARK]`
+
+****
+* Adds or deletes a remark at the specific`INDEX`.
+* The index refers to the index number shown in the most recent listing.
+* The index *must be positive integer* 1, 2, 3, ...
+* Addition of remarks on a person already with remarks will be overwritten.
+* Person with no remarks will display `(add a new remark)`.
+****
+
+Examples:
+
+* `list` +
+`remark 2 rm/This is a remark` +
+Overwrites/adds the 1st person remark.
+* `find betsy` +
+`remark 1 rm/Betsy is a female` +
+Overwrites/adds the 1st person in the results of `find` command.
+* `list` +
+`remark 2 rm/` +
+removes remark from the 2nd person in the address book.
+
 === Listing entered commands : `history` `Since v1.0`
 
 Lists all the commands that you have entered in reverse chronological order. +
