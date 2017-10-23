@@ -1,4 +1,4 @@
-= AddressBook Level 4 - Developer Guide
+= cherBook v1.3 - Developer Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -10,13 +10,15 @@ ifdef::env-github[]
 :note-caption: :information_source:
 endif::[]
 ifdef::env-github,env-browser[:outfilesuffix: .adoc]
-:repoURL: https://github.com/se-edu/addressbook-level4/tree/master
+:repoURL: https://github.com/CS2103AUG2017-T16-B2/tree/master
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `CS2103AUG2017 T16-B2`      Since: `SEP 2017`      Licence: `MIT`
 
 == Setting up
 
 === Prerequisites
+
+Your computer needs to be set up with:
 
 . *JDK `1.8.0_60`* or later
 +
@@ -68,7 +70,7 @@ Optionally, you can follow the <<UsingCheckstyle#, UsingCheckstyle.adoc>> docume
 
 ==== Updating documentation to match your fork
 
-After forking the repo, links in the documentation will still point to the `se-edu/addressbook-level4` repo. If you plan to develop this as a separate product (i.e. instead of contributing to the `se-edu/addressbook-level4`) , you should replace the URL in the variable `repoURL` in `DeveloperGuide.adoc` and `UserGuide.adoc` with the URL of your fork.
+After forking the repo, links in the documentation will still point to the `CS2103AUG2017-T16-B2/main` repo. If you plan to develop this as a separate product (i.e. instead of contributing to the `CS2103AUG2017-T16-B2/main`) , you should replace the URL in the variable `repoURL` in `DeveloperGuide.adoc` and `UserGuide.adoc` with the URL of your fork.
 
 ==== Setting up CI
 
@@ -471,18 +473,18 @@ The regex ensures that the string for `displayed person card phone information` 
 correct format of `Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER)`, and that the
 phone numbers must be exactly 8 digits long.
 
-image::PhoneDisplay.png[width="800"]
+image::PhoneDisplay.png[width="400"]
 _Figure 3.3.1 : Valid Displayed Person Card Phone Information_
 
 If the string format for `displayed person card phone information` is valid, the
 phone contact information of the student and his/her parent will be displayed
-below the student's name in the person card as seen in the picture above.
+below the student's name in the person card as seen in the figure above.
 
 image::message_constraint.png[width="1100"]
 _Figure 3.3.2 : Message to prompt Users to Enter Correct Phone Format_
 
-If the string format for `displayed person card phone information` is invalid: an IllegalValueException
-is thrown. Prompting the user to enter the correct format as seen in the picture above.
+If the string format for `displayed person card phone information` is invalid, an IllegalValueException
+is thrown. The user will be prompted to follow the accepted format as seen in the figure above.
 [source,java]
 ----
 public Phone(String phone) throws IllegalValueException {
@@ -521,9 +523,9 @@ public Phone(String phone) throws IllegalValueException {
 === Add/Remove a remark mechanism
 The remark mechanism is facilitated by making changes to the Remark class in the model component. It enables the user to add or remove a single remark of the student.
 
-To avoid confusion and messy UI, only one remarks can be stored in any one person at a time
+To avoid confusion and an overly complicated UI, only one remark per person is stored.
 
-image::PersonCardDifference (Remark).PNG[width="600"]
+image::PersonCardDifference (Remark).PNG[width="350"]
 _Figure 3.4.1 : One Remark per Person Card_
 
 `Remark` only deals with `UndoableCommands`. Commands that cannot be undone will inherit from `Command` instead. The following diagram shows the inheritance diagram for commands:
