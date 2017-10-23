@@ -14,6 +14,19 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 
 By: `CS2103AUG2017 T16-B2`      Since: `SEP 2017`      Licence: `MIT`
 
+== Introduction
+
+Welcome to 'cherBook, the address book for teachers. This address book application manages and displays student's stats. +
+Some feature of this address book includes:
+
+****
+* Displays all information of any student for easy reference.
+* Statatical graph based on the grades of the list generated.
+****
+
+This guide provides information of the software architecture and the API used in this application. This guide is targeted at software developers, be it amateur or professional. +
+You can implement your own features or improve on the existing code base to suit your own needs, scope and context.
+
 == Setting up
 
 === Prerequisites
@@ -1399,6 +1412,8 @@ Use case ends.
 .  A user with sufficient proficiency in English to understand addressbook commands and instructions.
 .  Should be able to hold up to 100 tags per person.
 .  The system should respond within five seconds.
+.  The system should be able to store at least 1000 histories of a user.
+.  The system should be able to store at least 1000 contacts.
 
 {More to be added}
 
@@ -1459,14 +1474,42 @@ Travis_CI is a hosted, distributed continuous integration service used to build 
 
 *Product Name*
 
-Author: ...
+.*Address Book*, reviewed by Pleathora Kelly P.
+|===
+|Pros |Cons
 
-Pros:
+|Easy to store data of contacts
+|Need to enter data in manually
 
-* ...
-* ...
+|Can edit details of contacts easily using Command Line Interface(CLI)
+|No option for Graphical User Interface(GUI) editing
+|===
 
-Cons:
+.*LocationFinder Address Book*, reviewed by Matthew Ryan
+|===
+|Pros |Cons
 
-* ...
-* ...
+|Easy to use
+|
+
+|Interface design is clean and sleek
+|Cannot customise the design to my needs/favourite colour
+
+|Sort function is intuitive and fast - sorts my contacts in an instant
+|Does not allow automatic sorting once contacts are stored
+
+|===
+
+.*Number One Address Book*, reviewed by Jessabel Louis & Maryjane O. Brian
+|===
+|Pros |Cons
+
+|Colour of interface is great
+|Cannot personalise to fit my mood
+
+|Easy to manage a contact list
+|Does not allow adding in other fields that I need in the addressbook
+
+|Contact list on starter page is shown clearly - all contacts can be seen with the scroller
+|Details of person in contact list cannot be edited according to my needs
+|===
