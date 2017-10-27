@@ -16,6 +16,7 @@ public class DeleteCommand extends UndoableCommand {
     public static final String COMMAND_WORD = "delete";
     public static final String COMMAND_ALIAS = "d";
 
+
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the person identified by the index number used in the last person listing.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
@@ -31,7 +32,7 @@ public class DeleteCommand extends UndoableCommand {
 
 
     @Override
-    public CommandResult executeUndoableCommand() throws CommandException {
+    public CommandResult executeUndoableCommand() throws CommandException{
 
         List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
 
@@ -40,12 +41,11 @@ public class DeleteCommand extends UndoableCommand {
         }
 
         ReadOnlyPerson personToDelete = lastShownList.get(targetIndex.getZeroBased());
-
-        try {
-            model.deletePerson(personToDelete);
-        } catch (PersonNotFoundException pnfe) {
-            assert false : "The target person cannot be missing";
-        }
+            try {
+                model.deletePerson(personToDelete);
+            } catch (PersonNotFoundException pnfe) {
+                assert false : "The target person cannot be missing";
+            }
 
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToDelete));
     }
@@ -56,4 +56,5 @@ public class DeleteCommand extends UndoableCommand {
                 || (other instanceof DeleteCommand // instanceof handles nulls
                 && this.targetIndex.equals(((DeleteCommand) other).targetIndex)); // state check
     }
+
 }
