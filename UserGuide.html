@@ -5,14 +5,14 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>cherBook v1.3 - User Guide</title>
+<title>cherBook v1.4 - User Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>cherBook v1.3 - User Guide</h1>
+<h1>cherBook v1.4 - User Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -36,15 +36,16 @@
 <li><a href="#locating-persons-by-name-code-find-code-code-since-v1-0-code">4.5. Locating persons by name: <code>find</code> <code>Since v1.0</code></a></li>
 <li><a href="#locating-persons-by-tags-code-findtags-code-code-since-v1-1-code">4.6. Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></a></li>
 <li><a href="#deleting-a-person-code-delete-code-code-since-v1-0-code">4.7. Deleting a person : <code>delete</code> <code>Since v1.0</code></a></li>
-<li><a href="#selecting-a-person-code-select-code-code-since-v1-0-code">4.8. Selecting a person : <code>select</code> <code>Since v1.0</code></a></li>
-<li><a href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">4.9. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></li>
-<li><a href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">4.10. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.11. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.12. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.13. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.14. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.15. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></li>
-<li><a href="#saving-the-data">4.16. Saving the data</a></li>
+<li><a href="#scheduling-a-person-code-schedule-code-code-since-v1-4-code">4.8. Scheduling a person : <code>schedule</code> <code>Since v1.4</code></a></li>
+<li><a href="#selecting-a-person-code-select-code-code-since-v1-0-code">4.9. Selecting a person : <code>select</code> <code>Since v1.0</code></a></li>
+<li><a href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">4.10. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></li>
+<li><a href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">4.11. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.12. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.13. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.14. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.15. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.16. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></li>
+<li><a href="#saving-the-data">4.17. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#command-shortcuts">5. Command Shortcuts</a></li>
@@ -65,7 +66,7 @@ You will be able to view the 25th, 50th and 75th percentile scores of each class
 <p>With the upcoming update in <code>v1.4</code>, <code>cherBook</code> will soon be able to compare statistics between different groups of students.</p>
 </div>
 <div class="paragraph">
-<p><code>cherBook v1.2</code> is available for the Linux, Unix and Windows and Mac OS X operating systems</p>
+<p><code>cherBook v1.4</code> is available for the Linux, Unix and Windows and Mac OS X operating systems</p>
 </div>
 </div>
 </div>
@@ -73,13 +74,13 @@ You will be able to view the 25th, 50th and 75th percentile scores of each class
 <h2 id="about"><a class="link" href="#about">2. About</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document will help you set up and get started with using <code>cherBook v1.2</code>.
-You will be given an overview of the features of <code>cherBook v1.2</code>, and shown how to use them and with the help of some examples.<br></p>
+<p>This document will help you set up and get started with using <code>cherBook v1.4</code>.
+You will be given an overview of the features of <code>cherBook v1.4</code>, and shown how to use them and with the help of some examples.<br></p>
 </div>
 <div class="paragraph">
-<p>Some statistical concepts will be used in the explanations of the features <code>cherBook v1.2</code> offers.
+<p>Some statistical concepts will be used in the explanations of the features <code>cherBook v1.4</code> offers.
 However, no prior technical knowledge is needed to understand this user guide.
-The statistical concepts  --- <code>percentiles</code>, <code>averages</code> and <code>standard deviation</code>--- will be explained and then demonstrated in the the <a href="#glossary">Glossary</a> below.</p>
+The statistical concepts  --- <a href="#percentile"><code><em>percentile</em></code></a>, <a href="#average"><code>average</code></a> and <a href="#standard-deviation"><code><em>standard deviation</em></code></a> --- will be explained and then demonstrated in the the <a href="#glossary">Glossary</a> below.</p>
 </div>
 </div>
 </div>
@@ -184,8 +185,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-person-code-add-code-code-since-v1-0-code"><a class="link" href="#adding-a-person-code-add-code-code-since-v1-0-code">4.2. Adding a person: <code>add</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER) e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]&#8230;&#8203;</code><br>
-Shorthand: <code>a n/NAME p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER) e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/[student/(STUDENT_NUMBER)] parent/(PARENT_NUMBER) [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
+Shorthand: <code>a n/NAME p/[student/(STUDENT_NUMBER)] parent/(PARENT_NUMBER) [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -195,9 +196,7 @@ Shorthand: <code>a n/NAME p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER) e/E
 </td>
 <td class="content">
 A person can have any number of tags (including 0)<br>
-A person can choose whether to have labels assigned to their contact numbers
-Available labels for the contacts numbers are:<br>
-H: (Home number) HP: (HandPhone number) O: (Office number)
+Adding of student or/and parent&#8217;s number must be preceded by the phone prefix <code>p/</code>.
 </td>
 </tr>
 </table>
@@ -208,16 +207,16 @@ H: (Home number) HP: (HandPhone number) O: (Office number)
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/ student/97272032 parent/97979797 e/johnd@example.com a/John street, block 123, #01-01 c/203904</code></p>
+<p><code>add n/John Doe p/parent/97979797 e/johnd@example.com a/John street, block 123, #01-01 f/12S11 g/123.0 c/203904</code></p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/ student/97272030 parent/97979797 t/criminal</code></p>
+<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/student/97272030 parent/97979797 f/B12 g/100.0 t/criminal</code></p>
 </li>
 <li>
-<p><code>a n/Jane Doe p/ student/97272031 parent/97979791 e/janed@example.com a/Jane street, block 456, #01-01</code></p>
+<p><code>a n/Jane Doe p/parent/97979791 e/janed@example.com a/Jane street, block 456, #01-01 f/6C g/98</code></p>
 </li>
 <li>
-<p><code>a n/Lily Crowe t/friend e/lilycrowe@example.com a/Newgate Prison p/ student/97272231 parent/97979997 t/criminal</code></p>
+<p><code>a n/Lily Crowe t/friend e/lilycrowe@example.com a/Newgate Prison p/student/97272231 parent/97979997 f/12A2 g/66 t/criminal</code></p>
 </li>
 </ul>
 </div>
@@ -234,8 +233,8 @@ Shorthand: <code>l</code></p>
 <h3 id="editing-a-person-code-edit-code-code-since-v1-0-code"><a class="link" href="#editing-a-person-code-edit-code-code-since-v1-0-code">4.4. Editing a person : <code>edit</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
-Shorthand: <code>e INDEX [n/NAME] [p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)] [e/EMAIL] [a/ADDRESS] [f/FORMCLASS] [g/GRADES] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
+Shorthand: <code>e INDEX [n/NAME] [p/student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)] [e/EMAIL] [a/ADDRESS] [f/FORMCLASS] [g/GRADES] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -266,7 +265,7 @@ Shorthand: <code>e INDEX [n/NAME] [p/ student/(STUDENT_NUMBER) parent/(PARENT_NU
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/ parent/91234567 e/johndoe@example.com c/309428</code><br>
+<p><code>edit 1 p/parent/91234567 e/johndoe@example.com c/309428</code><br>
 Edits the parent phone number, email address and postal code of the 1st person to be <code>91234567</code>, <code>johndoe@example.com</code> and <code>309428</code> respectively.</p>
 </li>
 <li>
@@ -274,7 +273,7 @@ Edits the parent phone number, email address and postal code of the 1st person t
 Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
 </li>
 <li>
-<p><code>e 1 p/ student/91234567 parent/91242271 e/johndoe@example.com</code><br>
+<p><code>e 1 p/student/91234567 parent/91242271 e/johndoe@example.com</code><br>
 Edits the student and parent phone number, and email address of the 1st person to be <code>91234567</code>, <code>91242271</code> and <code>johndoe@example.com</code> respectively.</p>
 </li>
 <li>
@@ -440,7 +439,49 @@ Deletes the 3rd person in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code-code-since-v1-0-code"><a class="link" href="#selecting-a-person-code-select-code-code-since-v1-0-code">4.8. Selecting a person : <code>select</code> <code>Since v1.0</code></a></h3>
+<h3 id="scheduling-a-person-code-schedule-code-code-since-v1-4-code"><a class="link" href="#scheduling-a-person-code-schedule-code-code-since-v1-4-code">4.8. Scheduling a person : <code>schedule</code> <code>Since v1.4</code></a></h3>
+<div class="paragraph">
+<p>Schedules the person identified by the index number used in the last person listing.<br>
+Format: <code>schedule INDEX s/[DATE]</code><br>
+Shorthand: <code>sche INDEX s/[DATE]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Schedules the person at the specified <code>INDEX</code> and adds them to the schedule list in the address book.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>schedule 2 s/tomorrow 7pm</code><br>
+Schedules the 2nd person in the address book for tomorrow at 7pm and adds the schedule to the schedule list.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>sche 1 s/25 december 2017 3pm</code><br>
+Schedules the 1st person in the address book on 25 December at 3pm and adds the schedule to the schedule list in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-person-code-select-code-code-since-v1-0-code"><a class="link" href="#selecting-a-person-code-select-code-code-since-v1-0-code">4.9. Selecting a person : <code>select</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the last person listing.<br>
 Format: <code>select INDEX</code><br>
@@ -487,7 +528,7 @@ Selects the 3rd person in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-all-persons-code-sort-code-code-since-v1-2-code"><a class="link" href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">4.9. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></h3>
+<h3 id="sorting-all-persons-code-sort-code-code-since-v1-2-code"><a class="link" href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">4.10. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all persons in the address book sorted in alphabetical order.<br>
 Format: <code>sort</code><br>
@@ -529,7 +570,7 @@ Sorts the list in alphabetical order.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code"><a class="link" href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">4.10. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></h3>
+<h3 id="adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code"><a class="link" href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">4.11. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></h3>
 <div class="paragraph">
 <p>Adds or removes a remark from the specified person in the address book<br>
 Format: <code>remark Index [rm/REMARK]</code><br>
@@ -582,7 +623,7 @@ removes remark from the 2nd person in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code-code-since-v1-0-code"><a class="link" href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.11. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code-code-since-v1-0-code"><a class="link" href="#listing-entered-commands-code-history-code-code-since-v1-0-code">4.12. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code><br>
@@ -604,7 +645,7 @@ Shorthand: <code>h</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.12. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">4.13. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code><br>
@@ -655,7 +696,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.13. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">4.14. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code><br>
@@ -693,21 +734,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-code-since-v1-0-code"><a class="link" href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.14. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code-code-since-v1-0-code"><a class="link" href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">4.15. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-code-since-v1-0-code"><a class="link" href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.15. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code-code-since-v1-0-code"><a class="link" href="#exiting-the-program-code-exit-code-code-since-v1-0-code">4.16. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -776,6 +817,11 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code><br></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sche</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sche 1 s/[DATE]</code><br></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Select</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>s INDEX</code><br></p></td>
@@ -800,6 +846,11 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code><br></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remark</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm Index [rm/REMARK]</code><br></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -811,6 +862,10 @@ There is no need to save manually.</p>
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p><strong>Q</strong>: What happens if I do not input fields that are optional?<br>
+<strong>A</strong>: A message will appear beside the optional field name in the extended screen, stating that the field is not recorded.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -819,27 +874,44 @@ There is no need to save manually.</p>
 <div class="paragraph">
 <p>Statistical concepts are explained with examples here:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Percentile</code> - The percentile indicates that a certain percentage falls below that percentile.
+<div id="percentile" class="paragraph">
+<p>Percentile</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>The percentile indicates that a certain percentage falls below that percentile.
 For example, if you score in the 25th percentile, then 25% of test takers are below your score.
 If you score in the 50th percentile, then 50% of test takers are below your score.
-and if you score in the 75th percentile, then 75% of test takers are below your score.</p>
-</li>
-<li>
-<p><code>Standard deviation</code> - Standard deviation is a number used to tell how measurements for a group are spread out from the average (mean), or expected value.
+and if you score in the 75th percentile, then 75% of test takers are below your score.</pre>
+</div>
+</div>
+<div id="standard-deviation" class="paragraph">
+<p>Standard deviation</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Standard deviation is a number used to tell how measurements for a group are spread out from the average (mean), or expected value.
 A low standard deviation means that most of the numbers are very close to the average.
-A high standard deviation means that the numbers are spread out.</p>
-</li>
-</ul>
+A high standard deviation means that the numbers are spread out.</pre>
+</div>
+</div>
+<div id="average" class="paragraph">
+<p>Average</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Average is the sum of the numbers divided by how many numbers are being averaged.
+It is also known as the arithmetic mean.
+A low average implies that the class/cohort has underperformed.
+A high average implies that the class/cohort has performed above expectations.</pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-01 12:47:58 +00:00
+Last updated 2017-11-01 20:43:50 +00:00
 </div>
 </div>
 </body>
