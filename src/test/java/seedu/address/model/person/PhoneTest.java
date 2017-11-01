@@ -15,24 +15,25 @@ public class PhoneTest {
         // invalid phone number input format
         assertFalse(Phone.isValidPhone("")); // empty string
         assertFalse(Phone.isValidPhone(" ")); // spaces only
-        assertFalse(Phone.isValidPhone("Student: 97272131 "
-                + "Parent: 9797979")); // parent do not have exactly 8 digit
-        assertFalse(Phone.isValidPhone("Student: 972745 Parent: 979")); // both do not have exactly 8 digit
-        assertFalse(Phone.isValidPhone("Student: 9727 "
+        assertFalse(Phone.isValidPhone("student/97272131 "
+                + "parent/9797979")); // parent do not have exactly 8 digit
+        assertFalse(Phone.isValidPhone("student/972745 parent/979")); // both do not have exactly 8 digit
+        assertFalse(Phone.isValidPhone("student/9727 "
                 + "Parent: 97979797")); // student do not have exactly 8 digit
-        assertFalse(Phone.isValidPhone("Student/ 91111031 Parent/ 97971241")); // / instead of :
-        assertFalse(Phone.isValidPhone("studen: 91254311 parent: 97213197")); //  misspelled student
-        assertFalse(Phone.isValidPhone("Student: 97272121   Parent: 97314197")); // consecutive whitespaces
+        assertFalse(Phone.isValidPhone("student/91111031 parent/97971241")); // : instead of /
+        assertFalse(Phone.isValidPhone("studen/91254311 parent/97213197")); //  misspelled student
+        assertFalse(Phone.isValidPhone("student/97272121    Parent/97314197")); // consecutive whitespaces
         assertFalse(Phone.isValidPhone("!@@#$#@$#@{}")); // random symbol
-        assertFalse(Phone.isValidPhone("Student: 972jb72031 Parent: 97jhb979797")); // alphanumeric numbers
-        assertFalse(Phone.isValidPhone("Student: gfxgfx Parent: gfxgfxgfx")); // purely alphabets
-        assertFalse(Phone.isValidPhone("Student: 97270000")); // must have at least parent number
-        assertFalse(Phone.isValidPhone("Parent: 97971231 "
-                + "Student: 97272271")); // parent number should be entered after student number
+        assertFalse(Phone.isValidPhone("student/972jb72031 parent/97jhb979797")); // alphanumeric numbers
+        assertFalse(Phone.isValidPhone("student/gfxgfx parent/gfxgfxgfx")); // purely alphabets
+        assertFalse(Phone.isValidPhone("student/97270000")); // must have at least parent number
+        assertFalse(Phone.isValidPhone("parent/97971231 "
+                + "student/97272271")); // parent number should be entered after student number
         // if both parent and student number are entered.
         assertFalse(Phone.isValidPhone(
-                "Parent: 972701")); // have at least parent number, but not exactly 8 digits.
-
+                "parent/972701")); // have at least parent number, but not exactly 8 digits.
+        assertFalse(Phone.isValidPhone("Student/97272031 "
+                + "Parent/97979797")); // not all letters in lower case
 
         // valid phone number input format
         assertTrue(Phone.isValidPhone("student/97272031 "

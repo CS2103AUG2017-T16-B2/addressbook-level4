@@ -42,7 +42,8 @@ public class Phone {
     }
 
     /**
-     * Replace all occurrence of "/" with ":" and capitalise first letter of student and parent.
+     * Converts user phone number input into an appropriate UI format by
+     * replacing all occurrence of "/" with ": " and capitalising first letter of student and parent.
      */
     public static String changeInputToUiFormat(String value) {
 
