@@ -2266,7 +2266,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">busy teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be able to see who are the underperforming students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find out who I should spend more time on [Coming in v2.0]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find out who I should spend more time on</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2410,7 +2410,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">caring teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">schedule appointments with my students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">conduct extra classes when they ask for it [Coming in v2.0]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">conduct extra classes when they ask for it</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2421,8 +2421,8 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set the colour of the tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">can view the tags easily [Coming in v2.0]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have different colours of the tags for different tag names</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can view the tags easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2440,7 +2440,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">schedule my timetable according to my classes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">plan my timetable to fit other activities [Coming in v2.0]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan my timetable to fit other activities</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2833,6 +2833,63 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-schedule" class="discrete">Use case: Schedule</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to schedule person</p>
+</li>
+<li>
+<p>AddressBook adds the scheduled person to the schedule list</p>
+</li>
+<li>
+<p>AddressBook displays the result of user&#8217;s request</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. Addressbook does not contain any person</p>
+<div class="ulist">
+<ul>
+<li>
+<p>2a1. AddressBook shows an error message</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The given input or command is invalid (Wrong format, etc)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. AddressBook shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h3 id="use-case-undo" class="discrete">Use case: Undo</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -3128,7 +3185,7 @@ Use case ends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-01 21:03:06 +00:00
+Last updated 2017-11-02 01:10:17 +00:00
 </div>
 </div>
 </body>
