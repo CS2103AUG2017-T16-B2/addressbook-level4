@@ -24,7 +24,12 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#software-overview">1.1. Software Overview</a></li>
+<li><a href="#about-this-guide">1.2. About this guide</a></li>
+</ul>
+</li>
 <li><a href="#setting-up">2. Setting up</a>
 <ul class="sectlevel2">
 <li><a href="#prerequisites">2.1. Prerequisites</a></li>
@@ -47,11 +52,14 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></li>
 <li><a href="#sort-mechanism">4.2. Sort mechanism</a></li>
-<li><a href="#add-student-parent-phone-contact-mechanism">4.3. Add student/parent phone contact mechanism</a></li>
-<li><a href="#add-remove-a-remark-mechanism">4.4. Add/Remove a remark mechanism</a></li>
-<li><a href="#findtags-mechanism">4.5. FindTags Mechanism</a></li>
-<li><a href="#logging">4.6. Logging</a></li>
-<li><a href="#configuration">4.7. Configuration</a></li>
+<li><a href="#schedule-mechanism">4.3. Schedule mechanism</a></li>
+<li><a href="#add-student-parent-phone-contact-mechanism">4.4. Add Student/Parent Phone Contact mechanism</a></li>
+<li><a href="#add-unique-color-tag-mechanism">4.5. Add Unique Color Tag mechanism</a></li>
+<li><a href="#add-remove-a-remark-mechanism">4.6. Add/Remove a remark mechanism</a></li>
+<li><a href="#linechart-mechanism">4.7. LineChart Mechanism</a></li>
+<li><a href="#findtags-mechanism">4.8. FindTags mechanism</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -93,14 +101,22 @@
 <div class="sect1">
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="software-overview"><a class="link" href="#software-overview">1.1. Software Overview</a></h3>
 <div class="paragraph">
-<p>Welcome to cherBook, the Command Line made for teachers to monitor students' academic performance easily.
-cherBook&#8217;s statistical analysis tools breaks down the students' grades and enables teachers to identify students in need of help.
-cherBook also provide teachers an easy way to contact their students' parents when required.</p>
+<p>Welcome to cherBook, the Command Line application designed to help teachers monitor students' academic performance easily.
+With our tagging system and data analysis tools, teachers can view statistics of any specific groups of students.
+This helps teachers by breaking down students' grades and identifying students who need extra attention.
+Finally, if ever the need arises, student&#8217;s parent contact details can be found in just one command, making cherBook the fastest way to contact students' parents.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="about-this-guide"><a class="link" href="#about-this-guide">1.2. About this guide</a></h3>
 <div class="paragraph">
-<p>This developer guide provides future contributors and maintainers of cherBook with the information necessary for understanding the source code and contributing to the repository.
-The relevant information include cherBook&#8217;s software architecture, Component APIs, documentation and contributing guidelines.</p>
+<p>This developer guide  provides future contributors and maintainers of cherBook with the necessary information to understand
+the cherBook source code and guidelines for contributing to the repository.
+Such information include cherBook&#8217;s software architecture, Components and their APIs, Documentation and contributing guidelines.</p>
+</div>
 </div>
 </div>
 </div>
@@ -108,7 +124,7 @@ The relevant information include cherBook&#8217;s software architecture, Compone
 <h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Follow the instructions below to set up and configure cherBook source code on your computer.</p>
+<p>Follow the instructions below to set up and configure cherBook project files on your computer.</p>
 </div>
 <div class="sect2">
 <h3 id="prerequisites"><a class="link" href="#prerequisites">2.1. Prerequisites</a></h3>
@@ -290,6 +306,11 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <div class="sect1">
 <h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section illustrates and identifies the architecture used to design and implement cherBook.
+This section contains an overall view of the system architecture and details the reasons and mechanisms behind major system components,
+their attributes and interactions between these components.</p>
+</div>
 <div class="sect2">
 <h3 id="architecture"><a class="link" href="#architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
@@ -439,7 +460,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <h3 id="ui-component"><a class="link" href="#ui-component">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
+<img src="images/UiComponentClassDiagram.png" alt="UiComponentClassDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -449,7 +470,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><strong>API</strong> : <a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>ExtendedPersonCard</code>, <code>StatisticsPanel</code>, <code>GraphPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -819,7 +840,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p>The sort mechanism is implemented using SortCommand. It supports sorting of contacts names in the AddressBook according to alphabetical order from A to Z.</p>
 </div>
 <div class="paragraph">
-<p>When user calls for sorting to be implemented in cherBook, an empty ArrayList would be created. Under the Model component, UniquePersonList would compare the names of all persons in lower case using a comparator and return an Observable List containing of ReadOnlyPerson.</p>
+<p>When user calls for sorting to be implemented, an empty ArrayList would be created. Under the Model component, UniquePersonList would compare the names of all persons in lower case using a comparator and return an Observable List containing of ReadOnlyPerson.</p>
 </div>
 <div class="paragraph">
 <p><code>SortCommand</code> inherits from Command.</p>
@@ -861,7 +882,7 @@ The sort is case insensitive.
 <p><em>Figure 3.2.1 : Sequence Diagram of Sort Operation</em></p>
 </div>
 <div class="paragraph">
-<p>When the user calls ‘sort’ or ‘st’ to sort the contacts in cherBook, the Model will take in an ArrayList named contactList from the Parser.</p>
+<p>When the user calls ‘sort’ or ‘st’ to sort the contacts, the Model will take in an ArrayList named contactList from the Parser.</p>
 </div>
 <div class="paragraph">
 <p>Upon a successful sort, contacts are displayed in alphabetical order.
@@ -907,7 +928,7 @@ If the list is already in correct order, the address book will return with: “A
 <strong>Cons:</strong> Since method is inherited, it is difficult to debug and the only way is via the usage of vigorous user testing and logging.<br>
 <strong>Alternative 2:</strong> Writing a sort algorithm.<br>
 <strong>Pros:</strong> Case sensitivity can be accounted for and debugging is made simpler.<br>
-<strong>Cons:</strong> More error-proned as algorithm&#8217;s logic must be checked constantly to ensure it accounts for all cases.</p>
+<strong>Cons:</strong> More error-proned as algorithm&#8217;s logic must be checked constantly to ensure that it accounts for all cases.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -922,7 +943,109 @@ If the list is already in correct order, the address book will return with: “A
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-student-parent-phone-contact-mechanism"><a class="link" href="#add-student-parent-phone-contact-mechanism">4.3. Add student/parent phone contact mechanism</a></h3>
+<h3 id="schedule-mechanism"><a class="link" href="#schedule-mechanism">4.3. Schedule mechanism</a></h3>
+<div class="paragraph">
+<p>The schedule mechanism is implemented using ScheduleCommand. It supports scheduling of contacts in the AddressBook for better management of time.</p>
+</div>
+<div class="paragraph">
+<p>When user calls for scheduling to be implemented, two arguments would have to be passed into the constructor.
+The two arguments are name of the person being scheduled and the Calendar date with time.
+Under the Model component, UniqueScheduleList would add the created schedule into the set of schedules.</p>
+</div>
+<div class="paragraph">
+<p><code>ScheduleCommand</code> inherits from Command.</p>
+</div>
+<div class="paragraph">
+<p>ScheduleCommand is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ScheduleCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... schedule logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adding of schedules into the AddressBook can be done in natural language.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sort operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleSequenceDiagram.png" alt="ScheduleSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3.2.1 : Sequence Diagram of Schedule Operation</em></p>
+</div>
+<div class="paragraph">
+<p>When the user calls ‘schedule’ or ‘sche’ to schedule the contacts in cherBook, the Model will receive a schedule from the Parser.</p>
+</div>
+<div class="paragraph">
+<p>Upon successful scheduling, contacts are added into the set of schedules.
+If one or more arguments required to schedule a person is missing, the AddressBook will return with error messages corresponding to the missing arguments.
+If one or more arguments required to schedule a person is invalid, the AddressBook will return with error messages corresponding to the invalid arguments.</p>
+</div>
+<div class="paragraph">
+<p>The following will show how the schedule is added into the AddressBook:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">/**
+     * Adds a schedule for a student's consultation
+     */</span>
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> addSchedule(Schedule schedule) {
+        addressBook.addSchedule(schedule);
+        indicateAddressBookChanged();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is implemented this way to ensure that all schedules are added into the AddressBook with the lowest level of abstraction.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>ScheduleCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> <code>ScheduleCommand</code> inherits from Command<br>
+<strong>Pros:</strong> After scheduling the contacts, the schedules remain in their order they are entered into the AddressBook.<br>
+<strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How schedule executes<br>
+<strong>Alternative 1 (current choice):</strong> Adds a schedule into the schedules list once the person name and calendar date is parsed.<br>
+<strong>Pros:</strong> Easy to implement.<br>
+<strong>Cons:</strong> Vigorous user testing and logging is required to debug corner test cases.<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Data structure to support the schedule command<br>
+<strong>Alternative 1 (current choice):</strong> Creates an empty Set to obtain the schedules from the UniqueScheduleList.<br>
+<strong>Pros:</strong> The original set of schedules is not altered.<br>
+<strong>Cons:</strong> Additional space usage is needed so inefficiency and memory wastage may arise.<br>
+<strong>Alternative 2:</strong> Adding a new attribute in each individual person card to hold the schedules.<br>
+<strong>Pros:</strong> The teacher would be able to identify each student respectively.<br>
+<strong>Cons:</strong> Inefficiency and time consuming because to find a schedule, the algorithm would have to iterate through all person cards to get the schedules.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-student-parent-phone-contact-mechanism"><a class="link" href="#add-student-parent-phone-contact-mechanism">4.4. Add Student/Parent Phone Contact mechanism</a></h3>
 <div class="paragraph">
 <p>The student/parent phone contact mechanism is facilitated by making changes
 to the Phone class in the model component. It enables the input
@@ -962,13 +1085,16 @@ for appropriate presentation of <code>displayed person card phone information</c
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> PHONE_VALIDATION_REGEX =
-<span class="string"><span class="delimiter">&quot;</span><span class="content">(Student: )(</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d)( Parent: )(</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d</span><span class="char">\\</span><span class="content">d)</span><span class="delimiter">&quot;</span></span>;</code></pre>
+<span class="string"><span class="delimiter">&quot;</span><span class="content">((Student: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">)( Parent: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">))|((Parent: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">))</span><span class="delimiter">&quot;</span></span>;</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>The regex ensures that the string for <code>displayed person card phone information</code> adheres to the
-correct format of <code>Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER)</code>, and that the
-phone numbers must be exactly 8 digits long.</p>
+correct format of <code>Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER)</code> or <code>Parent: (PARENT_NUMBER)</code> as it is optional to
+add the phone number of students.</p>
+</div>
+<div class="paragraph">
+<p>The phone numbers must be exactly 8 digits long.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -976,7 +1102,7 @@ phone numbers must be exactly 8 digits long.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.3.1 : Valid Displayed Person Card Phone Information</em></p>
+<p><em>Figure 4.3.1 : Valid Displayed Person Card Phone Information</em></p>
 </div>
 <div class="paragraph">
 <p>If the string format for <code>displayed person card phone information</code> is valid, the
@@ -989,7 +1115,7 @@ below the student&#8217;s name in the person card as seen in the figure above.</
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.3.2 : Message to prompt Users to Enter Correct Phone Format</em></p>
+<p><em>Figure 4.3.2 : Message to prompt Users to Enter Correct Phone Format</em></p>
 </div>
 <div class="paragraph">
 <p>If the string format for <code>displayed person card phone information</code> is invalid, an IllegalValueException
@@ -1009,7 +1135,7 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.1. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Phone numbers <br>
 <strong>Alternative 1 (current choice):</strong> Both the student&#8217;s phone number and their parent&#8217;s phone number is a single string.<br>
@@ -1032,16 +1158,162 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-remove-a-remark-mechanism"><a class="link" href="#add-remove-a-remark-mechanism">4.4. Add/Remove a remark mechanism</a></h3>
+<h3 id="add-unique-color-tag-mechanism"><a class="link" href="#add-unique-color-tag-mechanism">4.5. Add Unique Color Tag mechanism</a></h3>
+<div class="paragraph">
+<p>The unique tag mechanism is facilitated by making changes to PersonCard class in the UI component. This feature enables
+the assignment of unique colors to tags.</p>
+</div>
+<div class="paragraph">
+<p>The color generated to be assigned to tags is random and all tags with the same description will be assigned a same color.</p>
+</div>
+<div class="paragraph">
+<p>The following method receives <code>String tagName</code> (description of the tag) and returns the <code>String assignedColor</code>
+associated to the tagName.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public static String obtainTagColors(String tagName) {
+        if (!currentTagColors.containsKey(tagName)) {
+            do {
+                Random random = new Random();
+                final float hue = random.nextFloat();
+                final float saturation = 0.65f + random.nextFloat()
+                        * (0.90f - 0.65f);
+                final float luminance = 0.60f + random.nextFloat()
+                        * (0.90f - 0.60f);
+
+                Color color = Color.getHSBColor(hue, saturation, luminance);
+
+                Formatter hexRepresentation = new Formatter(new StringBuffer("#"));
+                hexRepresentation.format("%02X", color.getRed());
+                hexRepresentation.format("%02X", color.getGreen());
+                hexRepresentation.format("%02X", color.getBlue());
+                assignedColor = hexRepresentation.toString();
+            } while (usedColors.contains(assignedColor));
+
+            usedColors.add(assignedColor);
+            currentTagColors.put(tagName, assignedColor);
+        }
+        return currentTagColors.get(tagName);
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The section below explains how various parts of the above code segment works.</p>
+</div>
+<div class="paragraph">
+<p>A color is determined by three factors, <code>hue</code>, <code>saturation</code> and <code>luminance</code>. The code segment shown below randomises the value of each of the three factors,
+and a random <code>color</code> are obtained as a result.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Random random = new Random();
+
+final float hue = random.nextFloat();
+final float saturation = 0.65f + random.nextFloat() * (0.90f - 0.65f);
+final float luminance = 0.60f + random.nextFloat() * (0.90f - 0.60f);
+
+Color color = Color.getHSBColor(hue, saturation, luminance);</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Random range of saturation and luminance are specified to ensure that the random color generated will always mesh well with the white font of
+the tag description. This can be seen in the picture below.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tagColorPic.png" alt="tagColorPic" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1 : Tag color meshes well with white font of tag description</em></p>
+</div>
+<div class="paragraph">
+<p>Next, in the code segment below, the <code>red</code>, <code>green</code> and <code>blue</code> components are extracted from <code>color</code>. It is then formatted into a <code>hexadecimal
+representation</code> of the color, before being converted to a String data type and assigned to <code>assignedColor</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Hexadecimal representation of the color is compatible with JavaFx.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Formatter hexRepresentation = new Formatter(new StringBuffer("#"));
+hexRepresentation.format("%02X", color.getRed());
+hexRepresentation.format("%02X", color.getGreen());
+hexRepresentation.format("%02X", color.getBlue());
+assignedColor = hexRepresentation.toString();</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>assignedColor</code> is added into an <code>ArrayList&lt;String&gt; usedColors</code>. This ensures no same colors will be assigned
+to a tag with different description in subsequent iterations by randomising a different color again should a same color is
+generated. The method will then return <code>assignedColor</code>.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, in the code below, <code>obtainTagColors(tag.tagName)</code>, the hexadecimal String representation of the color, will be appended
+to the tag background color. This sets the background color of the tag to be that of the assigned color.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>private void initialiseTags(ReadOnlyPerson person) {
+        person.getTags().forEach(tag -&gt; {
+            Label tagLabel = new Label(tag.tagName);
+
+            tagLabel.setStyle("-fx-background-color: " + obtainTagColors(tag.tagName));
+            tags.getChildren().add(tagLabel);
+        });
+    }</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Randomness of the assigned color.<br>
+Alternative 1 (current choice):<br>
+Pros: Easy for developers to understand the mechanism of this feature.<br>
+Cons: User has no control over the assigning of tag colors.<br>
+Alternative 2: Allow user to assign the colors to the tags themselves.<br>
+Pros: User will have more freedom in personalising the tags.<br>
+Cons: The range of colors will be more limited.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-remove-a-remark-mechanism"><a class="link" href="#add-remove-a-remark-mechanism">4.6. Add/Remove a remark mechanism</a></h3>
 <div class="paragraph">
 <p>The remark mechanism is facilitated by making changes to the Remark class in the model component. It enables the user to add or remove a single remark of the student.</p>
 </div>
 <div class="paragraph">
-<p>To avoid confusion and an overly complicated UI, only one remark per person is stored.</p>
+<p>To avoid confusion and an overly complicated UI, only one <code>remark</code> per person is stored.</p>
 </div>
 <div class="paragraph">
-<p>image::PersonCardDifference (Remark).PNG[width="350"]
-<em>Figure 3.4.1 : One Remark per Person Card</em></p>
+<p>The following sequence diagram shows how the <code>remark</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RemarkSequenceDiagramForLogic.PNG" alt="RemarkSequenceDiagramForLogic" width="350">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3.4.1 : Sequence Diagram of Remark Operation</em></p>
 </div>
 <div class="paragraph">
 <p><code>Remark</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
@@ -1091,7 +1363,7 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="paragraph">
-<p>When the user adds a new person to the address book, the person&#8217;s remark field will be denoted by "(add a remark)". Users are then able to add a single remark.</p>
+<p>When the user adds a new <code>person</code> to the address book, the person&#8217;s <code>remark</code> field will be denoted by <code>(add a remark)</code>. Users are then able to add a single <code>remark</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1100,33 +1372,23 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If user tries to add remark together with adding a new 'Person', it will display as invalid as the 'addCommand' does not allow the addition of remarks other then through the use of using the 'Remark' command.
+If user tries to add <code>remark</code> together with adding a new <code>Person</code>, it will display as invalid as the <code>addCommand</code> does not allow the addition of remarks other then through the use of using the <code>Remark</code> command.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Below are examples of trying to change remark through:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddPersonInvalid(Remark).PNG" alt="AddPersonInvalid(Remark)" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 3.4.3 : Invalid Remark Input in Add Command</em></p>
-</div>
-<div class="paragraph">
-<p>When a user attempts to add a remark via the add command, he will be prompted by a message stating
-that adding of remarks in add command is not allowed.</p>
-</div>
-<div class="paragraph">
-<p>image::EditPersonInvalid (Remark).PNG[width="600"]
-<em>Figure 3.4.4 : Invalid Remark Input in Edit Command</em></p>
-</div>
-<div class="paragraph">
-<p>When a user attempts to edit the remark via the edit command, he will be prompted by a message stating
-that changing of remarks in edit command is not allowed.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When a user attempts to <code>add</code>/<code>edit</code> a remark via the <code>add</code>/<code>edit</code> command, he will be prompted by a message stating
+that adding of remarks in <code>add</code>/<code>edit</code> command is not allowed.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1135,13 +1397,13 @@ that changing of remarks in edit command is not allowed.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only one remark is saved at any one time, if user does 'Remark' on the same person, it will be overwritten.
+Only one <code>remark</code> is saved at any one time, if user does <code>Remark</code> on the same person, it will be overwritten.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.1. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
 <strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code><br>
@@ -1153,7 +1415,7 @@ Only one remark is saved at any one time, if user does 'Remark' on the same pers
 </div>
 <hr>
 <div class="paragraph">
-<p><strong>Aspect</strong> Implementation of 'Remark' field.<br>
+<p><strong>Aspect</strong> Implementation of <code>Remark</code> field.<br>
 <strong>Alternative 1 (current choice):</strong> Add a field in person as well as making it a command.<br>
 <strong>Pros:</strong> Able to easily change context of the field without much hassle.<br>
 <strong>Cons:</strong> Harder to debug as it is both a field and a command.<br>
@@ -1165,7 +1427,43 @@ Only one remark is saved at any one time, if user does 'Remark' on the same pers
 </div>
 </div>
 <div class="sect2">
-<h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">4.5. FindTags Mechanism</a></h3>
+<h3 id="linechart-mechanism"><a class="link" href="#linechart-mechanism">4.7. LineChart Mechanism</a></h3>
+<div class="paragraph">
+<p><code>LineChart</code> mechanism is implemented using <code>javaFX</code>. It takes in <code>FilteredPersonList</code> and plots a graph based on those who are in the same <code>formClass</code>.<br>
+Using <code>XYChart.series</code> to store the data of the persons name and grade, a <code>coordinate</code> is created and a <code>line</code> is drawn connecting all the <code>coordinates</code>.<br>
+These coordinates are sorted in ascending order so that the user is able to identify those in the lower quartile.</p>
+</div>
+<div class="paragraph">
+<p>The <code>LineChart</code> mechanism is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>for (ReadOnlyPerson people : people) {
+            if (people.getFormClass().equals(person.getFormClass())) {
+                series.getData().add(new XYChart.Data&lt;&gt;(people.getName().toString(),
+                        Double.parseDouble(people.getGrades().toString())));
+            }
+        }
+            series.getData().sort(Comparator.comparingDouble(d -&gt; d.getYValue()));
+       //...other logic...</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">4.7.1. Alternatives Considered</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> What graph to be displayed to show the most effective visual aid<br>
+<strong>Alternative 1 (current choice):</strong> Do a <code>lineChart</code> using XYChart.series.<br>
+<strong>Pros:</strong> Easier to implement.<br>
+<strong>Cons:</strong> May not be the most appropriate way to display grades of students. <br>
+<strong>Alternative 2:</strong> Create a bell curve to display the grades of students.<br>
+<strong>Pros:</strong> A better representation of the student grades and it is easier to interpret.<br>
+<strong>Cons:</strong> Much harder to plot a graph based on statistics then raw data.</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">4.8. FindTags mechanism</a></h3>
 <div class="paragraph">
 <p>The FindTags mechanism is implemented using FindTagsCommand.
 It supports searching for persons whose tags contains at least all the tags input by the user.</p>
@@ -1255,7 +1553,7 @@ The code with Predicates is also much more readable than using if-else blocks.</
 <p><em>Figure 3.5.1 : Sequence Diagram of FindTags Operation</em></p>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">4.5.1. Alternatives considered.</a></h4>
+<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">4.8.1. Alternatives considered.</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Having a separate predicate class to support <code>findtags</code><br>
 <strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search<br>
@@ -1268,7 +1566,7 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1306,7 +1604,7 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.7. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1382,6 +1680,12 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="sect1">
 <h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Having integrated unit tests that cover your API&#8217;s behaviour is important.
+It helps you verify the correctness, functional behaviour and usability of cherBook the app before you release it publicly.
+This section details the different types of tests cherBook uses and how to run them.
+Additionally, the troubleshooting section details the errors you might face while testing cherBook and different ways to solve them.</p>
+</div>
 <div class="sect2">
 <h3 id="running-tests"><a class="link" href="#running-tests">6.1. Running Tests</a></h3>
 <div class="paragraph">
@@ -1508,6 +1812,9 @@ inserting the line <code>gradlew processResources</code>.</p>
 <div class="sect1">
 <h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This section teaches you about tools building and provides you with instructions on how to test and release apps faster and	more efficiently.</p>
+</div>
 <div class="sect2">
 <h3 id="build-automation"><a class="link" href="#build-automation">7.1. Build Automation</a></h3>
 <div class="paragraph">
@@ -2276,15 +2583,9 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">busy teacher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">auto tag students according to their grades</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get a quick overview of their progress [Coming in v2.0]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">concerned teacher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">display statistics for the current group of students in the list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">analyse the individual groups' academic progress</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display statistics for different group of students with the same tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">analyse and track their academic progress easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2297,6 +2598,42 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">precise teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">compare the grades statistics between any two groups of students</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">make a quick comparison [Coming in v2.0]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule my timetable according to my classes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan my timetable to fit other activities</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">caring teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule appointments with my students</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">conduct extra classes when they ask for it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have different colours of the tags for different tag names</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can differentiate different groups easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see a history of my last used commands</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expert user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have shorthand commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">so that I can search for contacts faster</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo an action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo an undone action</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2348,21 +2685,9 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">redo an action</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">redo an undone action</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">expert user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have separate address books</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">can separate my work and personal contacts [Coming in v2.0]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">expert user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">customise shorthand commands</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">so that I can search for contacts faster</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2390,12 +2715,6 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see a history of my last used commands</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">caring teacher</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">help students find suitable study buddies</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">motivate and aid them in their academic progress [Coming in v2.0]</p></td>
@@ -2407,22 +2726,16 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">conduct house visits easily if they fall sick [Coming in v2.0]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">caring teacher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">schedule appointments with my students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">conduct extra classes when they ask for it</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy teacher</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auto tag students according to their grades</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get a quick overview of their progress [Coming in v2.0]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add profile pictures to contacts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find my friends easily [Coming in v2.0]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have different colours of the tags for different tag names</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">can view the tags easily</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2435,12 +2748,6 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">call/message directly from my address book</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">reach them easily [Coming in v2.0]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">teacher</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">schedule my timetable according to my classes</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">plan my timetable to fit other activities</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -3185,7 +3492,7 @@ Use case ends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-02 07:38:21 +00:00
+Last updated 2017-11-03 03:56:47 +00:00
 </div>
 </div>
 </body>
