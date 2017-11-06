@@ -5,14 +5,14 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>cherBook v1.3 - Developer Guide</title>
+<title>cherBook v1.5 - Developer Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>cherBook v1.3 - Developer Guide</h1>
+<h1>cherBook v1.5 - Developer Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -54,7 +54,7 @@
 <li><a href="#sort-mechanism">4.2. Sort mechanism</a></li>
 <li><a href="#schedule-mechanism">4.3. Schedule mechanism</a></li>
 <li><a href="#add-student-parent-phone-contact-mechanism">4.4. Add Student/Parent Phone Contact mechanism</a></li>
-<li><a href="#add-unique-color-tag-mechanism">4.5. Add Unique Color Tag mechanism</a></li>
+<li><a href="#unique-color-tag-mechanism">4.5. Unique Color Tag mechanism</a></li>
 <li><a href="#add-remove-a-remark-mechanism">4.6. Add/Remove a remark mechanism</a></li>
 <li><a href="#linechart-mechanism">4.7. LineChart Mechanism</a></li>
 <li><a href="#findtags-mechanism">4.8. FindTags mechanism</a></li>
@@ -794,10 +794,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
 <strong>Pros:</strong> We will not lose any undone/redone functionality as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.<br>
 <strong>Cons:</strong> Hard for new developers to understand the template pattern.<br>
-<strong>Alternative 2:</strong> Just override <code>execute()</code><br>
+<strong>Alternative 2:</strong> Just override <code>execute()</code>.<br>
 <strong>Pros:</strong> Does not involve the template pattern, easier for new developers to understand.<br>
 <strong>Cons:</strong> Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
 </div>
@@ -825,10 +825,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <hr>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Data structure to support the undo/redo commands<br>
-<strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo<br>
+<strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo.<br>
 <strong>Pros:</strong> Easy to understand for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.<br>
 <strong>Cons:</strong> Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>UndoRedoStack</code>.<br>
-<strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo<br>
+<strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo.<br>
 <strong>Pros:</strong> We do not need to maintain a separate stack, and just reuse what is already in the codebase.<br>
 <strong>Cons:</strong> Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.<br></p>
 </div>
@@ -837,16 +837,16 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="sect2">
 <h3 id="sort-mechanism"><a class="link" href="#sort-mechanism">4.2. Sort mechanism</a></h3>
 <div class="paragraph">
-<p>The sort mechanism is implemented using SortCommand. It supports sorting of contacts names in the AddressBook according to alphabetical order from A to Z.</p>
+<p>The <code>sort</code> mechanism is implemented using <code>SortCommand</code>. It supports sorting of contacts names in the AddressBook according to alphabetical order from A to Z.</p>
 </div>
 <div class="paragraph">
-<p>When user calls for sorting to be implemented, an empty ArrayList would be created. Under the Model component, UniquePersonList would compare the names of all persons in lower case using a comparator and return an Observable List containing of ReadOnlyPerson.</p>
+<p>When the user calls for sorting to be implemented, an empty <code>ArrayList</code> would be created. Under the <code>Model</code> component, <code>UniquePersonList</code> would compare the names of all persons in lower case using a comparator and return an <code>Observable List</code> containing of <code>ReadOnlyPerson</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>SortCommand</code> inherits from Command.</p>
+<p><code>SortCommand</code> inherits from <code>Command</code>.</p>
 </div>
 <div class="paragraph">
-<p>SortCommand is implemented this way:</p>
+<p><code>SortCommand</code> is implemented this way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -865,13 +865,13 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The sort is case insensitive.
+The <code>sort</code> is case insensitive.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the sort operation works:</p>
+<p>The following sequence diagram shows how the <code>sort</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -882,10 +882,10 @@ The sort is case insensitive.
 <p><em>Figure 3.2.1 : Sequence Diagram of Sort Operation</em></p>
 </div>
 <div class="paragraph">
-<p>When the user calls ‘sort’ or ‘st’ to sort the contacts, the Model will take in an ArrayList named contactList from the Parser.</p>
+<p>When the user calls ‘sort’ or ‘st’ to <code>sort</code> the contacts, the <code>Model</code> will take in an <code>ArrayList</code> named contactList from the <code>Parser</code>.</p>
 </div>
 <div class="paragraph">
-<p>Upon a successful sort, contacts are displayed in alphabetical order.
+<p>Upon a successful <code>sort</code>, contacts are displayed in alphabetical order.
 If an empty list is given, the address book will return with message: “No contacts to be sorted”.
 If the list is already in correct order, the address book will return with: “All contacts are sorted alphabetically by name”.</p>
 </div>
@@ -907,36 +907,36 @@ If the list is already in correct order, the address book will return with: “A
 </div>
 </div>
 <div class="paragraph">
-<p>It is implemented this way to ensure that all person names in the UniquePersonList is compared to at the lowest level of abstraction.</p>
+<p>It is implemented this way to ensure that all person names in the <code>UniquePersonList</code> is compared to at the lowest level of abstraction.</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>SortCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> <code>SortCommand</code> inherits from Command<br>
+<strong>Alternative 1 (current choice):</strong> <code>SortCommand</code> inherits from Command.<br>
 <strong>Pros:</strong> After sorting his/her contacts, it remains sorted and the original list of unsorted contacts is replaced by this list.<br>
 <strong>Cons:</strong> The user is unable to save the list of contacts in the original order(unsorted format).<br>
-<strong>Alternative 2:</strong> Implement undo/redo function for SortCommand<br>
+<strong>Alternative 2:</strong> Implement undo/redo function for SortCommand.<br>
 <strong>Pros:</strong> When undo is called, the list will return back to the most recent unsorted list. When redo is called, the list will return back to the sorted list of contacts.<br>
 <strong>Cons:</strong> The user is able to alter the list easily and may get confused whether is the current list the most recent sorted list.</p>
 </div>
 <hr>
 <div class="paragraph">
 <p><strong>Aspect:</strong> How sort executes<br>
-<strong>Alternative 1 (current choice):</strong> Uses the comparator in Java Collections to sort the arrays in alphabetical order.<br>
+<strong>Alternative 1 (current choice):</strong> Uses the <code>comparator</code> in <code>Java Collections</code> to sort the arrays in alphabetical order.<br>
 <strong>Pros:</strong> Easy to implement.<br>
 <strong>Cons:</strong> Since method is inherited, it is difficult to debug and the only way is via the usage of vigorous user testing and logging.<br>
-<strong>Alternative 2:</strong> Writing a sort algorithm.<br>
+<strong>Alternative 2:</strong> Write a <code>sort</code> algorithm.<br>
 <strong>Pros:</strong> Case sensitivity can be accounted for and debugging is made simpler.<br>
 <strong>Cons:</strong> More error-proned as algorithm&#8217;s logic must be checked constantly to ensure that it accounts for all cases.</p>
 </div>
 <hr>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Data structure to support the sort command<br>
-<strong>Alternative 1 (current choice):</strong> Creates an empty ArrayList to obtain the names from the UniquePersonList before sorting occurs. The sort overwrites the existing list of unsorted contacts. <br>
+<p><strong>Aspect:</strong> Data structure to support the <code>sort</code> command<br>
+<strong>Alternative 1 (current choice):</strong> Creates an empty <code>ArrayList</code> to obtain the names from the <code>UniquePersonList</code> before sorting occurs. The <code>sort</code> overwrites the existing list of unsorted contacts. <br>
 <strong>Pros:</strong> The original list of unsorted contacts is not altered.<br>
 <strong>Cons:</strong> Additional space usage and longer time needed to overwrite the original contact list, inefficiency and memory wastage may arise.<br>
-<strong>Alternative 2:</strong> Manually edit the list of contacts in the AddressBook<br>
+<strong>Alternative 2:</strong> Manually edits the list of contacts in the AddressBook.<br>
 <strong>Pros:</strong> We do not need to maintain a separate list, and just reuse what is already in the codebase, and it saves space.<br>
 <strong>Cons:</strong>  Inefficient as compared to using an algorithm. If the user made a mistake, the change cannot be reverted as the original list of contacts is not saved.<br></p>
 </div>
@@ -945,15 +945,15 @@ If the list is already in correct order, the address book will return with: “A
 <div class="sect2">
 <h3 id="schedule-mechanism"><a class="link" href="#schedule-mechanism">4.3. Schedule mechanism</a></h3>
 <div class="paragraph">
-<p>The schedule mechanism is implemented using ScheduleCommand. It supports scheduling of contacts in the AddressBook for better management of time.</p>
+<p>The <code>schedule</code> mechanism is implemented using <code>ScheduleCommand</code>. It supports scheduling of contacts in the AddressBook for better management of time.</p>
 </div>
 <div class="paragraph">
-<p>When user calls for scheduling to be implemented, two arguments would have to be passed into the constructor.
-The two arguments are name of the person being scheduled and the Calendar date with time.
-Under the Model component, UniqueScheduleList would add the created schedule into the set of schedules.</p>
+<p>When the user calls for scheduling to be implemented, two arguments would have to be passed into the constructor.
+The two arguments are Name of the person being scheduled and the Calendar date with time.
+Under the <code>Model</code> component, <code>UniqueScheduleList</code> would add the created <code>schedule</code> into the <code>set of schedules</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>ScheduleCommand</code> inherits from Command.</p>
+<p><code>ScheduleCommand</code> inherits from <code>Command</code>.</p>
 </div>
 <div class="paragraph">
 <p>ScheduleCommand is implemented this way:</p>
@@ -975,13 +975,13 @@ Under the Model component, UniqueScheduleList would add the created schedule int
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Adding of schedules into the AddressBook can be done in natural language.
+Adding of <code>schedules</code> into the AddressBook can be done in natural language.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the sort operation works:</p>
+<p>The following sequence diagram shows how the <code>schedule</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -995,12 +995,12 @@ Adding of schedules into the AddressBook can be done in natural language.
 <p>When the user calls ‘schedule’ or ‘sch’ to schedule the contacts in cherBook, the Model will receive a schedule from the Parser.</p>
 </div>
 <div class="paragraph">
-<p>Upon successful scheduling, contacts are added into the set of schedules.
+<p>Upon successful scheduling, contacts are added into the <code>set of schedules</code>.
 If one or more arguments required to schedule a person is missing, the AddressBook will return with error messages corresponding to the missing arguments.
 If one or more arguments required to schedule a person is invalid, the AddressBook will return with error messages corresponding to the invalid arguments.</p>
 </div>
 <div class="paragraph">
-<p>The following will show how the schedule is added into the AddressBook:</p>
+<p>The following will show how the <code>schedule</code> is added into the AddressBook:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1015,45 +1015,56 @@ If one or more arguments required to schedule a person is invalid, the AddressBo
 </div>
 </div>
 <div class="paragraph">
-<p>It is implemented this way to ensure that all schedules are added into the AddressBook with the lowest level of abstraction.</p>
+<p>It is implemented this way to ensure that all <code>schedules</code> are added into the AddressBook with the lowest level of abstraction.</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>ScheduleCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> <code>ScheduleCommand</code> inherits from Command<br>
-<strong>Pros:</strong> After scheduling the contacts, the schedules remain in their order they are entered into the AddressBook.<br>
+<strong>Alternative 1 (current choice):</strong> <code>ScheduleCommand</code> inherits from Command.<br>
+<strong>Pros:</strong> After scheduling the contacts, the schedules remain in the order they are entered into the AddressBook.<br>
 <strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br></p>
 </div>
 <hr>
 <div class="paragraph">
-<p><strong>Aspect:</strong> How schedule executes<br>
-<strong>Alternative 1 (current choice):</strong> Adds a schedule into the schedules list once the person name and calendar date is parsed.<br>
+<p><strong>Aspect:</strong> How <code>schedule</code> executes<br>
+<strong>Alternative 1 (current choice):</strong> Adds a <code>schedule</code> into the <code>schedules list</code> once the person name and calendar date is parsed.<br>
 <strong>Pros:</strong> Easy to implement.<br>
 <strong>Cons:</strong> Vigorous user testing and logging is required to debug corner test cases.<br></p>
 </div>
 <hr>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Data structure to support the schedule command<br>
-<strong>Alternative 1 (current choice):</strong> Creates an empty Set to obtain the schedules from the UniqueScheduleList.<br>
-<strong>Pros:</strong> The original set of schedules is not altered.<br>
-<strong>Cons:</strong> Additional space usage is needed so inefficiency and memory wastage may arise.<br>
-<strong>Alternative 2:</strong> Adding a new attribute in each individual person card to hold the schedules.<br>
-<strong>Pros:</strong> The teacher would be able to identify each student respectively.<br>
-<strong>Cons:</strong> Inefficiency and time consuming because to find a schedule, the algorithm would have to iterate through all person cards to get the schedules.</p>
+<p><strong>Aspect:</strong> Data structure to support the <code>schedule</code> command<br>
+<strong>Alternative 1 (current choice):</strong> Creates an empty <code>Set</code> to obtain the <code>schedules</code> from the <code>UniqueScheduleList</code>.<br>
+<strong>Pros:</strong> The original set of <code>schedules</code> is not altered.<br>
+<strong>Cons:</strong> Able to change the contents of the schedules easily.<br>
+<strong>Alternative 2:</strong> Add a new field in each individual person card to hold their respective <code>schedule</code>.<br>
+<strong>Pros:</strong> The teacher would be able to identify each student respectively, and it makes tracking and debugging easier.<br>
+<strong>Cons:</strong> Inefficiency and time consuming because to find a <code>schedule</code>, the algorithm would have to iterate through all <code>PersonCards</code> to get the list of <code>schedules</code>.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-student-parent-phone-contact-mechanism"><a class="link" href="#add-student-parent-phone-contact-mechanism">4.4. Add Student/Parent Phone Contact mechanism</a></h3>
 <div class="paragraph">
-<p>The student/parent phone contact mechanism is facilitated by making changes
+<p>The <code>student/parent phone contact</code> mechanism is facilitated by making changes
 to the Phone class in the model component. It enables the input
 of the phone contact information of the student and his/her parent.</p>
 </div>
 <div class="paragraph">
-<p>To ensure consistency across the user inputs for add command, users have to input p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)
+<p>To ensure consistency across the user inputs for add command, the user will have to input p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)
 instead of p/ Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER).</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>student/parent phone contact</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MultipleNumberSequenceDiagram.png" alt="MultipleNumberSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.4.1 : Sequence Diagram of Student/Parent Phone Contact Operation</em></p>
 </div>
 <div class="paragraph">
 <p>The following method replaces <code>/</code> with <code>:<code></code></code>, <code>s</code> with <code>S</code>, and <code>p</code> with <code>P</code> in the user input string
@@ -1094,7 +1105,7 @@ correct format of <code>Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER)</code>
 add the phone number of students.</p>
 </div>
 <div class="paragraph">
-<p>The phone numbers must be exactly 8 digits long.</p>
+<p>The phone numbers must be exactly <code>8 digits</code> long.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1102,7 +1113,7 @@ add the phone number of students.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.3.1 : Valid Displayed Person Card Phone Information</em></p>
+<p><em>Figure 4.4.2 : Valid Displayed Person Card Phone Information</em></p>
 </div>
 <div class="paragraph">
 <p>If the string format for <code>displayed person card phone information</code> is valid, the
@@ -1115,10 +1126,10 @@ below the student&#8217;s name in the person card as seen in the figure above.</
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.3.2 : Message to prompt Users to Enter Correct Phone Format</em></p>
+<p><em>Figure 4.4.3 : Message to prompt Users to Enter Correct Phone Format</em></p>
 </div>
 <div class="paragraph">
-<p>If the string format for <code>displayed person card phone information</code> is invalid, an IllegalValueException
+<p>If the string format for <code>displayed person card phone information</code> is invalid, an <code>IllegalValueException</code>
 is thrown. The user will be prompted to follow the accepted format as seen in the figure above.</p>
 </div>
 <div class="listingblock">
@@ -1148,9 +1159,9 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 <hr>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Validity of phone number<br>
-<strong>Alternative 1 (current choice):</strong> Only allow numbers that are exactly 8 digits long.<br>
+<strong>Alternative 1 (current choice):</strong> Only allow numbers that are exactly <code>8 digits</code> long.<br>
 <strong>Pros:</strong> Ensures consistency across all phone numbers.<br>
-<strong>Cons:</strong> Student&#8217;s parents might not have foreign numbers that are not exactly 8 digits long.<br>
+<strong>Cons:</strong> Student&#8217;s parents might not have foreign numbers that are not exactly <code>8 digits</code> long.<br>
 <strong>Alternative 2:</strong> Modify phone validity regex to allow any length of phone numbers.<br>
 <strong>Pros:</strong> Able to have phone numbers that are local or non-local.<br>
 <strong>Cons:</strong> Inconsistent phone lengths displayed, might look very messy.<br></p>
@@ -1158,9 +1169,9 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-unique-color-tag-mechanism"><a class="link" href="#add-unique-color-tag-mechanism">4.5. Add Unique Color Tag mechanism</a></h3>
+<h3 id="unique-color-tag-mechanism"><a class="link" href="#unique-color-tag-mechanism">4.5. Unique Color Tag mechanism</a></h3>
 <div class="paragraph">
-<p>The unique tag mechanism is facilitated by making changes to PersonCard class in the UI component. This feature enables
+<p>The <code>unique color tag</code> mechanism is facilitated by making changes to <code>PersonCard</code> class in the <code>UI</code> component. This feature enables
 the assignment of unique colors to tags.</p>
 </div>
 <div class="paragraph">
@@ -1169,6 +1180,17 @@ the assignment of unique colors to tags.</p>
 <div class="paragraph">
 <p>The following method receives <code>String tagName</code> (description of the tag) and returns the <code>String assignedColor</code>
 associated to the tagName.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>unique color tag</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UniqueTagColorSequenceDiagram.png" alt="UniqueTagColorSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1 : Sequence Diagram of Unique Color Tag Operation</em></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1235,7 +1257,7 @@ the tag description. This can be seen in the picture below.
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.4.1 : Tag color meshes well with white font of tag description</em></p>
+<p><em>Figure 4.5.2 : Tag color meshes well with white font of tag description</em></p>
 </div>
 <div class="paragraph">
 <p>Next, in the code segment below, the <code>red</code>, <code>green</code> and <code>blue</code> components are extracted from <code>color</code>. It is then formatted into a <code>hexadecimal
@@ -1286,8 +1308,8 @@ to the tag background color. This sets the background color of the tag to be tha
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.1. Design Considerations</a></h4>
 <div class="paragraph">
-<p>Aspect: Randomness of the assigned color.<br>
-Alternative 1 (current choice):<br>
+<p>Aspect: How tag colors are assigned.<br>
+Alternative 1 (current choice): Tag colors are assigned randomly.<br>
 Pros: Easy for developers to understand the mechanism of this feature.<br>
 Cons: User has no control over the assigning of tag colors.<br>
 Alternative 2: Allow user to assign the colors to the tags themselves.<br>
@@ -1299,21 +1321,21 @@ Cons: The range of colors will be more limited.<br></p>
 <div class="sect2">
 <h3 id="add-remove-a-remark-mechanism"><a class="link" href="#add-remove-a-remark-mechanism">4.6. Add/Remove a remark mechanism</a></h3>
 <div class="paragraph">
-<p>The remark mechanism is facilitated by making changes to the Remark class in the model component. It enables the user to add or remove a single remark of the student.</p>
+<p>The <code>remark</code> mechanism is facilitated by making changes to the <code>Remark</code> class in the <code>Model</code> component. It enables the user to add or remove a single <code>remark</code> of the student.</p>
 </div>
 <div class="paragraph">
-<p>To avoid confusion and an overly complicated UI, only one <code>remark</code> per person is stored.</p>
+<p>To avoid confusion and an overly complicated <code>UI</code>, only one <code>remark</code> per person is stored.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the <code>remark</code> operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/RemarkSequenceDiagramForLogic.PNG" alt="RemarkSequenceDiagramForLogic" width="350">
+<img src="images/RemarkSequenceDiagramForLogic.PNG" alt="RemarkSequenceDiagramForLogic" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.4.1 : Sequence Diagram of Remark Operation</em></p>
+<p><em>Figure 3.4.1 : Sequence Diagram of <code>Remark</code> Operation</em></p>
 </div>
 <div class="paragraph">
 <p><code>Remark</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
@@ -1334,10 +1356,10 @@ Cons: The range of colors will be more limited.<br></p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ListCommand</span> <span class="directive">extends</span> Command {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">RemarkCommand</span> <span class="directive">extends</span> Command {
     <span class="annotation">@Override</span>
     <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... list logic ...</span>
+        <span class="comment">// ... remark logic ...</span>
     }
 }</code></pre>
 </div>
@@ -1363,7 +1385,7 @@ Cons: The range of colors will be more limited.<br></p>
 </div>
 </div>
 <div class="paragraph">
-<p>When the user adds a new <code>person</code> to the address book, the person&#8217;s <code>remark</code> field will be denoted by <code>(add a remark)</code>. Users are then able to add a single <code>remark</code>.</p>
+<p>When the user adds a new person to the address book, the person&#8217;s <code>remark</code> field will be denoted by <code>(add a remark)</code>. Users are then able to add a single <code>remark</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1372,7 +1394,7 @@ Cons: The range of colors will be more limited.<br></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If user tries to add <code>remark</code> together with adding a new <code>Person</code>, it will display as invalid as the <code>addCommand</code> does not allow the addition of remarks other then through the use of using the <code>Remark</code> command.
+If the user tries to add <code>remark</code> together with adding a new <code>Person</code>, it will be displayed as invalid as the <code>addCommand</code> does not allow the addition of remarks other then through the use of using the <code>Remark</code> command.
 </td>
 </tr>
 </table>
@@ -1384,7 +1406,7 @@ If user tries to add <code>remark</code> together with adding a new <code>Person
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-When a user attempts to <code>add</code>/<code>edit</code> a remark via the <code>add</code>/<code>edit</code> command, he will be prompted by a message stating
+When a user attempts to <code>add</code>/<code>edit</code> a <code>remark</code> via the <code>add</code>/<code>edit</code> command, he will be prompted by a message stating
 that adding of remarks in <code>add</code>/<code>edit</code> command is not allowed.
 </td>
 </tr>
@@ -1397,7 +1419,7 @@ that adding of remarks in <code>add</code>/<code>edit</code> command is not allo
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only one <code>remark</code> is saved at any one time, if user does <code>Remark</code> on the same person, it will be overwritten.
+Only one <code>remark</code> is saved at any one time, if the user does adds a <code>remark</code> on the same person, it will be overwritten.
 </td>
 </tr>
 </table>
@@ -1406,10 +1428,10 @@ Only one <code>remark</code> is saved at any one time, if user does <code>Remark
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
 <strong>Pros:</strong> We will not lose any undone/redone functionality as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.<br>
 <strong>Cons:</strong> Hard for new developers to understand the template pattern.<br>
-<strong>Alternative 2:</strong> Just override <code>execute()</code><br>
+<strong>Alternative 2:</strong> Just override <code>execute()</code>.<br>
 <strong>Pros:</strong> Does not involve the template pattern, easier for new developers to understand.<br>
 <strong>Cons:</strong> Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
 </div>
@@ -1449,7 +1471,7 @@ These coordinates are sorted in ascending order so that the user is able to iden
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">4.7.1. Alternatives Considered</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> What graph to be displayed to show the most effective visual aid<br>
 <strong>Alternative 1 (current choice):</strong> Do a <code>lineChart</code> using XYChart.series.<br>
@@ -1465,21 +1487,21 @@ These coordinates are sorted in ascending order so that the user is able to iden
 <div class="sect2">
 <h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">4.8. FindTags mechanism</a></h3>
 <div class="paragraph">
-<p>The FindTags mechanism is implemented using FindTagsCommand.
+<p>The <code>FindTags</code> mechanism is implemented using FindTagsCommand.
 It supports searching for persons whose tags contains at least all the tags input by the user.</p>
 </div>
 <div class="paragraph">
-<p>When the user uses the FindTags feature, a <code>TagsContainKeywordsPredicate</code> is created.
+<p>When the user uses the <code>FindTags</code> command, a <code>TagsContainKeywordsPredicate</code> is created.
 The <code>TagsContainKeywordsPredicate</code> tests whether each person&#8217;s tags contain all keywords input by the user.
-Under the Model component, <code>TagsContainKeywordsPredicate</code> is used to filter the persons in the addressbook.
+Under the <code>Model</code> component, <code>TagsContainKeywordsPredicate</code> is used to filter the persons in the AddressBook.
 After filtering, <code>PersonListPanel</code> only shows persons whose tags contain all keywords input by the user.</p>
 </div>
 <div class="paragraph">
-<p>This search operation is an AND search. Suppose the user executes <code>findtags friends NUS</code>.<br>
+<p>This search operation is an <code>AND search</code>. Suppose the user executes <code>findtags friends NUS</code>.<br>
 Only persons with at least both <code>friends</code> and <code>NUS</code> will be displayed. Persons with only <code>friends</code> or only <code>NUS</code> will not be displayed.<br></p>
 </div>
 <div class="paragraph">
-<p>The FindTagsCommand is implemented this way:</p>
+<p>The <code>FindTagsCommand</code> is implemented this way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1537,8 +1559,8 @@ This supports the evaluation of the person by the predicate.</p>
 However if there are no persons with all keywords in the tags, the <code>PersonListPanel</code> will just be blank.</p>
 </div>
 <div class="paragraph">
-<p>This is implemented using Predicates because Predicates help move the business logic to a more central place, helping in unit-testing them separately.
-Also, the Predicate can can be reused, improving code manageability.<br>
+<p>This is implemented using <code>Predicates</code> because <code>Predicates</code> help move the business logic to a more central place, helping in unit-testing them separately.
+Also, the <code>Predicate</code> can can be reused, improving code manageability.<br>
 The code with Predicates is also much more readable than using if-else blocks.</p>
 </div>
 <div class="paragraph">
@@ -1546,22 +1568,22 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindtagsSequenceDiagramForLogic.png" alt="FindtagsSequenceDiagramForLogic" width="800">
+<img src="images/FindTagsSequenceDiagramForLogic.png" alt="FindTagsSequenceDiagramForLogic" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.5.1 : Sequence Diagram of FindTags Operation</em></p>
+<p><em>Figure 3.5.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">4.8.1. Alternatives considered.</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.1. Design Considerations.</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Having a separate predicate class to support <code>findtags</code><br>
-<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search<br>
+<p><strong>Aspect:</strong> Have a separate predicate class to support <code>findtags</code><br>
+<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
 <strong>Pros:</strong> Easy for new Computer Science undergraduates to understand. They are likely to be the new incoming developers of our project.<br>
 <strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle. For example, a separate <code>TagsContainsKeywordsPredicate</code> class is needed when the same can be done by inserting it as an inner class in the <code>FindTagsCommand</code> class.<br>
 <strong>Alternative 2:</strong> Create <code>TagsContainsKeywordsPredicate</code> as an inner class in <code>FindTagsCommand</code> class.<br>
 <strong>Pros:</strong> It makes the codebase less complex as there are less classes.<br>
-<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces reusability of the predicate outside of the <code>FindTagsCommand</code><br></p>
+<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces reusability of the <code>Predicate</code> outside of the <code>FindTagsCommand</code><br></p>
 </div>
 </div>
 </div>
@@ -3492,7 +3514,7 @@ Use case ends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-06 03:42:54 +00:00
+Last updated 2017-11-06 06:56:39 +00:00
 </div>
 </div>
 </body>

@@ -116,21 +116,21 @@ This makes it more difficult and less efficient for the user to find the wanted 
 <div class="sect2">
 <h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">FindTags mechanism</a></h3>
 <div class="paragraph">
-<p>The FindTags mechanism is implemented using FindTagsCommand.
+<p>The <code>FindTags</code> mechanism is implemented using FindTagsCommand.
 It supports searching for persons whose tags contains at least all the tags input by the user.</p>
 </div>
 <div class="paragraph">
-<p>When the user uses the FindTags feature, a <code>TagsContainKeywordsPredicate</code> is created.
+<p>When the user uses the <code>FindTags</code> command, a <code>TagsContainKeywordsPredicate</code> is created.
 The <code>TagsContainKeywordsPredicate</code> tests whether each person&#8217;s tags contain all keywords input by the user.
-Under the Model component, <code>TagsContainKeywordsPredicate</code> is used to filter the persons in the addressbook.
+Under the <code>Model</code> component, <code>TagsContainKeywordsPredicate</code> is used to filter the persons in the AddressBook.
 After filtering, <code>PersonListPanel</code> only shows persons whose tags contain all keywords input by the user.</p>
 </div>
 <div class="paragraph">
-<p>This search operation is an AND search. Suppose the user executes <code>findtags friends NUS</code>.<br>
+<p>This search operation is an <code>AND search</code>. Suppose the user executes <code>findtags friends NUS</code>.<br>
 Only persons with at least both <code>friends</code> and <code>NUS</code> will be displayed. Persons with only <code>friends</code> or only <code>NUS</code> will not be displayed.<br></p>
 </div>
 <div class="paragraph">
-<p>The FindTagsCommand is implemented this way:</p>
+<p>The <code>FindTagsCommand</code> is implemented this way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -188,8 +188,8 @@ This supports the evaluation of the person by the predicate.</p>
 However if there are no persons with all keywords in the tags, the <code>PersonListPanel</code> will just be blank.</p>
 </div>
 <div class="paragraph">
-<p>This is implemented using Predicates because Predicates help move the business logic to a more central place, helping in unit-testing them separately.
-Also, the Predicate can can be reused, improving code manageability.<br>
+<p>This is implemented using <code>Predicates</code> because <code>Predicates</code> help move the business logic to a more central place, helping in unit-testing them separately.
+Also, the <code>Predicate</code> can can be reused, improving code manageability.<br>
 The code with Predicates is also much more readable than using if-else blocks.</p>
 </div>
 <div class="paragraph">
@@ -197,22 +197,22 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FindtagsSequenceDiagramForLogic.png" alt="FindtagsSequenceDiagramForLogic" width="800">
+<img src="../images/FindTagsSequenceDiagramForLogic.png" alt="FindTagsSequenceDiagramForLogic" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.5.1 : Sequence Diagram of FindTags Operation</em></p>
+<p><em>Figure 3.5.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">Alternatives considered.</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations.</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Having a separate predicate class to support <code>findtags</code><br>
-<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search<br>
+<p><strong>Aspect:</strong> Have a separate predicate class to support <code>findtags</code><br>
+<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
 <strong>Pros:</strong> Easy for new Computer Science undergraduates to understand. They are likely to be the new incoming developers of our project.<br>
 <strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle. For example, a separate <code>TagsContainsKeywordsPredicate</code> class is needed when the same can be done by inserting it as an inner class in the <code>FindTagsCommand</code> class.<br>
 <strong>Alternative 2:</strong> Create <code>TagsContainsKeywordsPredicate</code> as an inner class in <code>FindTagsCommand</code> class.<br>
 <strong>Pros:</strong> It makes the codebase less complex as there are less classes.<br>
-<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces reusability of the predicate outside of the <code>FindTagsCommand</code><br></p>
+<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces reusability of the <code>Predicate</code> outside of the <code>FindTagsCommand</code><br></p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -233,7 +233,7 @@ The code with Predicates is also much more readable than using if-else blocks.</
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
+<p>Restores cherBook to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code><br>
 Shorthand: <code>u</code></p>
 </div>
@@ -245,7 +245,7 @@ Shorthand: <code>u</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify cherBook&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -517,13 +517,13 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p><em>Figure 3.1.7 : Activity Diagram of UndoRedoStack</em></p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
 <strong>Pros:</strong> We will not lose any undone/redone functionality as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.<br>
 <strong>Cons:</strong> Hard for new developers to understand the template pattern.<br>
-<strong>Alternative 2:</strong> Just override <code>execute()</code><br>
+<strong>Alternative 2:</strong> Just override <code>execute()</code>.<br>
 <strong>Pros:</strong> Does not involve the template pattern, easier for new developers to understand.<br>
 <strong>Cons:</strong> Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
 </div>
@@ -551,10 +551,10 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <hr>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Data structure to support the undo/redo commands<br>
-<strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo<br>
+<strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo.<br>
 <strong>Pros:</strong> Easy to understand for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.<br>
 <strong>Cons:</strong> Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>UndoRedoStack</code>.<br>
-<strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo<br>
+<strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo.<br>
 <strong>Pros:</strong> We do not need to maintain a separate stack, and just reuse what is already in the codebase.<br>
 <strong>Cons:</strong> Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.<br></p>
 </div>
@@ -600,7 +600,7 @@ I also implemented a Ranking system for the most commonly travelled locations an
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-06 03:42:54 +00:00
+Last updated 2017-11-06 06:56:39 +00:00
 </div>
 </div>
 </body>
