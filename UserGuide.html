@@ -75,10 +75,11 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>cherBook</code> is an application specifically designed to help teachers keep up with their hectic schedule adn monitor students' academic progress.
+<p><code>cherBook</code> is an application specifically designed to help teachers keep up with their hectic schedule and monitor students' academic progress.
 Need to do reports on students' academic progress and help students lagging behind?
 No worries, `cherBook&#8217;s data analysis helps you find trends in student&#8217;s academic development and identify students that need extra help.
-Too many consultations to take care of??? Insert problem here.</p>
+For teachers and educators like you who often have countless meetings and consultations every week, we also have you covered.
+`cherBook&#8217;s scheduling feature allows you to keep track of your dates and times easily within seconds.</p>
 </div>
 <div class="paragraph">
 <p><code>cherBook v1.5</code> is available for the Linux, Unix and Windows and Mac OS X operating systems</p>
@@ -910,13 +911,17 @@ Format: <code>exit</code></p>
 </div>
 <div class="sect2">
 <h3 id="student-details-panel"><a class="link" href="#student-details-panel">5.19. Student Details Panel</a></h3>
-
+<div class="paragraph">
+<p>cherBook uses a <code>Student Details Panel</code> to display the selected student details from the <code>Students Panel</code>.
+The details changes automatically where there is a change to the list of students in the <code>Students Panel</code>.
+You can use these details to pick out relevant information you need from your student.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="statistics-panel"><a class="link" href="#statistics-panel">5.20. Statistics Panel</a></h3>
 <div class="paragraph">
 <p>cherBook uses a <code>Statistics Panel</code> to display the relevant statistics for the current list of students in the <code>Students Panel</code>.
-The statistics automatically changes whenever there is a change to the list of students in the <code>Students Panel</code>.
+The statistics changes automatically when there is a change to the list of students in the <code>Students Panel</code>.
 E.g. When you enter the command <code>findtags studentCouncil</code>, the <code>Students Panel</code> will only show students with the <code>studentcouncil</code> tag and <code>Statistics Panel</code> will then show statistics for students with the <code>studentcouncil</code> tag.
 You can use these statistics to pick out trends in your student&#8217;s grades and also monitor how well they are coping with their studies.</p>
 </div>
@@ -1105,7 +1110,7 @@ A high average implies that the class/cohort has performed above expectations.</
 <div class="sect2">
 <h3 id="features-added-in-v1-1"><a class="link" href="#features-added-in-v1-1">9.2. Features added in v1.1</a></h3>
 <div class="paragraph">
-<p>In version v1.1, users will be able to:</p>
+<p>In version v1.1, you are be able to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1113,10 +1118,10 @@ A high average implies that the class/cohort has performed above expectations.</
 <p>Find students by tags using the <code>findtags</code> command</p>
 </li>
 <li>
-<p>Sort Students by name using the <code>sort</code> command</p>
+<p>Add <code>PostalCode</code> attributes to their students</p>
 </li>
 <li>
-<p>Add <code>PostalCode</code> attributes to their students</p>
+<p>Add multiple numbers for each student</p>
 </li>
 </ul>
 </div>
@@ -1124,15 +1129,18 @@ A high average implies that the class/cohort has performed above expectations.</
 <div class="sect2">
 <h3 id="features-added-in-v1-2"><a class="link" href="#features-added-in-v1-2">9.3. Features added in v1.2</a></h3>
 <div class="paragraph">
-<p>In version v1.2, users will be able to:</p>
+<p>In version v1.2, you are be able to:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Add <code>Grades</code> and <code>FormClass</code> attributes to their students</p>
+<p>Add <code>Grades</code>,<code>FormClass</code> and <code>Remarks</code> attributes to their students</p>
 </li>
 <li>
-<p>Add multiple phone numbers for each student</p>
+<p>Differentiate the multiple phone numbers for each student</p>
+</li>
+<li>
+<p>Sort students names in alphabetical order using the <code>sort</code> command</p>
 </li>
 </ul>
 </div>
@@ -1140,12 +1148,18 @@ A high average implies that the class/cohort has performed above expectations.</
 <div class="sect2">
 <h3 id="features-added-in-v1-3"><a class="link" href="#features-added-in-v1-3">9.4. Features added in v1.3</a></h3>
 <div class="paragraph">
-<p>In version v1.3, users will be able to:</p>
+<p>In version v1.3, you are be able to:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Add Remarks to their students</p>
+<p>View graph of your student&#8217;s academics grades</p>
+</li>
+<li>
+<p>View all your student&#8217;s information on the <code>Student Details Panel</code></p>
+</li>
+<li>
+<p>Have optional fields like (email, grades, address, postal code, remarks and tags) when adding a student</p>
 </li>
 </ul>
 </div>
@@ -1153,7 +1167,7 @@ A high average implies that the class/cohort has performed above expectations.</
 <div class="sect2">
 <h3 id="features-added-in-v1-4"><a class="link" href="#features-added-in-v1-4">9.5. Features added in v1.4</a></h3>
 <div class="paragraph">
-<p>In version v1.4, users will be able to:</p>
+<p>In version v1.4, you are be able to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1161,10 +1175,10 @@ A high average implies that the class/cohort has performed above expectations.</
 <p>View statistics of the current list of students from the <code>Statistics Panel</code></p>
 </li>
 <li>
-<p>View the grades of the currently selected student&#8217;s class in the <code>Graph Panel</code></p>
+<p>Use the <code>ScheduleComand</code> to add a schedule into your schedule list</p>
 </li>
 <li>
-<p>Schedule appointments?</p>
+<p>Have automated assignment of different colours to different tags according to suitable RGB values</p>
 </li>
 </ul>
 </div>
@@ -1172,12 +1186,15 @@ A high average implies that the class/cohort has performed above expectations.</
 <div class="sect2">
 <h3 id="features-added-in-v1-5"><a class="link" href="#features-added-in-v1-5">9.6. Features added in v1.5</a></h3>
 <div class="paragraph">
-<p>In version v1.5, users will be able to:</p>
+<p>In version v1.5, you are be able to:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Select between two graphs: Line graph or Bar chart, to see the statistics of the currently selected person&#8217;s class</p>
+<p>Use the <code>TabCommand</code> to display different graph types (Line/Bar Chart) of the selected student&#8217;s academic grades</p>
+</li>
+<li>
+<p>Use the <code>ViewScheduleCommand</code> to view all your schedules in a list sorted by date and time</p>
 </li>
 </ul>
 </div>
@@ -1203,7 +1220,7 @@ A high average implies that the class/cohort has performed above expectations.</
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-07 14:04:08 +00:00
+Last updated 2017-11-08 08:46:08 +00:00
 </div>
 </div>
 </body>
