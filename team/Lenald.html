@@ -240,46 +240,66 @@ Cons: The range of colors will be more limited.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code-code-since-v1-0-code"><a class="link" href="#adding-a-person-code-add-code-code-since-v1-0-code">Adding a person: <code>add</code> <code>Since v1.0</code></a></h3>
+<h3 id="optional-fields-code-add-code-code-since-v1-3-code"><a class="link" href="#optional-fields-code-add-code-code-since-v1-3-code">Optional fields: <code>add</code> <code>Since v1.3</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to cherBook<br>
-Format: <code>add n/NAME p/[student/(STUDENT_NUMBER)] parent/(PARENT_NUMBER) [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
-Shorthand: <code>a n/NAME p/[student/(STUDENT_NUMBER)] parent/(PARENT_NUMBER) [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code></p>
+<p>You can find a list of optional input fields for the add command in the table below.</p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)<br>
-Adding of student or/and parent&#8217;s number must be preceded by the phone prefix <code>p/</code>.<br>
-Tags added must be a single word. e.g. myName instead of my name.<br>
-Remark cannot be add through the add command and has to be done though the remark command.
+<div class="paragraph">
+<p>When you do not enter any of the optional fields, a message will be generated to inform you that the particular field is not recorded.
+The messages are shown in the table below.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/parent/97979797 e/johnd@example.com a/John street, block 123, #01-01 f/12S11 g/123.0 c/203904</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/student/97272030 parent/97979797 f/B12 g/100.0 t/criminal</code></p>
-</li>
-<li>
-<p><code>a n/Jane Doe p/parent/97979791 e/janed@example.com a/Jane street, block 456, #01-01 f/6C g/98</code></p>
-</li>
-<li>
-<p><code>a n/Lily Crowe t/friend e/lilycrowe@example.com a/Newgate Prison p/student/97272231 parent/97979997 f/12A2 g/66 t/criminal</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Optional Field</th>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Example of user&#8217;s input in cherBook&#8217;s command box without the optional field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Student Phone Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 c/600321 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com f/6C g/91 c/600321 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Postal Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 a/Johnny street, block 321, #01-01 f/6C g/91 c/600321 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 c/600321<br></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
@@ -394,46 +414,66 @@ Cons: Harder to understand the mechanism and implement changes to this feature.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code-code-since-v1-0-code-2"><a class="link" href="#adding-a-person-code-add-code-code-since-v1-0-code-2">Adding a person: <code>add</code> <code>Since v1.0</code></a></h3>
+<h3 id="optional-fields-code-add-code-code-since-v1-3-code-2"><a class="link" href="#optional-fields-code-add-code-code-since-v1-3-code-2">Optional fields: <code>add</code> <code>Since v1.3</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to cherBook<br>
-Format: <code>add n/NAME p/[student/(STUDENT_NUMBER)] parent/(PARENT_NUMBER) [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
-Shorthand: <code>a n/NAME p/[student/(STUDENT_NUMBER)] parent/(PARENT_NUMBER) [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code></p>
+<p>You can find a list of optional input fields for the add command in the table below.</p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)<br>
-Adding of student or/and parent&#8217;s number must be preceded by the phone prefix <code>p/</code>.<br>
-Tags added must be a single word. e.g. myName instead of my name.<br>
-Remark cannot be add through the add command and has to be done though the remark command.
+<div class="paragraph">
+<p>When you do not enter any of the optional fields, a message will be generated to inform you that the particular field is not recorded.
+The messages are shown in the table below.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/parent/97979797 e/johnd@example.com a/John street, block 123, #01-01 f/12S11 g/123.0 c/203904</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/student/97272030 parent/97979797 f/B12 g/100.0 t/criminal</code></p>
-</li>
-<li>
-<p><code>a n/Jane Doe p/parent/97979791 e/janed@example.com a/Jane street, block 456, #01-01 f/6C g/98</code></p>
-</li>
-<li>
-<p><code>a n/Lily Crowe t/friend e/lilycrowe@example.com a/Newgate Prison p/student/97272231 parent/97979997 f/12A2 g/66 t/criminal</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Optional Field</th>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Example of user&#8217;s input in cherBook&#8217;s command box without the optional field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Student Phone Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">p/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 c/600321 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com f/6C g/91 c/600321 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Postal Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 a/Johnny street, block 321, #01-01 f/6C g/91 c/600321 t/Smart<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">t/<br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 c/600321<br></p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
@@ -620,7 +660,7 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 07:52:44 +00:00
+Last updated 2017-11-09 08:20:42 +00:00
 </div>
 </div>
 </body>
