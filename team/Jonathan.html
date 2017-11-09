@@ -248,7 +248,7 @@ Only one <code>remark</code> is saved at any one time, if the user does <code>Re
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-added-linechart"><a class="link" href="#enhancement-added-linechart">Enhancement Added: lineChart</a></h3>
+<h3 id="enhancement-added-graphpanel"><a class="link" href="#enhancement-added-graphpanel">Enhancement Added: GraphPanel</a></h3>
 <div class="sect3">
 <h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
 <hr>
@@ -258,23 +258,13 @@ Only one <code>remark</code> is saved at any one time, if the user does <code>Re
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-results-code-linechart-barchart-code-code-since-v1-3-code"><a class="link" href="#displaying-results-code-linechart-barchart-code-code-since-v1-3-code">Displaying results : <code>lineChart/barChart</code> <code>Since v1.3</code></a></h3>
+<h3 id="graph-panel"><a class="link" href="#graph-panel">Graph Panel</a></h3>
 <div class="paragraph">
-<p>Automatically plots a graph of names against grades based on the selected student&#8217;s class.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Selecting another student from a different class would plot a different graph.</p>
-</div>
-</td>
-</tr>
-</table>
+<p>cherBook uses a <code>GraphPanel</code> to plot the grades of all classmates of the selected student on a graph.
+The graphs are automatically sorted from the lowest grade to the highest.
+There are two tabs for you to choose from, line or bar and can be switch by using the <code>tab</code> command.
+The details changes when another student from a different class is selected.
+You can use these graph to better understand the trends of <code>grades</code> in a glance to easily see who are the weaker or stronger students.</p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -295,7 +285,7 @@ Only one <code>remark</code> is saved at any one time, if the user does <code>Re
 </div>
 </div>
 <div class="sect2">
-<h3 id="linechart-mechanism"><a class="link" href="#linechart-mechanism">LineChart Mechanism</a></h3>
+<h3 id="graphpanel-mechanism"><a class="link" href="#graphpanel-mechanism">GraphPanel Mechanism</a></h3>
 <div class="paragraph">
 <p><code>LineChart</code> mechanism is implemented using <code>javaFX</code>. It takes in <code>FilteredPersonList</code> and plots a graph based on those who are in the same <code>formClass</code>.<br>
 Using <code>XYChart.series</code> to store the data of the persons name and grade, a <code>coordinate</code> is created and a <code>line</code> is drawn connecting all the <code>coordinates</code>.<br>
@@ -479,7 +469,7 @@ of health, etc) or boons (receiving more food). Weapons and shelter can be craft
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 08:20:42 +00:00
+Last updated 2017-11-09 10:27:39 +00:00
 </div>
 </div>
 </body>
