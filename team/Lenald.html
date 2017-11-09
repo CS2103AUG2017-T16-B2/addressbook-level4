@@ -301,6 +301,82 @@ be optional inputs for the user.</p>
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="optional-inputs-fields-mechanism"><a class="link" href="#optional-inputs-fields-mechanism">Optional Inputs/Fields mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>optional inputs/fields</code> mechanism is facilitated by making changes to <code>AddCommandParser</code> class in the <code>Logic</code> component.
+This feature enables several input/fields of the student to be optional.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Student&#8217;s phone number, email, address and postal code are optional inputs/fields.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows you how the <code>optional inputs/fields</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/OptionalInputsSequenceDiagram.png" alt="OptionalInputsSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1 : Sequence Diagram of Optional Inputs/Fields Operation</em></p>
+</div>
+<div class="paragraph">
+<p>The optionalInput method will append messages indicating that those optional fields are not recorded if the user chooses not to include those fields.
+The method can be seen in the code section below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public static String optionalInput(String input) {
+        if (!input.contains("a/")) {
+            input = input + " a/ (Address not recorded)";
+        }
+        if (!input.contains("e/")) {
+            input = input + " e/ (Email not recorded)";
+        }
+        if (!input.contains("c/")) {
+            input = input + " c/ (Postal code not recorded)";
+        }
+        return input;
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prefixes of the optional fields - <code>PREFIX_PHONE</code>, <code>PREFIX_EMAIL</code>, <code>PREFIX_ADDRESS</code> and <code>PREFIX_POSTALCODE</code> are removed from
+the code segment below. The ensures that the <code>ParseException</code> will not be thrown if the user chooses not to include the
+optional fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_PHONE, PREFIX_PARENTPHONE, PREFIX_FORMCLASS,
+                PREFIX_GRADES)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Implementation of optional fields/inputs.<br>
+Alternative 1 (current choice): This feature manipulates the input to include the missing optional input prefix, along with a message
+stating that the field is not recorded.<br>
+Pros: Simpler to understand and tweak this feature as it only manipulates the parsed input of the user.<br>
+Cons: Unable to implement UI features that requires the attribute to have a optional property.<br>
+Alternative 2: This feature will implement a optional characteristic in attributes that are optional<br>
+Pros: Optionality aspect of then attributes can be used by other features of cherBook.<br>
+Cons: Harder to understand the mechanism and implement changes to this feature.<br></p>
+</div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
@@ -486,7 +562,7 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Phone numbers <br>
 <strong>Alternative 1 (current choice):</strong> Both the student&#8217;s phone number and their parent&#8217;s phone number is a single string.<br>
@@ -544,7 +620,7 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 06:12:49 +00:00
+Last updated 2017-11-09 07:52:44 +00:00
 </div>
 </div>
 </body>

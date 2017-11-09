@@ -55,13 +55,15 @@
 <li><a href="#schedule-mechanism">4.3. Schedule mechanism</a></li>
 <li><a href="#view-schedule-mechanism">4.4. View Schedule mechanism</a></li>
 <li><a href="#add-student-parent-phone-contact-mechanism">4.5. Add Student/Parent Phone Contact mechanism</a></li>
-<li><a href="#unique-color-tag-mechanism">4.6. Unique Color Tag mechanism</a></li>
-<li><a href="#add-remove-a-remark-mechanism">4.7. Add/Remove a remark mechanism</a></li>
-<li><a href="#linechart-mechanism">4.8. LineChart Mechanism</a></li>
-<li><a href="#tabs-mechanism">4.9. Tabs mechanism</a></li>
-<li><a href="#findtags-mechanism">4.10. FindTags mechanism</a></li>
-<li><a href="#logging">4.11. Logging</a></li>
-<li><a href="#configuration">4.12. Configuration</a></li>
+<li><a href="#optional-inputs-fields-mechanism">4.6. Optional Inputs/Fields mechanism</a></li>
+<li><a href="#unique-color-tag-mechanism">4.7. Unique Color Tag mechanism</a></li>
+<li><a href="#add-remove-a-remark-mechanism">4.8. Add/Remove a remark mechanism</a></li>
+<li><a href="#linechart-mechanism">4.9. LineChart Mechanism</a></li>
+<li><a href="#tabs-mechanism">4.10. Tabs mechanism</a></li>
+<li><a href="#findtags-mechanism">4.11. FindTags mechanism</a></li>
+<li><a href="#statistics-panel-mechanism">4.12. Statistics Panel mechanism</a></li>
+<li><a href="#logging">4.13. Logging</a></li>
+<li><a href="#configuration">4.14. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1205,7 +1207,83 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="sect2">
-<h3 id="unique-color-tag-mechanism"><a class="link" href="#unique-color-tag-mechanism">4.6. Unique Color Tag mechanism</a></h3>
+<h3 id="optional-inputs-fields-mechanism"><a class="link" href="#optional-inputs-fields-mechanism">4.6. Optional Inputs/Fields mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>optional inputs/fields</code> mechanism is facilitated by making changes to <code>AddCommandParser</code> class in the <code>Logic</code> component.
+This feature enables several input/fields of the student to be optional.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Student&#8217;s phone number, email, address and postal code are optional inputs/fields.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows you how the <code>optional inputs/fields</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OptionalInputsSequenceDiagram.png" alt="OptionalInputsSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1 : Sequence Diagram of Optional Inputs/Fields Operation</em></p>
+</div>
+<div class="paragraph">
+<p>The optionalInput method will append messages indicating that those optional fields are not recorded if the user chooses not to include those fields.
+The method can be seen in the code section below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public static String optionalInput(String input) {
+        if (!input.contains("a/")) {
+            input = input + " a/ (Address not recorded)";
+        }
+        if (!input.contains("e/")) {
+            input = input + " e/ (Email not recorded)";
+        }
+        if (!input.contains("c/")) {
+            input = input + " c/ (Postal code not recorded)";
+        }
+        return input;
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prefixes of the optional fields - <code>PREFIX_PHONE</code>, <code>PREFIX_EMAIL</code>, <code>PREFIX_ADDRESS</code> and <code>PREFIX_POSTALCODE</code> are removed from
+the code segment below. The ensures that the <code>ParseException</code> will not be thrown if the user chooses not to include the
+optional fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_PHONE, PREFIX_PARENTPHONE, PREFIX_FORMCLASS,
+                PREFIX_GRADES)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: Implementation of optional fields/inputs.<br>
+Alternative 1 (current choice): This feature manipulates the input to include the missing optional input prefix, along with a message
+stating that the field is not recorded.<br>
+Pros: Simpler to understand and tweak this feature as it only manipulates the parsed input of the user.<br>
+Cons: Unable to implement UI features that requires the attribute to have a optional property.<br>
+Alternative 2: This feature will implement a optional characteristic in attributes that are optional<br>
+Pros: Optionality aspect of then attributes can be used by other features of cherBook.<br>
+Cons: Harder to understand the mechanism and implement changes to this feature.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unique-color-tag-mechanism"><a class="link" href="#unique-color-tag-mechanism">4.7. Unique Color Tag mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>unique color tag</code> mechanism is facilitated by making changes to <code>PersonCard</code> class in the <code>UI</code> component. This feature enables
 the assignment of unique colors to tags.</p>
@@ -1342,7 +1420,7 @@ to the tag background color. This sets the background color of the tag to be tha
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.1. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p>Aspect: How tag colors are assigned.<br>
 Alternative 1 (current choice): Tag colors are assigned randomly.<br>
@@ -1355,7 +1433,7 @@ Cons: The range of colors will be more limited.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-remove-a-remark-mechanism"><a class="link" href="#add-remove-a-remark-mechanism">4.7. Add/Remove a remark mechanism</a></h3>
+<h3 id="add-remove-a-remark-mechanism"><a class="link" href="#add-remove-a-remark-mechanism">4.8. Add/Remove a remark mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>remark</code> mechanism is facilitated by making changes to the <code>Remark</code> class in the <code>Model</code> component. It enables the user to add or remove a single <code>remark</code> of the student.</p>
 </div>
@@ -1461,7 +1539,7 @@ Only one <code>remark</code> is saved at any one time, if the user does <code>Re
 </table>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.1. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
 <strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
@@ -1485,7 +1563,7 @@ Only one <code>remark</code> is saved at any one time, if the user does <code>Re
 </div>
 </div>
 <div class="sect2">
-<h3 id="linechart-mechanism"><a class="link" href="#linechart-mechanism">4.8. LineChart Mechanism</a></h3>
+<h3 id="linechart-mechanism"><a class="link" href="#linechart-mechanism">4.9. LineChart Mechanism</a></h3>
 <div class="paragraph">
 <p><code>LineChart</code> mechanism is implemented using <code>javaFX</code>. It takes in <code>FilteredPersonList</code> and plots a graph based on those who are in the same <code>formClass</code>.<br>
 Using <code>XYChart.series</code> to store the data of the persons name and grade, a <code>coordinate</code> is created and a <code>line</code> is drawn connecting all the <code>coordinates</code>.<br>
@@ -1507,7 +1585,7 @@ These coordinates are sorted in ascending order so that the user is able to iden
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.1. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Graph to be displayed for an effective visual aid<br>
 <strong>Alternative 1 (current choice):</strong> Line chart to display the grades of student.<br>
@@ -1521,7 +1599,7 @@ These coordinates are sorted in ascending order so that the user is able to iden
 </div>
 </div>
 <div class="sect2">
-<h3 id="tabs-mechanism"><a class="link" href="#tabs-mechanism">4.9. Tabs mechanism</a></h3>
+<h3 id="tabs-mechanism"><a class="link" href="#tabs-mechanism">4.10. Tabs mechanism</a></h3>
 <div class="paragraph">
 <p><code>Tabs</code> mechanism is implemented using TabsCommand.
 It swaps tab panel between lineChart and barChart based on the index input by the user.</p>
@@ -1552,7 +1630,7 @@ A invalid index would be displayed if the index provided is out of bounds.
 <p><em>Figure 4.9.1 : Sequence Diagram of <code>Tab</code> Operation</em></p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.1. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.10.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong>  To display different chart types to help visual aid.<br>
 <strong>Alternative 1 (current choice):</strong> Do a TabPane.<br>
@@ -1566,7 +1644,7 @@ A invalid index would be displayed if the index provided is out of bounds.
 </div>
 </div>
 <div class="sect2">
-<h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">4.10. FindTags mechanism</a></h3>
+<h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">4.11. FindTags mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>FindTags</code> mechanism is implemented using FindTagsCommand.
 It supports searching for persons whose tags contains at least all the tags input by the user.</p>
@@ -1655,8 +1733,12 @@ The code with Predicates is also much more readable than using if-else blocks.</
 <div class="paragraph">
 <p><em>Figure 4.10.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
 </div>
+<div class="paragraph">
+<p>After the addressBook&#8217;s <code>filteredPersonsList</code> has been updated, the <code>Model</code> Component posts an <code>AddressBookChangedEvent</code>
+to indicate the model has changed and a <code>FilteredPersonListChangedEvent</code> to update the <code>StatisticsPanel</code> of the UI to reflect the new Statistical values.</p>
+</div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.10.1. Design Considerations.</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.11.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Have a separate predicate class to support <code>findtags</code><br>
 <strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
@@ -1669,7 +1751,104 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.11. Logging</a></h3>
+<h3 id="statistics-panel-mechanism"><a class="link" href="#statistics-panel-mechanism">4.12. Statistics Panel mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>Statistics Panel</code> is implemented using the <code>Statistics</code> class.
+It supports the calculating of statistics for the current list of students in the <code>PersonListPanel</code>.</p>
+</div>
+<div class="paragraph">
+<p>When the user enters any <code>Command</code> that modifies the currentFilteredPersonList or modifies the addressBook data, the <code>Model</code> Component posts
+a <code>FilteredPersonListChangedEvent</code> containing the`filteredPersonsList` to the <code>EventsCenter</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>FilteredPersonListChangedEvent</code> is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>public class FilteredPersonListChangedEvent extends BaseEvent {
+
+    private final ObservableList&lt;ReadOnlyPerson&gt; currentFilteredList;
+
+    public FilteredPersonListChangedEvent(ObservableList&lt;ReadOnlyPerson&gt; currentFilteredList) {
+        this.currentFilteredList = currentFilteredList;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
+
+    public ObservableList&lt;ReadOnlyPerson&gt; getCurrentFilteredPersonList() {
+        return currentFilteredList;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Meanwhile in the <code>StatisticsPanel</code> class, the <code>handleFilteredPersonListChangedEvent</code> event handler which is subscribed to <code>EventsCenter</code> handles the <code>FilteredPersonListChangedEvent</code> event.</p>
+</div>
+<div class="paragraph">
+<p>The <code>handleFilteredPersonListChangedEvent</code> event handler is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>    @FXML
+    @Subscribe
+    private void handleFilteredPersonListChangedEvent(FilteredPersonListChangedEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        statistics.initScore(event.getCurrentFilteredPersonList()); // Update currentList data
+        loadListStatistics();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the <code>handleFilteredPersonListChangedEvent</code> event handler, the <code>Statistics</code> instance in <code>StatisticsPanel</code> has its values updated by the <code>initScore()</code> method.
+This results in the statistical values returned from the <code>Statistics</code> class' methods tp be updated to those of the current <code>filteredPersonList</code> to change when called.</p>
+</div>
+<div class="paragraph">
+<p>The <code>loadListStatistics()</code> of the <code>StatisticsPanel</code> class is then called. This updates and shows the statistic values of the current <code>filteredPersonList</code> on the <code>StatisticsPanel</code> in the User Interface.</p>
+</div>
+<div class="paragraph">
+<p>The <code>loadListStatistics()</code> is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>/**
+     * Updates list Statistics in the Statistics panel
+     */
+    protected void loadListStatistics() {
+        mean.setText(statistics.getMeanString());
+        median.setText(statistics.getMedianString());
+        mode.setText(statistics.getModeString());
+        variance.setText(statistics.getVarianceString());
+        standardDeviation.setText(statistics.getStdDevString());
+        quartile1.setText(statistics.getQuartile1String());
+        quartile3.setText(statistics.getQuartile3String());
+        interquartileRange.setText(statistics.getInterquartileRangeString());
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>Labels</code> (texts) in the User Interface are set to their corresponding values calculated from the <code>Statistics</code> instance&#8217;s getter methods.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.12.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Create a new <code>FilteredPersonListChangedEvent</code> event to handle the change in persons' data in the <code>filteredPersonList</code><br>
+<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
+<strong>Pros:</strong> This adheres to the Single Responsibility Principle (SRP), making the class more robust<br>
+<strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle.<br>
+<strong>Alternative 2:</strong> Build on the existing <code>AddressBookChangedEvent</code> event to handle the change<br>
+<strong>Pros:</strong> It is easier to implement as the <code>AddressBookChangedEvent</code> class already exists.<br>
+          It makes the codebase less complex as there are less classes.<br>
+          There  is less duplication of code with similar functions.<br>
+<strong>Cons:</strong> The data in the <code>AddressBookChangedEvent</code> is a <code>ReadOnlyAddressBook</code> and the <code>ReadOnlyAddressBook</code> interface does not have a <code>getFilteredPersonsList</code> method.
+Hence it is difficult to separate the data of persons in the <code>filteredPersonList</code> and those not in the <code>filteredPersonList</code> for processing<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.13. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1707,7 +1886,7 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.12. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.14. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3595,7 +3774,7 @@ Use case ends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 06:12:49 +00:00
+Last updated 2017-11-09 07:52:44 +00:00
 </div>
 </div>
 </body>

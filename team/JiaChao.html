@@ -24,20 +24,253 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX.
 It is written in Java, and has about 8 kLoC.</p>
 </div>
 <div class="paragraph">
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] {give links to collated code files}</p>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/collated/main/lincredibleJC.md">Functional code</a>] [<a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/collated/test/lincredibleJC.md">Test code</a>]</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="roles-and-responsibilities"><a class="link" href="#roles-and-responsibilities">Roles and Responsibilities</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Role: Team Lead</p>
+</li>
+<li>
+<p>Responsibilities:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In charge of Logic Component</p>
+</li>
+<li>
+<p>Git Expert: Advises the group for git matters.</p>
+</li>
+<li>
+<p>Integration: Versioning of the code, maintaining the code repository, integrating various parts of the software to create a whole.</p>
+</li>
+<li>
+<p>Scheduling: and tracking: Defining, assigning, and tracking project tasks.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="list-of-enhancements-implemented"><a class="link" href="#list-of-enhancements-implemented">List of Enhancements Implemented</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add Command aliases for all commands</p>
+</li>
+<li>
+<p>Add Grades and FormClass attributes to the Student</p>
+</li>
+<li>
+<p>Add FindTags Feature to find students by Tags</p>
+</li>
+<li>
+<p>Add Statistics Panel</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="list-of-enhancement-proposed"><a class="link" href="#list-of-enhancement-proposed">List of Enhancement Proposed</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add Compare command to compare statistics of different student groups</p>
+</li>
+<li>
+<p>Add SendEmail command to allow sending emails from the command box</p>
+</li>
+</ol>
+</div>
+<hr>
 <div class="sect2">
-<h3 id="enhancement-added-findtags"><a class="link" href="#enhancement-added-findtags">Enhancement Added: FindTags</a></h3>
+<h3 id="enhancement-added-add-command-aliases-for-all-commands"><a class="link" href="#enhancement-added-add-command-aliases-for-all-commands">Enhancement Added: Add Command aliases for all commands</a></h3>
 <div class="sect3">
 <h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<div class="paragraph">
+<p>Following the list table of shortcuts below, all commands under the <code>Shorthand</code> column will behave exactly like the full full command in the <code>Command</code> column.</p>
+</div>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-shortcuts"><a class="link" href="#command-shortcuts">Command Shortcuts</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Here is a list of shortcuts you can use in cherBook together with some examples.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">ShortHand</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a n/NAME student/STUDENT_NUMBER parent/PARENT_NUMBER e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]&#8230;&#8203;</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d 3</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f KEYWORD [MORE_KEYWORDS]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">findtags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ft</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ft KEYWORD [MORE_KEYWORDS]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sch</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sch 1 s/[DATE]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s INDEX</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>st</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>st</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remark</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm Index [rm/REMARK]</code><br></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>Being a command line application, there is a need to be able to enter commands quickly and without error.
+Hence, the usage of shorthand commands for the more verbose full commands are needed.
+By adding shorthand commands, it reduces the number of key presses needed for the user to execute commands.
+This also helps reduce the probability of misspelling commands by users who are not touch typists.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
 <div class="sect2">
-<h3 id="locating-persons-by-tags-code-findtags-code-code-since-v1-1-code"><a class="link" href="#locating-persons-by-tags-code-findtags-code-code-since-v1-1-code">Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></a></h3>
+<h3 id="enhancement-added-add-grades-and-formclass-attributes-to-the-student"><a class="link" href="#enhancement-added-add-grades-and-formclass-attributes-to-the-student">Enhancement Added: Add Grades and FormClass attributes to the Student</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>One of the main features cherBook has is calculating statistics for a list of students, and the Grades attribute is needed for it.
+Similarly, with comparing the statistics of different classes as a upcoming feature, the FormClass attribute is also needed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-findtags"><a class="link" href="#enhancement-added-findtags">Enhancement Added: FindTags</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark>
+=== Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></p>
+</div>
 <div class="paragraph">
 <p>Finds persons whose tags contain all of the given keywords.<br>
 Format: <code>findtags KEYWORD [MORE_KEYWORDS]</code><br>
@@ -97,28 +330,27 @@ Returns any person having the tag <code>friends</code></p>
 </li>
 <li>
 <p><code>ft Betsy Tim John</code><br>
-Returns any person having both <code>friends</code> and <code>owesMoney</code> tags</p>
+Returns any person having both <code>friends</code> and <code>owesMoney</code> tags
+<mark>End of Extract</mark></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><mark>End of Extract</mark></p>
-</div>
 <hr>
+</div>
 <div class="sect3">
-<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
 <div class="paragraph">
-<p>As an addressbook application, there is a need for users to be able to quickly and efficiently find their contacts.
+<p>As an address book application, there is a need for users to be able to find their contacts quickly and efficiently .
 Since contacts are also categorised by tags, and there was no way to search by tags, I decided to solve this problem by implementing FindTags.</p>
 </div>
 <div class="paragraph">
 <p>I decided to use AND search and not OR search for FindTags as it narrows down the contact list by their of tags, making it much more efficient to find people with a specific combination of tags.
 In this scenario, using OR search for FindTags would not make sense as OR search increases the number of search results as more search terms are used.
-This makes it more difficult and less efficient for the user to find the wanted person.</p>
+Thus making it more difficult and less efficient for the user to find the wanted person.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
@@ -215,8 +447,12 @@ The code with Predicates is also much more readable than using if-else blocks.</
 <div class="paragraph">
 <p><em>Figure 4.10.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
 </div>
+<div class="paragraph">
+<p>After the addressBook&#8217;s <code>filteredPersonsList</code> has been updated, the <code>Model</code> Component posts an <code>AddressBookChangedEvent</code>
+to indicate the model has changed and a <code>FilteredPersonListChangedEvent</code> to update the <code>StatisticsPanel</code> of the UI to reflect the new Statistical values.</p>
+</div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations.</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Have a separate predicate class to support <code>findtags</code><br>
 <strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
@@ -235,7 +471,7 @@ The code with Predicates is also much more readable than using if-else blocks.</
 <div class="sect2">
 <h3 id="enhancement-added-statistics-panel"><a class="link" href="#enhancement-added-statistics-panel">Enhancement Added: Statistics Panel</a></h3>
 <div class="sect3">
-<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: User Guide]</mark></p>
@@ -243,112 +479,25 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h3>
+<h3 id="statistics-panel"><a class="link" href="#statistics-panel">Statistics Panel</a></h3>
 <div class="paragraph">
-<p>Restores cherBook to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code><br>
-Shorthand: <code>u</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify cherBook&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>d 1</code> (<code>delete 1</code> command)<br>
-<code>l</code> (<code>list</code> comand)<br>
-<code>u</code> ( <code>undo</code> command reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code><br>
-Shorthand: <code>r</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-<li>
-<p><code>d 1</code> (<code>delete 1</code> command)<br>
-<code>u</code> (<code>undo</code> command reverses the <code>delete 1</code> command)<br>
-<code>r</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
+<p>cherBook uses a <code>Statistics Panel</code> to display the relevant statistics for the current list of students in the <code>Students Panel</code>.
+The statistics changes automatically when there is a change to the list of students in the <code>Students Panel</code>.
+E.g. When you enter the command <code>findtags studentCouncil</code>, the <code>Students Panel</code> will only show students with the <code>studentcouncil</code> tag and <code>Statistics Panel</code> will then show statistics for students with the <code>studentcouncil</code> tag.
+You can use these statistics to pick out trends in your student&#8217;s grades and also monitor how well they are coping with their studies.</p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
 <div class="sect3">
-<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
 <div class="paragraph">
-<p>As an application for teachers to easily monitor students' academic performance, the ability to extract and draw insights from the data is very important.
-Hence, I decided to added the statistics panel to show teachers the necessary information needed so that they knows who best to focus their efforts on.</p>
-</div>
-<div class="paragraph">
-<p>In the implementation, I chose for the Statistics Panel to always show the grades, of the list of students currently in the left side.
-This because teachers not only want to know how each student is doing but also how whole classes or groups of students are doing.
-Hence, by always providing statistics for the students in the list currently, the teacher is able to have the big picture view of how the whole school is doing
-and still be able to narrow down the demographic to individual CCA clubs or select groups based on their tags.</p>
+<p>This panel is needed to display the statistics of the students currently in the Students Panel.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
@@ -356,219 +505,99 @@ and still be able to narrow down the demographic to individual CCA clubs or sele
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-mechanism"><a class="link" href="#undo-redo-mechanism">Undo/Redo mechanism</a></h3>
+<h3 id="statistics-panel-mechanism"><a class="link" href="#statistics-panel-mechanism">Statistics Panel mechanism</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
-</div>
+<p>The <code>Statistics Panel</code> is implemented using the <code>Statistics</code> class.
+It supports the calculating of statistics for the current list of students in the <code>PersonListPanel</code>.</p>
 </div>
 <div class="paragraph">
-<p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
+<p>When the user enters any <code>Command</code> that modifies the currentFilteredPersonList or modifies the addressBook data, the <code>Model</code> Component posts
+a <code>FilteredPersonListChangedEvent</code> containing the`filteredPersonsList` to the <code>EventsCenter</code>.</p>
 </div>
 <div class="paragraph">
-<p>Commands that are not undoable are implemented this way:</p>
+<p>The <code>FilteredPersonListChangedEvent</code> is implemented this way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ListCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... list logic ...</span>
+<pre class="CodeRay highlight"><code>public class FilteredPersonListChangedEvent extends BaseEvent {
+
+    private final ObservableList&lt;ReadOnlyPerson&gt; currentFilteredList;
+
+    public FilteredPersonListChangedEvent(ObservableList&lt;ReadOnlyPerson&gt; currentFilteredList) {
+        this.currentFilteredList = currentFilteredList;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
+    }
+
+    public ObservableList&lt;ReadOnlyPerson&gt; getCurrentFilteredPersonList() {
+        return currentFilteredList;
     }
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>With the extra layer, the commands that are undoable are implemented this way:</p>
+<p>Meanwhile in the <code>StatisticsPanel</code> class, the <code>handleFilteredPersonListChangedEvent</code> event handler which is subscribed to <code>EventsCenter</code> handles the <code>FilteredPersonListChangedEvent</code> event.</p>
+</div>
+<div class="paragraph">
+<p>The <code>handleFilteredPersonListChangedEvent</code> event handler is implemented this way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... undo logic ...</span>
-
-        executeUndoableCommand();
-    }
-}
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">DeleteCommand</span> <span class="directive">extends</span> UndoableCommand {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult executeUndoableCommand() {
-        <span class="comment">// ... delete logic ...</span>
-    }
-}</code></pre>
+<pre class="CodeRay highlight"><code>    @FXML
+    @Subscribe
+    private void handleFilteredPersonListChangedEvent(FilteredPersonListChangedEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event));
+        statistics.initScore(event.getCurrentFilteredPersonList()); // Update currentList data
+        loadListStatistics();
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Suppose that the user has just launched the application. The <code>UndoRedoStack</code> will be empty at the beginning.</p>
+<p>In the <code>handleFilteredPersonListChangedEvent</code> event handler, the <code>Statistics</code> instance in <code>StatisticsPanel</code> has its values updated by the <code>initScore()</code> method.
+This results in the statistical values returned from the <code>Statistics</code> class' methods tp be updated to those of the current <code>filteredPersonList</code> to change when called.</p>
 </div>
 <div class="paragraph">
-<p>The user executes a new <code>UndoableCommand</code>, <code>delete 5</code>, to delete the 5th person in the address book. The current state of the address book is saved before the <code>delete 5</code> command executes. The <code>delete 5</code> command will then be pushed onto the <code>undoStack</code> (the current state is saved together with the command).</p>
+<p>The <code>loadListStatistics()</code> of the <code>StatisticsPanel</code> class is then called. This updates and shows the statistic values of the current <code>filteredPersonList</code> on the <code>StatisticsPanel</code> in the User Interface.</p>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>The <code>loadListStatistics()</code> is implemented this way:</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
+<pre class="CodeRay highlight"><code>/**
+     * Updates list Statistics in the Statistics panel
+     */
+    protected void loadListStatistics() {
+        mean.setText(statistics.getMeanString());
+        median.setText(statistics.getMedianString());
+        mode.setText(statistics.getModeString());
+        variance.setText(statistics.getVarianceString());
+        standardDeviation.setText(statistics.getStdDevString());
+        quartile1.setText(statistics.getQuartile1String());
+        quartile3.setText(statistics.getQuartile3String());
+        interquartileRange.setText(statistics.getInterquartileRangeString());
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.1.1 : Stack Diagram of Initial Stack</em></p>
-</div>
-<div class="paragraph">
-<p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.2 : Stack Diagram of Commands Added</em></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not be pushed to the <code>UndoRedoStack</code> at all.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The user now decides that adding the person was a mistake, and decides to undo that action using <code>undo</code>.</p>
-</div>
-<div class="paragraph">
-<p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the address book to the state before the <code>add</code> command executed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.3 : Stack Diagram of Undo Execution</em></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>undoStack</code> is empty, then there are no other commands left to be undone, and an <code>Exception</code> will be thrown when popping the <code>undoStack</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.4 : Sequence Diagram of UndoRedo Feature</em></p>
-</div>
-<div class="paragraph">
-<p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>redoStack</code> is empty, then there are no other commands left to be redone, and an <code>Exception</code> will be thrown when popping the <code>redoStack</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The user now decides to execute a new command, <code>clear</code>. As before, <code>clear</code> will be pushed into the <code>undoStack</code>. This time the <code>redoStack</code> is no longer empty. It will be purged as it no longer make sense to redo the <code>add n/David</code> command (this is the behavior that most modern desktop applications follow).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.5 : Stack Diagram when a new Command, Clear is Executed</em></p>
-</div>
-<div class="paragraph">
-<p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.6 : Stack Diagram when Undoable Command is Executed</em></p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="200">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.7 : Activity Diagram of UndoRedoStack</em></p>
+<p>The <code>Labels</code> (texts) in the User Interface are set to their corresponding values calculated from the <code>Statistics</code> instance&#8217;s getter methods.</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
-<strong>Pros:</strong> We will not lose any undone/redone functionality as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.<br>
-<strong>Cons:</strong> Hard for new developers to understand the template pattern.<br>
-<strong>Alternative 2:</strong> Just override <code>execute()</code>.<br>
-<strong>Pros:</strong> Does not involve the template pattern, easier for new developers to understand.<br>
-<strong>Cons:</strong> Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> How undo &amp; redo executes<br>
-<strong>Alternative 1 (current choice):</strong> Saves the entire address book.<br>
-<strong>Pros:</strong> Easy to implement.<br>
-<strong>Cons:</strong> May have performance issues in terms of memory usage.<br>
-<strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.<br>
-<strong>Pros:</strong> Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).<br>
-<strong>Cons:</strong> We must ensure that the implementation of each individual command are correct.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Type of commands that can be undone/redone<br>
-<strong>Alternative 1 (current choice):</strong> Only include commands that modifies the address book (<code>add</code>, <code>clear</code>, <code>edit</code>).<br>
-<strong>Pros:</strong> We only revert changes that are hard to change back (the view can easily be re-modified as no data are lost).<br>
-<strong>Cons:</strong> User might think that undo also applies when the list is modified (undoing filtering for example), only to realize that it does not do that, after executing <code>undo</code>.<br>
-<strong>Alternative 2:</strong> Include all commands.<br>
-<strong>Pros:</strong> Might be more intuitive for the user.<br>
-<strong>Cons:</strong> User have no way of skipping such commands if he or she just want to reset the state of the address book and not the view.<br>
-<strong>Additional Info:</strong> See our discussion  <a href="https://github.com/se-edu/addressbook-level4/issues/390#issuecomment-298936672">here</a>.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Data structure to support the undo/redo commands<br>
-<strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo.<br>
-<strong>Pros:</strong> Easy to understand for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.<br>
-<strong>Cons:</strong> Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>UndoRedoStack</code>.<br>
-<strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo.<br>
-<strong>Pros:</strong> We do not need to maintain a separate stack, and just reuse what is already in the codebase.<br>
-<strong>Cons:</strong> Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.<br></p>
+<p><strong>Aspect:</strong> Create a new <code>FilteredPersonListChangedEvent</code> event to handle the change in persons' data in the <code>filteredPersonList</code><br>
+<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
+<strong>Pros:</strong> This adheres to the Single Responsibility Principle (SRP), making the class more robust<br>
+<strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle.<br>
+<strong>Alternative 2:</strong> Build on the existing <code>AddressBookChangedEvent</code> event to handle the change<br>
+<strong>Pros:</strong> It is easier to implement as the <code>AddressBookChangedEvent</code> class already exists.<br>
+          It makes the codebase less complex as there are less classes.<br>
+          There  is less duplication of code with similar functions.<br>
+<strong>Cons:</strong> The data in the <code>AddressBookChangedEvent</code> is a <code>ReadOnlyAddressBook</code> and the <code>ReadOnlyAddressBook</code> interface does not have a <code>getFilteredPersonsList</code> method.
+Hence it is difficult to separate the data of persons in the <code>filteredPersonList</code> and those not in the <code>filteredPersonList</code> for processing<br></p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -578,8 +607,50 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div class="sect2">
 <h3 id="enhancement-proposed-add-command-code-compare-code"><a class="link" href="#enhancement-proposed-add-command-code-compare-code">Enhancement Proposed: Add command <code>compare</code></a></h3>
+<div class="sect3">
+<h4 id="external-behavior-5"><a class="link" href="#external-behavior-5">External behavior</a></h4>
 <div class="paragraph">
-<p>{Explain similar to the feature above.}</p>
+<p>Enter the <code>compare</code> command followed by 2 <code>Tags</code> or <code>FormClassNames</code> to compare statistics of different groups with the compare command.
+The Statistics Panel will have a second set of values for the second group of students.</p>
+</div>
+<div class="paragraph">
+<p>To make the difference more noticeable, the difference in the 2 sets of values will be displayed on the right-hand side.
+The difference will be colored red if the difference is negative and green if the difference is positive to to make it more visually appealing.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="justification-5"><a class="link" href="#justification-5">Justification</a></h4>
+<div class="paragraph">
+<p>Teachers often have to compare the grades of students or groups of students to analyse their academic progress.
+As the simple statistics can only tell you so much about your data, there is a need for more powerful data analytics.
+The <code>comapre</code> command gives teachers a more powerful tool to analyse data by allowing them to compare different sets of data .
+The color coded difference values also improve the readability of the statistics so that teachers can get a good idea of the relative performance of two groups of students at a glance.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-add-command-code-sendemail-code"><a class="link" href="#enhancement-proposed-add-command-code-sendemail-code">Enhancement Proposed: Add command <code>SendEmail</code></a></h3>
+<div class="sect3">
+<h4 id="external-behavior-6"><a class="link" href="#external-behavior-6">External behavior</a></h4>
+<div class="paragraph">
+<p>Enter the <code>sendemail</code> command followed by the index of the intended recepient and an external email application with the FROM and TO fields already populated.
+This streamlines the process of teachers sending emails to students and parents and allows them to do it directly from  within cherBook</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="justification-6"><a class="link" href="#justification-6">Justification</a></h4>
+<div class="paragraph">
+<p>It is troublesome for teachers to manually and repeatedly open up their browsers to send emails to students of their parents.
+The <code>sendemail</code> command removes this process and streamlines the process by bringing the teacher straight to the compose email page with the relevant fields already filled, removing the trouble of going through a browser.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-6"><a class="link" href="#implementation-6">Implementation</a></h4>
+
 </div>
 </div>
 <div class="sect2">
@@ -587,10 +658,36 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Set up Travis and Coveralls and updated Badges for the Team Repository ( Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/7">#7</a> )</p>
 </li>
 <li>
-<p>Wrote additional tests to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Populated cherBook with a significant amount (40 student contacts) of realistic data ( Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/73">#73</a> )</p>
+</li>
+<li>
+<p>Cleaned up unnecessary nesting in the ExtendedPersonCard UI element ( Commit <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/98/commits/1a6bc459dc455d4e776e48586856734bb7574eba">1a6bc45</a> in Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/98">#98</a>)</p>
+</li>
+<li>
+<p>Cleaning up of code in the whole repository ( Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/123">#123</a> )</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="helping-out-other-groups"><a class="link" href="#helping-out-other-groups">Helping out other groups</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Found Bugs and gave Suggestions to other groups as acceptance testing.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>CS2103AUG2017-T09-B3 (Issues <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/150">#150</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/151">#151</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/152">#152</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/153">#153</a>)</p>
+</li>
+<li>
+<p>CS2103AUG2017-T11-B1 (Issues <a href="https://github.com/CS2103AUG2017-T11-B1/main/issues/136">#136</a>, <a href="https://github.com/CS2103AUG2017-T11-B1/main/issues/137">#137</a> )</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -612,7 +709,7 @@ I also implemented a Ranking system for the most commonly travelled locations an
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 06:12:49 +00:00
+Last updated 2017-11-09 07:52:44 +00:00
 </div>
 </div>
 </body>
