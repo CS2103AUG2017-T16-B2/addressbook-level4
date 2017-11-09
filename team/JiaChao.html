@@ -66,6 +66,18 @@ Shorthand: <code>ft KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Only one tag can be searched at any one time.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -201,7 +213,7 @@ The code with Predicates is also much more readable than using if-else blocks.</
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.5.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
+<p><em>Figure 4.10.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations.</a></h4>
@@ -406,7 +418,7 @@ and still be able to narrow down the demographic to individual CCA clubs or sele
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1.1 : Stack Diagram of Initial Stack</em></p>
+<p><em>Figure 4.1.1 : Stack Diagram of Initial Stack</em></p>
 </div>
 <div class="paragraph">
 <p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
@@ -417,7 +429,7 @@ and still be able to narrow down the demographic to individual CCA clubs or sele
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1.2 : Stack Diagram of Commands Added</em></p>
+<p><em>Figure 4.1.2 : Stack Diagram of Commands Added</em></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -443,7 +455,7 @@ If a command fails its execution, it will not be pushed to the <code>UndoRedoSta
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1.3 : Stack Diagram of Undo Execution</em></p>
+<p><em>Figure 4.1.3 : Stack Diagram of Undo Execution</em></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -466,7 +478,7 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1.4 : Sequence Diagram of UndoRedo Feature</em></p>
+<p><em>Figure 4.1.4 : Sequence Diagram of UndoRedo Feature</em></p>
 </div>
 <div class="paragraph">
 <p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
@@ -492,7 +504,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1.5 : Stack Diagram when a new Command, Clear is Executed</em></p>
+<p><em>Figure 4.1.5 : Stack Diagram when a new Command, Clear is Executed</em></p>
 </div>
 <div class="paragraph">
 <p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
@@ -503,7 +515,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1.6 : Stack Diagram when Undoable Command is Executed</em></p>
+<p><em>Figure 4.1.6 : Stack Diagram when Undoable Command is Executed</em></p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
@@ -514,7 +526,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1.7 : Activity Diagram of UndoRedoStack</em></p>
+<p><em>Figure 4.1.7 : Activity Diagram of UndoRedoStack</em></p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
@@ -600,7 +612,7 @@ I also implemented a Ranking system for the most commonly travelled locations an
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 08:46:08 +00:00
+Last updated 2017-11-09 04:39:36 +00:00
 </div>
 </div>
 </body>
