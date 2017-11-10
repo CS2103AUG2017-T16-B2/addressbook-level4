@@ -1256,6 +1256,17 @@ The method can be seen in the code section below.</p>
 </div>
 </div>
 <div class="paragraph">
+<p>The method is illustrated in the following picture.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OptionalInputMessage.png" alt="OptionalInputMessage" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.2 : Messages shown when the user does not enter the optional fields</em></p>
+</div>
+<div class="paragraph">
 <p>Prefixes of the optional fields - <code>PREFIX_PHONE</code>, <code>PREFIX_EMAIL</code>, <code>PREFIX_ADDRESS</code> and <code>PREFIX_POSTALCODE</code> are removed from
 the code segment below. The ensures that the <code>ParseException</code> will not be thrown if the user chooses not to include the
 optional fields.</p>
@@ -1292,10 +1303,6 @@ the assignment of unique colors to tags.</p>
 <p>The color generated to be assigned to tags is random and all tags with the same description will be assigned a same color.</p>
 </div>
 <div class="paragraph">
-<p>The following method receives <code>String tagName</code> (description of the tag) and returns the <code>String assignedColor</code>
-associated to the tagName.</p>
-</div>
-<div class="paragraph">
 <p>The following sequence diagram shows how the <code>unique color tag</code> operation works:</p>
 </div>
 <div class="imageblock">
@@ -1305,6 +1312,10 @@ associated to the tagName.</p>
 </div>
 <div class="paragraph">
 <p><em>Figure 4.6.1 : Sequence Diagram of Unique Color Tag Operation</em></p>
+</div>
+<div class="paragraph">
+<p>The method receives <code>String tagName</code> (description of the tag) and returns the <code>String assignedColor</code>
+associated to the tagName. It is shown in the code segment below.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1371,10 +1382,10 @@ the tag description. This can be seen in the picture below.
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.6.2 : Tag color meshes well with white font of tag description</em></p>
+<p><em>Figure 4.6.2 : Compatibility of tag color background with white font of tag description</em></p>
 </div>
 <div class="paragraph">
-<p>Next, in the code segment below, the <code>red</code>, <code>green</code> and <code>blue</code> components are extracted from <code>color</code>. It is then formatted into a <code>hexadecimal
+<p>Next, in the code segment below, the <code>red</code>, <code>green</code> and <code>blue</code> components are extracted from the <code>color</code>. It is then formatted into a <code>hexadecimal
 representation</code> of the color, before being converted to a String data type and assigned to <code>assignedColor</code>.</p>
 </div>
 <div class="admonitionblock note">
@@ -3774,7 +3785,7 @@ Use case ends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 18:00:22 +00:00
+Last updated 2017-11-10 10:05:19 +00:00
 </div>
 </div>
 </body>
