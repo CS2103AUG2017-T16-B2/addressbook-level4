@@ -88,9 +88,9 @@ Sorts the list in alphabetical order.</p>
 </div>
 <div class="paragraph">
 <p>The reason for the implementation of sort allows the user to organise their list of contacts in cherBook more easily.
-Provide an alternative for them to view their contacts instead of the usual way - most recent added contact being added to the last index of the list.
-Makes it easy for users to browse through their list of contacts in situations where <code>find</code> command cannot be used.
-The <code>sort</code> mechanism is implemented using <code>SortCommand</code>. It supports sorting of contacts names in the AddressBook according to alphabetical order from A to Z.</p>
+This provides an alternative for them to view their contacts instead of the usual way - most recent added contact being added to the last index of the list.
+Users will find it easier to browse through their list of contacts in situations where the <code>find</code> command cannot be used.
+The <code>sort</code> mechanism is implemented using <code>SortCommand</code>. It supports the sorting of contact names in cherBook according to alphabetical order from A to Z.</p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -104,7 +104,7 @@ The <code>sort</code> mechanism is implemented using <code>SortCommand</code>. I
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>When the user calls for sorting to be implemented, an empty <code>ArrayList</code> would be created. Under the <code>Model</code> component, <code>UniquePersonList</code> would compare the names of all persons in lower case using a comparator and return an <code>Observable List</code> containing of <code>ReadOnlyPerson</code>.</p>
+<p>When the user calls for sorting to be implemented, an empty <code>ArrayList</code> would be created. Under the <code>Model</code> component, <code>UniquePersonList</code> would compare the names of all persons in lower case using a comparator and return an <code>Observable List</code> containing of <code>ReadOnlyPerson</code>s.</p>
 </div>
 <div class="paragraph">
 <p><code>SortCommand</code> inherits from <code>Command</code>.</p>
@@ -149,12 +149,12 @@ The <code>sort</code> is case insensitive.
 <p>When the user calls ‘sort’ or ‘st’ to <code>sort</code> the contacts, the <code>Model</code> will take in an <code>ArrayList</code> named contactList from the <code>Parser</code>.</p>
 </div>
 <div class="paragraph">
-<p>Upon a successful <code>sort</code>, contacts are displayed in alphabetical order.
-If an empty list is given, the address book will return with message: “No contacts to be sorted”.
-If the list is already in correct order, the address book will return with: “All contacts are sorted alphabetically by name”.</p>
+<p>Upon a successful <code>sort</code>, all contacts in cherBook are displayed in alphabetical order.
+If an empty list is given, the address book will return with the message: “No contacts to be sorted”.
+If the list is already in the correct alphabetical order, the address book will return with the following message: “All contacts are sorted alphabetically by name”.</p>
 </div>
 <div class="paragraph">
-<p>The following will show how the list is being returned to the user:</p>
+<p>The following code will show how the list is being returned to the user:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -171,7 +171,7 @@ If the list is already in correct order, the address book will return with: “A
 </div>
 </div>
 <div class="paragraph">
-<p>It is implemented this way to ensure that all person names in the <code>UniquePersonList</code> is compared to at the lowest level of abstraction.</p>
+<p>The sort mechanism is implemented this way to ensure that all person names in the <code>UniquePersonList</code> is compared to at the lowest level of abstraction.</p>
 </div>
 </div>
 <div class="sect3">
@@ -201,8 +201,8 @@ If the list is already in correct order, the address book will return with: “A
 <strong>Alternative 1 (current choice):</strong> Creates an empty <code>ArrayList</code> to obtain the names from the <code>UniquePersonList</code> before sorting occurs. The <code>sort</code> overwrites the existing list of unsorted contacts. <br>
 <strong>Pros:</strong> The original list of unsorted contacts is not altered.<br>
 <strong>Cons:</strong> Additional space usage and longer time needed to overwrite the original contact list, inefficiency and memory wastage may arise.<br>
-<strong>Alternative 2:</strong> Manually edits the list of contacts in the AddressBook.<br>
-<strong>Pros:</strong> We do not need to maintain a separate list, and just reuse what is already in the codebase, and it saves space.<br>
+<strong>Alternative 2:</strong> Manually edit the list of contacts in cherBook.<br>
+<strong>Pros:</strong> Do not need to maintain a separate list, just reuse what is already in the codebase, and it saves space.<br>
 <strong>Cons:</strong>  Inefficient as compared to using an algorithm. If the user made a mistake, the change cannot be reverted as the original list of contacts is not saved.<br></p>
 </div>
 <div class="paragraph">
@@ -286,6 +286,20 @@ Shorthand: <code>sch INDEX s/[DATE]</code></p>
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Enter a specific date and time. Do not enter vague timings like 45pm, am or pm only without specifying the correct time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -314,7 +328,7 @@ Schedules the 1st person in cherBook on 25 December at 3pm and adds the schedule
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>The <code>schedule</code> mechanism is implemented using <code>ScheduleCommand</code>. It supports scheduling of contacts in the AddressBook for better management of time.
+<p>The <code>schedule</code> mechanism is implemented using <code>ScheduleCommand</code>. It supports the scheduling of contacts in cherBook for better management of time.
 The reason for the implementation of scheduling is to allow cherBook users (teacher/educator) to add schedules they have like consultations or meetings with their students or fellow colleagues.
 With this scheduling command, users are able add their schedules with any person from their list of contacts just by typing the index of the person, the date and time of the schedule.
 The date and time can be entered in natural language, helping users save their time to manually pen down their scheduled dates and timings.</p>
@@ -333,7 +347,7 @@ The date and time can be entered in natural language, helping users save their t
 <div class="paragraph">
 <p>When the user calls for scheduling to be implemented, two arguments would have to be passed into the constructor.
 The two arguments are Name of the person being scheduled and the Calendar date with time.
-Under the <code>Model</code> component, <code>UniqueScheduleList</code> would add the created <code>schedule</code> into the <code>set of schedules</code>.</p>
+Under the <code>Model</code> component, the created <code>schedule</code> is directly added into the address book.</p>
 </div>
 <div class="paragraph">
 <p><code>ScheduleCommand</code> inherits from <code>Command</code>.</p>
@@ -407,6 +421,9 @@ If one or more arguments required to schedule a person is invalid, the AddressBo
 <p><strong>Aspect:</strong> Implementation of <code>ScheduleCommand</code><br>
 <strong>Alternative 1 (current choice):</strong> <code>ScheduleCommand</code> inherits from Command.<br>
 <strong>Pros:</strong> After scheduling the contacts, the schedules remain in the order they are entered into the AddressBook.<br>
+<strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br>
+<strong>Alternative 2:</strong> <code>ScheduleCommand</code> inherits from Command.<br>
+<strong>Pros:</strong> After scheduling the contacts, the schedules remain in the order they are entered into the AddressBook.<br>
 <strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br></p>
 </div>
 <hr>
@@ -414,17 +431,17 @@ If one or more arguments required to schedule a person is invalid, the AddressBo
 <p><strong>Aspect:</strong> How <code>schedule</code> executes<br>
 <strong>Alternative 1 (current choice):</strong> Adds a <code>schedule</code> into the <code>schedules list</code> once the person name and calendar date is parsed.<br>
 <strong>Pros:</strong> Easy to implement.<br>
-<strong>Cons:</strong> Vigorous user testing and logging is required to debug corner test cases.<br></p>
+<strong>Cons:</strong> Vigorous user testing and logging is required to debug corner test cases because there is little control over imported APIs.<br></p>
 </div>
 <hr>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Data structure to support the <code>schedule</code> command<br>
-<strong>Alternative 1 (current choice):</strong> Creates an empty <code>Set</code> to obtain the <code>schedules</code> from the <code>UniqueScheduleList</code>.<br>
-<strong>Pros:</strong> The original set of <code>schedules</code> is not altered.<br>
-<strong>Cons:</strong> Able to change the contents of the schedules easily.<br>
-<strong>Alternative 2:</strong> Add a new field in each individual person card to hold their respective <code>schedule</code>.<br>
-<strong>Pros:</strong> The teacher would be able to identify each student respectively, and it makes tracking and debugging easier.<br>
-<strong>Cons:</strong> Inefficiency and time consuming because to find a <code>schedule</code>, the algorithm would have to iterate through all <code>PersonCards</code> to get the list of <code>schedules</code>.</p>
+<strong>Alternative 1 (current choice):</strong> The list of schedules is altered directly from cherBook and is a standalone class.<br>
+<strong>Pros:</strong> Without association with any other classes, it is easy to implement and debug. Performance of program is fast because the list of schedules is retrieved directly from cherBook. <br>
+<strong>Cons:</strong> The user would not be able to view information of the schedules directly from each contact.<br>
+<strong>Alternative 2:</strong> Add each schedule into the contact as an attribute. <br>
+<strong>Pros:</strong> The user would be able to view the schedules directly from the respective contacts.<br>
+<strong>Cons:</strong> Performance of program would be affected, because to retrieve the whole list of schedules, the algorithm would have to iterate through all the contacts in cherBook.<br></p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -505,7 +522,7 @@ This way, the user is able to maintain their timetable easily.</p>
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
 </div>
 <div class="paragraph">
-<p>When the user calls to view all the schedules, the <code>'Model'</code> component would  call <code>UniqueScheduleList</code> to return with the set of schedules that was previously added into cherBook.</p>
+<p>When the user calls to view all the schedules, the <code>'Model'</code> component would return with the set of schedules that was previously added into cherBook.</p>
 </div>
 <div class="paragraph">
 <p>ViewScheduleCommand is implemented this way:</p>
@@ -524,14 +541,114 @@ This way, the user is able to maintain their timetable easily.</p>
 <p>The schedules would be listed in the <code>ResultDisplay</code> panel, and each schedule would be separated with a new line.</p>
 </div>
 <div class="paragraph">
+<p><strong>Aspect:</strong> Data structure to support the <code>ViewSchedule</code> command<br>
+<strong>Alternative 1 (current choice):</strong> The list of schedules is obtained directly from the <code>Model</code> before it is being displayed on the <code>ResultDisplay</code> panel.<br>
+<strong>Pros:</strong> It is easy to implement and debug. Performance of program is fast because the list of schedules is retrieved directly from the <code>Model</code>. <br>
+<strong>Cons:</strong> The user do not have the alternative to view information of the schedules from each individual contact.<br></p>
+</div>
+<div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-proposed-use-code-postal-code-code-to-display-google-map-of-student-s-address"><a class="link" href="#enhancement-proposed-use-code-postal-code-code-to-display-google-map-of-student-s-address">Enhancement Proposed: Use <code>Postal Code</code> to display Google map of student&#8217;s address</a></h3>
-
+<h3 id="enhancement-added-delete-schedule-command-v1-5"><a class="link" href="#enhancement-added-delete-schedule-command-v1-5">Enhancement Added: Delete Schedule Command [v1.5]</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-5"><a class="link" href="#external-behavior-5">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code"><a class="link" href="#deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code">Deleting a schedule : <code>deleteschedule</code> <code>Since v1.5</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified schedule from cherBook.<br>
+Format: <code>deleteschedule INDEX</code><br>
+Shorthand: <code>dsch INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the schedule at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the schedule shown in schedules list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The INDEX of the first schedule shown from the TOP of the list is 1.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewschedule</code><br>
+<code>deleteschedule 2</code><br>
+Deletes the 2nd schedule in the results of the <code>viewschedule</code> command which returns a list of schedules.</p>
+</li>
+<li>
+<p><code>viewsch</code><br>
+<code>dsch 1</code><br>
+Deletes the 1st schedule in the results of the <code>viewsch</code> command which returns a list of schedules.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-use-code-postal-code-code-to-display-google-map-of-student-s-address"><a class="link" href="#enhancement-proposed-use-code-postal-code-code-to-display-google-map-of-student-s-address">Enhancement Proposed: Use <code>Postal Code</code> to display Google Map of student&#8217;s address</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-6"><a class="link" href="#external-behavior-6">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p>Clicking the <code>Postal Code</code> attribute displayed on the <code>Student Details</code> panel would open a <code>Google Map</code> panel that displays the map of the student&#8217;s address. The map would display the surroundings as well as provide all possible ways to get to the student&#8217;s house.</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-5"><a class="link" href="#justification-5">Justification</a></h4>
+<hr>
+<div class="paragraph">
+<p>Sometimes when students fall sick for a long period of time, they might face huge difficulties in trying to catch up with their studies.
+The reason for this implementation is so that users of cherBook (teachers / educators) have the ability to conduct house visits easily to update their student on the school-related assignments, as well as to show concern for the student.</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p>Link the <code>Postal Code</code> attribute to <code>Google Map</code> panel whereby the map would display the vicinity of the student&#8217;s address. <code>Google</code> API would be called and the <code>Postal Code</code> of the user&#8217;s current and designated location would be parsed before the map and routes are displayed and calculated respectively.</p>
+</div>
+<hr>
+</div>
 </div>
 <div class="sect2">
 <h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
@@ -546,6 +663,9 @@ This way, the user is able to maintain their timetable easily.</p>
 </li>
 <li>
 <p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/114">TabCommand in v1.5</a></p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/124">DeleteScheduleCommand in v1.5</a></p>
 </li>
 </ul>
 </div>
@@ -566,7 +686,7 @@ This way, the user is able to maintain their timetable easily.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-10 10:05:19 +00:00
+Last updated 2017-11-10 13:52:25 +00:00
 </div>
 </div>
 </body>
