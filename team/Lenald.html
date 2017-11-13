@@ -5,23 +5,38 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>Lenald Ng Wai Jun - Project Portfolio</title>
+<title>Lenald Ng Wai Jun - cherBook Project Portfolio</title>
 <link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>Lenald Ng Wai Jun - Project Portfolio</h1>
+<h1>Lenald Ng Wai Jun - cherBook Project Portfolio</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="project-cherbook"><a class="link" href="#project-cherbook">Project: cherBook</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>cherBook is an address book application used by teachers to monitor students' academic progress.
-The user interacts with it using a CLI, and it has a GUI created with JavaFX.
-It is written in Java, and has about 8 kLoC.</p>
+<p>In this project portfolio, the <code>external</code> and <code>internal</code> behavior of the various features of <code>cherBook</code>, along with the <code>motivations</code>
+behind implementing them, will be explained thoroughly.</p>
+</div>
+<div class="paragraph">
+<p><code>cherBook</code> is an address book application that combines <code>statistical analysis</code> with the ease of <code>communication</code>.
+It is targeted at <code>teachers</code> as it offers various features that can improve their lives.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LenPortfolioIntroduction.png" alt="LenPortfolioIntroduction" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1.1 : Illustration of cherBook</em></p>
+</div>
+<div class="paragraph">
+<p>The user can interact with it using a <code>command line interface</code>, and it has a <code>graphical user interface</code> created with <code>JavaFX</code>.
+The application is written in <code>Java</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Code contributed</strong>: [<a href="https://github.com/Lenaldnwj/main/blob/master/collated/main/Lenaldnwj.md">Functional code</a>] [<a href="https://github.com/Lenaldnwj/main/blob/master/collated/test/Lenaldnwj.md">Test code</a>]</p>
@@ -34,15 +49,26 @@ It is written in Java, and has about 8 kLoC.</p>
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="randomised-unique-tag-colors-code-since-v1-4-code"><a class="link" href="#randomised-unique-tag-colors-code-since-v1-4-code">Randomised Unique Tag Colors: <code>Since v1.4</code></a></h4>
 <div class="paragraph">
-<p>For the convenience of the user, the assignment of colors will be automated by cherBook.</p>
+<p>For your convenience, all assignment of colors will be automated by cherBook for you.</p>
 </div>
 <div class="paragraph">
-<p>Whenever the user access the cherBook, a new range of random colors will be assigned to the background of the tags.</p>
+<p>Whenever you access the cherBook, a new range of <code>random</code> colors will be assigned to the background of the tags.</p>
 </div>
 <div class="paragraph">
-<p>Modifications were made to the range of possible colors. It is to ensure that the background color&#8217;s saturation and brightness is at an optimal level
-to match with the white font of the tag description.</p>
+<p>Modifications were made to the range of possible colors. It is to ensure that the background color&#8217;s <code>saturation</code> and <code>lumination</code> is at an optimal level
+to match with the white font of the tag description. Thus, allowing you to be able to see the tag description clearly as seen in the following picture.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TagColor.png" alt="TagColor" width="350">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.3.5.1 : Example of color tags</em></p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -53,7 +79,7 @@ to match with the white font of the tag description.</p>
 <h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
 <div class="paragraph">
 <p>In this day and age, educators have many classes of students to teach. They will have difficulty differentiating between
-tags of different descriptions if they are to tag many of their students.</p>
+tags of different descriptions, if they are to tag many of their students.</p>
 </div>
 <div class="paragraph">
 <p>This feature will assign tags of the same descriptions with a unique color. With the implementation of this feature,
@@ -433,18 +459,17 @@ Cons: Harder to understand the mechanism and more work is required implement cha
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-added-multiple-numbers-parent-and-student-number"><a class="link" href="#enhancement-added-multiple-numbers-parent-and-student-number">Enhancement Added: Multiple Numbers (Parent and Student number)</a></h3>
+<h3 id="removed-enhancement-multiple-numbers-parent-and-student-number"><a class="link" href="#removed-enhancement-multiple-numbers-parent-and-student-number">Removed Enhancement: Multiple Numbers (Parent and Student number)</a></h3>
 <div class="sect3">
 <h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
 <hr>
 <div class="paragraph">
-<p><mark>Start of Extract [from: User Guide]</mark></p>
+<p>Note that this is not an extract from the userguide as this particular section is removed from the userguide.</p>
 </div>
-<div class="sect4">
-<h5 id="optional-fields-for-adding-a-person-code-since-v1-3-code-2"><a class="link" href="#optional-fields-for-adding-a-person-code-since-v1-3-code-2">Optional fields for adding a person <code>Since v1.3</code></a></h5>
-<div class="paragraph">
-<p>You can find a list of optional input fields for the add command in the table below.</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="adding-multiple-numbers-to-a-person-code-add-code-code-since-v1-3-code"><a class="link" href="#adding-multiple-numbers-to-a-person-code-add-code-code-since-v1-3-code">Adding multiple numbers to a person: <code>add</code> <code>Since v1.3</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -453,71 +478,40 @@ Cons: Harder to understand the mechanism and more work is required implement cha
 </td>
 <td class="content">
 <div class="paragraph">
-<p>When you do not enter any of the optional fields,
-a message will be generated to inform you that the particular field is not recorded.</p>
+<p>Adding of student or/and parent&#8217;s number must be preceded by the phone prefix <code>p/</code>.<br>
+Input of <code>student phone number</code> is optional.<br>
+Fields that enclosed in <code>square brackets</code> are optional fields.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 10%;">
-<col style="width: 80%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Optional Field</th>
-<th class="tableblock halign-left valign-top">Prefix</th>
-<th class="tableblock halign-left valign-top">Example of user&#8217;s input in cherBook&#8217;s command box without the optional field</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Student Phone Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">p/<br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 c/600321 t/Smart<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Address</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">a/<br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com f/6C g/91 c/600321 t/Smart<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Postal Code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">c/</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 t/Smart<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Email</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">e/<br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 a/Johnny street, block 321, #01-01 f/6C g/91 c/600321 t/Smart<br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">t/<br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add n/John p/97602611 pp/97272700 e/John@gmail.com a/Johnny street, block 321, #01-01 f/6C g/91 c/600321<br></p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>You can add <code>multiple numbers</code> to a person by adhering to the format below.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: add n/NAME <code>p/student/ STUDENTNUMBER parent/ PARENTNUMBER</code> [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;<br>
+Shorthand: a n/NAME <code>p/student/ STUDENTNUMBER parent/ PARENTNUMBER</code> [e/EMAIL] [a/ADDRESS] f/FORMCLASS g/GRADES [c/POSTALCODE] [t/TAG]&#8230;&#8203;</p>
+</div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>add n/Alex Yeoh <code>p/student/97272031 parent/97979797</code> e/alexyeoh@example.com a/Blk 30 Geylang Street 29, #06-40 f/6E1 g/123.0</p>
+</li>
+</ul>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/OptionalInputsImage.png" alt="OptionalInputsImage" width="800">
+<img src="../images/PhoneDisplay.png" alt="PhoneDisplay" width="400">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 5.1.1.2 : Displays optional inputs for your contacts</em></p>
-</div>
-<div class="paragraph">
-<p><mark>End of Extract</mark></p>
+<p><em>Figure 4.5.2 : Valid Displayed Person Card Phone Information</em></p>
 </div>
 <hr>
-</div>
-</div>
 <div class="sect3">
 <h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
 <div class="paragraph">
@@ -527,9 +521,9 @@ as many educators believe that there needs to be good communication between not 
 </div>
 <div class="paragraph">
 <p>This enhancement is especially useful for those who are in charge of younger students
-in primary school. Educators in institution with younger students
-will find having parents numbers more important than the student&#8217;s number as there tends to be more communication
-between the teachers and the parent of the students.</p>
+in primary school. Educators in institutions with younger students
+will find having parents numbers more important than the student&#8217;s number, as there tends to be more communication
+between the teachers and the parents of the students.</p>
 </div>
 </div>
 <div class="sect3">
@@ -669,20 +663,33 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-proposed-add-command-code-study-buddy-code"><a class="link" href="#enhancement-proposed-add-command-code-study-buddy-code">Enhancement Proposed: Add command <code>Study Buddy</code></a></h3>
-<div class="paragraph">
-<p>{Explain similar to the feature above.}</p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Included ParentPhone attribute (Pull request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/116">#116</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Included icons in PersonListCard (Pull request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/116">#116</a>)</p>
+</li>
+<li>
+<p>Icon text descriptors in ExtendedPersonCard on startup of cherBook (Pull request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/121">#121</a>)</p>
+</li>
+<li>
+<p>Improved sample data (Pull requests <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/79">#79</a>, <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/120">#120</a>)</p>
+</li>
+<li>
+<p>Improved test quality of several features (Pull requests <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/88">#88</a>
+, <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/113">#113</a>, <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/121">#121</a>)</p>
+</li>
+<li>
+<p>Removed unused codes to improve coveralls (Pull request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/129">#129</a>)</p>
+</li>
+<li>
+<p>Updated AboutUs section (Pull request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/25">#25</a>)</p>
+</li>
+<li>
+<p>Created Glossary section in DeveloperGuide (Pull request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/16">#16</a>)</p>
 </li>
 </ul>
 </div>
@@ -690,17 +697,17 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-nus-interactive-food-map"><a class="link" href="#project-nus-interactive-food-map">Project: NUS Interactive Food Map</a></h2>
+<h2 id="other-projects-nus-interactive-food-map"><a class="link" href="#other-projects-nus-interactive-food-map">Other Projects: NUS Interactive Food Map</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>It is an interactive food map of the NUS campus that shows information of major food places in the nus map.</p>
+<p>It is an interactive food <a href="https://github.com/Lenaldnwj/Orbital-NUS-Interactive-Food-Map">map</a> of the NUS campus that shows information of major food places in the NUS map.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 08:16:33 +00:00
+Last updated 2017-11-13 10:22:22 +00:00
 </div>
 </div>
 </body>
