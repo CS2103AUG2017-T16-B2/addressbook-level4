@@ -22,7 +22,7 @@
 </div>
 </div>
 <div id="toc" class="toc">
-<div id="toctitle"></div>
+<div id="toctitle">Table of contents</div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
@@ -50,42 +50,48 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></li>
-<li><a href="#sort-mechanism">4.2. Sort mechanism</a></li>
-<li><a href="#schedule-mechanism">4.3. Schedule mechanism</a></li>
-<li><a href="#view-schedule-mechanism">4.4. View Schedule mechanism</a></li>
-<li><a href="#add-student-parent-phone-contact-mechanism">4.5. Add Student/Parent Phone Contact mechanism</a></li>
-<li><a href="#optional-inputs-fields-mechanism">4.6. Optional Inputs/Fields mechanism</a></li>
-<li><a href="#unique-color-tag-mechanism">4.7. Unique Color Tag mechanism</a></li>
-<li><a href="#add-remove-a-remark-mechanism">4.8. Add/Remove a remark mechanism</a></li>
-<li><a href="#graphpanel-mechanism">4.9. GraphPanel Mechanism</a></li>
-<li><a href="#tabs-mechanism">4.10. Tabs mechanism</a></li>
-<li><a href="#findtags-mechanism">4.11. FindTags mechanism</a></li>
+<li><a href="#command-alias-mechanism">4.1. Command Alias mechanism</a></li>
+<li><a href="#optional-inputs-fields-mechanism">4.2. Optional Inputs/Fields mechanism</a></li>
+<li><a href="#remark-mechanism">4.3. Remark mechanism</a></li>
+<li><a href="#findtags-mechanism">4.4. FindTags mechanism</a></li>
+<li><a href="#undo-redo-mechanism">4.5. Undo/Redo mechanism</a></li>
+<li><a href="#sort-mechanism">4.6. Sort mechanism</a></li>
+<li><a href="#add-schedule-mechanism">4.7. Add Schedule mechanism</a></li>
+<li><a href="#view-schedule-mechanism">4.8. View Schedule mechanism</a></li>
+<li><a href="#home-page-mechanism">4.9. Home Page mechanism</a></li>
+<li><a href="#graphpanel-mechanism">4.10. GraphPanel Mechanism</a></li>
+<li><a href="#tabs-mechanism">4.11. Tabs mechanism</a></li>
 <li><a href="#statistics-panel-mechanism">4.12. Statistics Panel mechanism</a></li>
-<li><a href="#logging">4.13. Logging</a></li>
-<li><a href="#configuration">4.14. Configuration</a></li>
+<li><a href="#unique-color-tag-mechanism">4.13. Unique Color Tag mechanism</a></li>
+<li><a href="#logging">4.14. Logging</a></li>
+<li><a href="#configuration">4.15. Configuration</a></li>
 </ul>
 </li>
-<li><a href="#documentation">5. Documentation</a>
+<li><a href="#unused-removed-features">5. Unused/Removed Features</a>
 <ul class="sectlevel2">
-<li><a href="#editing-documentation">5.1. Editing Documentation</a></li>
-<li><a href="#publishing-documentation">5.2. Publishing Documentation</a></li>
-<li><a href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></li>
+<li><a href="#add-student-parent-phone-contact-mechanism-a-href-https-github-com-cs2103aug2017-t16-b2-main-blob-master-collated-unused-lenaldnwj-unused-md-functional-code-a">5.1. Add Student/Parent Phone Contact mechanism [<a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/collated/unused/Lenaldnwj-unused.md">Functional code</a>]</a></li>
 </ul>
 </li>
-<li><a href="#testing">6. Testing</a>
+<li><a href="#documentation">6. Documentation</a>
 <ul class="sectlevel2">
-<li><a href="#running-tests">6.1. Running Tests</a></li>
-<li><a href="#types-of-tests">6.2. Types of tests</a></li>
-<li><a href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></li>
+<li><a href="#editing-documentation">6.1. Editing Documentation</a></li>
+<li><a href="#publishing-documentation">6.2. Publishing Documentation</a></li>
+<li><a href="#converting-documentation-to-pdf-format">6.3. Converting Documentation to PDF format</a></li>
 </ul>
 </li>
-<li><a href="#dev-ops">7. Dev Ops</a>
+<li><a href="#testing">7. Testing</a>
 <ul class="sectlevel2">
-<li><a href="#build-automation">7.1. Build Automation</a></li>
-<li><a href="#continuous-integration">7.2. Continuous Integration</a></li>
-<li><a href="#making-a-release">7.3. Making a Release</a></li>
-<li><a href="#managing-dependencies">7.4. Managing Dependencies</a></li>
+<li><a href="#running-tests">7.1. Running Tests</a></li>
+<li><a href="#types-of-tests">7.2. Types of tests</a></li>
+<li><a href="#troubleshooting-testing">7.3. Troubleshooting Testing</a></li>
+</ul>
+</li>
+<li><a href="#dev-ops">8. Dev Ops</a>
+<ul class="sectlevel2">
+<li><a href="#build-automation">8.1. Build Automation</a></li>
+<li><a href="#continuous-integration">8.2. Continuous Integration</a></li>
+<li><a href="#making-a-release">8.3. Making a Release</a></li>
+<li><a href="#managing-dependencies">8.4. Managing Dependencies</a></li>
 </ul>
 </li>
 <li><a href="#suggested-programming-tasks-to-get-started">Appendix A: Suggested Programming Tasks to Get Started</a>
@@ -119,7 +125,7 @@ Finally, if ever the need arises, student&#8217;s parent contact details can be 
 <div class="paragraph">
 <p>This developer guide  provides future contributors and maintainers of cherBook with the necessary information to understand
 the cherBook source code and guidelines for contributing to the repository.
-Such information include cherBook&#8217;s software architecture, Components and their APIs, Documentation and contributing guidelines.</p>
+Such information include cherBook&#8217;s software architecture, major components, APIs, Documentation and contributing guidelines.</p>
 </div>
 </div>
 </div>
@@ -232,7 +238,7 @@ This will generate all resources required by the application and tests.</p>
 <div class="sect3">
 <h4 id="configuring-the-coding-style"><a class="link" href="#configuring-the-coding-style">2.4.1. Configuring the coding style</a></h4>
 <div class="paragraph">
-<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.md">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
+<p>This project follows <a href="https://oss-generic.github.io/process/codingStandards/CodingStandard-Java.html">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -311,9 +317,8 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section helps you illustrates and identifies the architecture used to design and implement cherBook.
-This section contains an overall view of the system architecture, details, reasons and mechanisms behind major system components,
-their attributes and interactions between these components.</p>
+<p>This section explains to you the design of the app, its architecture and components.
+It also contains the details, reasons and mechanisms behind major system components and the interactions between these components.</p>
 </div>
 <div class="sect2">
 <h3 id="architecture"><a class="link" href="#architecture">3.1. Architecture</a></h3>
@@ -407,7 +412,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 2.1.2 : Class Diagram of the Logic Component</em></p>
+<p><em>Figure 3.1.2 : Class Diagram of the Logic Component</em></p>
 </div>
 <h4 id="events-driven-nature-of-the-design" class="discrete">Events-Driven nature of the design</h4>
 <div class="paragraph">
@@ -464,7 +469,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <h3 id="ui-component"><a class="link" href="#ui-component">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiComponentClassDiagram.png" alt="UiComponentClassDiagram" width="800">
+<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -543,7 +548,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.3.1 : Interactions Inside the Logic Component for the <code>delete 1</code> Command</em></p>
+<p><em>Figure 3.3.3 : Interactions Inside the Logic Component for the <code>delete 1</code> Command</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -622,601 +627,70 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 The relevant diagrams and code examples will be used to aid the understanding of the features' implementation.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-mechanism"><a class="link" href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></h3>
+<h3 id="command-alias-mechanism"><a class="link" href="#command-alias-mechanism">4.1. Command Alias mechanism</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
-</div>
+<p>The Command Alias mechanism is facilitated by the <code>COMMAND_ALIAS</code> in each <code>Command</code> class and the <code>parseCommand()</code> method in <code>AddressBookParser</code>.
+The <code>AddressBookParser</code> is responsible for analyzing command words while each command&#8217;s <code>COMMAND_ALIAS</code> stores the command alias to be accepted by the parser.</p>
 </div>
 <div class="paragraph">
-<p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
-</div>
-<div class="paragraph">
-<p>Commands that are not undoable are implemented this way:</p>
+<p>The aliased added to each command class is implemented like this e.g. <code>FindCommand</code> :</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ListCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... list logic ...</span>
-    }
+<pre class="CodeRay highlight"><code>public class FindCommand extends Command {
+    public static final String COMMAND_WORD = "find";
+    public static final String COMMAND_ALIAS = "f";
+    //...... other logic ......
 }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>With the extra layer, the commands that are undoable are implemented this way:</p>
+<p>Just like how we store each individual command word constant <code>COMMAND_WORD</code> inside each <code>Command</code> class e.g. <code>FindCommand.COMMAND_WORD</code>, <code>DeleteCommand.COMMAND_WORD</code> , a new constant was added for each command alias e.g. <code>FindCommand.COMMAND_ALIAS</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>parseCommand()</code> in <code>AddressBookParser</code> is implemented like this:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... undo logic ...</span>
+<pre class="CodeRay highlight"><code> public Command parseCommand(String userInput) throws ParseException {
+        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+        if (!matcher.matches()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+        }
 
-        executeUndoableCommand();
-    }
-}
+        final String commandWord = matcher.group("commandWord");
+        final String arguments = matcher.group("arguments");
+        switch (commandWord) {
 
-<span class="directive">public</span> <span class="type">class</span> <span class="class">DeleteCommand</span> <span class="directive">extends</span> UndoableCommand {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult executeUndoableCommand() {
-        <span class="comment">// ... delete logic ...</span>
-    }
-}</code></pre>
+        case AddCommand.COMMAND_WORD://Fallthrough
+        case AddCommand.COMMAND_ALIAS:
+            return new AddCommandParser().parse(arguments);
+        // ...... more conditions ......
+        default:
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+        }
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Suppose that the user has just launched the application. The <code>UndoRedoStack</code> will be empty at the beginning.</p>
-</div>
-<div class="paragraph">
-<p>The user executes a new <code>UndoableCommand</code>, <code>delete 5</code>, to delete the 5th person in the address book. The current state of the address book is saved before the <code>delete 5</code> command executes. The <code>delete 5</code> command will then be pushed onto the <code>undoStack</code> (the current state is saved together with the command).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.1 : Stack Diagram of Initial Stack</em></p>
-</div>
-<div class="paragraph">
-<p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.2 : Stack Diagram of Commands Added</em></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not be pushed to the <code>UndoRedoStack</code> at all.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The user now decides that adding the person was a mistake, and decides to undo that action using <code>undo</code>.</p>
-</div>
-<div class="paragraph">
-<p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the address book to the state before the <code>add</code> command executed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.3 : Stack Diagram of Undo Execution</em></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>undoStack</code> is empty, then there are no other commands left to be undone, and an <code>Exception</code> will be thrown when popping the <code>undoStack</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.4 : Sequence Diagram of UndoRedo Feature</em></p>
-</div>
-<div class="paragraph">
-<p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>redoStack</code> is empty, then there are no other commands left to be redone, and an <code>Exception</code> will be thrown when popping the <code>redoStack</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The user now decides to execute a new command, <code>clear</code>. As before, <code>clear</code> will be pushed into the <code>undoStack</code>. This time the <code>redoStack</code> is no longer empty. It will be purged as it no longer make sense to redo the <code>add n/David</code> command (this is the behavior that most modern desktop applications follow).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.5 : Stack Diagram when a new Command, Clear is Executed</em></p>
-</div>
-<div class="paragraph">
-<p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.6 : Stack Diagram when Undoable Command is Executed</em></p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="200">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.1.7 : Activity Diagram of UndoRedoStack</em></p>
+<p>When a command alias is detected in the switch statement, it will result in the return statement below it, causing it to behave similarly to its corresponding command word.
+When a command word is detected, it will fall through and executes the command as per normal.</p>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.1. Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
-<strong>Pros:</strong> We will not lose any undone/redone functionality as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.<br>
-<strong>Cons:</strong> Hard for new developers to understand the template pattern.<br>
-<strong>Alternative 2:</strong> Just override <code>execute()</code>.<br>
-<strong>Pros:</strong> Does not involve the template pattern, easier for new developers to understand.<br>
-<strong>Cons:</strong> Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> How undo &amp; redo executes<br>
-<strong>Alternative 1 (current choice):</strong> Saves the entire address book.<br>
-<strong>Pros:</strong> Easy to implement.<br>
-<strong>Cons:</strong> May have performance issues in terms of memory usage.<br>
-<strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.<br>
-<strong>Pros:</strong> Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).<br>
-<strong>Cons:</strong> We must ensure that the implementation of each individual command are correct.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Type of commands that can be undone/redone<br>
-<strong>Alternative 1 (current choice):</strong> Only include commands that modifies the address book (<code>add</code>, <code>clear</code>, <code>edit</code>).<br>
-<strong>Pros:</strong> We only revert changes that are hard to change back (the view can easily be re-modified as no data are lost).<br>
-<strong>Cons:</strong> User might think that undo also applies when the list is modified (undoing filtering for example), only to realize that it does not do that, after executing <code>undo</code>.<br>
-<strong>Alternative 2:</strong> Include all commands.<br>
-<strong>Pros:</strong> Might be more intuitive for the user.<br>
-<strong>Cons:</strong> User have no way of skipping such commands if he or she just want to reset the state of the address book and not the view.<br>
-<strong>Additional Info:</strong> See our discussion  <a href="https://github.com/se-edu/addressbook-level4/issues/390#issuecomment-298936672">here</a>.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Data structure to support the undo/redo commands<br>
-<strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo.<br>
-<strong>Pros:</strong> Easy to understand for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.<br>
-<strong>Cons:</strong> Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>UndoRedoStack</code>.<br>
-<strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo.<br>
-<strong>Pros:</strong> We do not need to maintain a separate stack, and just reuse what is already in the codebase.<br>
-<strong>Cons:</strong> Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.<br></p>
+<p><strong>Aspect:</strong> Where to add the command Aliases<br>
+<strong>Alternative 1 (current choice):</strong> Add the aliases in each <code>Command</code> Class<br>
+<strong>Pros:</strong> More cohesive command classes.<br>
+<strong>Cons:</strong> None.<br>
+<strong>Alternative 2:</strong> Add the aliases in the AddressBookParser.parseCommand(String) method.<br>
+<strong>Pros:</strong> Easier to read code in the AddressBookParser .<br>
+<strong>Cons:</strong> Use of magic numbers/strings means that the code is harder to trace and debug.<br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-mechanism"><a class="link" href="#sort-mechanism">4.2. Sort mechanism</a></h3>
-<div class="paragraph">
-<p>The reason for the implementation of sort allows the user to organise their list of contacts in cherBook more easily.
-This provides an alternative for them to view their contacts instead of the usual way - most recent added contact being added to the last index of the list.
-Users will find it easier to browse through their list of contacts in situations where the <code>find</code> command cannot be used.
-The <code>sort</code> mechanism is implemented using <code>SortCommand</code>. It supports the sorting of contact names in cherBook according to alphabetical order from A to Z.</p>
-</div>
-<div class="paragraph">
-<p>When the user calls for sorting to be implemented, an empty <code>ArrayList</code> would be created. Under the <code>Model</code> component, <code>UniquePersonList</code> would compare the names of all persons in lower case using a comparator and return an <code>Observable List</code> containing of <code>ReadOnlyPerson</code>s.</p>
-</div>
-<div class="paragraph">
-<p><code>SortCommand</code> inherits from <code>Command</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>SortCommand</code> is implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SortCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... sort logic ...</span>
-    }
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The <code>sort</code> is case insensitive.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>sort</code> operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/SortSequenceDiagram.png" alt="SortSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.2.1 : Sequence Diagram of Sort Operation</em></p>
-</div>
-<div class="paragraph">
-<p>When the user calls ‘sort’ or ‘st’ to <code>sort</code> the contacts, the <code>Model</code> will take in an <code>ArrayList</code> named contactList from the <code>Parser</code>.</p>
-</div>
-<div class="paragraph">
-<p>Upon a successful <code>sort</code>, all contacts in cherBook are displayed in alphabetical order.
-If an empty list is given, the address book will return with the message: “No contacts to be sorted”.
-If the list is already in the correct alphabetical order, the address book will return with the following message: “All contacts are sorted alphabetically by name”.</p>
-</div>
-<div class="paragraph">
-<p>The following code will show how the list is being returned to the user:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> ObservableList&lt;ReadOnlyPerson&gt; asObservableListSortedByName() {
-    internalList.sort(<span class="keyword">new</span> <span class="predefined-type">Comparator</span>&lt;Person&gt;() {
-        <span class="annotation">@Override</span>
-        <span class="directive">public</span> <span class="type">int</span> compare(Person o1, Person o2) {
-           <span class="keyword">return</span> ((o1.getName().toString().toLowerCase()).compareTo(o2.getName().toString().toLowerCase()));
-        }
-     });
-     <span class="keyword">return</span> FXCollections.unmodifiableObservableList(mappedList);
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The sort mechanism is implemented this way to ensure that all person names in the <code>UniquePersonList</code> is compared to at the lowest level of abstraction.</p>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.1. Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>SortCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> <code>SortCommand</code> inherits from Command.<br>
-<strong>Pros:</strong> After sorting his/her contacts, it remains sorted and the original list of unsorted contacts is replaced by this list.<br>
-<strong>Cons:</strong> The user is unable to save the list of contacts in the original order(unsorted format).<br>
-<strong>Alternative 2:</strong> Implement undo/redo function for SortCommand.<br>
-<strong>Pros:</strong> When undo is called, the list will return back to the most recent unsorted list. When redo is called, the list will return back to the sorted list of contacts.<br>
-<strong>Cons:</strong> The user is able to alter the list easily and may get confused whether is the current list the most recent sorted list.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> How sort executes<br>
-<strong>Alternative 1 (current choice):</strong> Uses the <code>comparator</code> in <code>Java Collections</code> to sort the arrays in alphabetical order.<br>
-<strong>Pros:</strong> Easy to implement.<br>
-<strong>Cons:</strong> Since method is inherited, it is difficult to debug and the only way is via the usage of vigorous user testing and logging.<br>
-<strong>Alternative 2:</strong> Write a <code>sort</code> algorithm.<br>
-<strong>Pros:</strong> Case sensitivity can be accounted for and debugging is made simpler.<br>
-<strong>Cons:</strong> More error-proned as algorithm&#8217;s logic must be checked constantly to ensure that it accounts for all cases.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Data structure to support the <code>sort</code> command<br>
-<strong>Alternative 1 (current choice):</strong> Creates an empty <code>ArrayList</code> to obtain the names from the <code>UniquePersonList</code> before sorting occurs. The <code>sort</code> overwrites the existing list of unsorted contacts. <br>
-<strong>Pros:</strong> The original list of unsorted contacts is not altered.<br>
-<strong>Cons:</strong> Additional space usage and longer time needed to overwrite the original contact list, inefficiency and memory wastage may arise.<br>
-<strong>Alternative 2:</strong> Manually edit the list of contacts in cherBook.<br>
-<strong>Pros:</strong> Do not need to maintain a separate list, just reuse what is already in the codebase, and it saves space.<br>
-<strong>Cons:</strong>  Inefficient as compared to using an algorithm. If the user made a mistake, the change cannot be reverted as the original list of contacts is not saved.<br></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="schedule-mechanism"><a class="link" href="#schedule-mechanism">4.3. Schedule mechanism</a></h3>
-<div class="paragraph">
-<p>The <code>schedule</code> mechanism is implemented using <code>ScheduleCommand</code>. It supports the scheduling of contacts in cherBook for better management of time.
-The reason for the implementation of scheduling is to allow cherBook users (teacher/educator) to add schedules they have like consultations or meetings with their students or fellow colleagues.
-With this scheduling command, users are able add their schedules with any person from their list of contacts just by typing the index of the person, the date and time of the schedule.
-The date and time can be entered in natural language, helping users save their time to manually pen down their scheduled dates and timings.</p>
-</div>
-<div class="paragraph">
-<p>When the user calls for scheduling to be implemented, two arguments would have to be passed into the constructor.
-The two arguments are Name of the person being scheduled and the Calendar date with time.
-Under the <code>Model</code> component, the created <code>schedule</code> is directly added into the address book.</p>
-</div>
-<div class="paragraph">
-<p><code>ScheduleCommand</code> inherits from <code>Command</code>.</p>
-</div>
-<div class="paragraph">
-<p>ScheduleCommand is implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ScheduleCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... schedule logic ...</span>
-    }
-}</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Adding of <code>schedules</code> into the AddressBook can be done in natural language.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>schedule</code> operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ScheduleSequenceDiagram.png" alt="ScheduleSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.3.1 : Sequence Diagram of Schedule Operation</em></p>
-</div>
-<div class="paragraph">
-<p>When the user calls ‘schedule’ or ‘sch’ to schedule the contacts in cherBook, the Model will receive a schedule from the Parser.</p>
-</div>
-<div class="paragraph">
-<p>Upon successful scheduling, contacts are added into the <code>set of schedules</code>.
-If one or more arguments required to schedule a person is missing, the AddressBook will return with error messages corresponding to the missing arguments.
-If one or more arguments required to schedule a person is invalid, the AddressBook will return with error messages corresponding to the invalid arguments.</p>
-</div>
-<div class="paragraph">
-<p>The following will show how the <code>schedule</code> is added into the AddressBook:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">/**
-     * Adds a schedule for a student's consultation
-     */</span>
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> <span class="type">void</span> addSchedule(Schedule schedule) {
-        addressBook.addSchedule(schedule);
-        indicateAddressBookChanged();
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>It is implemented this way to ensure that all <code>schedules</code> are added into the AddressBook with the lowest level of abstraction.</p>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.1. Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Implementation of <code>ScheduleCommand</code><br>
-<strong>Alternative 1 (current choice):</strong> <code>ScheduleCommand</code> inherits from Command.<br>
-<strong>Pros:</strong> After scheduling the contacts, the schedules remain in the order they are entered into the AddressBook.<br>
-<strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br>
-<strong>Alternative 2:</strong> <code>ScheduleCommand</code> inherits from Command.<br>
-<strong>Pros:</strong> After scheduling the contacts, the schedules remain in the order they are entered into the AddressBook.<br>
-<strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br></p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> How <code>schedule</code> executes<br>
-<strong>Alternative 1 (current choice):</strong> Adds a <code>schedule</code> into the <code>schedules list</code> once the person name and calendar date is parsed.<br>
-<strong>Pros:</strong> Easy to implement.<br>
-<strong>Cons:</strong> Vigorous user testing and logging is required to debug corner test cases because there is little control over imported APIs.<br></p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Data structure to support the <code>schedule</code> command<br>
-<strong>Alternative 1 (current choice):</strong> The list of schedules is altered directly from cherBook and is a standalone class.<br>
-<strong>Pros:</strong> Without association with any other classes, it is easy to implement and debug. Performance of program is fast because the list of schedules is retrieved directly from cherBook. <br>
-<strong>Cons:</strong> The user would not be able to view information of the schedules directly from each contact.<br>
-<strong>Alternative 2:</strong> Add each schedule into the contact as an attribute. <br>
-<strong>Pros:</strong> The user would be able to view the schedules directly from the respective contacts.<br>
-<strong>Cons:</strong> Performance of program would be affected, because to retrieve the whole list of schedules, the algorithm would have to iterate through all the contacts in cherBook.<br></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="view-schedule-mechanism"><a class="link" href="#view-schedule-mechanism">4.4. View Schedule mechanism</a></h3>
-<div class="paragraph">
-<p>The <code>viewschedule</code> mechanism is implemented using <code>ViewScheduleCommand</code>. It displays the schedules of the user of cherBook.
-The reason for the implementation of viewing schedules is to allow cherBook users (teacher/educator) to keep track of their schedules as they often have many consultations or meetings with their students or fellow colleagues.
-With this view schedule command, users are able to view all their schedules at once, sorted by date and time.
-This way, the user is able to maintain their timetable easily.</p>
-</div>
-<div class="paragraph">
-<p>When the user calls to view all the schedules, the <code>'Model'</code> component would return with the set of schedules that was previously added into cherBook.</p>
-</div>
-<div class="paragraph">
-<p>ViewScheduleCommand is implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ViewScheduleCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... view schedule logic ...</span>
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The schedules would be listed in the <code>ResultDisplay</code> panel, and each schedule would be separated with a new line.</p>
-</div>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Data structure to support the <code>ViewSchedule</code> command<br>
-<strong>Alternative 1 (current choice):</strong> The list of schedules is obtained directly from the <code>Model</code> before it is being displayed on the <code>ResultDisplay</code> panel.<br>
-<strong>Pros:</strong> It is easy to implement and debug. Performance of program is fast because the list of schedules is retrieved directly from the <code>Model</code>. <br>
-<strong>Cons:</strong> The user do not have the alternative to view information of the schedules from each individual contact.<br></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-student-parent-phone-contact-mechanism"><a class="link" href="#add-student-parent-phone-contact-mechanism">4.5. Add Student/Parent Phone Contact mechanism</a></h3>
-<div class="paragraph">
-<p>The <code>student/parent phone contact</code> mechanism is facilitated by making changes
-to the Phone class in the model component. It enables the input
-of the phone contact information of the student and his/her parent.</p>
-</div>
-<div class="paragraph">
-<p>To ensure consistency across the user inputs for add command, the user will have to input p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)
-instead of p/ Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER).</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>student/parent phone contact</code> operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/MultipleNumberSequenceDiagram.png" alt="MultipleNumberSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.5.1 : Sequence Diagram of Student/Parent Phone Contact Operation</em></p>
-</div>
-<div class="paragraph">
-<p>The following method replaces <code>/</code> with <code>:<code></code></code>, <code>s</code> with <code>S</code>, and <code>p</code> with <code>P</code> in the user input string
-for appropriate presentation of <code>displayed person card phone information</code>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="predefined-type">String</span> changeToAppropriateUiFormat(<span class="predefined-type">String</span> value) {
-        value = value.replace(<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span>);
-        value = value.replace(<span class="string"><span class="delimiter">&quot;</span><span class="content">s</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">S</span><span class="delimiter">&quot;</span></span>);
-        value = value.replace(<span class="string"><span class="delimiter">&quot;</span><span class="content">p</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">P</span><span class="delimiter">&quot;</span></span>);
-        <span class="keyword">return</span> value;
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Validity of the <code>displayed person card phone information</code> is checked in the following method in the Phone class:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="type">boolean</span> isValidPhone(<span class="predefined-type">String</span> test) {
-        <span class="keyword">return</span> test.matches(PHONE_VALIDATION_REGEX);
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>where the <code>PHONE_VALIDATION_REGEX</code> refers to:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> PHONE_VALIDATION_REGEX =
-<span class="string"><span class="delimiter">&quot;</span><span class="content">((Student: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">)( Parent: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">))|((Parent: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">))</span><span class="delimiter">&quot;</span></span>;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The regex ensures that the string for <code>displayed person card phone information</code> adheres to the
-correct format of <code>Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER)</code> or <code>Parent: (PARENT_NUMBER)</code> as it is optional to
-add the phone number of students.</p>
-</div>
-<div class="paragraph">
-<p>The phone numbers must be exactly <code>8 digits</code> long.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/PhoneDisplay.png" alt="PhoneDisplay" width="400">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.5.2 : Valid Displayed Person Card Phone Information</em></p>
-</div>
-<div class="paragraph">
-<p>If the string format for <code>displayed person card phone information</code> is valid, the
-phone contact information of the student and his/her parent will be displayed
-below the student&#8217;s name in the person card as seen in the figure above.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/message_constraint.png" alt="message constraint" width="1100">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.5.3 : Message to prompt Users to Enter Correct Phone Format</em></p>
-</div>
-<div class="paragraph">
-<p>If the string format for <code>displayed person card phone information</code> is invalid, an <code>IllegalValueException</code>
-is thrown. The user will be prompted to follow the accepted format as seen in the figure above.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> Phone(<span class="predefined-type">String</span> phone) <span class="directive">throws</span> IllegalValueException {
-        requireNonNull(phone);
-        <span class="predefined-type">String</span> trimmedPhone = phone.trim();
-        trimmedPhone = changeToAppropriateUiFormat(trimmedPhone);
-        <span class="keyword">if</span> (!isValidPhone(trimmedPhone)) {
-            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalValueException(MESSAGE_PHONE_CONSTRAINTS);
-        }
-        <span class="local-variable">this</span>.value = trimmedPhone;
-    }</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.1. Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Phone numbers <br>
-<strong>Alternative 1 (current choice):</strong> Both the student&#8217;s phone number and their parent&#8217;s phone number is a single string.<br>
-<strong>Pros:</strong> Easy to implement as separate classes for student&#8217;s phone and parent&#8217;s phone is not required.<br>
-<strong>Cons:</strong> Harder to implement features that require solely the student&#8217;s number or parent&#8217;s number.<br>
-<strong>Alternative 2:</strong> Have a phoneStudent class for student&#8217;s phone number and phoneParent class for parent&#8217;s phone number.<br>
-<strong>Pros:</strong> Can edit properties of the student&#8217;s phone number or parent&#8217;s phone number separately.<br>
-<strong>Cons:</strong> Harder to implement as now there will be two phone classes instead of one.<br></p>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Validity of phone number<br>
-<strong>Alternative 1 (current choice):</strong> Only allow numbers that are exactly <code>8 digits</code> long.<br>
-<strong>Pros:</strong> Ensures consistency across all phone numbers.<br>
-<strong>Cons:</strong> Student&#8217;s parents might not have foreign numbers that are not exactly <code>8 digits</code> long.<br>
-<strong>Alternative 2:</strong> Modify phone validity regex to allow any length of phone numbers.<br>
-<strong>Pros:</strong> Able to have phone numbers that are local or non-local.<br>
-<strong>Cons:</strong> Inconsistent phone lengths displayed, might look very messy.<br></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="optional-inputs-fields-mechanism"><a class="link" href="#optional-inputs-fields-mechanism">4.6. Optional Inputs/Fields mechanism</a></h3>
+<h3 id="optional-inputs-fields-mechanism"><a class="link" href="#optional-inputs-fields-mechanism">4.2. Optional Inputs/Fields mechanism</a></h3>
 <div class="paragraph">
 <p>The <code>optional inputs/fields</code> mechanism is facilitated by making changes to <code>AddCommandParser</code> class in the <code>Logic</code> component.
 This feature enables several input/fields of the student to be optional.</p>
@@ -1242,7 +716,7 @@ Student&#8217;s phone number, email, address and postal code are optional inputs
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.5.1 : Sequence Diagram of Optional Inputs/Fields Operation</em></p>
+<p><em>Figure 4.2.1 : Sequence Diagram of Optional Inputs/Fields Operation</em></p>
 </div>
 <div class="paragraph">
 <p>The optionalInput method will append messages indicating that those optional fields are not recorded if the user chooses not to include those fields.
@@ -1260,12 +734,15 @@ The method can be seen in the code section below.</p>
         if (!input.contains("c/")) {
             input = input + " c/ (Postal code not recorded)";
         }
+        if (!input.contains(" p/")) {
+            input = input + " p/ (Student phone not recorded)";
+        }
         return input;
     }</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The method is illustrated in the following picture.</p>
+<p>The output of the method is illustrated in the following picture.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1273,7 +750,7 @@ The method can be seen in the code section below.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.5.2 : Messages shown when the user does not enter the optional fields</em></p>
+<p><em>Figure 4.2.2 : Messages shown when the user does not enter the optional fields</em></p>
 </div>
 <div class="paragraph">
 <p>Prefixes of the optional fields - <code>PREFIX_PHONE</code>, <code>PREFIX_EMAIL</code>, <code>PREFIX_ADDRESS</code> and <code>PREFIX_POSTALCODE</code> are removed from
@@ -1289,173 +766,23 @@ optional fields.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.1. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p>Aspect: Implementation of optional fields/inputs.<br>
 Alternative 1 (current choice): This feature manipulates the input to include the missing optional input prefix, along with a message
 stating that the field is not recorded.<br>
 Pros: Simpler to understand and tweak this feature as it only manipulates the parsed input of the user.<br>
 Cons: Unable to implement UI features that requires the attribute to have a optional property.<br>
-Alternative 2: This feature will implement a optional characteristic in attributes that are optional<br>
-Pros: Optionality aspect of then attributes can be used by other features of cherBook.<br>
-Cons: Harder to understand the mechanism and implement changes to this feature.<br></p>
+Alternative 2: This feature implements a optional characteristic in optional attributes.<br>
+Pros: Optionality aspect of the attributes can be used by other features of cherBook.<br>
+Cons: Harder to understand the mechanism and more work is required implement changes to this feature.<br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="unique-color-tag-mechanism"><a class="link" href="#unique-color-tag-mechanism">4.7. Unique Color Tag mechanism</a></h3>
+<h3 id="remark-mechanism"><a class="link" href="#remark-mechanism">4.3. Remark mechanism</a></h3>
 <div class="paragraph">
-<p>The <code>unique color tag</code> mechanism is facilitated by making changes to <code>PersonCard</code> class in the <code>UI</code> component. This feature enables
-the assignment of unique colors to tags.</p>
-</div>
-<div class="paragraph">
-<p>The color generated to be assigned to tags is random and all tags with the same description will be assigned a same color.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>unique color tag</code> operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UniqueTagColorSequenceDiagram.png" alt="UniqueTagColorSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.6.1 : Sequence Diagram of Unique Color Tag Operation</em></p>
-</div>
-<div class="paragraph">
-<p>The method receives <code>String tagName</code> (description of the tag) and returns the <code>String assignedColor</code>
-associated to the tagName. It is shown in the code segment below.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>public static String obtainTagColors(String tagName) {
-        if (!currentTagColors.containsKey(tagName)) {
-            do {
-                Random random = new Random();
-                final float hue = random.nextFloat();
-                final float saturation = 0.65f + random.nextFloat()
-                        * (0.90f - 0.65f);
-                final float luminance = 0.60f + random.nextFloat()
-                        * (0.90f - 0.60f);
-
-                Color color = Color.getHSBColor(hue, saturation, luminance);
-
-                Formatter hexRepresentation = new Formatter(new StringBuffer("#"));
-                hexRepresentation.format("%02X", color.getRed());
-                hexRepresentation.format("%02X", color.getGreen());
-                hexRepresentation.format("%02X", color.getBlue());
-                assignedColor = hexRepresentation.toString();
-            } while (usedColors.contains(assignedColor));
-
-            usedColors.add(assignedColor);
-            currentTagColors.put(tagName, assignedColor);
-        }
-        return currentTagColors.get(tagName);
-    }</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The section below explains how various parts of the above code segment works.</p>
-</div>
-<div class="paragraph">
-<p>A color is determined by three factors, <code>hue</code>, <code>saturation</code> and <code>luminance</code>. The code segment shown below randomises the value of each of the three factors,
-and a random <code>color</code> are obtained as a result.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Random random = new Random();
-
-final float hue = random.nextFloat();
-final float saturation = 0.65f + random.nextFloat() * (0.90f - 0.65f);
-final float luminance = 0.60f + random.nextFloat() * (0.90f - 0.60f);
-
-Color color = Color.getHSBColor(hue, saturation, luminance);</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Random range of saturation and luminance are specified to ensure that the random color generated will always mesh well with the white font of
-the tag description. This can be seen in the picture below.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/tagColorPic.png" alt="tagColorPic" width="400">
-</div>
-</div>
-<div class="paragraph">
-<p><em>Figure 4.6.2 : Compatibility of tag color background with white font of tag description</em></p>
-</div>
-<div class="paragraph">
-<p>Next, in the code segment below, the <code>red</code>, <code>green</code> and <code>blue</code> components are extracted from the <code>color</code>. It is then formatted into a <code>hexadecimal
-representation</code> of the color, before being converted to a String data type and assigned to <code>assignedColor</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Hexadecimal representation of the color is compatible with JavaFx.
-</td>
-</tr>
-</table>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>Formatter hexRepresentation = new Formatter(new StringBuffer("#"));
-hexRepresentation.format("%02X", color.getRed());
-hexRepresentation.format("%02X", color.getGreen());
-hexRepresentation.format("%02X", color.getBlue());
-assignedColor = hexRepresentation.toString();</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>assignedColor</code> is added into an <code>ArrayList&lt;String&gt; usedColors</code>. This ensures no same colors will be assigned
-to a tag with different description in subsequent iterations by randomising a different color again should a same color is
-generated. The method will then return <code>assignedColor</code>.</p>
-</div>
-<div class="paragraph">
-<p>Lastly, in the code below, <code>obtainTagColors(tag.tagName)</code>, the hexadecimal String representation of the color, will be appended
-to the tag background color. This sets the background color of the tag to be that of the assigned color.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>private void initialiseTags(ReadOnlyPerson person) {
-        person.getTags().forEach(tag -&gt; {
-            Label tagLabel = new Label(tag.tagName);
-
-            tagLabel.setStyle("-fx-background-color: " + obtainTagColors(tag.tagName));
-            tags.getChildren().add(tagLabel);
-        });
-    }</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.1. Design Considerations</a></h4>
-<div class="paragraph">
-<p>Aspect: How tag colors are assigned.<br>
-Alternative 1 (current choice): Tag colors are assigned randomly.<br>
-Pros: Easy for developers to understand the mechanism of this feature.<br>
-Cons: User has no control over the assigning of tag colors.<br>
-Alternative 2: Allow user to assign the colors to the tags themselves.<br>
-Pros: User will have more freedom in personalising the tags.<br>
-Cons: The range of colors will be more limited.<br></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-remove-a-remark-mechanism"><a class="link" href="#add-remove-a-remark-mechanism">4.8. Add/Remove a remark mechanism</a></h3>
-<div class="paragraph">
-<p>The <code>remark</code> mechanism is facilitated by making changes to the <code>Remark</code> class in the <code>Model</code> component. It enables the user to add or remove a single <code>remark</code> of the student.</p>
+<p>The <code>remark</code> mechanism is facilitated by making changes to the <code>Remark</code> class in the <code>Model</code> component. It enables the user to overwrite a single <code>remark</code> of the student.</p>
 </div>
 <div class="paragraph">
 <p>To avoid confusion and an overly complicated <code>UI</code>, only one <code>remark</code> per person is stored.</p>
@@ -1465,11 +792,11 @@ Cons: The range of colors will be more limited.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/RemarkSequenceDiagramForLogic.PNG" alt="RemarkSequenceDiagramForLogic" width="800">
+<img src="images/RemarkSequenceDiagram.png" alt="RemarkSequenceDiagram" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.1 : Sequence Diagram of <code>Remark</code> Operation</em></p>
+<p><em>Figure 4.3.1 : Sequence Diagram of <code>Remark</code> Operation</em></p>
 </div>
 <div class="paragraph">
 <p><code>Remark</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
@@ -1480,7 +807,7 @@ Cons: The range of colors will be more limited.<br></p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.7.2 : Inheritance Diagram for Commands</em></p>
+<p><em>Figure 4.3.2 : Inheritance Diagram for Commands</em></p>
 </div>
 <div class="paragraph">
 <p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
@@ -1559,7 +886,7 @@ Only one <code>remark</code> is saved at any one time, if the user does <code>Re
 </table>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.1. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
 <strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
@@ -1583,125 +910,33 @@ Only one <code>remark</code> is saved at any one time, if the user does <code>Re
 </div>
 </div>
 <div class="sect2">
-<h3 id="graphpanel-mechanism"><a class="link" href="#graphpanel-mechanism">4.9. GraphPanel Mechanism</a></h3>
+<h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">4.4. FindTags mechanism</a></h3>
 <div class="paragraph">
-<p><code>LineChart</code> mechanism is implemented using <code>javaFX</code>. It takes in <code>FilteredPersonList</code> and plots a graph based on those who are in the same <code>formClass</code>.<br>
-Using <code>XYChart.series</code> to store the data of the persons name and grade, a <code>coordinate</code> is created and a <code>line</code> is drawn connecting all the <code>coordinates</code>.<br>
-These coordinates are sorted in ascending order so that the user is able to identify those in the lower quartile.</p>
-</div>
-<div class="paragraph">
-<p>The <code>LineChart</code> mechanism is implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>for (ReadOnlyPerson people : people) {
-            if (people.getFormClass().equals(person.getFormClass())) {
-                series.getData().add(new XYChart.Data&lt;&gt;(people.getName().toString(),
-                        Double.parseDouble(people.getGrades().toString())));
-            }
-        }
-            series.getData().sort(Comparator.comparingDouble(d -&gt; d.getYValue()));
-       //...other logic...</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.1. Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Graph to be displayed for an effective visual aid<br>
-<strong>Alternative 1 (current choice):</strong> Line chart to display the grades of student.<br>
-<strong>Pros:</strong> Easier to implement.<br>
-<strong>Cons:</strong> May not be the most appropriate way to display grades of students. <br>
-<strong>Alternative 2:</strong> Bell curve to display the grades of students.<br>
-<strong>Pros:</strong> A better representation of the student grades and it is easier to interpret.<br>
-<strong>Cons:</strong> Much harder to plot a graph based on statistics then raw data.</p>
-</div>
-<hr>
-</div>
-</div>
-<div class="sect2">
-<h3 id="tabs-mechanism"><a class="link" href="#tabs-mechanism">4.10. Tabs mechanism</a></h3>
-<div class="paragraph">
-<p><code>Tabs</code> mechanism is implemented using TabsCommand.
-It swaps tab panel between lineChart and barChart based on the index input by the user.</p>
+<p>The <code>FindTagsCommand</code> class inheriteds from the <code>Command</code> class.
+It allows users to search students by their tags.</p>
 </div>
 <div class="paragraph">
-<p>When user types <code>tab [INDEX]</code>, it creates raises new <code>event</code> named <code>JumpToTabRequestEvent</code>, which prompts the subscribed
-method in <code>GraphPanel</code> to change the tab page based on[INDEX].</p>
+<p>The <code>FindTags</code> mechanism is facilitated by the <code>TagsContainKeywordsPredicate</code>, which resides within <code>FindTagsCommand</code>.
+The <code>TagsContainKeywordsPredicate</code> tests whether each person&#8217;s tags contain all keywords input by the user
+and thus supports AND search.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The number of valid index is based on the number of tabs created, in this case it would be 2.<br>
-A invalid index would be displayed if the index provided is out of bounds.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>The following sequence diagram shows how the FindTags operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TabSequenceDiagram.png" alt="TabSequenceDiagram" width="800">
+<img src="images/FindTagsSequenceDiagramForLogic.png" alt="FindTagsSequenceDiagramForLogic" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.9.1 : Sequence Diagram of <code>Tab</code> Operation</em></p>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.10.1. Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong>  To display different chart types to help visual aid.<br>
-<strong>Alternative 1 (current choice):</strong> Do a TabPane.<br>
-<strong>Pros:</strong> More versatile and easier to further expand in the future.<br>
-<strong>Cons:</strong> More cumbersome to start. <br>
-<strong>Alternative 2:</strong> Multiple graphs on the same pane.<br>
-<strong>Pros:</strong> A easier comparison of the student grades between different graph types.<br>
-<strong>Cons:</strong> Difficult to further expand as there are limited space. Graph may be shrinked as well.</p>
-</div>
-<hr>
-</div>
-</div>
-<div class="sect2">
-<h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">4.11. FindTags mechanism</a></h3>
-<div class="paragraph">
-<p>The <code>FindTags</code> mechanism is implemented using FindTagsCommand.
-It supports searching for persons whose tags contains at least all the tags input by the user.</p>
+<p><em>Figure 4.4.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
 </div>
 <div class="paragraph">
-<p>When the user uses the <code>FindTags</code> command, a <code>TagsContainKeywordsPredicate</code> is created.
-The <code>TagsContainKeywordsPredicate</code> tests whether each person&#8217;s tags contain all keywords input by the user.
-Under the <code>Model</code> component, <code>TagsContainKeywordsPredicate</code> is used to filter the persons in the AddressBook.
-After filtering, <code>PersonListPanel</code> only shows persons whose tags contain all keywords input by the user.</p>
+<p>As can seen from above, when a <code>FindTags</code> command is called, E.g. <code>findtags NUS friends</code>.
+An instance of <code>TagsContainKeywordsPredicate</code> is created.</p>
 </div>
 <div class="paragraph">
-<p>This search operation is an <code>AND search</code>. Suppose the user executes <code>findtags friends NUS</code>.<br>
-Only persons with at least both <code>friends</code> and <code>NUS</code> will be displayed. Persons with only <code>friends</code> or only <code>NUS</code> will not be displayed.<br></p>
-</div>
-<div class="paragraph">
-<p>The <code>FindTagsCommand</code> is implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>public class FindTagsCommand extends Command {
-    private final TagsContainsKeywordsPredicate predicate;
-
-    @Override
-    public CommandResult execute() {
-        model.updateFilteredPersonList(predicate);
-        return new CommandResult(
-            getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
-    }
-    // ... other logic ...
-}</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>Model.updateFilteredPersonList()</code> updates the <code>PersonListPanel</code> display by filter using the <code>TagsContainsKeywordsPredicate</code> instance.</p>
-</div>
-<div class="paragraph">
-<p>And the <code>TagsContainsKeywordsPredicate</code> found inside <code>FindTagsCommand</code> is implemented this way:</p>
+<p>The newly created <code>TagsContainsKeywordsPredicate</code> used to implement <code>FindTagsCommand</code> is shown below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1729,36 +964,61 @@ The test is case insensitive as <code>StringUtil.containsWordIgnoreCase()</code>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>The <code>keywords.stream().allMatch()</code> method in <code>test()</code> returns true if the person&#8217;s tags contains all keywords in <code>keywords</code>.
-This supports the evaluation of the person by the predicate.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This search operation is an <code>AND search</code>
+So only persons with at least both <code>friends</code> and <code>NUS</code> will be displayed. Persons with only <code>friends</code> or only <code>NUS</code> will not be displayed.<br>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The <code>PersonListPanel</code> will show persons whose tags contain at least all keywords input by the user.
-However if there are no persons with all keywords in the tags, the <code>PersonListPanel</code> will just be blank.</p>
+<p>Inside the <code>TagsContainKeywordsPredicate</code>, the search terms <code>NUS</code> and <code>friends</code> are stored inside the <code>keywords</code> list.
+The overidding <code>test()</code> method evluates whether the person&#8217;s tags matches all the search terms in <code>keywords</code>.
+This <code>TagsContainKeywordsPredicate</code> is then used to test every person in the AddressBook and filter them.</p>
 </div>
 <div class="paragraph">
-<p>This is implemented using <code>Predicates</code> because <code>Predicates</code> help move the business logic to a more central place, helping in unit-testing them separately.
-Also, the <code>Predicate</code> can can be reused, improving code manageability.<br>
-The code with Predicates is also much more readable than using if-else blocks.</p>
+<p>The newly created <code>FindTagsCommand</code> class is shown below:</p>
 </div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the FindTags operation works:</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="images/FindTagsSequenceDiagramForLogic.png" alt="FindTagsSequenceDiagramForLogic" width="800">
+<pre>public class FindTagsCommand extends Command {
+    private final TagsContainsKeywordsPredicate predicate;
+
+    @Override
+    public CommandResult execute() {
+        model.updateFilteredPersonList(predicate);
+        return new CommandResult(
+            getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
+    }
+    // ... other logic ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.10.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
+<p>The <code>predicate</code> is passed through <code>model.updateFilteredPersonList(predicate)</code> to update the <code>filteredPersonList</code>.
+This causes the <code>filteredPersonList</code> to only contain students whose tags match all keywords <code>NUS</code> and <code>friends</code>
+and also display them in the <code>PersonListPanel</code> UI element.</p>
 </div>
 <div class="paragraph">
-<p>After the addressBook&#8217;s <code>filteredPersonsList</code> has been updated, the <code>Model</code> Component posts an <code>AddressBookChangedEvent</code>
-to indicate the model has changed and a <code>FilteredPersonListChangedEvent</code> to update the <code>StatisticsPanel</code> of the UI to reflect the new Statistical values.</p>
+<p>However if there are no persons with all keywords in the tags, the <code>PersonListPanel</code> will just be blank.</p>
 </div>
+<div class="paragraph">
+<p>Meanwhile, the <code>ModelManager</code> posts a <code>AddressBookChanged event</code> and a <code>FilteredPersonListChangedEvent</code> to the <code>EventsCenter</code>.
+The <code>AddressBookChangedEvent</code> indicates that the <code>model</code> has changed and the causing the <code>FilteredPersonListChangedEvent</code> updates the <code>StatisticsPanel</code> of the UI to reflect the new Statistics for the new list of students.</p>
+</div>
+<div class="paragraph">
+<p>This search feature is implemented using <code>Predicate</code> because <code>Predicate</code> help move the business logic to a more central place, helping in unit-testing them separately.
+Also, the <code>Predicate</code> can can be reused, improving code manageability and readability.</p>
+</div>
+<hr>
 <div class="sect3">
-<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.11.1. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Have a separate predicate class to support <code>findtags</code><br>
 <strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
@@ -1766,19 +1026,647 @@ to indicate the model has changed and a <code>FilteredPersonListChangedEvent</co
 <strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle. For example, a separate <code>TagsContainsKeywordsPredicate</code> class is needed when the same can be done by inserting it as an inner class in the <code>FindTagsCommand</code> class.<br>
 <strong>Alternative 2:</strong> Create <code>TagsContainsKeywordsPredicate</code> as an inner class in <code>FindTagsCommand</code> class.<br>
 <strong>Pros:</strong> It makes the codebase less complex as there are less classes.<br>
-<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces reusability of the <code>Predicate</code> outside of the <code>FindTagsCommand</code><br></p>
+<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces re-usability of the <code>Predicate</code> outside of the <code>FindTagsCommand</code><br></p>
 </div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Whether to use AND or OR search<br>
+<strong>Alternative 1 (current choice):</strong> AND search<br>
+<strong>Pros:</strong> Allows users to find students with a specific combination of tags much more efficiently.<br>
+E.g. <code>findtags band dance</code> only returns the list of students who have both the <code>band</code> and <code>dance</code> tag rather all students with either the <code>band</code> or <code>dance</code> tag.<br>
+<strong>Cons:</strong> Does not allow users to calculate statistics for more than one group of students at a time. <br>
+E.g. <code>findtags band dance</code> cannot calculate  statistics for the <code>track</code> and <code>dance</code> groups combined.<br>
+<strong>Alternative 2:</strong> OR search<br>
+<strong>Pros:</strong> Allows users to calculate statistics for more than one group of students at a time.<br>
+E.g. <code>findtags track dance</code> calculates statistics for the <code>track</code> and <code>dance</code> groups combined.<br>
+<strong>Cons:</strong> Or search does not help teachers find students with a specific combination of tags efficiently.<br>
+E.g. <code>findtags track dance</code> does not narrow down the list of students returned to students who have both the <code>track</code> and <code>dance</code> tag.<br></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-mechanism"><a class="link" href="#undo-redo-mechanism">4.5. Undo/Redo mechanism</a></h3>
+<div class="paragraph">
+<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
+</div>
+<div class="paragraph">
+<p>Commands that are not undoable are implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ListCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... list logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With the extra layer, the commands that are undoable are implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... undo logic ...</span>
+
+        executeUndoableCommand();
+    }
+}
+
+<span class="directive">public</span> <span class="type">class</span> <span class="class">DeleteCommand</span> <span class="directive">extends</span> UndoableCommand {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult executeUndoableCommand() {
+        <span class="comment">// ... delete logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Suppose that the user has just launched the application. The <code>UndoRedoStack</code> will be empty at the beginning.</p>
+</div>
+<div class="paragraph">
+<p>The user executes a new <code>UndoableCommand</code>, <code>delete 5</code>, to delete the 5th person in the address book. The current state of the address book is saved before the <code>delete 5</code> command executes. The <code>delete 5</code> command will then be pushed onto the <code>undoStack</code> (the current state is saved together with the command).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1 : Stack Diagram of Initial Stack</em></p>
+</div>
+<div class="paragraph">
+<p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.2 : Stack Diagram of Commands Added</em></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not be pushed to the <code>UndoRedoStack</code> at all.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The user now decides that adding the person was a mistake, and decides to undo that action using <code>undo</code>.</p>
+</div>
+<div class="paragraph">
+<p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the address book to the state before the <code>add</code> command executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.3 : Stack Diagram of Undo Execution</em></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>undoStack</code> is empty, then there are no other commands left to be undone, and an <code>Exception</code> will be thrown when popping the <code>undoStack</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.4 : Sequence Diagram of UndoRedo Feature</em></p>
+</div>
+<div class="paragraph">
+<p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>redoStack</code> is empty, then there are no other commands left to be redone, and an <code>Exception</code> will be thrown when popping the <code>redoStack</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The user now decides to execute a new command, <code>clear</code>. As before, <code>clear</code> will be pushed into the <code>undoStack</code>. This time the <code>redoStack</code> is no longer empty. It will be purged as it no longer make sense to redo the <code>add n/David</code> command (this is the behavior that most modern desktop applications follow).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.5 : Stack Diagram when a new Command, Clear is Executed</em></p>
+</div>
+<div class="paragraph">
+<p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.6 : Stack Diagram when Undoable Command is Executed</em></p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.7 : Activity Diagram of UndoRedoStack</em></p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code>.<br>
+<strong>Pros:</strong> We will not lose any undone/redone functionality as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.<br>
+<strong>Cons:</strong> Hard for new developers to understand the template pattern.<br>
+<strong>Alternative 2:</strong> Just override <code>execute()</code>.<br>
+<strong>Pros:</strong> Does not involve the template pattern, easier for new developers to understand.<br>
+<strong>Cons:</strong> Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How undo &amp; redo executes<br>
+<strong>Alternative 1 (current choice):</strong> Saves the entire address book.<br>
+<strong>Pros:</strong> Easy to implement.<br>
+<strong>Cons:</strong> May have performance issues in terms of memory usage.<br>
+<strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.<br>
+<strong>Pros:</strong> Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).<br>
+<strong>Cons:</strong> We must ensure that the implementation of each individual command are correct.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Type of commands that can be undone/redone<br>
+<strong>Alternative 1 (current choice):</strong> Only include commands that modifies the address book (<code>add</code>, <code>clear</code>, <code>edit</code>).<br>
+<strong>Pros:</strong> We only revert changes that are hard to change back (the view can easily be re-modified as no data are lost).<br>
+<strong>Cons:</strong> User might think that undo also applies when the list is modified (undoing filtering for example), only to realize that it does not do that, after executing <code>undo</code>.<br>
+<strong>Alternative 2:</strong> Include all commands.<br>
+<strong>Pros:</strong> Might be more intuitive for the user.<br>
+<strong>Cons:</strong> User have no way of skipping such commands if he or she just want to reset the state of the address book and not the view.<br>
+<strong>Additional Info:</strong> See our discussion  <a href="https://github.com/se-edu/addressbook-level4/issues/390#issuecomment-298936672">here</a>.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Data structure to support the undo/redo commands<br>
+<strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo.<br>
+<strong>Pros:</strong> Easy to understand for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.<br>
+<strong>Cons:</strong> Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>UndoRedoStack</code>.<br>
+<strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo.<br>
+<strong>Pros:</strong> We do not need to maintain a separate stack, and just reuse what is already in the codebase.<br>
+<strong>Cons:</strong> Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sort-mechanism"><a class="link" href="#sort-mechanism">4.6. Sort mechanism</a></h3>
+<div class="paragraph">
+<p>The reason for the implementation of sort allows the user to organise their list of contacts in cherBook more easily.
+This provides an alternative for them to view their contacts instead of the usual way - most recent added contact being added to the last index of the list.
+Users will find it easier to browse through their list of contacts in situations where the <code>find</code> command cannot be used.
+The <code>sort</code> mechanism is implemented using <code>SortCommand</code>. It supports the sorting of contact names in cherBook according to alphabetical order from A to Z.</p>
+</div>
+<div class="paragraph">
+<p>When the user calls for sorting to be implemented, an empty <code>ArrayList</code> would be created. Under the <code>Model</code> component, <code>UniquePersonList</code> would compare the names of all persons in lower case using a comparator and return an <code>Observable List</code> containing of <code>ReadOnlyPerson</code>s.</p>
+</div>
+<div class="paragraph">
+<p><code>SortCommand</code> inherits from <code>Command</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>SortCommand</code> is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SortCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... sort logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>sort</code> is case insensitive.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>sort</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortSequenceDiagram.png" alt="SortSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.6.1 : Sequence Diagram of Sort Operation</em></p>
+</div>
+<div class="paragraph">
+<p>When the user calls ‘sort’ or ‘st’ to <code>sort</code> the contacts, the <code>Model</code> will take in an <code>ArrayList</code> named contactList from the <code>Parser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Upon a successful <code>sort</code>, all contacts in cherBook are displayed in alphabetical order.
+If an empty list is given, the address book will return with the message: “No contacts to be sorted”.
+If the list is already in the correct alphabetical order, the address book will return with the following message: “All contacts are sorted alphabetically by name”.</p>
+</div>
+<div class="paragraph">
+<p>The following code will show how the list is being returned to the user:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">/**
+     * Returns an observable list as as an unmodifiable {@code ObservableList}
+     */</span>
+    <span class="directive">public</span> ObservableList&lt;ReadOnlyPerson&gt; asObservableListSortedByName() {
+        internalList.sort((o1, o2) -&gt;((o1.getName().toString().toLowerCase())
+                .compareTo(o2.getName().toString().toLowerCase())));
+        <span class="keyword">return</span> FXCollections.unmodifiableObservableList(mappedList);
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The sort mechanism is implemented this way to ensure that all person names in the <code>UniquePersonList</code> is compared to at the lowest level of abstraction.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>SortCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> <code>SortCommand</code> inherits from Command.<br>
+<strong>Pros:</strong> After sorting his/her contacts, it remains sorted and the original list of unsorted contacts is replaced by this list.<br>
+<strong>Cons:</strong> The user is unable to save the list of contacts in the original order(unsorted format).<br>
+<strong>Alternative 2:</strong> Implement undo/redo function for SortCommand.<br>
+<strong>Pros:</strong> When undo is called, the list will return back to the most recent unsorted list. When redo is called, the list will return back to the sorted list of contacts.<br>
+<strong>Cons:</strong> The user is able to alter the list easily and may get confused whether is the current list the most recent sorted list.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How sort executes<br>
+<strong>Alternative 1 (current choice):</strong> Uses the <code>comparator</code> in <code>Java Collections</code> to sort the arrays in alphabetical order.<br>
+<strong>Pros:</strong> Easy to implement.<br>
+<strong>Cons:</strong> Since method is inherited, it is difficult to debug and the only way is via the usage of vigorous user testing and logging.<br>
+<strong>Alternative 2:</strong> Write a <code>sort</code> algorithm.<br>
+<strong>Pros:</strong> Case sensitivity can be accounted for and debugging is made simpler.<br>
+<strong>Cons:</strong> More error-proned as algorithm&#8217;s logic must be checked constantly to ensure that it accounts for all cases.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Data structure to support the <code>sort</code> command<br>
+<strong>Alternative 1 (current choice):</strong> Creates an empty <code>ArrayList</code> to obtain the names from the <code>UniquePersonList</code> before sorting occurs. The <code>sort</code> overwrites the existing list of unsorted contacts. <br>
+<strong>Pros:</strong> The original list of unsorted contacts is not altered.<br>
+<strong>Cons:</strong> Additional space usage and longer time needed to overwrite the original contact list, inefficiency and memory wastage may arise.<br>
+<strong>Alternative 2:</strong> Creates a new list of persons to sort each time a command that filters the person list is entered.<br>
+<strong>Pros:</strong> User can sort accordingly to the filtered person list that he/she has implemented. Able to revert any changes if user does not want their contact list to be sorted.<br>
+<strong>Cons:</strong> User have to continously use the sort command for every filtered person list change. Inefficient if the user wants their contact list to be sorted at all times.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-schedule-mechanism"><a class="link" href="#add-schedule-mechanism">4.7. Add Schedule mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>schedule</code> mechanism is implemented using <code>ScheduleCommand</code>. It supports the scheduling of contacts in cherBook for better management of time.
+The reason for the implementation of scheduling is to allow cherBook users (teacher/educator) to add schedules they have like consultations or meetings with their students or fellow colleagues.
+With this scheduling command, users are able add their schedules with any person from their list of contacts just by typing the index of the person, the date and time of the schedule.
+The date and time can be entered in natural language, helping users save their time to manually pen down their scheduled dates and timings.</p>
+</div>
+<div class="paragraph">
+<p>When the user calls for scheduling to be implemented, two arguments would have to be passed into the constructor.
+The two arguments are Name of the person being scheduled and the Calendar date with time.
+Under the <code>Model</code> component, the created <code>schedule</code> is directly added into the address book.</p>
+</div>
+<div class="paragraph">
+<p><code>ScheduleCommand</code> inherits from <code>Command</code>.</p>
+</div>
+<div class="paragraph">
+<p>ScheduleCommand is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ScheduleCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... schedule logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adding of <code>schedules</code> into the AddressBook can be done in natural language.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>schedule</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScheduleSequenceDiagram.png" alt="ScheduleSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1 : Sequence Diagram of Schedule Operation</em></p>
+</div>
+<div class="paragraph">
+<p>When the user calls ‘schedule’ or ‘sch’ to schedule the contacts in cherBook, the Model will receive a schedule from the Parser.</p>
+</div>
+<div class="paragraph">
+<p>Upon successful scheduling, contacts are added into the <code>set of schedules</code>.
+If one or more arguments required to schedule a person is missing, the AddressBook will return with error messages corresponding to the missing arguments.
+If one or more arguments required to schedule a person is invalid, the AddressBook will return with error messages corresponding to the invalid arguments.</p>
+</div>
+<div class="paragraph">
+<p>The following will show how the <code>schedule</code> is added into the AddressBook:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">/**
+     * Adds a schedule for a student's consultation
+     */</span>
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> addSchedule(Schedule schedule) {
+        addressBook.addSchedule(schedule);
+        addressBook.sortSchedules();
+        indicateAddressBookChanged();
+        indicateScheduleListChanged();
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is implemented this way to ensure that all <code>schedules</code> are added into the AddressBook with the lowest level of abstraction.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>ScheduleCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> <code>ScheduleCommand</code> inherits from Command.<br>
+<strong>Pros:</strong> After scheduling the contacts, the schedules remain in the order they are entered into the AddressBook.<br>
+<strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br>
+<strong>Alternative 2:</strong> <code>ScheduleCommand</code> inherits from Command.<br>
+<strong>Pros:</strong> After scheduling the contacts, the schedules remain in the order they are entered into the AddressBook.<br>
+<strong>Cons:</strong> The user is unable to sort the list of schedules according to chronological order.<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How <code>schedule</code> executes<br>
+<strong>Alternative 1 (current choice):</strong> Adds a <code>schedule</code> into the <code>schedules list</code> once the person name and calendar date is parsed.<br>
+<strong>Pros:</strong> Easy to implement.<br>
+<strong>Cons:</strong> Vigorous user testing and logging is required to debug corner test cases because there is little control over imported APIs.<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Data structure to support the <code>schedule</code> command<br>
+<strong>Alternative 1 (current choice):</strong> The list of schedules is altered directly from cherBook and is a standalone class.<br>
+<strong>Pros:</strong> Without association with any other classes, it is easy to implement and debug. Performance of program is fast because the list of schedules is retrieved directly from cherBook. <br>
+<strong>Cons:</strong> The user would not be able to view information of the schedules directly from each contact.<br>
+<strong>Alternative 2:</strong> Add each schedule into the contact as an attribute. <br>
+<strong>Pros:</strong> The user would be able to view the schedules directly from the respective contacts.<br>
+<strong>Cons:</strong> Performance of program would be affected, because to retrieve the whole list of schedules, the algorithm would have to iterate through all the contacts in cherBook.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-schedule-mechanism"><a class="link" href="#view-schedule-mechanism">4.8. View Schedule mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>viewschedule</code> mechanism is implemented using <code>ViewScheduleCommand</code>. It displays the schedules of the user of cherBook.
+The reason for the implementation of viewing schedules is to allow cherBook users (teacher/educator) to keep track of their schedules as they often have many consultations or meetings with their students or fellow colleagues.
+With this view schedule command, users are able to view all their schedules at once, sorted by date and time.
+This way, the user is able to maintain their timetable easily.</p>
+</div>
+<div class="paragraph">
+<p>When the user calls to view all the schedules, the <code>'Model'</code> component would return with the set of schedules that was previously added into cherBook.</p>
+</div>
+<div class="paragraph">
+<p>ViewScheduleCommand is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ViewScheduleCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">// ... view schedule logic ...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The schedules would be listed in the <code>ResultDisplay</code> panel, and each schedule would be separated with a new line.</p>
+</div>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Data structure to support the <code>ViewSchedule</code> command<br>
+<strong>Alternative 1 (current choice):</strong> The list of schedules is obtained directly from the <code>Model</code> before it is being displayed on the <code>ResultDisplay</code> panel.<br>
+<strong>Pros:</strong> It is easy to implement and debug. Performance of program is fast because the list of schedules is retrieved directly from the <code>Model</code>. <br>
+<strong>Cons:</strong> The user do not have the alternative to view information of the schedules from each individual contact.<br></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="home-page-mechanism"><a class="link" href="#home-page-mechanism">4.9. Home Page mechanism</a></h3>
+<div class="paragraph">
+<p><code>Home</code> mechanism is implemented using HomeCommand.
+It displays the home page when the user enter the command and each time a randomly selected wallpaper and quote would be displayed.</p>
+</div>
+<div class="paragraph">
+<p>When the home page is displayed, the extendedPersonCard, StatsPanel and GraphPanel would be switched out. Only when the user
+select a new person would the three panes swap back.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As we would be focusing on CLI implementations, we did not enable a way to select a person through clicking when the home page
+is displayed.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeSequenceDiagram.png" alt="HomeSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.9.1 : Sequence Diagram of <code>home</code> Operation</em></p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong>  To have a soft security feature.<br>
+<strong>Alternative 1 (current choice):</strong> Disable easy access to data, only users who knows the command are able to view.<br>
+<strong>Pros:</strong> Easy to implement.<br>
+<strong>Cons:</strong> Easier to be break through <br>
+<strong>Alternative 2:</strong> Have a login page before displaying the main window.<br>
+<strong>Pros:</strong> The application as a whole would be more secure.<br>
+<strong>Cons:</strong> Takes a longer time to implement.<br>
+---</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graphpanel-mechanism"><a class="link" href="#graphpanel-mechanism">4.10. GraphPanel Mechanism</a></h3>
+<div class="paragraph">
+<p><code>LineChart</code> mechanism is implemented using <code>javaFX</code>. It takes in <code>FilteredPersonList</code> and plots a graph based on those who are in the same <code>formClass</code>.<br>
+Using <code>XYChart.series</code> to store the data of the persons name and grade, a <code>coordinate</code> is created and a <code>line</code> is drawn connecting all the <code>coordinates</code>.<br>
+These coordinates are sorted in ascending order so that the user is able to identify those in the lower quartile.</p>
+</div>
+<div class="paragraph">
+<p>The <code>LineChart</code> mechanism is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>for (ReadOnlyPerson people : people) {
+            if (people.getFormClass().equals(person.getFormClass())) {
+                series.getData().add(new XYChart.Data&lt;&gt;(people.getName().toString(),
+                        Double.parseDouble(people.getGrades().toString())));
+            }
+        }
+            series.getData().sort(Comparator.comparingDouble(d -&gt; d.getYValue()));
+       //...other logic...</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.10.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Graph to be displayed for an effective visual aid<br>
+<strong>Alternative 1 (current choice):</strong> Line chart to display the grades of student.<br>
+<strong>Pros:</strong> Easier to implement.<br>
+<strong>Cons:</strong> May not be the most appropriate way to display grades of students. <br>
+<strong>Alternative 2:</strong> Bell curve to display the grades of students.<br>
+<strong>Pros:</strong> A better representation of the student grades and it is easier to interpret.<br>
+<strong>Cons:</strong> Much harder to plot a graph based on statistics then raw data.</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tabs-mechanism"><a class="link" href="#tabs-mechanism">4.11. Tabs mechanism</a></h3>
+<div class="paragraph">
+<p><code>Tabs</code> mechanism is implemented using TabsCommand.
+It swaps tab panel between lineChart and barChart based on the index input by the user.</p>
+</div>
+<div class="paragraph">
+<p>When the user types <code>tab [INDEX]</code>, it creates raises new <code>event</code> named <code>JumpToTabRequestEvent</code>, which prompts the subscribed
+method in <code>GraphPanel</code> to change the tab page based on[INDEX].</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The number of valid index is based on the number of tabs created, in this case it would be 2.<br>
+A invalid index would be displayed if the index provided is out of bounds.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TabSequenceDiagram.png" alt="TabSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.11.1 : Sequence Diagram of <code>Tab</code> Operation</em></p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.11.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong>  To display different chart types to help visual aid.<br>
+<strong>Alternative 1 (current choice):</strong> Do a TabPane.<br>
+<strong>Pros:</strong> More versatile and easier to further expand in the future.<br>
+<strong>Cons:</strong> More cumbersome to start. <br>
+<strong>Alternative 2:</strong> Multiple graphs on the same pane.<br>
+<strong>Pros:</strong> A easier comparison of the student grades between different graph types.<br>
+<strong>Cons:</strong> Difficult to further expand as there are limited space. Graph may be shrinked as well.</p>
+</div>
+<hr>
 </div>
 </div>
 <div class="sect2">
 <h3 id="statistics-panel-mechanism"><a class="link" href="#statistics-panel-mechanism">4.12. Statistics Panel mechanism</a></h3>
 <div class="paragraph">
-<p>The <code>Statistics Panel</code> is implemented using the <code>Statistics</code> class.
-It supports the calculating of statistics for the current list of students in the <code>PersonListPanel</code>.</p>
+<p>The <code>StatisticsPanel</code> class inherits from the <code>UiPart</code> class.
+It displays to users the statistics of the current list of students in the <code>StudentsPanel</code> element of the user interface.</p>
 </div>
 <div class="paragraph">
-<p>When the user enters any <code>Command</code> that modifies the currentFilteredPersonList or modifies the addressBook data, the <code>Model</code> Component posts
-a <code>FilteredPersonListChangedEvent</code> containing the`filteredPersonsList` to the <code>EventsCenter</code>.</p>
+<p>The <code>Statistics Panel</code> is implemented using the <code>Statistics</code> class and The <code>FilteredPersonListChangedEvent</code> event.
+The <code>Statistics</code> class supports the calculating of statistics for the current list of students in the <code>PersonListPanel</code> and
+the <code>FilteredPersonListChangedEvent</code> indicates that the FilteredPersonList in the model has changed and is used to update the <code>Statsistics Panel</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the StatisticsPanel mechanism works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StatisticsPanelActivityDiagram.png" alt="StatisticsPanelActivityDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.12.1 : Activity Diagram of updating the`Statistics Panel` .</em></p>
+</div>
+<div class="paragraph">
+<p>Whenever the user enters any <code>Command</code> that modifies the addressBook data, the <code>Model</code> Component posts
+a <code>FilteredPersonListChangedEvent</code> containing the <code>filteredPersonsList</code> to the <code>EventsCenter</code>.
+At the same time, an <code>AddressBookChangedEvent</code> that indicates that the model has changed is also posted to the <code>EventsCenter</code>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>FilteredPersonListChangedEvent</code> is implemented this way:</p>
@@ -1816,26 +1704,26 @@ a <code>FilteredPersonListChangedEvent</code> containing the`filteredPersonsList
     @Subscribe
     private void handleFilteredPersonListChangedEvent(FilteredPersonListChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        statistics.initScore(event.getCurrentFilteredPersonList()); // Update currentList data
+        statistics.initScore(event.getCurrentFilteredPersonList()); // Updates the statistics instance values
         loadListStatistics();
     }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In the <code>handleFilteredPersonListChangedEvent</code> event handler, the <code>Statistics</code> instance in <code>StatisticsPanel</code> has its values updated by the <code>initScore()</code> method.
-This results in the statistical values returned from the <code>Statistics</code> class' methods tp be updated to those of the current <code>filteredPersonList</code> to change when called.</p>
+<p>When handling the event, the <code>Statistics</code> instance in <code>StatisticsPanel</code> has its values updated by the <code>initScore()</code> method.
+This means that the values returned from the <code>Statistics</code> class&#8217;s getter methods when called are now updated.</p>
 </div>
 <div class="paragraph">
-<p>The <code>loadListStatistics()</code> of the <code>StatisticsPanel</code> class is then called. This updates and shows the statistic values of the current <code>filteredPersonList</code> on the <code>StatisticsPanel</code> in the User Interface.</p>
+<p>The <code>loadListStatistics()</code> method in <code>StatisticsPanel</code> is then called.</p>
 </div>
 <div class="paragraph">
 <p>The <code>loadListStatistics()</code> is implemented this way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>/**
-     * Updates list Statistics in the Statistics panel
-     */
+<pre class="CodeRay highlight"><code>    /**
+    * Updates list Statistics in the Statistics panel
+    */
     protected void loadListStatistics() {
         mean.setText(statistics.getMeanString());
         median.setText(statistics.getMedianString());
@@ -1849,26 +1737,199 @@ This results in the statistical values returned from the <code>Statistics</code>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>Labels</code> (texts) in the User Interface are set to their corresponding values calculated from the <code>Statistics</code> instance&#8217;s getter methods.</p>
+<p>The <code>Labels</code> (texts) in the User Interface are set according to the updated <code>Statistics</code> instance&#8217;s getter methods.
+This updates and shows the statistic values of the current <code>filteredPersonList</code> on the <code>StatisticsPanel</code> in the User Interface.
+At the same time, the <code>AddressBookChangedEvent</code> is also being handled, saving the addressBook data.</p>
 </div>
+<hr>
 <div class="sect3">
 <h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.12.1. Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Create a new <code>FilteredPersonListChangedEvent</code> event to handle the change in persons' data in the <code>filteredPersonList</code><br>
-<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
-<strong>Pros:</strong> This adheres to the Single Responsibility Principle (SRP), making the class more robust<br>
+<p><strong>Aspect:</strong> How to update the <code>Statistics Panel</code><br>
+<strong>Alternative 1 (current choice):</strong> Create a new <code>FilteredPersonListChangedEvent</code> just for updating the <code>Statistics Panel</code>.<br>
+<strong>Pros:</strong> Adherence to the Single Responsibility Principle (SRP) increases cohesion among the different <code>Events</code> and reduces coupling.<br>
+<strong>Cons:</strong> Increases the number of classes in the source code, making it more complex according to the More Is More Complex (MIMC) principle.<br>
+<strong>Alternative 2:</strong> Modify <code>AddressBookChangedEvent</code> to also update the <code>Statistics Panel</code>.<br>
+<strong>Pros:</strong> Since a change in the <code>model</code> triggers both the <code>AddressBookChangedEvent</code> and the updating of the <code>Statistics Panel</code>,
+only a few changes to are needed for <code>AddressBookChangedEvent</code> to do also update the <code>Statistics Panel</code>.<br>
+<strong>Cons:</strong> This violates the Single Responsibility Principle (SRP) by having giving <code>AddressBookChangedEvent</code> the additional responsibility of updating the <code>Statistics Panel</code>. <br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How to raise the <code>FilteredPersonListChangedEvent</code> in the <code>ModelManager</code><br>
+<strong>Alternative 1 (current choice):</strong> Create a separate <code>updateStatisticsPanel()</code> method to raise the event to update the <code>Statistics Panel</code><br>
+<strong>Pros:</strong> Reduces coupling and increases cohesion by giving a single responsibility to the <code>updateStatisticsPanel()</code> method.<br>
 <strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle.<br>
-<strong>Alternative 2:</strong> Build on the existing <code>AddressBookChangedEvent</code> event to handle the change<br>
-<strong>Pros:</strong> It is easier to implement as the <code>AddressBookChangedEvent</code> class already exists.<br>
-          It makes the codebase less complex as there are less classes.<br>
-          There  is less duplication of code with similar functions.<br>
-<strong>Cons:</strong> The data in the <code>AddressBookChangedEvent</code> is a <code>ReadOnlyAddressBook</code> and the <code>ReadOnlyAddressBook</code> interface does not have a <code>getFilteredPersonsList</code> method.
-Hence it is difficult to separate the data of persons in the <code>filteredPersonList</code> and those not in the <code>filteredPersonList</code> for processing<br></p>
+<strong>Alternative 2:</strong> Raise the <code>FilteredPersonListChangedEvent</code> together with the <code>AddressBookChangedEvent</code><br>
+<strong>Pros:</strong> Reduces the number of similar methods in the source code, making it less complex and easier to understand<br>
+<strong>Cons:</strong> Increases coupling in the source code<br></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unique-color-tag-mechanism"><a class="link" href="#unique-color-tag-mechanism">4.13. Unique Color Tag mechanism</a></h3>
+<div class="paragraph">
+<p>The <code>unique color tag</code> mechanism is facilitated by making changes to <code>PersonCard</code> class in the <code>UI</code> component. This feature enables
+the assignment of unique colors to tags.</p>
+</div>
+<div class="paragraph">
+<p>The color generated to be assigned to tags is random and all tags with the same description will be assigned a same color.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>unique color tag</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UniqueTagColorSequenceDiagram.png" alt="UniqueTagColorSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.13.1 : Sequence Diagram of Unique Color Tag Operation</em></p>
+</div>
+<div class="paragraph">
+<p>The method receives <code>String tagName</code> (description of the tag) and returns the <code>String assignedColor</code>
+associated to the tagName. It is shown in the code segment below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public static String obtainTagColors(String tagName) {
+        if (!currentTagColors.containsKey(tagName)) {
+            do {
+                Random random = new Random();
+                final float hue = random.nextFloat();
+                final float saturation = 0.65f + random.nextFloat()
+                        * (0.90f - 0.65f);
+                final float luminance = 0.60f + random.nextFloat()
+                        * (0.90f - 0.60f);
+
+                Color color = Color.getHSBColor(hue, saturation, luminance);
+
+                Formatter hexRepresentation = new Formatter(new StringBuffer("#"));
+                hexRepresentation.format("%02X", color.getRed());
+                hexRepresentation.format("%02X", color.getGreen());
+                hexRepresentation.format("%02X", color.getBlue());
+                assignedColor = hexRepresentation.toString();
+            } while (usedColors.contains(assignedColor));
+
+            usedColors.add(assignedColor);
+            currentTagColors.put(tagName, assignedColor);
+        }
+        return currentTagColors.get(tagName);
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The section below explains how various parts of the above code segment works.</p>
+</div>
+<div class="paragraph">
+<p>A color is determined by three factors, <code>hue</code>, <code>saturation</code> and <code>luminance</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HueSaturationLuminance.png" alt="HueSaturationLuminance" width="550">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.13.2 : Color Range of Hue, Saturation and Luminance</em></p>
+</div>
+<div class="paragraph">
+<p>The code segment shown below randomises the value of each of the three factors,
+and a random <code>color</code> is obtained.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Random random = new Random();
+
+final float hue = random.nextFloat();
+final float saturation = 0.65f + random.nextFloat() * (0.90f - 0.65f);
+final float luminance = 0.60f + random.nextFloat() * (0.90f - 0.60f);
+
+Color color = Color.getHSBColor(hue, saturation, luminance);</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Random range of <code>saturation</code> and <code>luminance</code> are tweaked to ensure that the random color generated will always mesh well with the white font of
+the tag description.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tagColorPic.png" alt="tagColorPic" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.13.3 : Compatibility of tag color background with white font of tag description</em></p>
+</div>
+<div class="paragraph">
+<p>Next, in the code segment below, the <code>red</code>, <code>green</code> and <code>blue</code> components are extracted from the <code>color</code>. It is then formatted into a <code>hexadecimal
+representation</code> of the color, before being converted to a <code>String</code> data type and assigned to <code>assignedColor</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Hexadecimal representation of the color is compatible with JavaFx.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Formatter hexRepresentation = new Formatter(new StringBuffer("#"));
+hexRepresentation.format("%02X", color.getRed());
+hexRepresentation.format("%02X", color.getGreen());
+hexRepresentation.format("%02X", color.getBlue());
+assignedColor = hexRepresentation.toString();</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>assignedColor</code> is added into an <code>ArrayList&lt;String&gt; usedColors</code>. This ensures no same color will be assigned
+to a tag with different description in subsequent iterations by randomising a different color again, should a same color is
+generated. The method will then return <code>assignedColor</code>.</p>
+</div>
+<div class="paragraph">
+<p>Lastly, in the code below, <code>obtainTagColors(tag.tagName)</code>, the hexadecimal String representation of the color, will be appended
+to the tag background color. This sets the background color of the tag to be that of the assigned color.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>private void initialiseTags(ReadOnlyPerson person) {
+        person.getTags().forEach(tag -&gt; {
+            Label tagLabel = new Label(tag.tagName);
+
+            tagLabel.setStyle("-fx-background-color: " + obtainTagColors(tag.tagName));
+            tags.getChildren().add(tagLabel);
+        });
+    }</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-12"><a class="link" href="#design-considerations-12">4.13.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p>Aspect: How tag colors are assigned.<br>
+Alternative 1 (current choice): Tag colors are assigned randomly.<br>
+Pros: Easy for developers to understand the mechanism of this feature.<br>
+Cons: User has no control over the assigning of tag colors.<br>
+Alternative 2: Tag colors are assigned by the user.<br>
+Pros: User will have more freedom in personalising the tags.<br>
+Cons: The range of colors will be more limited.<br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.13. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.14. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1906,7 +1967,7 @@ Hence it is difficult to separate the data of persons in the <code>filteredPerso
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.14. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.15. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1914,7 +1975,140 @@ Hence it is difficult to separate the data of persons in the <code>filteredPerso
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
+<h2 id="unused-removed-features"><a class="link" href="#unused-removed-features">5. Unused/Removed Features</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section, you will see features/implementations that are removed before the release of the final version. They will be
+accompanied by a link to their unused code should you need them for your future improvements of cherBook.</p>
+</div>
+<div class="sect2">
+<h3 id="add-student-parent-phone-contact-mechanism-a-href-https-github-com-cs2103aug2017-t16-b2-main-blob-master-collated-unused-lenaldnwj-unused-md-functional-code-a"><a class="link" href="#add-student-parent-phone-contact-mechanism-a-href-https-github-com-cs2103aug2017-t16-b2-main-blob-master-collated-unused-lenaldnwj-unused-md-functional-code-a">5.1. Add Student/Parent Phone Contact mechanism [<a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/collated/unused/Lenaldnwj-unused.md">Functional code</a>]</a></h3>
+<div class="paragraph">
+<p>The <code>student/parent phone contact</code> mechanism is facilitated by making changes
+to the Phone class in the model component. It enables the input
+of the phone contact information of the student and his/her parent.</p>
+</div>
+<div class="paragraph">
+<p>To ensure consistency across the user inputs for add command, the user will have to input p/ student/(STUDENT_NUMBER) parent/(PARENT_NUMBER)
+instead of p/ Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER).</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>student/parent phone contact</code> operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MultipleNumberSequenceDiagram.png" alt="MultipleNumberSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.1 : Sequence Diagram of Student/Parent Phone Contact Operation</em></p>
+</div>
+<div class="paragraph">
+<p>The following method replaces <code>/</code> with <code>:<code></code></code>, <code>s</code> with <code>S</code>, and <code>p</code> with <code>P</code> in the user input string
+for appropriate presentation of <code>displayed person card phone information</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="predefined-type">String</span> changeToAppropriateUiFormat(<span class="predefined-type">String</span> value) {
+        value = value.replace(<span class="string"><span class="delimiter">&quot;</span><span class="content">/</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">: </span><span class="delimiter">&quot;</span></span>);
+        value = value.replace(<span class="string"><span class="delimiter">&quot;</span><span class="content">s</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">S</span><span class="delimiter">&quot;</span></span>);
+        value = value.replace(<span class="string"><span class="delimiter">&quot;</span><span class="content">p</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">P</span><span class="delimiter">&quot;</span></span>);
+        <span class="keyword">return</span> value;
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Validity of the <code>displayed person card phone information</code> is checked in the following method in the Phone class:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="type">boolean</span> isValidPhone(<span class="predefined-type">String</span> test) {
+        <span class="keyword">return</span> test.matches(PHONE_VALIDATION_REGEX);
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where the <code>PHONE_VALIDATION_REGEX</code> refers to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> PHONE_VALIDATION_REGEX =
+<span class="string"><span class="delimiter">&quot;</span><span class="content">((Student: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">)( Parent: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">))|((Parent: )(</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">\d</span><span class="content">))</span><span class="delimiter">&quot;</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The regex ensures that the string for <code>displayed person card phone information</code> adheres to the
+correct format of <code>Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER)</code> or <code>Parent: (PARENT_NUMBER)</code> as it is optional to
+add the phone number of students.</p>
+</div>
+<div class="paragraph">
+<p>The phone numbers must be exactly <code>8 digits</code> long.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PhoneDisplay.png" alt="PhoneDisplay" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.2 : Valid Displayed Person Card Phone Information</em></p>
+</div>
+<div class="paragraph">
+<p>If the string format for <code>displayed person card phone information</code> is valid, the
+phone contact information of the student and his/her parent will be displayed
+below the student&#8217;s name in the person card as seen in the figure above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/message_constraint.png" alt="message constraint" width="1100">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.3 : Message to prompt Users to Enter Correct Phone Format</em></p>
+</div>
+<div class="paragraph">
+<p>If the string format for <code>displayed person card phone information</code> is invalid, an <code>IllegalValueException</code>
+is thrown. The user will be prompted to follow the accepted format as seen in the figure above.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> Phone(<span class="predefined-type">String</span> phone) <span class="directive">throws</span> IllegalValueException {
+        requireNonNull(phone);
+        <span class="predefined-type">String</span> trimmedPhone = phone.trim();
+        trimmedPhone = changeToAppropriateUiFormat(trimmedPhone);
+        <span class="keyword">if</span> (!isValidPhone(trimmedPhone)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalValueException(MESSAGE_PHONE_CONSTRAINTS);
+        }
+        <span class="local-variable">this</span>.value = trimmedPhone;
+    }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-13"><a class="link" href="#design-considerations-13">5.1.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Phone numbers <br>
+<strong>Alternative 1 (current choice):</strong> Both the student&#8217;s phone number and their parent&#8217;s phone number is a single string.<br>
+<strong>Pros:</strong> Easy to implement as separate classes for student&#8217;s phone and parent&#8217;s phone is not required.<br>
+<strong>Cons:</strong> Harder to implement features that require solely the student&#8217;s number or parent&#8217;s number.<br>
+<strong>Alternative 2:</strong> Have a phoneStudent class for student&#8217;s phone number and phoneParent class for parent&#8217;s phone number.<br>
+<strong>Pros:</strong> Can edit properties of the student&#8217;s phone number or parent&#8217;s phone number separately.<br>
+<strong>Cons:</strong> Harder to implement as now there will be two phone classes instead of one.<br></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Validity of phone number<br>
+<strong>Alternative 1 (current choice):</strong> Only allow numbers that are exactly <code>8 digits</code> long.<br>
+<strong>Pros:</strong> Ensures consistency across all phone numbers.<br>
+<strong>Cons:</strong> Student&#8217;s parents might not have foreign numbers that are not exactly <code>8 digits</code> long.<br>
+<strong>Alternative 2:</strong> Modify phone validity regex to allow any length of phone numbers.<br>
+<strong>Pros:</strong> Able to have phone numbers that are local or non-local.<br>
+<strong>Cons:</strong> Inconsistent phone lengths displayed, might look very messy.<br></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="documentation"><a class="link" href="#documentation">6. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this section, we will be explaining how we edit and publish our documentation. We use asciidoc for writing documentation.</p>
@@ -1932,20 +2126,20 @@ Asciidoc is chosen over Markdown because asciidoc, although a bit more complex t
 </table>
 </div>
 <div class="sect2">
-<h3 id="editing-documentation"><a class="link" href="#editing-documentation">5.1. Editing Documentation</a></h3>
+<h3 id="editing-documentation"><a class="link" href="#editing-documentation">6.1. Editing Documentation</a></h3>
 <div class="paragraph">
 <p>You can look at <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">5.2. Publishing Documentation</a></h3>
+<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">6.2. Publishing Documentation</a></h3>
 <div class="paragraph">
 <p>You can look at <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></h3>
+<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">6.3. Converting Documentation to PDF format</a></h3>
 <div class="paragraph">
 <p><a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> is used for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
@@ -1974,13 +2168,13 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 5.6.1 : Saving documentation as PDF files in Chrome</em></p>
+<p><em>Figure 6.3.1 : Saving documentation as PDF files in Chrome</em></p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">7. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Having integrated unit tests that cover your API&#8217;s behaviour is important.
@@ -1989,7 +2183,7 @@ This section details the different types of tests cherBook uses and how to run t
 Additionally, the troubleshooting section details the errors you might face while testing cherBook and different ways to solve them.</p>
 </div>
 <div class="sect2">
-<h3 id="running-tests"><a class="link" href="#running-tests">6.1. Running Tests</a></h3>
+<h3 id="running-tests"><a class="link" href="#running-tests">7.1. Running Tests</a></h3>
 <div class="paragraph">
 <p>There are three ways to run tests.</p>
 </div>
@@ -2051,7 +2245,7 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 </div>
 </div>
 <div class="sect2">
-<h3 id="types-of-tests"><a class="link" href="#types-of-tests">6.2. Types of tests</a></h3>
+<h3 id="types-of-tests"><a class="link" href="#types-of-tests">7.2. Types of tests</a></h3>
 <div class="paragraph">
 <p>We have two types of tests:</p>
 </div>
@@ -2093,7 +2287,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">6.3. Troubleshooting Testing</a></h3>
+<h3 id="troubleshooting-testing"><a class="link" href="#troubleshooting-testing">7.3. Troubleshooting Testing</a></h3>
 <div class="paragraph">
 <p><strong>Problem: <code>HelpWindowTest</code> fails with a <code>NullPointerException</code>.</strong></p>
 </div>
@@ -2112,25 +2306,25 @@ inserting the line <code>gradlew processResources</code>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">8. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section teaches you about tools building and provides you with instructions on how to test and release apps faster and	more efficiently.</p>
 </div>
 <div class="sect2">
-<h3 id="build-automation"><a class="link" href="#build-automation">7.1. Build Automation</a></h3>
+<h3 id="build-automation"><a class="link" href="#build-automation">8.1. Build Automation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html">UsingGradle.adoc</a> to learn how to use Gradle for build automation.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="continuous-integration"><a class="link" href="#continuous-integration">7.2. Continuous Integration</a></h3>
+<h3 id="continuous-integration"><a class="link" href="#continuous-integration">8.2. Continuous Integration</a></h3>
 <div class="paragraph">
 <p>We use <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://www.appveyor.com/">AppVeyor</a> to perform <em>Continuous Integration</em> on our projects. See <a href="UsingTravis.html">UsingTravis.adoc</a> and <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a> for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-release"><a class="link" href="#making-a-release">7.3. Making a Release</a></h3>
+<h3 id="making-a-release"><a class="link" href="#making-a-release">8.3. Making a Release</a></h3>
 <div class="paragraph">
 <p>Here are the steps to create a new release.</p>
 </div>
@@ -2152,7 +2346,7 @@ inserting the line <code>gradlew processResources</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">7.4. Managing Dependencies</a></h3>
+<h3 id="managing-dependencies"><a class="link" href="#managing-dependencies">8.4. Managing Dependencies</a></h3>
 <div class="paragraph">
 <p>A project often depends on third-party libraries. For example, Address Book depends on the <a href="http://wiki.fasterxml.com/JacksonHome">Jackson library</a> for XML parsing. Managing these <em>dependencies</em> can be automated using Gradle. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
@@ -2940,14 +3134,14 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident [Coming in v2.0]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a welcome page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">feel motivated from wallpaper and quotes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">customise the welcome page of the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">feel motivated from wallpaper and quotes [Coming in v2.0]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident [Coming in v2.0]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -3442,17 +3636,17 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-schedule" class="discrete">Use case: Schedule</h3>
+<h3 id="use-case-add-schedule" class="discrete">Use case: Add Schedule</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to schedule person</p>
+<p>User requests to add schedule with a given person index, time and date</p>
 </li>
 <li>
-<p>AddressBook adds the scheduled person to the schedule list</p>
+<p>AddressBook adds the schedule to the schedule list</p>
 </li>
 <li>
 <p>AddressBook displays the result of user&#8217;s request</p>
@@ -3794,7 +3988,7 @@ Use case ends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 06:11:06 +00:00
+Last updated 2017-11-13 06:37:18 +00:00
 </div>
 </div>
 </body>

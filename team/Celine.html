@@ -157,7 +157,7 @@ The <code>sort</code> is case insensitive.
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.2.1 : Sequence Diagram of Sort Operation</em></p>
+<p><em>Figure 4.6.1 : Sequence Diagram of Sort Operation</em></p>
 </div>
 <div class="paragraph">
 <p>When the user calls ‘sort’ or ‘st’ to <code>sort</code> the contacts, the <code>Model</code> will take in an <code>ArrayList</code> named contactList from the <code>Parser</code>.</p>
@@ -172,16 +172,14 @@ If the list is already in the correct alphabetical order, the address book will 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> ObservableList&lt;ReadOnlyPerson&gt; asObservableListSortedByName() {
-    internalList.sort(<span class="keyword">new</span> <span class="predefined-type">Comparator</span>&lt;Person&gt;() {
-        <span class="annotation">@Override</span>
-        <span class="directive">public</span> <span class="type">int</span> compare(Person o1, Person o2) {
-           <span class="keyword">return</span> ((o1.getName().toString().toLowerCase()).compareTo(o2.getName().toString().toLowerCase()));
-        }
-     });
-     <span class="keyword">return</span> FXCollections.unmodifiableObservableList(mappedList);
-    }
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">/**
+     * Returns an observable list as as an unmodifiable {@code ObservableList}
+     */</span>
+    <span class="directive">public</span> ObservableList&lt;ReadOnlyPerson&gt; asObservableListSortedByName() {
+        internalList.sort((o1, o2) -&gt;((o1.getName().toString().toLowerCase())
+                .compareTo(o2.getName().toString().toLowerCase())));
+        <span class="keyword">return</span> FXCollections.unmodifiableObservableList(mappedList);
+    }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -215,9 +213,9 @@ If the list is already in the correct alphabetical order, the address book will 
 <strong>Alternative 1 (current choice):</strong> Creates an empty <code>ArrayList</code> to obtain the names from the <code>UniquePersonList</code> before sorting occurs. The <code>sort</code> overwrites the existing list of unsorted contacts. <br>
 <strong>Pros:</strong> The original list of unsorted contacts is not altered.<br>
 <strong>Cons:</strong> Additional space usage and longer time needed to overwrite the original contact list, inefficiency and memory wastage may arise.<br>
-<strong>Alternative 2:</strong> Manually edit the list of contacts in cherBook.<br>
-<strong>Pros:</strong> Do not need to maintain a separate list, just reuse what is already in the codebase, and it saves space.<br>
-<strong>Cons:</strong>  Inefficient as compared to using an algorithm. If the user made a mistake, the change cannot be reverted as the original list of contacts is not saved.<br></p>
+<strong>Alternative 2:</strong> Creates a new list of persons to sort each time a command that filters the person list is entered.<br>
+<strong>Pros:</strong> User can sort accordingly to the filtered person list that he/she has implemented. Able to revert any changes if user does not want their contact list to be sorted.<br>
+<strong>Cons:</strong> User have to continously use the sort command for every filtered person list change. Inefficient if the user wants their contact list to be sorted at all times.<br></p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -397,7 +395,7 @@ Adding of <code>schedules</code> into the AddressBook can be done in natural lan
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.3.1 : Sequence Diagram of Schedule Operation</em></p>
+<p><em>Figure 4.7.1 : Sequence Diagram of Schedule Operation</em></p>
 </div>
 <div class="paragraph">
 <p>When the user calls ‘schedule’ or ‘sch’ to schedule the contacts in cherBook, the Model will receive a schedule from the Parser.</p>
@@ -418,7 +416,9 @@ If one or more arguments required to schedule a person is invalid, the AddressBo
     <span class="annotation">@Override</span>
     <span class="directive">public</span> <span class="type">void</span> addSchedule(Schedule schedule) {
         addressBook.addSchedule(schedule);
+        addressBook.sortSchedules();
         indicateAddressBookChanged();
+        indicateScheduleListChanged();
     }</code></pre>
 </div>
 </div>
@@ -721,7 +721,7 @@ cherBook will produce a audible reminder ten minutes before every scheduled appo
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 06:11:06 +00:00
+Last updated 2017-11-13 06:37:18 +00:00
 </div>
 </div>
 </body>

@@ -86,7 +86,7 @@ the assignment of unique colors to tags.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.6.1 : Sequence Diagram of Unique Color Tag Operation</em></p>
+<p><em>Figure 4.13.1 : Sequence Diagram of Unique Color Tag Operation</em></p>
 </div>
 <div class="paragraph">
 <p>The method receives <code>String tagName</code> (description of the tag) and returns the <code>String assignedColor</code>
@@ -124,8 +124,19 @@ associated to the tagName. It is shown in the code segment below.</p>
 <p>The section below explains how various parts of the above code segment works.</p>
 </div>
 <div class="paragraph">
-<p>A color is determined by three factors, <code>hue</code>, <code>saturation</code> and <code>luminance</code>. The code segment shown below randomises the value of each of the three factors,
-and a random <code>color</code> are obtained as a result.</p>
+<p>A color is determined by three factors, <code>hue</code>, <code>saturation</code> and <code>luminance</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/HueSaturationLuminance.png" alt="HueSaturationLuminance" width="550">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.13.2 : Color Range of Hue, Saturation and Luminance</em></p>
+</div>
+<div class="paragraph">
+<p>The code segment shown below randomises the value of each of the three factors,
+and a random <code>color</code> is obtained.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -145,8 +156,8 @@ Color color = Color.getHSBColor(hue, saturation, luminance);</pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Random range of saturation and luminance are specified to ensure that the random color generated will always mesh well with the white font of
-the tag description. This can be seen in the picture below.
+Random range of <code>saturation</code> and <code>luminance</code> are tweaked to ensure that the random color generated will always mesh well with the white font of
+the tag description.
 </td>
 </tr>
 </table>
@@ -157,11 +168,11 @@ the tag description. This can be seen in the picture below.
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.6.2 : Compatibility of tag color background with white font of tag description</em></p>
+<p><em>Figure 4.13.3 : Compatibility of tag color background with white font of tag description</em></p>
 </div>
 <div class="paragraph">
 <p>Next, in the code segment below, the <code>red</code>, <code>green</code> and <code>blue</code> components are extracted from the <code>color</code>. It is then formatted into a <code>hexadecimal
-representation</code> of the color, before being converted to a String data type and assigned to <code>assignedColor</code>.</p>
+representation</code> of the color, before being converted to a <code>String</code> data type and assigned to <code>assignedColor</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -185,8 +196,8 @@ assignedColor = hexRepresentation.toString();</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>assignedColor</code> is added into an <code>ArrayList&lt;String&gt; usedColors</code>. This ensures no same colors will be assigned
-to a tag with different description in subsequent iterations by randomising a different color again should a same color is
+<p>The <code>assignedColor</code> is added into an <code>ArrayList&lt;String&gt; usedColors</code>. This ensures no same color will be assigned
+to a tag with different description in subsequent iterations by randomising a different color again, should a same color is
 generated. The method will then return <code>assignedColor</code>.</p>
 </div>
 <div class="paragraph">
@@ -212,7 +223,7 @@ to the tag background color. This sets the background color of the tag to be tha
 Alternative 1 (current choice): Tag colors are assigned randomly.<br>
 Pros: Easy for developers to understand the mechanism of this feature.<br>
 Cons: User has no control over the assigning of tag colors.<br>
-Alternative 2: Allow user to assign the colors to the tags themselves.<br>
+Alternative 2: Tag colors are assigned by the user.<br>
 Pros: User will have more freedom in personalising the tags.<br>
 Cons: The range of colors will be more limited.<br></p>
 </div>
@@ -354,7 +365,7 @@ Student&#8217;s phone number, email, address and postal code are optional inputs
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.5.1 : Sequence Diagram of Optional Inputs/Fields Operation</em></p>
+<p><em>Figure 4.2.1 : Sequence Diagram of Optional Inputs/Fields Operation</em></p>
 </div>
 <div class="paragraph">
 <p>The optionalInput method will append messages indicating that those optional fields are not recorded if the user chooses not to include those fields.
@@ -372,12 +383,15 @@ The method can be seen in the code section below.</p>
         if (!input.contains("c/")) {
             input = input + " c/ (Postal code not recorded)";
         }
+        if (!input.contains(" p/")) {
+            input = input + " p/ (Student phone not recorded)";
+        }
         return input;
     }</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The method is illustrated in the following picture.</p>
+<p>The output of the method is illustrated in the following picture.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -385,7 +399,7 @@ The method can be seen in the code section below.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.5.2 : Messages shown when the user does not enter the optional fields</em></p>
+<p><em>Figure 4.2.2 : Messages shown when the user does not enter the optional fields</em></p>
 </div>
 <div class="paragraph">
 <p>Prefixes of the optional fields - <code>PREFIX_PHONE</code>, <code>PREFIX_EMAIL</code>, <code>PREFIX_ADDRESS</code> and <code>PREFIX_POSTALCODE</code> are removed from
@@ -408,9 +422,9 @@ Alternative 1 (current choice): This feature manipulates the input to include th
 stating that the field is not recorded.<br>
 Pros: Simpler to understand and tweak this feature as it only manipulates the parsed input of the user.<br>
 Cons: Unable to implement UI features that requires the attribute to have a optional property.<br>
-Alternative 2: This feature will implement a optional characteristic in attributes that are optional<br>
-Pros: Optionality aspect of then attributes can be used by other features of cherBook.<br>
-Cons: Harder to understand the mechanism and implement changes to this feature.<br></p>
+Alternative 2: This feature implements a optional characteristic in optional attributes.<br>
+Pros: Optionality aspect of the attributes can be used by other features of cherBook.<br>
+Cons: Harder to understand the mechanism and more work is required implement changes to this feature.<br></p>
 </div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
@@ -527,7 +541,7 @@ between the teachers and the parent of the students.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-student-parent-phone-contact-mechanism"><a class="link" href="#add-student-parent-phone-contact-mechanism">Add Student/Parent Phone Contact mechanism</a></h3>
+<h3 id="add-student-parent-phone-contact-mechanism-a-href-https-github-com-cs2103aug2017-t16-b2-main-blob-master-collated-unused-lenaldnwj-unused-md-functional-code-a"><a class="link" href="#add-student-parent-phone-contact-mechanism-a-href-https-github-com-cs2103aug2017-t16-b2-main-blob-master-collated-unused-lenaldnwj-unused-md-functional-code-a">Add Student/Parent Phone Contact mechanism [<a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/collated/unused/Lenaldnwj-unused.md">Functional code</a>]</a></h3>
 <div class="paragraph">
 <p>The <code>student/parent phone contact</code> mechanism is facilitated by making changes
 to the Phone class in the model component. It enables the input
@@ -546,7 +560,7 @@ instead of p/ Student: (STUDENT_NUMBER) Parent: (PARENT_NUMBER).</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.5.1 : Sequence Diagram of Student/Parent Phone Contact Operation</em></p>
+<p><em>Figure 5.1.1 : Sequence Diagram of Student/Parent Phone Contact Operation</em></p>
 </div>
 <div class="paragraph">
 <p>The following method replaces <code>/</code> with <code>:<code></code></code>, <code>s</code> with <code>S</code>, and <code>p</code> with <code>P</code> in the user input string
@@ -595,7 +609,7 @@ add the phone number of students.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.5.2 : Valid Displayed Person Card Phone Information</em></p>
+<p><em>Figure 5.1.2 : Valid Displayed Person Card Phone Information</em></p>
 </div>
 <div class="paragraph">
 <p>If the string format for <code>displayed person card phone information</code> is valid, the
@@ -608,7 +622,7 @@ below the student&#8217;s name in the person card as seen in the figure above.</
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.5.3 : Message to prompt Users to Enter Correct Phone Format</em></p>
+<p><em>Figure 5.1.3 : Message to prompt Users to Enter Correct Phone Format</em></p>
 </div>
 <div class="paragraph">
 <p>If the string format for <code>displayed person card phone information</code> is invalid, an <code>IllegalValueException</code>
@@ -686,7 +700,7 @@ is thrown. The user will be prompted to follow the accepted format as seen in th
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 06:11:06 +00:00
+Last updated 2017-11-13 06:37:18 +00:00
 </div>
 </div>
 </body>

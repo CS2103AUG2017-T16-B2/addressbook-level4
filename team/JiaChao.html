@@ -396,42 +396,31 @@ Thus making it more difficult and less efficient for the user to find the wanted
 <div class="sect2">
 <h3 id="findtags-mechanism"><a class="link" href="#findtags-mechanism">FindTags mechanism</a></h3>
 <div class="paragraph">
-<p>The <code>FindTags</code> mechanism is implemented using FindTagsCommand.
-It supports searching for persons whose tags contains at least all the tags input by the user.</p>
+<p>The <code>FindTagsCommand</code> class inheriteds from the <code>Command</code> class.
+It allows users to search students by their tags.</p>
 </div>
 <div class="paragraph">
-<p>When the user uses the <code>FindTags</code> command, a <code>TagsContainKeywordsPredicate</code> is created.
-The <code>TagsContainKeywordsPredicate</code> tests whether each person&#8217;s tags contain all keywords input by the user.
-Under the <code>Model</code> component, <code>TagsContainKeywordsPredicate</code> is used to filter the persons in the AddressBook.
-After filtering, <code>PersonListPanel</code> only shows persons whose tags contain all keywords input by the user.</p>
+<p>The <code>FindTags</code> mechanism is facilitated by the <code>TagsContainKeywordsPredicate</code>, which resides within <code>FindTagsCommand</code>.
+The <code>TagsContainKeywordsPredicate</code> tests whether each person&#8217;s tags contain all keywords input by the user
+and thus supports AND search.</p>
 </div>
 <div class="paragraph">
-<p>This search operation is an <code>AND search</code>. Suppose the user executes <code>findtags friends NUS</code>.<br>
-Only persons with at least both <code>friends</code> and <code>NUS</code> will be displayed. Persons with only <code>friends</code> or only <code>NUS</code> will not be displayed.<br></p>
+<p>The following sequence diagram shows how the FindTags operation works:</p>
 </div>
-<div class="paragraph">
-<p>The <code>FindTagsCommand</code> is implemented this way:</p>
-</div>
-<div class="listingblock">
+<div class="imageblock">
 <div class="content">
-<pre>public class FindTagsCommand extends Command {
-    private final TagsContainsKeywordsPredicate predicate;
-
-    @Override
-    public CommandResult execute() {
-        model.updateFilteredPersonList(predicate);
-        return new CommandResult(
-            getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
-    }
-    // ... other logic ...
-}</pre>
+<img src="../images/FindTagsSequenceDiagramForLogic.png" alt="FindTagsSequenceDiagramForLogic" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p><code>Model.updateFilteredPersonList()</code> updates the <code>PersonListPanel</code> display by filter using the <code>TagsContainsKeywordsPredicate</code> instance.</p>
+<p><em>Figure 4.4.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
 </div>
 <div class="paragraph">
-<p>And the <code>TagsContainsKeywordsPredicate</code> found inside <code>FindTagsCommand</code> is implemented this way:</p>
+<p>As can seen from above, when a <code>FindTags</code> command is called, E.g. <code>findtags NUS friends</code>.
+An instance of <code>TagsContainKeywordsPredicate</code> is created.</p>
+</div>
+<div class="paragraph">
+<p>The newly created <code>TagsContainsKeywordsPredicate</code> used to implement <code>FindTagsCommand</code> is shown below:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -459,34 +448,59 @@ The test is case insensitive as <code>StringUtil.containsWordIgnoreCase()</code>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>The <code>keywords.stream().allMatch()</code> method in <code>test()</code> returns true if the person&#8217;s tags contains all keywords in <code>keywords</code>.
-This supports the evaluation of the person by the predicate.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This search operation is an <code>AND search</code>
+So only persons with at least both <code>friends</code> and <code>NUS</code> will be displayed. Persons with only <code>friends</code> or only <code>NUS</code> will not be displayed.<br>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>The <code>PersonListPanel</code> will show persons whose tags contain at least all keywords input by the user.
-However if there are no persons with all keywords in the tags, the <code>PersonListPanel</code> will just be blank.</p>
+<p>Inside the <code>TagsContainKeywordsPredicate</code>, the search terms <code>NUS</code> and <code>friends</code> are stored inside the <code>keywords</code> list.
+The overidding <code>test()</code> method evluates whether the person&#8217;s tags matches all the search terms in <code>keywords</code>.
+This <code>TagsContainKeywordsPredicate</code> is then used to test every person in the AddressBook and filter them.</p>
 </div>
 <div class="paragraph">
-<p>This is implemented using <code>Predicates</code> because <code>Predicates</code> help move the business logic to a more central place, helping in unit-testing them separately.
-Also, the <code>Predicate</code> can can be reused, improving code manageability.<br>
-The code with Predicates is also much more readable than using if-else blocks.</p>
+<p>The newly created <code>FindTagsCommand</code> class is shown below:</p>
 </div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the FindTags operation works:</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="../images/FindTagsSequenceDiagramForLogic.png" alt="FindTagsSequenceDiagramForLogic" width="800">
+<pre>public class FindTagsCommand extends Command {
+    private final TagsContainsKeywordsPredicate predicate;
+
+    @Override
+    public CommandResult execute() {
+        model.updateFilteredPersonList(predicate);
+        return new CommandResult(
+            getMessageForPersonListShownSummary(model.getFilteredPersonList().size()));
+    }
+    // ... other logic ...
+}</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.10.1 : Sequence Diagram of <code>FindTags</code> Operation</em></p>
+<p>The <code>predicate</code> is passed through <code>model.updateFilteredPersonList(predicate)</code> to update the <code>filteredPersonList</code>.
+This causes the <code>filteredPersonList</code> to only contain students whose tags match all keywords <code>NUS</code> and <code>friends</code>
+and also display them in the <code>PersonListPanel</code> UI element.</p>
 </div>
 <div class="paragraph">
-<p>After the addressBook&#8217;s <code>filteredPersonsList</code> has been updated, the <code>Model</code> Component posts an <code>AddressBookChangedEvent</code>
-to indicate the model has changed and a <code>FilteredPersonListChangedEvent</code> to update the <code>StatisticsPanel</code> of the UI to reflect the new Statistical values.</p>
+<p>However if there are no persons with all keywords in the tags, the <code>PersonListPanel</code> will just be blank.</p>
 </div>
+<div class="paragraph">
+<p>Meanwhile, the <code>ModelManager</code> posts a <code>AddressBookChanged event</code> and a <code>FilteredPersonListChangedEvent</code> to the <code>EventsCenter</code>.
+The <code>AddressBookChangedEvent</code> indicates that the <code>model</code> has changed and the causing the <code>FilteredPersonListChangedEvent</code> updates the <code>StatisticsPanel</code> of the UI to reflect the new Statistics for the new list of students.</p>
+</div>
+<div class="paragraph">
+<p>This search feature is implemented using <code>Predicate</code> because <code>Predicate</code> help move the business logic to a more central place, helping in unit-testing them separately.
+Also, the <code>Predicate</code> can can be reused, improving code manageability and readability.</p>
+</div>
+<hr>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="paragraph">
@@ -496,8 +510,23 @@ to indicate the model has changed and a <code>FilteredPersonListChangedEvent</co
 <strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle. For example, a separate <code>TagsContainsKeywordsPredicate</code> class is needed when the same can be done by inserting it as an inner class in the <code>FindTagsCommand</code> class.<br>
 <strong>Alternative 2:</strong> Create <code>TagsContainsKeywordsPredicate</code> as an inner class in <code>FindTagsCommand</code> class.<br>
 <strong>Pros:</strong> It makes the codebase less complex as there are less classes.<br>
-<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces reusability of the <code>Predicate</code> outside of the <code>FindTagsCommand</code><br></p>
+<strong>Cons:</strong> It adds complexity to the <code>FindTagsCommand</code> source file and reduces re-usability of the <code>Predicate</code> outside of the <code>FindTagsCommand</code><br></p>
 </div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Whether to use AND or OR search<br>
+<strong>Alternative 1 (current choice):</strong> AND search<br>
+<strong>Pros:</strong> Allows users to find students with a specific combination of tags much more efficiently.<br>
+E.g. <code>findtags band dance</code> only returns the list of students who have both the <code>band</code> and <code>dance</code> tag rather all students with either the <code>band</code> or <code>dance</code> tag.<br>
+<strong>Cons:</strong> Does not allow users to calculate statistics for more than one group of students at a time. <br>
+E.g. <code>findtags band dance</code> cannot calculate  statistics for the <code>track</code> and <code>dance</code> groups combined.<br>
+<strong>Alternative 2:</strong> OR search<br>
+<strong>Pros:</strong> Allows users to calculate statistics for more than one group of students at a time.<br>
+E.g. <code>findtags track dance</code> calculates statistics for the <code>track</code> and <code>dance</code> groups combined.<br>
+<strong>Cons:</strong> Or search does not help teachers find students with a specific combination of tags efficiently.<br>
+E.g. <code>findtags track dance</code> does not narrow down the list of students returned to students who have both the <code>track</code> and <code>dance</code> tag.<br></p>
+</div>
+<hr>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
@@ -543,12 +572,29 @@ You can use these statistics to pick out trends in your student&#8217;s grades a
 <div class="sect2">
 <h3 id="statistics-panel-mechanism"><a class="link" href="#statistics-panel-mechanism">Statistics Panel mechanism</a></h3>
 <div class="paragraph">
-<p>The <code>Statistics Panel</code> is implemented using the <code>Statistics</code> class.
-It supports the calculating of statistics for the current list of students in the <code>PersonListPanel</code>.</p>
+<p>The <code>StatisticsPanel</code> class inherits from the <code>UiPart</code> class.
+It displays to users the statistics of the current list of students in the <code>StudentsPanel</code> element of the user interface.</p>
 </div>
 <div class="paragraph">
-<p>When the user enters any <code>Command</code> that modifies the currentFilteredPersonList or modifies the addressBook data, the <code>Model</code> Component posts
-a <code>FilteredPersonListChangedEvent</code> containing the`filteredPersonsList` to the <code>EventsCenter</code>.</p>
+<p>The <code>Statistics Panel</code> is implemented using the <code>Statistics</code> class and The <code>FilteredPersonListChangedEvent</code> event.
+The <code>Statistics</code> class supports the calculating of statistics for the current list of students in the <code>PersonListPanel</code> and
+the <code>FilteredPersonListChangedEvent</code> indicates that the FilteredPersonList in the model has changed and is used to update the <code>Statsistics Panel</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows how the StatisticsPanel mechanism works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StatisticsPanelActivityDiagram.png" alt="StatisticsPanelActivityDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.12.1 : Activity Diagram of updating the`Statistics Panel` .</em></p>
+</div>
+<div class="paragraph">
+<p>Whenever the user enters any <code>Command</code> that modifies the addressBook data, the <code>Model</code> Component posts
+a <code>FilteredPersonListChangedEvent</code> containing the <code>filteredPersonsList</code> to the <code>EventsCenter</code>.
+At the same time, an <code>AddressBookChangedEvent</code> that indicates that the model has changed is also posted to the <code>EventsCenter</code>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>FilteredPersonListChangedEvent</code> is implemented this way:</p>
@@ -586,26 +632,26 @@ a <code>FilteredPersonListChangedEvent</code> containing the`filteredPersonsList
     @Subscribe
     private void handleFilteredPersonListChangedEvent(FilteredPersonListChangedEvent event) {
         logger.info(LogsCenter.getEventHandlingLogMessage(event));
-        statistics.initScore(event.getCurrentFilteredPersonList()); // Update currentList data
+        statistics.initScore(event.getCurrentFilteredPersonList()); // Updates the statistics instance values
         loadListStatistics();
     }</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>In the <code>handleFilteredPersonListChangedEvent</code> event handler, the <code>Statistics</code> instance in <code>StatisticsPanel</code> has its values updated by the <code>initScore()</code> method.
-This results in the statistical values returned from the <code>Statistics</code> class' methods tp be updated to those of the current <code>filteredPersonList</code> to change when called.</p>
+<p>When handling the event, the <code>Statistics</code> instance in <code>StatisticsPanel</code> has its values updated by the <code>initScore()</code> method.
+This means that the values returned from the <code>Statistics</code> class&#8217;s getter methods when called are now updated.</p>
 </div>
 <div class="paragraph">
-<p>The <code>loadListStatistics()</code> of the <code>StatisticsPanel</code> class is then called. This updates and shows the statistic values of the current <code>filteredPersonList</code> on the <code>StatisticsPanel</code> in the User Interface.</p>
+<p>The <code>loadListStatistics()</code> method in <code>StatisticsPanel</code> is then called.</p>
 </div>
 <div class="paragraph">
 <p>The <code>loadListStatistics()</code> is implemented this way:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code>/**
-     * Updates list Statistics in the Statistics panel
-     */
+<pre class="CodeRay highlight"><code>    /**
+    * Updates list Statistics in the Statistics panel
+    */
     protected void loadListStatistics() {
         mean.setText(statistics.getMeanString());
         median.setText(statistics.getMedianString());
@@ -619,22 +665,34 @@ This results in the statistical values returned from the <code>Statistics</code>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>Labels</code> (texts) in the User Interface are set to their corresponding values calculated from the <code>Statistics</code> instance&#8217;s getter methods.</p>
+<p>The <code>Labels</code> (texts) in the User Interface are set according to the updated <code>Statistics</code> instance&#8217;s getter methods.
+This updates and shows the statistic values of the current <code>filteredPersonList</code> on the <code>StatisticsPanel</code> in the User Interface.
+At the same time, the <code>AddressBookChangedEvent</code> is also being handled, saving the addressBook data.</p>
 </div>
+<hr>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="paragraph">
-<p><strong>Aspect:</strong> Create a new <code>FilteredPersonListChangedEvent</code> event to handle the change in persons' data in the <code>filteredPersonList</code><br>
-<strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
-<strong>Pros:</strong> This adheres to the Single Responsibility Principle (SRP), making the class more robust<br>
-<strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle.<br>
-<strong>Alternative 2:</strong> Build on the existing <code>AddressBookChangedEvent</code> event to handle the change<br>
-<strong>Pros:</strong> It is easier to implement as the <code>AddressBookChangedEvent</code> class already exists.<br>
-          It makes the codebase less complex as there are less classes.<br>
-          There  is less duplication of code with similar functions.<br>
-<strong>Cons:</strong> The data in the <code>AddressBookChangedEvent</code> is a <code>ReadOnlyAddressBook</code> and the <code>ReadOnlyAddressBook</code> interface does not have a <code>getFilteredPersonsList</code> method.
-Hence it is difficult to separate the data of persons in the <code>filteredPersonList</code> and those not in the <code>filteredPersonList</code> for processing<br></p>
+<p><strong>Aspect:</strong> How to update the <code>Statistics Panel</code><br>
+<strong>Alternative 1 (current choice):</strong> Create a new <code>FilteredPersonListChangedEvent</code> just for updating the <code>Statistics Panel</code>.<br>
+<strong>Pros:</strong> Adherence to the Single Responsibility Principle (SRP) increases cohesion among the different <code>Events</code> and reduces coupling.<br>
+<strong>Cons:</strong> Increases the number of classes in the source code, making it more complex according to the More Is More Complex (MIMC) principle.<br>
+<strong>Alternative 2:</strong> Modify <code>AddressBookChangedEvent</code> to also update the <code>Statistics Panel</code>.<br>
+<strong>Pros:</strong> Since a change in the <code>model</code> triggers both the <code>AddressBookChangedEvent</code> and the updating of the <code>Statistics Panel</code>,
+only a few changes to are needed for <code>AddressBookChangedEvent</code> to do also update the <code>Statistics Panel</code>.<br>
+<strong>Cons:</strong> This violates the Single Responsibility Principle (SRP) by having giving <code>AddressBookChangedEvent</code> the additional responsibility of updating the <code>Statistics Panel</code>. <br></p>
 </div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How to raise the <code>FilteredPersonListChangedEvent</code> in the <code>ModelManager</code><br>
+<strong>Alternative 1 (current choice):</strong> Create a separate <code>updateStatisticsPanel()</code> method to raise the event to update the <code>Statistics Panel</code><br>
+<strong>Pros:</strong> Reduces coupling and increases cohesion by giving a single responsibility to the <code>updateStatisticsPanel()</code> method.<br>
+<strong>Cons:</strong> Makes the application more complex to understand according to the More Is More Complex (MIMC) principle.<br>
+<strong>Alternative 2:</strong> Raise the <code>FilteredPersonListChangedEvent</code> together with the <code>AddressBookChangedEvent</code><br>
+<strong>Pros:</strong> Reduces the number of similar methods in the source code, making it less complex and easier to understand<br>
+<strong>Cons:</strong> Increases coupling in the source code<br></p>
+</div>
+<hr>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
@@ -745,7 +803,7 @@ I also implemented a Ranking system for the most commonly travelled locations an
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 06:11:06 +00:00
+Last updated 2017-11-13 06:37:18 +00:00
 </div>
 </div>
 </body>
