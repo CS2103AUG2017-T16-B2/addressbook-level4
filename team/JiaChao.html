@@ -19,9 +19,11 @@
 <h2 id="project-cherbook"><a class="link" href="#project-cherbook">Project: cherBook</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>cherBook is an address book application used by teachers to monitor students' academic progress.
+<p>cherBook is a desktop application designed to help teachers monitor students' academic performance and manage their schedules.
+My team and I built cherBook as an enhancement to the original <a href="https://github.com/se-edu/addressbook-level4"><code>Addressbook-level4</code></a> by <a href="https://github.com/se-edu"><code>Team SE-EDU</code></a>.
+This project was built as part of the software engineering module <code>CS2103T</code> offered by the School of Computing (SoC) in the National University of Singapore (NUS).
 The user interacts with it using a CLI, and it has a GUI created with JavaFX.
-It is written in Java, and has about 8 kLoC.</p>
+It is written in Java, and has about 30 kLoC.</p>
 </div>
 <div class="paragraph">
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/collated/main/lincredibleJC.md">Functional code</a>] [<a href="https://github.com/CS2103AUG2017-T16-B2/main/blob/master/collated/test/lincredibleJC.md">Test code</a>]</p>
@@ -41,7 +43,7 @@ It is written in Java, and has about 8 kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>In charge of Logic Component</p>
+<p>In charge of Logic Component.</p>
 </li>
 <li>
 <p>Git Expert: Advises the group for git matters.</p>
@@ -65,16 +67,13 @@ It is written in Java, and has about 8 kLoC.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Add Command aliases for all commands</p>
+<p>Command aliases for all commands</p>
 </li>
 <li>
-<p>Add Grades and FormClass attributes to the Student</p>
+<p>FindTags Command to find students by Tags</p>
 </li>
 <li>
-<p>Add FindTags Feature to find students by Tags</p>
-</li>
-<li>
-<p>Add Statistics Panel</p>
+<p>Statistics Panel Logic and UI</p>
 </li>
 </ol>
 </div>
@@ -95,11 +94,11 @@ It is written in Java, and has about 8 kLoC.</p>
 </div>
 <hr>
 <div class="sect2">
-<h3 id="enhancement-added-add-command-aliases-for-all-commands"><a class="link" href="#enhancement-added-add-command-aliases-for-all-commands">Enhancement Added: Add Command aliases for all commands</a></h3>
+<h3 id="enhancement-added-command-aliases-feature"><a class="link" href="#enhancement-added-command-aliases-feature">Enhancement Added: Command aliases feature</a></h3>
 <div class="sect3">
 <h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
 <div class="paragraph">
-<p>Following the list table of shortcuts below, all commands under the <code>Shorthand</code> column will behave exactly like the full full command in the <code>Command</code> column.</p>
+<p>Following the list table of shortcuts below, all commands under the <code>Shorthand</code> column will behave exactly like the full command in the <code>Command</code> column.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -240,8 +239,8 @@ It is written in Java, and has about 8 kLoC.</p>
 <div class="paragraph">
 <p>Being a command line application, there is a need to be able to enter commands quickly and without error.
 Hence, the usage of shorthand commands for the more verbose full commands are needed.
-By adding shorthand commands, it reduces the number of key presses needed for the user to execute commands.
-This also helps reduce the probability of misspelling commands by users who are not touch typists.</p>
+By adding shorthand commands, the number of key presses needed for the user to execute commands is reduced.
+This also reduces the chance of users misspelling commands.</p>
 </div>
 </div>
 <div class="sect3">
@@ -250,52 +249,85 @@ This also helps reduce the probability of misspelling commands by users who are 
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="command-alias-mechanism"><a class="link" href="#command-alias-mechanism">Command Alias mechanism</a></h3>
+<div class="paragraph">
+<p>The Command Alias mechanism is facilitated by the <code>COMMAND_ALIAS</code> in each <code>Command</code> class and the <code>parseCommand()</code> method in <code>AddressBookParser</code>.
+The <code>AddressBookParser</code> is responsible for analyzing command words while each command&#8217;s <code>COMMAND_ALIAS</code> stores the command alias to be accepted by the parser.</p>
+</div>
+<div class="paragraph">
+<p>The aliased added to each command class is implemented like this e.g. <code>FindCommand</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>public class FindCommand extends Command {
+    public static final String COMMAND_WORD = "find";
+    public static final String COMMAND_ALIAS = "f";
+    //...... other logic ......
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Just like how we store each individual command word constant <code>COMMAND_WORD</code> inside each <code>Command</code> class e.g. <code>FindCommand.COMMAND_WORD</code>, <code>DeleteCommand.COMMAND_WORD</code> , a new constant was added for each command alias e.g. <code>FindCommand.COMMAND_ALIAS</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>parseCommand()</code> in <code>AddressBookParser</code> is implemented like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code> public Command parseCommand(String userInput) throws ParseException {
+        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+        if (!matcher.matches()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+        }
+
+        final String commandWord = matcher.group("commandWord");
+        final String arguments = matcher.group("arguments");
+        switch (commandWord) {
+
+        case AddCommand.COMMAND_WORD://Fallthrough
+        case AddCommand.COMMAND_ALIAS:
+            return new AddCommandParser().parse(arguments);
+        // ...... more conditions ......
+        default:
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When a command alias is detected in the switch statement, it will result in the return statement below it, causing it to behave similarly to its corresponding command word.
+When a command word is detected, it will fall through and executes the command as per normal.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Where to add the command Aliases<br>
+<strong>Alternative 1 (current choice):</strong> Add the aliases in each <code>Command</code> Class<br>
+<strong>Pros:</strong> More cohesive command classes.<br>
+<strong>Cons:</strong> None.<br>
+<strong>Alternative 2:</strong> Add the aliases in the AddressBookParser.parseCommand(String) method.<br>
+<strong>Pros:</strong> Easier to read code in the AddressBookParser .<br>
+<strong>Cons:</strong> Use of magic numbers/strings means that the code is harder to trace and debug.<br></p>
+</div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
 </div>
+</div>
 <div class="sect2">
-<h3 id="enhancement-added-add-grades-and-formclass-attributes-to-the-student"><a class="link" href="#enhancement-added-add-grades-and-formclass-attributes-to-the-student">Enhancement Added: Add Grades and FormClass attributes to the Student</a></h3>
+<h3 id="enhancement-added-findtags-feature"><a class="link" href="#enhancement-added-findtags-feature">Enhancement Added: FindTags feature</a></h3>
 <div class="sect3">
 <h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
-<div class="paragraph">
-<p><mark>End of Extract</mark></p>
-</div>
-<hr>
 </div>
 <div class="sect3">
-<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
-<div class="paragraph">
-<p>One of the main features cherBook has is calculating statistics for a list of students, and the Grades attribute is needed for it.
-Similarly, with comparing the statistics of different classes as a upcoming feature, the FormClass attribute is also needed.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
-<hr>
-<div class="paragraph">
-<p><mark>Start of Extract [from: Developer Guide]</mark></p>
-</div>
-<div class="paragraph">
-<p><mark>End of Extract</mark></p>
-</div>
-<hr>
-</div>
-</div>
-<div class="sect2">
-<h3 id="enhancement-added-findtags"><a class="link" href="#enhancement-added-findtags">Enhancement Added: FindTags</a></h3>
-<div class="sect3">
-<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
-<hr>
-<div class="paragraph">
-<p><mark>Start of Extract [from: User Guide]</mark>
-==== Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></p>
-</div>
+<h4 id="locating-persons-by-tags-code-findtags-code-code-since-v1-1-code"><a class="link" href="#locating-persons-by-tags-code-findtags-code-code-since-v1-1-code">Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></a></h4>
 <div class="paragraph">
 <p>Finds persons whose tags contain all of the given keywords.<br>
 Format: <code>findtags KEYWORD [MORE_KEYWORDS]</code><br>
@@ -368,13 +400,15 @@ Returns any person having both <code>friends</code> and <code>owesMoney</code> t
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 5.1.7.1 : Find contacts on your cherBook with the specified tags</em>
-<mark>End of Extract</mark></p>
+<p><em>Figure 5.1.7.1 : Find contacts on your cherBook with the specified tags</em></p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
 </div>
 <hr>
 </div>
 <div class="sect3">
-<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
 <div class="paragraph">
 <p>As an address book application, there is a need for users to be able to find their contacts quickly and efficiently .
 Since contacts are also categorised by tags, and there was no way to search by tags, I decided to solve this problem by implementing FindTags.</p>
@@ -386,7 +420,7 @@ Thus making it more difficult and less efficient for the user to find the wanted
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
@@ -502,7 +536,7 @@ Also, the <code>Predicate</code> can can be reused, improving code manageability
 </div>
 <hr>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Have a separate predicate class to support <code>findtags</code><br>
 <strong>Alternative 1 (current choice):</strong> Have a <code>TagsContainsKeywordsPredicate</code> to facilitate search.<br>
@@ -534,9 +568,9 @@ E.g. <code>findtags track dance</code> does not narrow down the list of students
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-added-statistics-panel"><a class="link" href="#enhancement-added-statistics-panel">Enhancement Added: Statistics Panel</a></h3>
+<h3 id="enhancement-added-statistics-panel-feature"><a class="link" href="#enhancement-added-statistics-panel-feature">Enhancement Added: Statistics Panel feature</a></h3>
 <div class="sect3">
-<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: User Guide]</mark></p>
@@ -556,13 +590,14 @@ You can use these statistics to pick out trends in your student&#8217;s grades a
 <hr>
 </div>
 <div class="sect3">
-<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
 <div class="paragraph">
-<p>This panel is needed to display the statistics of the students currently in the Students Panel.</p>
+<p>The <code>StatisticsPanel</code> is needed to display the statistics of the students currently in the <code>Students Panel</code>.
+The statistics provided helps teachers monitor their student&#8217;s academics and identify the weaker students that need more help.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: Developer Guide]</mark></p>
@@ -671,7 +706,7 @@ At the same time, the <code>AddressBookChangedEvent</code> is also being handled
 </div>
 <hr>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> How to update the <code>Statistics Panel</code><br>
 <strong>Alternative 1 (current choice):</strong> Create a new <code>FilteredPersonListChangedEvent</code> just for updating the <code>Statistics Panel</code>.<br>
@@ -702,49 +737,43 @@ only a few changes to are needed for <code>AddressBookChangedEvent</code> to do 
 <div class="sect2">
 <h3 id="enhancement-proposed-add-command-code-compare-code"><a class="link" href="#enhancement-proposed-add-command-code-compare-code">Enhancement Proposed: Add command <code>compare</code></a></h3>
 <div class="sect3">
-<h4 id="external-behavior-5"><a class="link" href="#external-behavior-5">External behavior</a></h4>
+<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
 <div class="paragraph">
-<p>Enter the <code>compare</code> command followed by 2 <code>Tags</code> or <code>FormClassNames</code> to compare statistics of different groups with the compare command.
-The Statistics Panel will have a second set of values for the second group of students.</p>
+<p>Teh user can enter the <code>compare</code> command followed by 2 <code>Tags</code> or <code>FormClassNames</code> to compare statistics of different groups with the compare command.
+The <code>Statistics Panel</code> will have a second set of values for the second group of students.</p>
 </div>
 <div class="paragraph">
-<p>To make the difference more noticeable, the difference in the 2 sets of values will be displayed on the right-hand side.
-The difference will be colored red if the difference is negative and green if the difference is positive to to make it more visually appealing.</p>
+<p>The difference in the 2 sets of values will be displayed on the right of the <code>StatisticsPanel</code>.
+The difference will be colored <span class="red">red</span> if the difference is negative and <span class="green">geen</span> if the difference is positive to to make it noticeable and more visually appealing.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="justification-5"><a class="link" href="#justification-5">Justification</a></h4>
+<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
 <div class="paragraph">
 <p>Teachers often have to compare the grades of students or groups of students to analyse their academic progress.
 As the simple statistics can only tell you so much about your data, there is a need for more powerful data analytics.
 The <code>comapre</code> command gives teachers a more powerful tool to analyse data by allowing them to compare different sets of data .
 The color coded difference values also improve the readability of the statistics so that teachers can get a good idea of the relative performance of two groups of students at a glance.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h4>
-
+<hr>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-proposed-add-command-code-sendemail-code"><a class="link" href="#enhancement-proposed-add-command-code-sendemail-code">Enhancement Proposed: Add command <code>SendEmail</code></a></h3>
+<h3 id="enhancement-proposed-add-command-code-sendemail-code"><a class="link" href="#enhancement-proposed-add-command-code-sendemail-code">Enhancement Proposed: Add command <code>sendemail</code></a></h3>
 <div class="sect3">
-<h4 id="external-behavior-6"><a class="link" href="#external-behavior-6">External behavior</a></h4>
+<h4 id="external-behavior-5"><a class="link" href="#external-behavior-5">External behavior</a></h4>
 <div class="paragraph">
-<p>Enter the <code>sendemail</code> command followed by the index of the intended recepient and an external email application with the FROM and TO fields already populated.
-This streamlines the process of teachers sending emails to students and parents and allows them to do it directly from  within cherBook</p>
+<p>The user can enter the <code>sendemail</code> command followed by the <code>INDEX</code> of the intended recepient and an external email application with the <em>FROM</em> and <em>TO</em> fields already populated.
+This streamlines the process of teachers sending emails to students and parents and allows them to do it directly from  within cherBook.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="justification-6"><a class="link" href="#justification-6">Justification</a></h4>
+<h4 id="justification-5"><a class="link" href="#justification-5">Justification</a></h4>
 <div class="paragraph">
 <p>It is troublesome for teachers to manually and repeatedly open up their browsers to send emails to students of their parents.
 The <code>sendemail</code> command removes this process and streamlines the process by bringing the teacher straight to the compose email page with the relevant fields already filled, removing the trouble of going through a browser.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">Implementation</a></h4>
-
+<hr>
 </div>
 </div>
 <div class="sect2">
@@ -752,16 +781,19 @@ The <code>sendemail</code> command removes this process and streamlines the proc
 <div class="ulist">
 <ul>
 <li>
-<p>Set up Travis and Coveralls and updated Badges for the Team Repository ( Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/7">#7</a> )</p>
+<p>Added Travis, AppVeyor and Coveralls on the cherBook repository automated deployment and testing. (Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/7">#7</a>, <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/152">#152</a>)</p>
 </li>
 <li>
-<p>Populated cherBook with a significant amount (40 student contacts) of realistic data ( Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/73">#73</a> )</p>
+<p>Added Grades and FormClass attributes to the Student (Pull Requests <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/39">#39</a>, <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/41">#41</a>)</p>
 </li>
 <li>
-<p>Cleaned up unnecessary nesting in the ExtendedPersonCard UI element ( Commit <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/98/commits/1a6bc459dc455d4e776e48586856734bb7574eba">1a6bc45</a> in Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/98">#98</a>)</p>
+<p>Populated cherBook with a significant amount (40 student contacts) of realistic data (Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/73">#73</a>)</p>
 </li>
 <li>
-<p>Cleaning up of code in the whole repository ( Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/123">#123</a> )</p>
+<p>Cleaned up unnecessary nesting in the ExtendedPersonCard UI element (Commit <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/98/commits/1a6bc459dc455d4e776e48586856734bb7574eba">1a6bc45</a> in Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/98">#98</a>)</p>
+</li>
+<li>
+<p>Cleaned up code smells in the whole repository (Pull Request <a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/123">#123</a>)</p>
 </li>
 </ul>
 </div>
@@ -771,14 +803,14 @@ The <code>sendemail</code> command removes this process and streamlines the proc
 <div class="ulist">
 <ul>
 <li>
-<p>Found Bugs and gave Suggestions to other groups as acceptance testing.</p>
+<p>Performed acceptance testing for other teams, reported bugs and gave suggestions</p>
 <div class="ulist">
 <ul>
 <li>
 <p>CS2103AUG2017-T09-B3 (Issues <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/150">#150</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/151">#151</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/152">#152</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/issues/153">#153</a>)</p>
 </li>
 <li>
-<p>CS2103AUG2017-T11-B1 (Issues <a href="https://github.com/CS2103AUG2017-T11-B1/main/issues/136">#136</a>, <a href="https://github.com/CS2103AUG2017-T11-B1/main/issues/137">#137</a> )</p>
+<p>CS2103AUG2017-T11-B1 (Issues <a href="https://github.com/CS2103AUG2017-T11-B1/main/issues/136">#136</a>, <a href="https://github.com/CS2103AUG2017-T11-B1/main/issues/137">#137</a>)</p>
 </li>
 </ul>
 </div>
@@ -792,18 +824,24 @@ The <code>sendemail</code> command removes this process and streamlines the proc
 <h2 id="project-nushortcuts"><a class="link" href="#project-nushortcuts">Project: NUShortcuts</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://nushortcuts.herokuapp.com/">NUShortcuts</a> is a web application to provide step by step picture guides to for shortcuts around NUS.
-This was done for CP2106 - Orbital Programme from May 2017 to Aug 2017. Over the three months, I have implemented all three route types:
-Fastest Route, Sheltered route and Least Stairs. Users can search for their desired locations in NUS, check its details and see the shortest walking path and route by bus to the destination.
-Through the settings menu, users can also customise their choice of transport and their estimated walking speed to get better estimates.
-I also implemented a Ranking system for the most commonly travelled locations and also a feedback page where users can give feedback on how to improve the application.</p>
+<p><a href="https://nushortcuts.herokuapp.com/"><code>NUShortcuts</code></a> is a web application to provide walking shortcuts around NUS with step by step picture guides .
+This was done from May 2017 to Aug 2017 for <code>CP2106</code> - Orbital Programme  offered by the School of Computing (SoC) in the National University of Singapore (NUS).
+This web application was built using the <code>MeteorJS</code> framework and is deployed on a <code>Heroku</code> server.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://nushortcuts.herokuapp.com/"><code>NUShortcuts</code></a> offers three route types: Fastest route, Sheltered route and Least Stairs route.
+Users can search for their destination in NUS, choose their desired path and follow the picture guides to their destination.
+For better travel time estimates, they can indicate their mode of transport and their estimated walking speeds under the settings page.
+My team also implemented a ranking system to track the most popular and frequently searched locations.
+One of the biggest features I implemented was the algorithm behind the calculation of the shortest paths around NUS.
+Some of the other features I implemented include the feedback page where users can give feedback on how to improve NUShortcuts.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 07:02:50 +00:00
+Last updated 2017-11-13 08:16:33 +00:00
 </div>
 </div>
 </body>
