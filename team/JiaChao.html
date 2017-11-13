@@ -130,24 +130,19 @@ It is written in Java, and has about 8 kLoC.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code><br></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a n/NAME student/STUDENT_NUMBER parent/PARENT_NUMBER e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]&#8230;&#8203;</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d 3</code><br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">deleteschedule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dsch</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dsch 1</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit</p></td>
@@ -165,19 +160,14 @@ It is written in Java, and has about 8 kLoC.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ft KEYWORD [MORE_KEYWORDS]</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">home</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>home</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>home</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code><br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">schedule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sch</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sch 1 s/[DATE]</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d 3</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
@@ -188,6 +178,26 @@ It is written in Java, and has about 8 kLoC.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sort</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>st</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>st</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remark</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm Index [rm/REMARK]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsch</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsch 1 s/[DATE]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">viewschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deleteschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletesch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletesch 1</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">history</p></td>
@@ -205,14 +215,19 @@ It is written in Java, and has about 8 kLoC.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remark</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm Index [rm/REMARK]</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">viewschedule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tab</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code><br></p></td>
 </tr>
 </tbody>
 </table>
@@ -279,7 +294,7 @@ Similarly, with comparing the statistics of different classes as a upcoming feat
 <hr>
 <div class="paragraph">
 <p><mark>Start of Extract [from: User Guide]</mark>
-=== Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></p>
+==== Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></p>
 </div>
 <div class="paragraph">
 <p>Finds persons whose tags contain all of the given keywords.<br>
@@ -340,10 +355,21 @@ Returns any person having the tag <code>friends</code></p>
 </li>
 <li>
 <p><code>ft Betsy Tim John</code><br>
-Returns any person having both <code>friends</code> and <code>owesMoney</code> tags
-<mark>End of Extract</mark></p>
+Returns any person having both <code>friends</code> and <code>owesMoney</code> tags</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindTagsImage.png" alt="FindTagsImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.7.1 : Find contacts on your cherBook with the specified tags</em>
+<mark>End of Extract</mark></p>
 </div>
 <hr>
 </div>
@@ -487,11 +513,10 @@ to indicate the model has changed and a <code>FilteredPersonListChangedEvent</co
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="statistics-panel"><a class="link" href="#statistics-panel">Statistics Panel</a></h3>
+<div class="sect3">
+<h4 id="statistics-panel-code-since-v1-4-code"><a class="link" href="#statistics-panel-code-since-v1-4-code">Statistics Panel <code>Since v1.4</code></a></h4>
 <div class="paragraph">
-<p>cherBook uses a <code>Statistics Panel</code> to display the relevant statistics for the current list of students in the <code>Students Panel</code>.
+<p>cherBook uses the <code>Statistics Panel</code> to display the relevant statistics for the current list of students in the <code>Students Panel</code>.
 The statistics changes automatically when there is a change to the list of students in the <code>Students Panel</code>.
 E.g. When you enter the command <code>findtags studentCouncil</code>, the <code>Students Panel</code> will only show students with the <code>studentcouncil</code> tag and <code>Statistics Panel</code> will then show statistics for students with the <code>studentcouncil</code> tag.
 You can use these statistics to pick out trends in your student&#8217;s grades and also monitor how well they are coping with their studies.</p>
@@ -500,6 +525,7 @@ You can use these statistics to pick out trends in your student&#8217;s grades a
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+</div>
 <div class="sect3">
 <h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
 <div class="paragraph">
@@ -719,7 +745,7 @@ I also implemented a Ranking system for the most commonly travelled locations an
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 02:29:00 +00:00
+Last updated 2017-11-13 03:27:01 +00:00
 </div>
 </div>
 </body>

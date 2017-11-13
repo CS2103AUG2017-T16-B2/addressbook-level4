@@ -34,11 +34,13 @@ The user interacts with it using a CLI, and it has a GUI created with JavaFX. It
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sorting-all-persons-code-sort-code-code-since-v1-2-code"><a class="link" href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></h3>
+<div class="sect3">
+<h4 id="sorting-all-persons-code-sort-code-code-since-v1-2-code"><a class="link" href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all persons in cherBook sorted in alphabetical order.<br>
+<p>Helps you sort all persons in cherBook.<br>
+Shows you a list of all persons in cherBook with their names sorted in alphabetical order.<br>
+If you want your list to be sorted at all times, you can use this sort command after adding contacts into cherBook,<br>
+After that, your contact list would always be sorted when you perform other commands on cherBook.<br>
 Format: <code>sort</code><br>
 Shorthand: <code>st</code></p>
 </div>
@@ -77,9 +79,21 @@ Sorts the list in alphabetical order.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortImage.png" alt="SortImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.9.1 : Sorts and displays all your contacts in cherBook</em></p>
+</div>
+<div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+</div>
 <div class="sect3">
 <h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
 <hr>
@@ -220,11 +234,10 @@ If the list is already in the correct alphabetical order, the address book will 
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="student-details-panel"><a class="link" href="#student-details-panel">Student Details Panel</a></h3>
+<div class="sect3">
+<h4 id="student-details-panel-code-since-v1-3-code"><a class="link" href="#student-details-panel-code-since-v1-3-code">Student Details Panel <code>Since v1.3</code></a></h4>
 <div class="paragraph">
-<p>cherBook uses a <code>Student Details Panel</code> to display the selected student details from the <code>Students Panel</code>.
+<p>cherBook uses the <code>Student Details Panel</code> to display details belonging to the currently selected student.
 The details changes automatically where there is a change to the list of students in the <code>Students Panel</code>.
 You can use these details to pick out relevant information you need from your student.</p>
 </div>
@@ -232,6 +245,7 @@ You can use these details to pick out relevant information you need from your st
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+</div>
 <div class="sect3">
 <h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
 <hr>
@@ -239,11 +253,10 @@ You can use these details to pick out relevant information you need from your st
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="student-details-panel-2"><a class="link" href="#student-details-panel-2">Student Details Panel</a></h3>
+<div class="sect3">
+<h4 id="student-details-panel-code-since-v1-3-code-2"><a class="link" href="#student-details-panel-code-since-v1-3-code-2">Student Details Panel <code>Since v1.3</code></a></h4>
 <div class="paragraph">
-<p>cherBook uses a <code>Student Details Panel</code> to display the selected student details from the <code>Students Panel</code>.
+<p>cherBook uses the <code>Student Details Panel</code> to display details belonging to the currently selected student.
 The details changes automatically where there is a change to the list of students in the <code>Students Panel</code>.
 You can use these details to pick out relevant information you need from your student.</p>
 </div>
@@ -251,6 +264,7 @@ You can use these details to pick out relevant information you need from your st
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+</div>
 </div>
 <div class="sect2">
 <h3 id="enhancement-added-schedule-command-v1-4"><a class="link" href="#enhancement-added-schedule-command-v1-4">Enhancement Added: Schedule Command [v1.4]</a></h3>
@@ -261,13 +275,12 @@ You can use these details to pick out relevant information you need from your st
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="scheduling-a-person-code-schedule-code-code-since-v1-4-code"><a class="link" href="#scheduling-a-person-code-schedule-code-code-since-v1-4-code">Scheduling a person : <code>schedule</code> <code>Since v1.4</code></a></h3>
+<div class="sect3">
+<h4 id="adding-a-schedule-code-schedule-code-code-since-v1-4-code"><a class="link" href="#adding-a-schedule-code-schedule-code-code-since-v1-4-code">Adding a schedule : <code>schedule</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
 <p>Schedules the person identified by the index number used in the last person listing.<br>
-Format: <code>schedule INDEX s/[DATE]</code><br>
-Shorthand: <code>sch INDEX s/[DATE]</code></p>
+Format: <code>addschedule INDEX s/[DATE]</code><br>
+Shorthand: <code>addsch INDEX s/[DATE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -277,7 +290,7 @@ Shorthand: <code>sch INDEX s/[DATE]</code></p>
 <p>Schedules the person at the specified <code>INDEX</code> and adds them to the schedule list in cherBook.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the most recent listing.</p>
+<p>The index refers to the index number currently shown in the <code>Students Panel</code>.</p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
@@ -286,20 +299,6 @@ Shorthand: <code>sch INDEX s/[DATE]</code></p>
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Enter a specific date and time. Do not enter vague timings like 45pm, am or pm only without specifying the correct time.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -307,20 +306,32 @@ Shorthand: <code>sch INDEX s/[DATE]</code></p>
 <ul>
 <li>
 <p><code>list</code><br>
-<code>schedule 2 s/tomorrow 7pm</code><br>
+<code>addschedule 2 s/tomorrow 7pm</code><br>
 Schedules the 2nd person in cherBook for tomorrow at 7pm and adds the schedule to the schedule list.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
-<code>sch 1 s/25 december 2017 3pm</code><br>
+<code>addsch 1 s/25 december 2017 3pm</code><br>
 Schedules the 1st person in cherBook on 25 December at 3pm and adds the schedule to the schedule list in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddScheduleImage.png" alt="AddScheduleImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.2.1.1 : Adds a schedule to your cherBook</em></p>
+</div>
+<div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+</div>
 <div class="sect3">
 <h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
 <hr>
@@ -458,11 +469,10 @@ If one or more arguments required to schedule a person is invalid, the AddressBo
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code"><a class="link" href="#viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code">Viewing my schedule : <code>viewschedule</code> <code>Since v1.5</code></a></h3>
+<div class="sect3">
+<h4 id="viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code"><a class="link" href="#viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code">Viewing my schedule : <code>viewschedule</code> <code>Since v1.5</code></a></h4>
 <div class="paragraph">
-<p>Views your full schedule list.<br>
+<p>View your full schedule list in cherBook.<br>
 Format: <code>viewschedules</code><br>
 Shorthand: <code>viewsch</code></p>
 </div>
@@ -495,9 +505,21 @@ Displays all your schedules in the command box.</p>
 </ul>
 </div>
 <div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ViewScheduleImage.png" alt="ViewScheduleImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.2.2.1 : View all your schedules in cherBook as shown in the box</em></p>
+</div>
+<div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
+</div>
 <div class="sect3">
 <h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
 <hr>
@@ -560,94 +582,55 @@ This way, the user is able to maintain their timetable easily.</p>
 <div class="paragraph">
 <p><mark>Start of Extract [from: User Guide]</mark></p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code"><a class="link" href="#deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code">Deleting a schedule : <code>deleteschedule</code> <code>Since v1.5</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified schedule from cherBook.<br>
-Format: <code>deleteschedule INDEX</code><br>
-Shorthand: <code>dsch INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the schedule at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the schedule shown in schedules list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The INDEX of the first schedule shown from the TOP of the list is 1.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewschedule</code><br>
-<code>deleteschedule 2</code><br>
-Deletes the 2nd schedule in the results of the <code>viewschedule</code> command which returns a list of schedules.</p>
-</li>
-<li>
-<p><code>viewsch</code><br>
-<code>dsch 1</code><br>
-Deletes the 1st schedule in the results of the <code>viewsch</code> command which returns a list of schedules.</p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
 </div>
+</div>
 <div class="sect2">
 <h3 id="enhancement-proposed-use-code-postal-code-code-to-display-google-map-of-student-s-address"><a class="link" href="#enhancement-proposed-use-code-postal-code-code-to-display-google-map-of-student-s-address">Enhancement Proposed: Use <code>Postal Code</code> to display Google Map of student&#8217;s address</a></h3>
 <div class="sect3">
 <h4 id="external-behavior-6"><a class="link" href="#external-behavior-6">External behavior</a></h4>
-<hr>
 <div class="paragraph">
 <p>Clicking the <code>Postal Code</code> attribute displayed on the <code>Student Details</code> panel would open a <code>Google Map</code> panel that displays the map of the student&#8217;s address. The map would display the surroundings as well as provide all possible ways to get to the student&#8217;s house.</p>
 </div>
-<hr>
 </div>
 <div class="sect3">
 <h4 id="justification-5"><a class="link" href="#justification-5">Justification</a></h4>
-<hr>
 <div class="paragraph">
 <p>Sometimes when students fall sick for a long period of time, they might face huge difficulties in trying to catch up with their studies.
 The reason for this implementation is so that users of cherBook (teachers / educators) have the ability to conduct house visits easily to update their student on the school-related assignments, as well as to show concern for the student.</p>
 </div>
-<hr>
 </div>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
-<hr>
 <div class="paragraph">
 <p>Link the <code>Postal Code</code> attribute to <code>Google Map</code> panel whereby the map would display the vicinity of the student&#8217;s address. <code>Google</code> API would be called and the <code>Postal Code</code> of the user&#8217;s current and designated location would be parsed before the map and routes are displayed and calculated respectively.</p>
 </div>
-<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-use-schedules-to-remind-users-teachers-educators-about-their-meetings-and-appointments"><a class="link" href="#enhancement-proposed-use-schedules-to-remind-users-teachers-educators-about-their-meetings-and-appointments">Enhancement Proposed: Use Schedules to remind users (teachers / educators) about their meetings and appointments</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-7"><a class="link" href="#external-behavior-7">External behavior</a></h4>
+<div class="paragraph">
+<p>No external behaviour. The teacher only has to enter their schedules into cherBook. cherBook will automatically remind them ten minutes before when their scheduled date and time is due.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="justification-6"><a class="link" href="#justification-6">Justification</a></h4>
+<div class="paragraph">
+<p>When teachers have many schedules to keep and meetings to attend in one day, and not forgetting their regular classes and duties, it is often hard for them to keep track of time.<br>
+Our cherBook application can make use of the schedules that the teacher has added and remind them ten minutes before any schedules are due. This is so that the teachers can focus on their work and let cherBook keep time for them instead.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">Implementation</a></h4>
+<div class="paragraph">
+<p>The clock function in cherBook is required to take note of the time and compare it with the date and time of every schedule in the schedule list.<br>
+cherBook will produce a audible reminder ten minutes before every scheduled appointment.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -659,13 +642,10 @@ The reason for this implementation is so that users of cherBook (teachers / educ
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/29">add new PostalCode field in v1.1</a></p>
+<p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/29">Add new PostalCode field in v1.1</a></p>
 </li>
 <li>
-<p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/114">TabCommand in v1.5</a></p>
-</li>
-<li>
-<p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/124">DeleteScheduleCommand in v1.5</a></p>
+<p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/132">Add graphics for all UserGuide commands</a></p>
 </li>
 </ul>
 </div>
@@ -673,20 +653,22 @@ The reason for this implementation is so that users of cherBook (teachers / educ
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="helping-out"><a class="link" href="#helping-out">Helping out</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/CS2103AUG2017-T16-B2/main/pull/114">Helped teammate create TabCommand in v1.5</a></p>
+</li>
+</ul>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">Project: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>{Optionally (not graded), you may include other projects in your portfolio.}</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 02:29:00 +00:00
+Last updated 2017-11-13 03:27:01 +00:00
 </div>
 </div>
 </body>

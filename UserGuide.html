@@ -5,14 +5,14 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>cherBook v1.4 - User Guide</title>
+<title>cherBook v1.5 - User Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>cherBook v1.4 - User Guide</h1>
+<h1>cherBook v1.5 - User Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -22,7 +22,7 @@
 </div>
 </div>
 <div id="toc" class="toc">
-<div id="toctitle"></div>
+<div id="toctitle">Table of contents</div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#about">2. About</a></li>
@@ -30,30 +30,58 @@
 <li><a href="#layout">4. Layout</a></li>
 <li><a href="#features">5. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code-code-since-v1-0-code">5.1. Viewing help : <code>help</code> <code>Since v1.0</code></a></li>
-<li><a href="#adding-a-person-code-add-code-code-since-v1-0-code">5.2. Adding a person: <code>add</code> <code>Since v1.0</code></a></li>
-<li><a href="#optional-fields-code-add-code-code-since-v1-3-code">5.3. Optional fields: <code>add</code> <code>Since v1.3</code></a></li>
-<li><a href="#listing-all-persons-code-list-code-code-since-v1-0-code">5.4. Listing all persons : <code>list</code> <code>Since v1.0</code></a></li>
-<li><a href="#editing-a-person-code-edit-code-code-since-v1-0-code">5.5. Editing a person : <code>edit</code> <code>Since v1.0</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code-code-since-v1-0-code">5.6. Locating persons by name: <code>find</code> <code>Since v1.0</code></a></li>
-<li><a href="#locating-persons-by-tags-code-findtags-code-code-since-v1-1-code">5.7. Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code-code-since-v1-0-code">5.8. Deleting a person : <code>delete</code> <code>Since v1.0</code></a></li>
-<li><a href="#scheduling-a-person-code-schedule-code-code-since-v1-4-code">5.9. Scheduling a person : <code>schedule</code> <code>Since v1.4</code></a></li>
-<li><a href="#viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code">5.10. Viewing my schedule : <code>viewschedule</code> <code>Since v1.5</code></a></li>
-<li><a href="#deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code">5.11. Deleting a schedule : <code>deleteschedule</code> <code>Since v1.5</code></a></li>
-<li><a href="#selecting-a-person-code-select-code-code-since-v1-0-code">5.12. Selecting a person : <code>select</code> <code>Since v1.0</code></a></li>
-<li><a href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">5.13. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></li>
-<li><a href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">5.14. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></li>
-<li><a href="#listing-entered-commands-code-tab-code-code-since-v1-5-code">5.15. Listing entered commands : <code>tab</code> <code>Since v1.5</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code-code-since-v1-0-code">5.16. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">5.17. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">5.18. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">5.19. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code-code-since-v1-0-code">5.20. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></li>
-<li><a href="#student-details-panel">5.21. Student Details Panel</a></li>
-<li><a href="#statistics-panel">5.22. Statistics Panel</a></li>
-<li><a href="#graph-panel">5.23. Graph Panel</a></li>
-<li><a href="#saving-the-data">5.24. Saving the data</a></li>
+<li><a href="#student-management-features">5.1. Student Management Features</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-person-code-add-code-code-since-v1-0-code">5.1.1. Adding a person: <code>add</code> <code>Since v1.0</code></a>
+<ul class="sectlevel4">
+<li><a href="#optional-fields-for-adding-a-person-code-since-v1-3-code">Optional fields for adding a person <code>Since v1.3</code></a></li>
+</ul>
+</li>
+<li><a href="#editing-a-person-code-edit-code-code-since-v1-0-code">5.1.2. Editing a person : <code>edit</code> <code>Since v1.0</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code-code-since-v1-0-code">5.1.3. Deleting a person : <code>delete</code> <code>Since v1.0</code></a></li>
+<li><a href="#overwrites-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">5.1.4. Overwrites a remark to a person : <code>remark</code> <code>Since v1.2</code></a></li>
+<li><a href="#selecting-a-person-code-select-code-code-since-v1-0-code">5.1.5. Selecting a person : <code>select</code> <code>Since v1.0</code></a></li>
+<li><a href="#locating-persons-by-name-code-find-code-code-since-v1-0-code">5.1.6. Locating persons by name: <code>find</code> <code>Since v1.0</code></a></li>
+<li><a href="#locating-persons-by-tags-code-findtags-code-code-since-v1-1-code">5.1.7. Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></a></li>
+<li><a href="#listing-all-persons-code-list-code-code-since-v1-0-code">5.1.8. Listing all persons : <code>list</code> <code>Since v1.0</code></a></li>
+<li><a href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">5.1.9. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">5.1.10. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></li>
+</ul>
+</li>
+<li><a href="#schedule-management-features">5.2. Schedule Management Features</a>
+<ul class="sectlevel3">
+<li><a href="#adding-a-schedule-code-schedule-code-code-since-v1-4-code">5.2.1. Adding a schedule : <code>schedule</code> <code>Since v1.4</code></a></li>
+<li><a href="#viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code">5.2.2. Viewing my schedule : <code>viewschedule</code> <code>Since v1.5</code></a></li>
+<li><a href="#deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code">5.2.3. Deleting a schedule : <code>deleteschedule</code> <code>Since v1.5</code></a></li>
+</ul>
+</li>
+<li><a href="#user-interface-features">5.3. User Interface Features</a>
+<ul class="sectlevel3">
+<li><a href="#home-panel-code-since-v1-5-code">5.3.1. Home Panel <code>Since v1.5</code></a>
+<ul class="sectlevel4">
+<li><a href="#switching-to-home-screen-code-home-code-code-since-v1-5-code">Switching to home screen: <code>home</code> <code>Since v1.5</code></a></li>
+</ul>
+</li>
+<li><a href="#student-details-panel-code-since-v1-3-code">5.3.2. Student Details Panel <code>Since v1.3</code></a></li>
+<li><a href="#statistics-panel-code-since-v1-4-code">5.3.3. Statistics Panel <code>Since v1.4</code></a></li>
+<li><a href="#graph-panel-code-since-v1-3-code">5.3.4. Graph Panel <code>Since v1.3</code></a>
+<ul class="sectlevel4">
+<li><a href="#switching-between-graphs-code-tab-code-code-since-v1-5-code">Switching between graphs: <code>tab</code> <code>Since v1.5</code></a></li>
+</ul>
+</li>
+<li><a href="#randomised-unique-tag-colors-code-since-v1-4-code">5.3.5. Randomised Unique Tag Colors: <code>Since v1.4</code></a></li>
+</ul>
+</li>
+<li><a href="#general-features">5.4. General Features</a>
+<ul class="sectlevel3">
+<li><a href="#viewing-help-code-help-code-code-since-v1-0-code">5.4.1. Viewing help : <code>help</code> <code>Since v1.0</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code-code-since-v1-0-code">5.4.2. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">5.4.3. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">5.4.4. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code-code-since-v1-0-code">5.4.5. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></li>
+<li><a href="#saving-the-data-code-since-v1-0-code">5.4.6. Saving the data <code>Since v1.0</code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#command-shortcuts">6. Command Shortcuts</a></li>
@@ -61,13 +89,14 @@
 <li><a href="#glossary">8. Glossary</a></li>
 <li><a href="#patch-notes">9. Patch Notes</a>
 <ul class="sectlevel2">
-<li><a href="#features-added-in-v1-0">9.1. Features added in v1.0</a></li>
-<li><a href="#features-added-in-v1-1">9.2. Features added in v1.1</a></li>
-<li><a href="#features-added-in-v1-2">9.3. Features added in v1.2</a></li>
-<li><a href="#features-added-in-v1-3">9.4. Features added in v1.3</a></li>
-<li><a href="#features-added-in-v1-4">9.5. Features added in v1.4</a></li>
-<li><a href="#features-added-in-v1-5">9.6. Features added in v1.5</a></li>
-<li><a href="#features-coming-in-v2-0">9.7. Features Coming in v2.0</a></li>
+<li><a href="#features-coming-in-v2-0">9.1. Features Coming in v2.0</a></li>
+<li><a href="#features-added-in-v1-5">9.2. Features added in v1.5</a></li>
+<li><a href="#features-added-in-v1-5rc">9.3. Features added in v1.5rc</a></li>
+<li><a href="#features-added-in-v1-4">9.4. Features added in v1.4</a></li>
+<li><a href="#features-added-in-v1-3">9.5. Features added in v1.3</a></li>
+<li><a href="#features-added-in-v1-2">9.6. Features added in v1.2</a></li>
+<li><a href="#features-added-in-v1-1">9.7. Features added in v1.1</a></li>
+<li><a href="#features-added-in-v1-0">9.8. Features added in v1.0</a></li>
 </ul>
 </li>
 </ul>
@@ -98,8 +127,8 @@ and demonstrates how to use them with the help of examples.<br></p>
 </div>
 <div class="paragraph">
 <p>Some statistical concepts will be used in the explanations of the features <code>cherBook v1.4</code>.
-However, no prior technical knowledge is needed to understand this user guide.
-The statistical concepts  --- <a href="#percentile"><code><em>percentile</em></code></a>, <a href="#average"><code>average</code></a> and <a href="#standard-deviation"><code><em>standard deviation</em></code></a> --- will be explained and demonstrated in the the <a href="#glossary">Glossary</a> below.</p>
+However, you will not need prior technical knowledge understand this user guide.
+Statistical concepts such as <a href="#average"><code>averages</code></a> , <a href="#percentile"><code>percentiles</code></a> and <a href="#standard-deviation"><code>standard deviations</code></a> --- will be explained in the the <a href="#glossary">Glossary</a> below.</p>
 </div>
 </div>
 </div>
@@ -109,7 +138,7 @@ The statistical concepts  --- <a href="#percentile"><code><em>percentile</em></c
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version <code>1.8.0_60</code> or later installed in your Computer.</p>
+<p>Ensure you have Java version <code>1.8.0_60</code> or later versions installed on your Computer.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -132,13 +161,22 @@ This app will not work with earlier versions of Java 8.
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+</li>
+<li>
+<p>This is your homepage.</p>
+<div class="paragraph">
+<p><em>Figure 3.1 : cherBook&#8217;s home page</em></p>
+</div>
+</li>
+<li>
+<p>Type the command <code>select 1</code> in the command box and press <kbd>Enter</kbd> to to go to access the switch out of the Home Page.<br></p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/cherBook.png" alt="cherBook" width="790">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 3.1 : cherBook&#8217;s application landing page</em></p>
+<p><em>Figure 3.2 : cherBook&#8217;s application page</em></p>
 </div>
 </li>
 <li>
@@ -153,10 +191,23 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all contacts</p>
 </li>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to cherBook.</p>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 pp/97272011 e/johnd@example.com a/John street, block 123, #01-01 f/12S23 g/123.0 c/673349</code>
+: adds a contact named <code>John Doe</code> to cherBook.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>sort</code></strong> : sorts all contacts <code>alphabetically</code> by name.</p>
+</li>
+<li>
+<p><strong><code>findtags</code></strong><code>scholarship</code> : lists contacts with the <code>scholarship</code> tag</p>
+</li>
+<li>
+<p><strong><code>viewschedules</code></strong> : <code>displays</code> your schedules inside the command box.</p>
+</li>
+<li>
+<p><strong><code>tab</code></strong><code>2</code> : switches to <code>bar</code> chart</p>
+</li>
+<li>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the <code>3rd</code> contact shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -165,7 +216,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p>Refer to the <a href="#features">Features</a> section below for details of each command.</p>
+<p>You can refer to the <a href="#features">Features</a> section below for more details of each command.</p>
 </li>
 </ol>
 </div>
@@ -179,7 +230,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiLayout.png" alt="UiLayout" width="790">
+<img src="images/UiLayout.png" alt="UiLayout" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -212,6 +263,18 @@ e.g. typing <code>help</code> and pressing <kbd>Enter</kbd> will open the help w
 </div>
 </li>
 <li>
+<p>Home Panel</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>Home Panel</code> is only displayed when you start up cherBook or when you type the <code>home</code> command.
+It would be switched between the Student Details Panel, Statistics Panel and Graph Panel when you use a
+<code>select</code> command.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>Students Panel</p>
 <div class="ulist">
 <ul>
@@ -238,7 +301,7 @@ You can select the student using the <code>select</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>Statistics</code> Panel displays the relevant statistics for the current list of students in the Students Panel.</p>
+<p>The <code>Statistics Panel</code> displays the relevant statistics for the current list of students in the <code>Students Panel</code>.</p>
 </li>
 </ul>
 </div>
@@ -260,6 +323,8 @@ You can select the student using the <code>select</code> command.</p>
 <div class="sect1">
 <h2 id="features"><a class="link" href="#features">5. Features</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="student-management-features"><a class="link" href="#student-management-features">5.1. Student Management Features</a></h3>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -283,14 +348,8 @@ You can select the student using the <code>select</code> command.</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="viewing-help-code-help-code-code-since-v1-0-code"><a class="link" href="#viewing-help-code-help-code-code-since-v1-0-code">5.1. Viewing help : <code>help</code> <code>Since v1.0</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>help</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-person-code-add-code-code-since-v1-0-code"><a class="link" href="#adding-a-person-code-add-code-code-since-v1-0-code">5.2. Adding a person: <code>add</code> <code>Since v1.0</code></a></h3>
+<div class="sect3">
+<h4 id="adding-a-person-code-add-code-code-since-v1-0-code"><a class="link" href="#adding-a-person-code-add-code-code-since-v1-0-code">5.1.1. Adding a person: <code>add</code> <code>Since v1.0</code></a></h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -344,9 +403,19 @@ Remark cannot be add through the add command and has to be done though the remar
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
-<div class="sect2">
-<h3 id="optional-fields-code-add-code-code-since-v1-3-code"><a class="link" href="#optional-fields-code-add-code-code-since-v1-3-code">5.3. Optional fields: <code>add</code> <code>Since v1.3</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddImage.png" alt="AddImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.1.1 : How you can add contacts into your cherBook</em></p>
+</div>
+<div class="sect4">
+<h5 id="optional-fields-for-adding-a-person-code-since-v1-3-code"><a class="link" href="#optional-fields-for-adding-a-person-code-since-v1-3-code">Optional fields for adding a person <code>Since v1.3</code></a></h5>
 <div class="paragraph">
 <p>You can find a list of optional input fields for the add command in the table below.</p>
 </div>
@@ -406,17 +475,21 @@ a message will be generated to inform you that the particular field is not recor
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code-code-since-v1-0-code"><a class="link" href="#listing-all-persons-code-list-code-code-since-v1-0-code">5.4. Listing all persons : <code>list</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in cherBook.<br>
-Format: <code>list</code><br>
-Shorthand: <code>l</code></p>
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/OptionalInputsImage.png" alt="OptionalInputsImage" width="800">
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code-code-since-v1-0-code"><a class="link" href="#editing-a-person-code-edit-code-code-since-v1-0-code">5.5. Editing a person : <code>edit</code> <code>Since v1.0</code></a></h3>
+<div class="paragraph">
+<p><em>Figure 5.1.1.2 : Displays optional inputs for your contacts</em></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-person-code-edit-code-code-since-v1-0-code"><a class="link" href="#editing-a-person-code-edit-code-code-since-v1-0-code">5.1.2. Editing a person : <code>edit</code> <code>Since v1.0</code></a></h4>
 <div class="paragraph">
 <p>Edits an existing person in cherBook.<br>
 Format: <code>edit INDEX [n/NAME] [p/(STUDENT_NUMBER)] [pp/(PARENT_NUMBER)] [e/EMAIL] [a/ADDRESS] [f/FORMCLASS] [g/GRADES] [c/POSTALCODE] [t/TAG]&#8230;&#8203;</code><br>
@@ -427,7 +500,7 @@ Shorthand: <code>e INDEX [n/NAME] [p/(STUDENT_NUMBER)] [pp/(PARENT_NUMBER)] [e/E
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number currently shown in the <code>Students Panel</code>. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -481,9 +554,208 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code-code-since-v1-0-code"><a class="link" href="#locating-persons-by-name-code-find-code-code-since-v1-0-code">5.6. Locating persons by name: <code>find</code> <code>Since v1.0</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditImage.png" alt="EditImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.2.1 : Edits a contact in your cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-person-code-delete-code-code-since-v1-0-code"><a class="link" href="#deleting-a-person-code-delete-code-code-since-v1-0-code">5.1.3. Deleting a person : <code>delete</code> <code>Since v1.0</code></a></h4>
+<div class="paragraph">
+<p>Removes an existing person from cherBook.<br>
+Format: <code>delete INDEX</code><br>
+Shorthand: <code>d INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number currently shown in the <code>Students Panel</code>.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd person in cherBook.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>delete 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>list</code> (<code>list</code> command)<br>
+<code>d 3</code> (<code>delete 3</code> command)<br>
+Deletes the 3rd person in cherBook.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteImage.png" alt="DeleteImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.3.1 : Deletes the contact in your cherBook with the specified index</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overwrites-a-remark-to-a-person-code-remark-code-code-since-v1-2-code"><a class="link" href="#overwrites-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">5.1.4. Overwrites a remark to a person : <code>remark</code> <code>Since v1.2</code></a></h4>
+<div class="paragraph">
+<p>Overwrites a remark from the specified person in cherBook<br>
+Format: <code>remark Index [rm/REMARK]</code><br>
+Shorthand: <code>rm Index [rm/REMARK]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Overwrites a <code>remark</code> at the specific`INDEX`.</p>
+</li>
+<li>
+<p>The index refers to the index number currently shown in the <code>Students Panel</code>.</p>
+</li>
+<li>
+<p>The index <strong>must be positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Addition of remarks on a person already with remarks will be overwritten.<br>
+Person with no remarks will display <code>(add a new remark)</code>.<br>
+Can only be changed through the use of the <code>remark</code> command.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>remark 2 rm/This is a remark</code><br>
+Overwrites the 1st person remark.</p>
+</li>
+<li>
+<p><code>find betsy</code><br>
+<code>remark 1 rm/Betsy is a female</code><br>
+Overwrites the 1st person in the results of <code>find</code> command.</p>
+</li>
+<li>
+<p><code>list</code><br>
+<code>remark 2 rm/</code><br>
+Overwrites <code>remark</code> from the 2nd person in the address book and displays it as <code>(add a new remark)</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RemarkImage.png" alt="RemarkImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.4.1 : Add a remark to your contacts in cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selecting-a-person-code-select-code-code-since-v1-0-code"><a class="link" href="#selecting-a-person-code-select-code-code-since-v1-0-code">5.1.5. Selecting a person : <code>select</code> <code>Since v1.0</code></a></h4>
+<div class="paragraph">
+<p>Selects an existing person in cherBook.<br>
+Format: <code>select INDEX</code><br>
+Shorthand: <code>s INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects the student and loads the student&#8217;s details in the <code>Student Details Panel</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number currently shown in the <code>Students Panel</code>.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Selects the 2nd person in cherBook.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>select 1</code><br>
+Selects the 1st person in the results of the <code>find</code> command.</p>
+</li>
+<li>
+<p><code>l</code> (<code>list</code> command)<br>
+<code>s 3</code> (<code>select 3</code> command)<br>
+Selects the 3rd person in cherBook.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SelectImage.png" alt="SelectImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.5.1 : Selects the contact in your cherBook with the specified index</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-persons-by-name-code-find-code-code-since-v1-0-code"><a class="link" href="#locating-persons-by-name-code-find-code-code-since-v1-0-code">5.1.6. Locating persons by name: <code>find</code> <code>Since v1.0</code></a></h4>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -535,9 +807,20 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-tags-code-findtags-code-code-since-v1-1-code"><a class="link" href="#locating-persons-by-tags-code-findtags-code-code-since-v1-1-code">5.7. Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindImage.png" alt="FindImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.6.1 : Finds and displays all contacts in your cherBook with the specified keyword</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="locating-persons-by-tags-code-findtags-code-code-since-v1-1-code"><a class="link" href="#locating-persons-by-tags-code-findtags-code-code-since-v1-1-code">5.1.7. Locating persons by tags: <code>findtags</code> <code>Since v1.1</code></a></h4>
 <div class="paragraph">
 <p>Finds persons whose tags contain all of the given keywords.<br>
 Format: <code>findtags KEYWORD [MORE_KEYWORDS]</code><br>
@@ -601,253 +884,44 @@ Returns any person having both <code>friends</code> and <code>owesMoney</code> t
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code-code-since-v1-0-code"><a class="link" href="#deleting-a-person-code-delete-code-code-since-v1-0-code">5.8. Deleting a person : <code>delete</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from cherBook.<br>
-Format: <code>delete INDEX</code><br>
-Shorthand: <code>d INDEX</code></p>
+<p>Example:</p>
 </div>
-<div class="sidebarblock">
+<div class="imageblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
+<img src="images/FindTagsImage.png" alt="FindTagsImage" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in cherBook.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
-</li>
-<li>
-<p><code>list</code> (<code>list</code> command)<br>
-<code>d 3</code> (<code>delete 3</code> command)<br>
-Deletes the 3rd person in cherBook.</p>
-</li>
-</ul>
+<p><em>Figure 5.1.7.1 : Find contacts on your cherBook with the specified tags</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="scheduling-a-person-code-schedule-code-code-since-v1-4-code"><a class="link" href="#scheduling-a-person-code-schedule-code-code-since-v1-4-code">5.9. Scheduling a person : <code>schedule</code> <code>Since v1.4</code></a></h3>
+<div class="sect3">
+<h4 id="listing-all-persons-code-list-code-code-since-v1-0-code"><a class="link" href="#listing-all-persons-code-list-code-code-since-v1-0-code">5.1.8. Listing all persons : <code>list</code> <code>Since v1.0</code></a></h4>
 <div class="paragraph">
-<p>Schedules the person identified by the index number used in the last person listing.<br>
-Format: <code>schedule INDEX s/[DATE]</code><br>
-Shorthand: <code>sch INDEX s/[DATE]</code></p>
+<p>Shows you a list of all persons in cherBook.<br>
+Format: <code>list</code><br>
+Shorthand: <code>l</code></p>
 </div>
-<div class="sidebarblock">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Schedules the person at the specified <code>INDEX</code> and adds them to the schedule list in cherBook.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Enter a specific date and time. Do not enter vague timings like 45pm, am or pm only without specifying the correct time.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>schedule 2 s/tomorrow 7pm</code><br>
-Schedules the 2nd person in cherBook for tomorrow at 7pm and adds the schedule to the schedule list.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>sch 1 s/25 december 2017 3pm</code><br>
-Schedules the 1st person in cherBook on 25 December at 3pm and adds the schedule to the schedule list in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code"><a class="link" href="#viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code">5.10. Viewing my schedule : <code>viewschedule</code> <code>Since v1.5</code></a></h3>
-<div class="paragraph">
-<p>Views your full schedule list.<br>
-Format: <code>viewschedules</code><br>
-Shorthand: <code>viewsch</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Displays all your schedules in the command box.</p>
-</li>
-</ul>
-</div>
+<img src="images/ListImage.png" alt="ListImage" width="800">
 </div>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>viewschedules</code><br>
-Displays all your schedules in the command box.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>viewsch</code><br>
-Displays all your schedules in the command box.</p>
-</li>
-</ul>
+<p><em>Figure 5.1.8.1 : Lists all contacts in your cherBook</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code"><a class="link" href="#deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code">5.11. Deleting a schedule : <code>deleteschedule</code> <code>Since v1.5</code></a></h3>
+<div class="sect3">
+<h4 id="sorting-all-persons-code-sort-code-code-since-v1-2-code"><a class="link" href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">5.1.9. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified schedule from cherBook.<br>
-Format: <code>deleteschedule INDEX</code><br>
-Shorthand: <code>dsch INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the schedule at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the schedule shown in schedules list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The INDEX of the first schedule shown from the TOP of the list is 1.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>viewschedule</code><br>
-<code>deleteschedule 2</code><br>
-Deletes the 2nd schedule in the results of the <code>viewschedule</code> command which returns a list of schedules.</p>
-</li>
-<li>
-<p><code>viewsch</code><br>
-<code>dsch 1</code><br>
-Deletes the 1st schedule in the results of the <code>viewsch</code> command which returns a list of schedules.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="selecting-a-person-code-select-code-code-since-v1-0-code"><a class="link" href="#selecting-a-person-code-select-code-code-since-v1-0-code">5.12. Selecting a person : <code>select</code> <code>Since v1.0</code></a></h3>
-<div class="paragraph">
-<p>Selects the person identified by the index number used in the last person listing.<br>
-Format: <code>select INDEX</code><br>
-Shorthand: <code>s INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in cherBook.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
-</li>
-<li>
-<p><code>l</code> (<code>list</code> command)<br>
-<code>s 3</code> (<code>select 3</code> command)<br>
-Selects the 3rd person in cherBook.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sorting-all-persons-code-sort-code-code-since-v1-2-code"><a class="link" href="#sorting-all-persons-code-sort-code-code-since-v1-2-code">5.13. Sorting all persons : <code>sort</code> <code>Since v1.2</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all persons in cherBook sorted in alphabetical order.<br>
+<p>Helps you sort all persons in cherBook.<br>
+Shows you a list of all persons in cherBook with their names sorted in alphabetical order.<br>
+If you want your list to be sorted at all times, you can use this sort command after adding contacts into cherBook,<br>
+After that, your contact list would always be sorted when you perform other commands on cherBook.<br>
 Format: <code>sort</code><br>
 Shorthand: <code>st</code></p>
 </div>
@@ -885,44 +959,51 @@ Sorts the list in alphabetical order.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortImage.png" alt="SortImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.1.9.1 : Sorts and displays all your contacts in cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clearing-all-entries-code-clear-code-code-since-v1-0-code"><a class="link" href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">5.1.10. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></h4>
+<div class="paragraph">
+<p>Clears all student and schedule entries from cherBook.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code"><a class="link" href="#adding-deleting-a-remark-to-a-person-code-remark-code-code-since-v1-2-code">5.14. Adding/Deleting a remark to a person : <code>remark</code> <code>Since v1.2</code></a></h3>
+<h3 id="schedule-management-features"><a class="link" href="#schedule-management-features">5.2. Schedule Management Features</a></h3>
+<div class="sect3">
+<h4 id="adding-a-schedule-code-schedule-code-code-since-v1-4-code"><a class="link" href="#adding-a-schedule-code-schedule-code-code-since-v1-4-code">5.2.1. Adding a schedule : <code>schedule</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
-<p>Adds or removes a remark from the specified person in cherBook<br>
-Format: <code>remark Index [rm/REMARK]</code><br>
-Shorthand: <code>rm Index [rm/REMARK]</code></p>
+<p>Schedules the person identified by the index number used in the last person listing.<br>
+Format: <code>addschedule INDEX s/[DATE]</code><br>
+Shorthand: <code>addsch INDEX s/[DATE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adds or deletes a <code>remark</code> at the specific`INDEX`.</p>
+<p>Schedules the person at the specified <code>INDEX</code> and adds them to the schedule list in cherBook.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the most recent listing.</p>
+<p>The index refers to the index number currently shown in the <code>Students Panel</code>.</p>
 </li>
 <li>
-<p>The index <strong>must be positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Addition of remarks on a person already with remarks will be overwritten.<br>
-Person with no remarks will display <code>(add a new remark)</code>.<br>
-Can only be changed through the use of the <code>remark</code> command.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -931,27 +1012,204 @@ Can only be changed through the use of the <code>remark</code> command.
 <ul>
 <li>
 <p><code>list</code><br>
-<code>remark 2 rm/This is a remark</code><br>
-Overwrites/adds the 1st person remark.</p>
+<code>addschedule 2 s/tomorrow 7pm</code><br>
+Schedules the 2nd person in cherBook for tomorrow at 7pm and adds the schedule to the schedule list.</p>
 </li>
 <li>
-<p><code>find betsy</code><br>
-<code>remark 1 rm/Betsy is a female</code><br>
-Overwrites/adds the 1st person in the results of <code>find</code> command.</p>
+<p><code>find Betsy</code><br>
+<code>addsch 1 s/25 december 2017 3pm</code><br>
+Schedules the 1st person in cherBook on 25 December at 3pm and adds the schedule to the schedule list in the results of the <code>find</code> command.</p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddScheduleImage.png" alt="AddScheduleImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.2.1.1 : Adds a schedule to your cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code"><a class="link" href="#viewing-my-schedule-code-viewschedule-code-code-since-v1-5-code">5.2.2. Viewing my schedule : <code>viewschedule</code> <code>Since v1.5</code></a></h4>
+<div class="paragraph">
+<p>View your full schedule list in cherBook.<br>
+Format: <code>viewschedules</code><br>
+Shorthand: <code>viewsch</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
 <li>
-<p><code>list</code><br>
-<code>remark 2 rm/</code><br>
-removes <code>remark</code> from the 2nd person in the address book.</p>
+<p>Displays all your schedules in the command box.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-tab-code-code-since-v1-5-code"><a class="link" href="#listing-entered-commands-code-tab-code-code-since-v1-5-code">5.15. Listing entered commands : <code>tab</code> <code>Since v1.5</code></a></h3>
+</div>
 <div class="paragraph">
-<p>Switches between tabs listed above the graph.<br>
-Format: <code>tab index</code></p>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>viewschedules</code><br>
+Displays all your schedules in the command box.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>viewsch</code><br>
+Displays all your schedules in the command box.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ViewScheduleImage.png" alt="ViewScheduleImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.2.2.1 : View all your schedules in cherBook as shown in the box</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code"><a class="link" href="#deleting-a-schedule-code-deleteschedule-code-code-since-v1-5-code">5.2.3. Deleting a schedule : <code>deleteschedule</code> <code>Since v1.5</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified schedule from cherBook.<br>
+Format: <code>deleteschedule INDEX</code><br>
+Shorthand: <code>deletesch INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the schedule at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the schedule shown in schedules list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>viewschedule</code><br>
+<code>deleteschedule 2</code><br>
+Deletes the 2nd schedule in the results of the <code>viewschedule</code> command which returns a list of schedules.</p>
+</li>
+<li>
+<p><code>viewsch</code><br>
+<code>deletesch 1</code><br>
+Deletes the 1st schedule in the results of the <code>viewsch</code> command which returns a list of schedules.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteScheduleImage.png" alt="DeleteScheduleImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.2.3.1 : Deletes the schedule in your cherBook with the specified index</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-interface-features"><a class="link" href="#user-interface-features">5.3. User Interface Features</a></h3>
+<div class="sect3">
+<h4 id="home-panel-code-since-v1-5-code"><a class="link" href="#home-panel-code-since-v1-5-code">5.3.1. Home Panel <code>Since v1.5</code></a></h4>
+<div class="paragraph">
+<p>cherBook has a start up <code>Home panel</code> which displays a picture to help you unwind even just a tiny bit.
+It also displays random inspirational quotes to help you make yourself feel better.
+What is better then starting off a day right feeling good.
+These quotes changes every time the home page displayed through either calling then <code>home</code> command or starting the application.</p>
+</div>
+<div class="sect4">
+<h5 id="switching-to-home-screen-code-home-code-code-since-v1-5-code"><a class="link" href="#switching-to-home-screen-code-home-code-code-since-v1-5-code">Switching to home screen: <code>home</code> <code>Since v1.5</code></a></h5>
+<div class="paragraph">
+<p>Switch all panels on the right to the home page.<br>
+The quotes on the home page is generated on random for you.<br>
+Using the <code>select command</code> toggles the panel to <code>Student Details Panel</code>, <code>Statistics Panel</code> and <code>Graph Panel</code>.
+Format: <code>home</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To select your contacts on this page, use the <code>select command</code>. This is to ensure that people who access your cherBook are unable to view the information of your contacts easily.<br>
+<code>Do Not click</code> on contacts while home page is being displayed! Use <code>select command</code> first and only when the panels do toggle are you able to click on the Students Panel.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HomeImage.png" alt="HomeImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.3.1.1 : Returns to the home page of cherBook</em></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="student-details-panel-code-since-v1-3-code"><a class="link" href="#student-details-panel-code-since-v1-3-code">5.3.2. Student Details Panel <code>Since v1.3</code></a></h4>
+<div class="paragraph">
+<p>cherBook uses the <code>Student Details Panel</code> to display details belonging to the currently selected student.
+The details changes automatically where there is a change to the list of students in the <code>Students Panel</code>.
+You can use these details to pick out relevant information you need from your student.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="statistics-panel-code-since-v1-4-code"><a class="link" href="#statistics-panel-code-since-v1-4-code">5.3.3. Statistics Panel <code>Since v1.4</code></a></h4>
+<div class="paragraph">
+<p>cherBook uses the <code>Statistics Panel</code> to display the relevant statistics for the current list of students in the <code>Students Panel</code>.
+The statistics changes automatically when there is a change to the list of students in the <code>Students Panel</code>.
+E.g. When you enter the command <code>findtags studentCouncil</code>, the <code>Students Panel</code> will only show students with the <code>studentcouncil</code> tag and <code>Statistics Panel</code> will then show statistics for students with the <code>studentcouncil</code> tag.
+You can use these statistics to pick out trends in your student&#8217;s grades and also monitor how well they are coping with their studies.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="graph-panel-code-since-v1-3-code"><a class="link" href="#graph-panel-code-since-v1-3-code">5.3.4. Graph Panel <code>Since v1.3</code></a></h4>
+<div class="paragraph">
+<p>cherBook uses a <code>GraphPanel</code> to plot the grades of all classmates of the selected student on a graph.
+The graphs are automatically sorted from the lowest grade to the highest.
+There are two tabs for you to choose from, line or bar and can be switch by using the <code>tab</code> command.
+The details changes when another student from a different class is selected.
+You can use these graph to better understand the trends of <code>grades</code> in a glance to easily see who are the weaker or stronger students.</p>
+</div>
+<div class="sect4">
+<h5 id="switching-between-graphs-code-tab-code-code-since-v1-5-code"><a class="link" href="#switching-between-graphs-code-tab-code-code-since-v1-5-code">Switching between graphs: <code>tab</code> <code>Since v1.5</code></a></h5>
+<div class="paragraph">
+<p>Switches between the line and bar chart in the <code>GraphPanel</code>.<br>
+Format: <code>tab TABNUMBER</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -977,9 +1235,71 @@ Remains at tab 2 if tab 2 is selected else switches to tab 2.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Tab1Image.png" alt="Tab1Image" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.3.4.1 : Displays the graph in your cherBook with the first tab index</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Tab2Image.png" alt="Tab2Image" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.3.4.2 : Displays the graph in your cherBook with the second tab index</em></p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="randomised-unique-tag-colors-code-since-v1-4-code"><a class="link" href="#randomised-unique-tag-colors-code-since-v1-4-code">5.3.5. Randomised Unique Tag Colors: <code>Since v1.4</code></a></h4>
+<div class="paragraph">
+<p>For your convenience, all assignment of colors will be automated by cherBook for you.</p>
+</div>
+<div class="paragraph">
+<p>Whenever you access the cherBook, a new range of <code>random</code> colors will be assigned to the background of the tags.</p>
+</div>
+<div class="paragraph">
+<p>Modifications were made to the range of possible colors. It is to ensure that the background color&#8217;s <code>saturation</code> and <code>lumination</code> is at an optimal level
+to match with the white font of the tag description. Thus, allowing you to be able to see the tag description clearly as seen in the following picture.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TagColor.png" alt="TagColor" width="350">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.3.5.1 : Example of color tags</em></p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code-code-since-v1-0-code"><a class="link" href="#listing-entered-commands-code-history-code-code-since-v1-0-code">5.16. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></h3>
+<h3 id="general-features"><a class="link" href="#general-features">5.4. General Features</a></h3>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code-code-since-v1-0-code"><a class="link" href="#viewing-help-code-help-code-code-since-v1-0-code">5.4.1. Viewing help : <code>help</code> <code>Since v1.0</code></a></h4>
+<div class="paragraph">
+<p>View cherBook&#8217;s User Guide in the help window.<br>
+Format: <code>help</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/HelpImage.png" alt="HelpImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.4.1.1 : The two ways you can use 'help' in cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-entered-commands-code-history-code-code-since-v1-0-code"><a class="link" href="#listing-entered-commands-code-history-code-code-since-v1-0-code">5.4.2. Listing entered commands : <code>history</code> <code>Since v1.0</code></a></h4>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code><br>
@@ -999,9 +1319,20 @@ Shorthand: <code>h</code></p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">5.17. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/HistoryImage.png" alt="HistoryImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.4.2.1 : Displays a list of all your previous actions on cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undoing-previous-command-code-undo-code-code-since-v1-0-code"><a class="link" href="#undoing-previous-command-code-undo-code-code-since-v1-0-code">5.4.3. Undoing previous command : <code>undo</code> <code>Since v1.0</code></a></h4>
 <div class="paragraph">
 <p>Restores cherBook to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code><br>
@@ -1050,9 +1381,20 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Example:</p>
 </div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">5.18. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoImage.png" alt="UndoImage" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.4.3.1 : Undo your previous action on cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code-code-since-v1-0-code">5.4.4. Redoing the previously undone command : <code>redo</code> <code>Since v1.0</code></a></h4>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code><br>
@@ -1088,53 +1430,42 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-code-since-v1-0-code"><a class="link" href="#clearing-all-entries-code-clear-code-code-since-v1-0-code">5.19. Clearing all entries : <code>clear</code> <code>Since v1.0</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from cherBook.<br>
-Format: <code>clear</code></p>
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RedoImage.png" alt="RedoImage" width="800">
 </div>
 </div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-code-since-v1-0-code"><a class="link" href="#exiting-the-program-code-exit-code-code-since-v1-0-code">5.20. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></h3>
+<div class="paragraph">
+<p><em>Figure 5.4.4.1 : Redo your previous action on cherBook</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code-code-since-v1-0-code"><a class="link" href="#exiting-the-program-code-exit-code-code-since-v1-0-code">5.4.5. Exiting the program : <code>exit</code> <code>Since v1.0</code></a></h4>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="student-details-panel"><a class="link" href="#student-details-panel">5.21. Student Details Panel</a></h3>
 <div class="paragraph">
-<p>cherBook uses a <code>Student Details Panel</code> to display the selected student details from the <code>Students Panel</code>.
-The details changes automatically where there is a change to the list of students in the <code>Students Panel</code>.
-You can use these details to pick out relevant information you need from your student.</p>
+<p>Example:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExitImage.png" alt="ExitImage" width="800">
 </div>
 </div>
-<div class="sect2">
-<h3 id="statistics-panel"><a class="link" href="#statistics-panel">5.22. Statistics Panel</a></h3>
 <div class="paragraph">
-<p>cherBook uses a <code>Statistics Panel</code> to display the relevant statistics for the current list of students in the <code>Students Panel</code>.
-The statistics changes automatically when there is a change to the list of students in the <code>Students Panel</code>.
-E.g. When you enter the command <code>findtags studentCouncil</code>, the <code>Students Panel</code> will only show students with the <code>studentcouncil</code> tag and <code>Statistics Panel</code> will then show statistics for students with the <code>studentcouncil</code> tag.
-You can use these statistics to pick out trends in your student&#8217;s grades and also monitor how well they are coping with their studies.</p>
+<p><em>Figure 5.4.5.1 : The two ways you can exit your cherBook</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="graph-panel"><a class="link" href="#graph-panel">5.23. Graph Panel</a></h3>
-<div class="paragraph">
-<p>cherBook uses a <code>GraphPanel</code> to plot the grades of all classmates of the selected student on a graph.
-The graphs are automatically sorted from the lowest grade to the highest.
-There are two tabs for you to choose from, line or bar and can be switch by using the <code>tab</code> command.
-The details changes when another student from a different class is selected.
-You can use these graph to better understand the trends of <code>grades</code> in a glance to easily see who are the weaker or stronger students.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.24. Saving the data</a></h3>
+<div class="sect3">
+<h4 id="saving-the-data-code-since-v1-0-code"><a class="link" href="#saving-the-data-code-since-v1-0-code">5.4.6. Saving the data <code>Since v1.0</code></a></h4>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1160,24 +1491,19 @@ There is no need to save manually.</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code><br></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a</code><br></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a n/NAME student/STUDENT_NUMBER parent/PARENT_NUMBER e/EMAIL a/ADDRESS c/POSTALCODE [t/TAG]&#8230;&#8203;</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d 3</code><br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">deleteschedule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dsch</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>dsch 1</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit</p></td>
@@ -1195,19 +1521,14 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ft KEYWORD [MORE_KEYWORDS]</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">home</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>home</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>home</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code><br></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">schedule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sch</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sch 1 s/[DATE]</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d 3</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
@@ -1218,6 +1539,26 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sort</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>st</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>st</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remark</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm Index [rm/REMARK]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsch</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addsch 1 s/[DATE]</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">viewschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deleteschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletesch</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletesch 1</code><br></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">history</p></td>
@@ -1235,14 +1576,19 @@ There is no need to save manually.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remark</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm Index [rm/REMARK]</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code><br></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">viewschedule</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>viewsch</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tab</code><br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code><br></p></td>
 </tr>
 </tbody>
 </table>
@@ -1305,117 +1651,9 @@ A high average implies that the class/cohort has performed above expectations.</
 <h2 id="patch-notes"><a class="link" href="#patch-notes">9. Patch Notes</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="features-added-in-v1-0"><a class="link" href="#features-added-in-v1-0">9.1. Features added in v1.0</a></h3>
+<h3 id="features-coming-in-v2-0"><a class="link" href="#features-coming-in-v2-0">9.1. Features Coming in v2.0</a></h3>
 <div class="paragraph">
-<p>In version v1.0, users will be able to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Use command shortcuts</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="features-added-in-v1-1"><a class="link" href="#features-added-in-v1-1">9.2. Features added in v1.1</a></h3>
-<div class="paragraph">
-<p>In version v1.1, you are be able to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Find students by tags using the <code>findtags</code> command</p>
-</li>
-<li>
-<p>Add <code>PostalCode</code> attributes to their students</p>
-</li>
-<li>
-<p>Add multiple numbers for each student</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="features-added-in-v1-2"><a class="link" href="#features-added-in-v1-2">9.3. Features added in v1.2</a></h3>
-<div class="paragraph">
-<p>In version v1.2, you are be able to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Add <code>Grades</code>,<code>FormClass</code> and <code>Remarks</code> attributes to their students</p>
-</li>
-<li>
-<p>Differentiate the multiple phone numbers for each student</p>
-</li>
-<li>
-<p>Sort students names in alphabetical order using the <code>sort</code> command</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="features-added-in-v1-3"><a class="link" href="#features-added-in-v1-3">9.4. Features added in v1.3</a></h3>
-<div class="paragraph">
-<p>In version v1.3, you are be able to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>View graph of your student&#8217;s academics grades</p>
-</li>
-<li>
-<p>View all your student&#8217;s information on the <code>Student Details Panel</code></p>
-</li>
-<li>
-<p>Have optional fields like (email, grades, address, postal code, remarks and tags) when adding a student</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="features-added-in-v1-4"><a class="link" href="#features-added-in-v1-4">9.5. Features added in v1.4</a></h3>
-<div class="paragraph">
-<p>In version v1.4, you are be able to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>View statistics of the current list of students from the <code>Statistics Panel</code></p>
-</li>
-<li>
-<p>Have automated assignment of different colours to different tags according to suitable RGB values</p>
-</li>
-<li>
-<p>Use the <code>ScheduleCommand</code> to add a schedule into your schedule list</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="features-added-in-v1-5"><a class="link" href="#features-added-in-v1-5">9.6. Features added in v1.5</a></h3>
-<div class="paragraph">
-<p>In version v1.5, you are be able to:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Use the <code>TabCommand</code> to display different graph types (Line/Bar Chart) of the selected student&#8217;s academic grades</p>
-</li>
-<li>
-<p>Use the <code>ViewScheduleCommand</code> to view all your schedules in a list sorted by date and time</p>
-</li>
-<li>
-<p>Use the <code>DeleteScheduleCommand</code> to delete schedules that are overdue</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="features-coming-in-v2-0"><a class="link" href="#features-coming-in-v2-0">9.7. Features Coming in v2.0</a></h3>
-<div class="paragraph">
-<p>In version v2.0, users will be able to:</p>
+<p>In version v2.0, you will be able to:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1428,12 +1666,142 @@ A high average implies that the class/cohort has performed above expectations.</
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="features-added-in-v1-5"><a class="link" href="#features-added-in-v1-5">9.2. Features added in v1.5</a></h3>
+<div class="paragraph">
+<p>In version v1.5, you are be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>View the home page and toggle it using the <code>home</code> command</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="features-added-in-v1-5rc"><a class="link" href="#features-added-in-v1-5rc">9.3. Features added in v1.5rc</a></h3>
+<div class="paragraph">
+<p>In version v1.5rc, you are be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>View your appointments with the <code>viewschedule</code> command</p>
+</li>
+<li>
+<p>Delete yor appointments with students with the <code>deleteschedule</code> command</p>
+</li>
+<li>
+<p>Switch between the line graph and bar chart with the <code>tab</code> command</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="features-added-in-v1-4"><a class="link" href="#features-added-in-v1-4">9.4. Features added in v1.4</a></h3>
+<div class="paragraph">
+<p>In version v1.4, you are be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>View the statistics of specific groups of students from the <code>Statistics Panel</code></p>
+</li>
+<li>
+<p>Have more colors(randomised) for your student&#8217;s tags</p>
+</li>
+<li>
+<p>Set up appointments with your students with the <code>schedule</code> command</p>
+</li>
+<li>
+<p>Add tab to show students in the same class and same tags respectively.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="features-added-in-v1-3"><a class="link" href="#features-added-in-v1-3">9.5. Features added in v1.3</a></h3>
+<div class="paragraph">
+<p>In version v1.3, you are be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>View your students' details from the <code>Student Details Panel</code></p>
+</li>
+<li>
+<p>View graphs and charts detailing your students' academic progress from the <code>GraphPanel</code></p>
+</li>
+<li>
+<p>Omit optional fields(student phone number, email, address, postal code and tags) when adding students</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="features-added-in-v1-2"><a class="link" href="#features-added-in-v1-2">9.6. Features added in v1.2</a></h3>
+<div class="paragraph">
+<p>In version v1.2, you are be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sort your students by their names in alphabetical order with the <code>sort</code> command</p>
+</li>
+<li>
+<p>Add <code>Grades</code>,<code>FormClass</code> and <code>Remarks</code> attributes to your students</p>
+</li>
+<li>
+<p>Differentiate the multiple phone numbers for each student</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="features-added-in-v1-1"><a class="link" href="#features-added-in-v1-1">9.7. Features added in v1.1</a></h3>
+<div class="paragraph">
+<p>In version v1.1, you are be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Search students easily by tags with the <code>findtags</code> command</p>
+</li>
+<li>
+<p>Add <code>PostalCode</code> attributes to you students</p>
+</li>
+<li>
+<p>Add multiple phone numbers for each student</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="features-added-in-v1-0"><a class="link" href="#features-added-in-v1-0">9.8. Features added in v1.0</a></h3>
+<div class="paragraph">
+<p>In version v1.0, users will be able to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Use command shortcuts</p>
+</li>
+<li>
+<p>Back-up their cherBook data</p>
+</li>
+<li>
+<p>Have your students' tags color coded</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 02:29:00 +00:00
+Last updated 2017-11-13 03:27:01 +00:00
 </div>
 </div>
 </body>
